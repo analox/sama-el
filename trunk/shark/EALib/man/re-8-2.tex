@@ -1,0 +1,63 @@
+\section{Internal Variables and Flags}
+
+The class {\tt Individual} includes some internal variables and flags, that
+are necessary for several methods.
+To manipulate these data the class offers several methods.
+
+\subsection{Internal Variables}
+
+\begin{itemize}
+\item {\em fitness} -
+Result of the evaluation of an individual, will be initialized with
+0.
+\index{fitness (Variable)}
+
+\item {\em scaledFitness} -
+The value that will be produced by an evaluation function {\em f}
+will always be mapped to a positive fitness value using a
+scaling function. Additionally, the sum of the mapped fitness values of all
+individuals of the parent population must be 1.0.
+These normalized values are called scaled fitness values and when an
+individual is generated, its corresponding scaled fitness value will be
+initialized with 0.
+\index{scaledFitness (Variable)}
+
+\item {\em age} -
+The age of the individual, will be initialized with 0.
+\index{age (Variable)}
+
+\item {\em selProb} - 
+The selection probability of the individual. Defaults to zero. 
+\index{selProb (Variable)}
+
+\item {\em numCopies} -
+Denotes the number of reproductions of the individual
+during the last selection. This variable will be initialized
+with 0.
+\end{itemize}
+\index{numCopies (Variable)}
+
+\clearpage
+
+\subsection{Internal Flags}
+
+\begin{itemize}
+
+\item {\em evalFlg} -
+Denotes whether the fitness of the individual must be
+evaluated (``true'') or not (``false'').
+The flag will be initialized with ``false''.
+\index{evalFlg (Variable)}
+
+\item {\em feasible} -
+Denotes whether the current individual is a possible
+solution for the optimization problem (``true'') or
+not (``false''). The flag will be initialized with ``false''.
+\index{feasible (Variable)}
+
+\item {\em elitist} -
+Denotes whether the individual was selected as an elitist
+during the last selection (``true'') or not (``false'').
+The flag will be initialized with ``false''.
+\end{itemize}
+\index{elitist (Variable)}

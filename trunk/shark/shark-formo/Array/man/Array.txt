@@ -1,0 +1,329 @@
+Member-Funktionen der Template-Klasse array< T >
+
+Konstruktoren
+
+    array( )
+    array( unsigned i )
+    array( unsigned i, unsigned j )
+    array( unsigned i, unsigned j, unsigned k )
+    array( std::vector< T >& v )
+    array( array< T >& v, bool )
+    array( const array< T >& v )
+
+Destruktor
+
+    ~array( )
+
+    unsigned ndim( ) const
+    unsigned nelem( ) const
+    bool samedim( const array< T >& v ) const
+
+Elementzugriff
+
+    T& operator ( ) ( )
+    T& operator ( ) ( unsigned i )
+    T& operator ( ) ( unsigned i, unsigned j )
+    T& operator ( ) ( unsigned i, unsigned j, unsigned k )
+    T& operator ( ) ( const std::vector< unsigned >& i )
+    const T& operator ( ) ( ) const
+    const T& operator ( ) ( unsigned i ) const
+    const T& operator ( ) ( unsigned i, unsigned j ) const
+    const T& operator ( ) ( unsigned i, unsigned j, unsigned k ) const
+    const T& operator ( ) ( const std::vector< unsigned >& i ) const
+
+Sub-Arrays
+
+    array_reference< T > operator [ ] ( unsigned i );
+    const array_reference< T > operator [ ] ( unsigned i ) const;
+
+Zuweisung
+
+    array< T >& operator = ( const T& v )
+    array< T >& operator = ( const std::vector< T >& v )
+    array< T >& operator = ( const array< T >& v )
+
+Gr"o"sen"anderung
+
+    array< T >& resize( unsigned i, bool copy = false )
+    array< T >& resize( unsigned i, unsigned j, bool copy = false )
+    array< T >& resize( unsigned i, unsigned j, unsigned k, bool copy = false )
+    array< T >& resize( const std::vector< unsigned >& i, bool copy = false )
+    array< T >& resize( const array< T >& v, bool copy = false )
+
+    unsigned dim( unsigned i ) const
+    array< unsigned > dimarr( ) const
+    unsigned* dimvec( )
+    const unsigned* dimvec( ) const
+    T& elem( unsigned i )
+    const T& elem( unsigned i ) const
+    T* elemvec( ) 
+    const T* elemvec( ) const
+
+    const array_reference< T > operator >> ( array< T >& w ) const;
+    array< T >& operator << ( const T& w )
+    array< T >& operator << ( const array< T >& w )
+
+    array< T >& append( const array< T >& y )
+    array< T >& remove( unsigned i )
+    array< T > concat( const array< T >& y ) const
+
+    array< T > subarr( unsigned from, unsigned to ) const
+    array< unsigned > pos2idx( unsigned p )
+    array< unsigned > whereis( const T& y )
+    array< T > row( unsigned i ) const
+    array< T > rows( const array< unsigned >& idx ) const
+    array< T > rows( unsigned i ) const
+    array< T > rows( unsigned i, unsigned j ) const
+    array< T > rows( unsigned i, unsigned j, unsigned k ) const
+    array< T > rows( unsigned i, unsigned j, unsigned k,
+		     unsigned l ) const
+    array< T > rows( unsigned i, unsigned j, unsigned k,
+		     unsigned l, unsigned m ) const
+    array< T > rows( unsigned i, unsigned j, unsigned k,
+		     unsigned l, unsigned m, unsigned n ) const
+    array< T > rows( unsigned i, unsigned j, unsigned k,
+		     unsigned l, unsigned m, unsigned n,
+		     unsigned o ) const
+    array< T > rows( unsigned i, unsigned j, unsigned k,
+		     unsigned l, unsigned m, unsigned n,
+		     unsigned o, unsigned p ) const
+    array< T > col( unsigned i ) const
+    array< T > cols( const array< unsigned >& idx ) const
+    array< T > cols( unsigned i ) const
+    array< T > cols( unsigned i, unsigned j ) const
+    array< T > cols( unsigned i, unsigned j, unsigned k ) const
+    array< T > cols( unsigned i, unsigned j, unsigned k,
+		     unsigned l ) const
+    array< T > cols( unsigned i, unsigned j, unsigned k,
+		     unsigned l, unsigned m ) const
+    array< T > cols( unsigned i, unsigned j, unsigned k,
+		     unsigned l, unsigned m, unsigned n ) const
+    array< T > cols( unsigned i, unsigned j, unsigned k,
+		     unsigned l, unsigned m, unsigned n,
+		     unsigned o ) const
+    array< T > cols( unsigned i, unsigned j, unsigned k,
+		     unsigned l, unsigned m, unsigned n,
+		     unsigned o, unsigned p ) const
+    array< T >& transpose( )
+
+    array_reference< T > copyReference( array< T >& v )
+    array_reference< T > copyReference( array_reference< T > v )
+
+Ein- / Ausgabe von Arrays
+
+int readarray( array< double >& arr, std::istream& is, bool seek = false,
+	       const std::string beginRecord  = "",
+	       const std::string endRecord    = "\n",
+	       const std::string beginComment = ";",
+	       const std::string endComment   = "\n",
+	       const std::string separator    = " ,",
+	       const std::vector< unsigned > dimensions = std::vector< unsigned >( 0 ) );
+
+int writearray( const array< T >& arr, std::ostream& os,
+		const std::string beginRecord  = "",
+		const std::string endRecord    = "\n",
+		char              separator    = '\t' )
+
+Funktionen von Arrays
+
+inline bool operator == ( const array< T >& v, const array< T >& w )
+inline bool operator == ( const array_reference< T > v, const array< T >& w )
+inline bool operator == ( const array< T >& v, const array_reference< T > w )
+inline bool operator < ( const array< T >& v, const array< T >& w )
+inline bool operator != ( const array< T >& v, const array< T >& w )
+inline bool operator != ( const array_reference< T > v, const array< T >& w )
+inline bool operator != ( const array< T >& v, const array_reference< T > w )
+inline array< T > operator ! ( const array< T >& v )
+inline array< T > operator ~ ( const array< T >& v )
+inline array< T > operator + ( const array< T >& v )
+inline array< T > operator - ( const array< T >& v )
+inline array< T > operator op ( const array< T >& v, const array< T >& w )
+inline array< T > operator op ( const array< T >& v, T w )
+inline array< T > operator op ( T v, const array< T >& w )
+BinaryOperator( || )
+BinaryOperator( && )
+BinaryOperator( | )
+BinaryOperator( ^ )
+BinaryOperator( & )
+BinaryOperator( + )
+BinaryOperator( - )
+BinaryOperator( * )
+BinaryOperator( / )
+BinaryOperator( % )
+inline array< T >& operator op ( array< T >& v, const array< T >& w )
+inline array< T >& operator op ( array< T >& v, T w )
+inline array_reference< T > operator op ( array_reference< T > v,
+					  const array< T >& w )
+inline array_reference< T > operator op ( array_reference< T > v, T w )
+CompoundAssignmentOperator( |= )
+CompoundAssignmentOperator( ^= )
+CompoundAssignmentOperator( &= )
+CompoundAssignmentOperator( += )
+CompoundAssignmentOperator( -= )
+CompoundAssignmentOperator( *= )
+CompoundAssignmentOperator( /= )
+CompoundAssignmentOperator( %= )
+inline array< T > func ( const array< T >& v )
+// trigonometric functions
+UnaryFunction( acos )
+UnaryFunction( asin )
+UnaryFunction( atan )
+UnaryFunction( cos )
+UnaryFunction( sin )
+UnaryFunction( tan )
+// hyperbolic functions
+UnaryFunction( cosh )
+UnaryFunction( sinh )
+UnaryFunction( tanh )
+UnaryFunction( acosh )
+UnaryFunction( asinh )
+UnaryFunction( atanh )
+// exponential and logarithmic functions
+UnaryFunction( exp )
+UnaryFunction( log )
+UnaryFunction( log10 )
+// power functions
+UnaryFunction( sqrt )
+UnaryFunction( cbrt )
+// nearest integer and absolute value
+UnaryFunction( ceil )
+UnaryFunction( fabs )
+UnaryFunction( floor )
+
+inline array< T > func( const array< T >& v, const array< T >& w )
+inline array< T > func( const array< T >& v, T w )                          \
+inline array< T > func( T v, const array< T >& w )                          \
+BinaryFunction( atan2 )
+BinaryFunction( pow )
+BinaryFunction( fmod )
+
+// products
+inline array< T > inner_product( const array< T >& v, const array< T >& w )
+inline array< T > outer_product( const array< T >& v, const array< T >& w )
+inline T scalar_product( const array< T >& v, const array< T >& w )
+
+// distances
+inline T sqr_distance( const array< T >& v, const array< T >& w )
+inline T euclidian_distance( const array< T >& v, const array< T >& w )
+// sums
+inline T sum( const array< T >& v )
+inline T sumOfAbs( const array< T >& v )
+inline T sumOfSqr( const array< T >& v )
+// element products
+inline T product( const array< T >& v )
+// min and max
+inline T min( const array< T >& v )
+inline T max( const array< T >& v )
+// I/O
+bool prettyprint( std::ostream& os, const array< T >& v, unsigned depth = 0 )
+friend inline std::istream& operator >> ( std::istream& is, IOBase& io )
+friend inline std::ostream& operator << ( std::ostream& os, const IOBase& io )
+
+Lineare Algebra
+
+array< T > transpose( const array< T >& v )
+array< T > diagonal( const array< T >& v )
+void eigensymm( const array< double >& A,
+		array< double >& G,
+		array< double >& l );
+inline void eigensymm( const array_reference< double > A,
+		       array_reference< double > G,
+		       array_reference< double > l )
+void svd( const array< double >& A,
+	  array< double >& U,
+	  array< double >& V,
+	  array< double >& W );
+double detsymm( const array< double >& A );
+array< double > mean( const array< double >& x );
+array< double > variance( const array< double >& x );
+array< double > covariance( const array< double >& x );
+array< double > invert( const array< double >& );
+
+Sortieren von Arrays
+
+void sort( array< T        >& value,
+	   array< unsigned >& index )
+
+Einbettung von Zeitreihen
+
+void embedding( const array< double >& ts,
+		array< double >& pv,
+		unsigned embedDim,
+		unsigned timeLag = 1 );
+void embedding( const array< double >& ts,
+		array< double >& pv,
+		const array< unsigned >& lag );
+void io_samples( const array< double >& ts,
+		 array< double >& in,
+		 array< double >& out,
+		 unsigned inDim,
+		 unsigned inLag,
+		 unsigned horizon = 1,
+		 unsigned outDim  = 1,
+		 unsigned outLag  = 1 );
+void io_samples( const array< double >& ts,
+		 array< double >& in,
+		 array< double >& out,
+		 const array< unsigned >& inLag,
+		 const array< unsigned >& outLag );
+
+Optimierung
+
+void bfgs( array< double >& p,
+	   double    gtol,
+	   unsigned& iter,
+	   double&   fret,
+	   double  (*func)( const array< double >& ),
+	   void   (*dfunc)( const array< double >&, array< double >& ),
+	   unsigned  iterMax = 200 );
+void bfgs2( array< double >& p,
+	    double    gtol,
+	    unsigned& iter,
+	    double&   fret,
+	    double  (*func)( const array< double >& ),
+	    void   (*dfunc)( const array< double >&, array< double >& ),
+	    unsigned  iterMax = 200 );
+void bfgsk( array< double >& p,
+	    double    gtol,
+	    unsigned& iter,
+	    double&   fret,
+	    double  (*func)( const array< double >& ),
+	    void   (*dfunc)( const array< double >&, array< double >& ),
+	    unsigned  iterMax = 200 );
+void lnsrch( array< double >& xold,
+	     double fold,
+	     array< double >& g,
+	     array< double >& p,
+	     array< double >& x,
+	     double& f,
+	     double stpmax,
+	     bool& check,
+	     double (*func)( const array< double >& ) );
+void cblnsrch( array< double >& xold,
+	       double fold,
+	       array< double >& g,
+	       array< double >& p,
+	       array< double >& x,
+	       double& f,
+	       double (*func)( const array< double >& ),
+	       double lambda = 0.25 );
+void linmin( array< double >& p,
+	     const array< double >& xi,
+	     double& fret,
+	     double (*func)( const array< double >& ) );
+void dlinmin( array< double >& p,
+	     const array< double >& xi,
+	     double& fret,
+	     double (*func)( const array< double >& ),
+	     void  (*dfunc)( const array< double >&, array< double >& ) );
+void nmsimplex( array< double >& p,
+		array< double >& y,
+		double           ftol,
+		unsigned&        nfunc,
+		double           (*func)( const array< double >& ),
+		unsigned         nfuncMax = 5000 );
+
+
+
+
+

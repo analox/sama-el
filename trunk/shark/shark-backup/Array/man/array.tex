@@ -1,0 +1,45 @@
+\def\Arrayrootdir{.}
+
+%% ======================================================================
+%       \subsection{Arrays}
+%       \label{array:subs:arrays}
+%% ======================================================================
+
+In this chapter we introduce the basic data structure for
+building arrays of arbitrary types.  This is implemented via a
+\cpp\ template class \verb+array< type >+. In principle an array
+can be viewed as an instance of an ordinary \emph{C}--array, like
+\verb+type item[10][5][3]+.  However, this is a static instantiation
+of an array. The array template defined here is more flexible in that
+it is possible to dynamically resize or change the number of
+dimensions.  Furthermore, parameter passing by value and assignment
+works properly (i.e., the value is passed or assigned and not a
+pointer to the value) and the subscript operator $[\;]$ may perform a
+range check at run-time (this is implemented by the exception
+mechanism of \cpp). For convenience subscript operators for arrays of
+known dimensions are defined, examples are shown in
+\exref{array:example:array}. A quick reference to the class
+interface (class methods \emph{etc.}) can be found in
+\appref{classReference:sec:array}. 
+
+\begin{example}[hb]
+\begin{shortlisting}
+            \vdots\\
+\#include <array.h>         // {\rm declarations}\\
+            \vdots\\
+array< int > x( 10, 5 );   // {\rm define an array of integer values\hspace*{-10cm}}\\
+array< int > y;            // {\rm define an array with unspecified size\hspace*{-10cm}}\\
+\\
+y = x[ 2 ];                // {\rm $y$ contains a 5-dimensional sub-array}\\
+x( 4, 2 ) = -3;            // {\rm set element at position $( 4, 2 )$ to $-3$}\\
+            \vdots\\
+\end{shortlisting}
+\caption[Some Examples for the Use of the \texttt{Array} Class]{Some
+Examples for the Use of the \texttt{Array}
+Class\label{array:example:array}}
+\end{example}
+
+
+%\input \Arrayrootdir/arraysigproc
+\input \Arrayrootdir/arrayquick
+

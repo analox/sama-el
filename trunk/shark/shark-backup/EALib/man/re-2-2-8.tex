@@ -1,0 +1,45 @@
+\subsection{Recombination Methods}
+
+%---------------------------------------------------------------------------%
+\index{recombineDiscrete!( const Chromosome\& dadChrom, const Chromosome\& momChrom )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{dadChrom}{const Chromosome\&}{Father chromosome that must
+contain at least one allel, otherwise no recombination will take place.}
+    \setParamTwo{momChrom}{const Chromosome\&}{Mother chromosome that
+must contain as many alleles as {\em dadChrom}, otherwise the method will
+be aborted with an error message. Additionally, {\em momChrom} must
+have at least one allele or no recombination will take place.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {recombineDiscrete}
+        {Randomly recombines the chromosomes {\em dadChrom} and 
+{\em momChrom} and stores the result in {\em this}. The probability for
+each allele of {\em this} to be either from {\em dadChrom} or
+{\em momChrom} is $0.5$. The size of {\em this} will be
+adapted to the size of a parent chromosome.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{recombineDiscrete!( Chromosome\& mate )}
+    \printMethodWithOneParam
+    {void} 
+    {recombineDiscrete}
+    {Chromosome\&} 
+    {mate}
+    {Chromosome that will be recombined with {\em this}. {\em mate} must
+contain as many alleles as {\em this}, otherwise the method will be
+aborted with an error message and {\em mate} must have at least
+one allele or no recombination will take place.} 
+    {Same as above, but here the chromosomes {\em mate} and {\em this}
+itself will be taken as ``parent'' chromosomes. Again the result is stored
+in {\em this}. An allele $this_i$ (with $i\ =\ 0..n-1$, $n\ =\ $ 
+number of alleles in {\em this}) will contain the value $mate_i$
+with probability $0.5$.}
+    {None.}
+    {None.}
+%---------------------------------------------------------------------------%

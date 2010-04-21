@@ -1,0 +1,47 @@
+shark_index.html  Overview about all references and manuals attached 
+		  to this Shark distribution.
+
+Array/		  Package for dynamic arrays	
+EALib/            Evolutionary algorithms package
+MOO-EALib/	  "Evolutionary Multi Objective Optimization".
+                  MOO-EALib is an extension of the original
+                  EALib and is able to optimizize with respect 
+		  to vector-valued quality indicators 
+                  instead of only scalar valued quality.
+LinAlg/		  Linear algebra tools package 
+Metric/		  Package for calculating the Hamming or
+		  Levenshtein distance between bit vectors.
+Mixture/          Mixture of gaussians, local linear regression, etc.
+ReClaM/           Regression and classification methods toolbox.
+Rng/		  Package containing numerous random number generators.
+TestData/         Various test data.
+include/	  Header files for all packages.
+selftest/	  Selftesting framework for the Shark.
+
+cleanUp           A script for cleaning up all directories
+		  from object files, binaries for example programs, etc.
+COPYING           GNU general public license.
+INSTALL           Installation information and notes.
+
+Makefile.in       A template to produce the main makefile.
+configure.in      Template for the 'autoconf' program, 
+		  cf. INSTALL for details.
+makedocs.bat	  Will create all references and documentations for
+		  those packages, that are Windows-compatible.
+		  You need some additional programs to execute
+		  this, see Array/doc/README for details.
+
+The following, previously with Shark as a whole distributed libraries, 
+are now available as addon packages to be separately installed with Shark
+
+Pagode/           Package for plotting and graphing in 2D/3D-space.
+SimAnn/		  Package for Simulated Annealing.
+SpreadCAT/        The spreadsheet creation tool.
+
+
+The library,
+
+Fuzzy/            a fuzzy logic toolbox
+
+(also in former times ditributed together with Shark )
+is currently not available.

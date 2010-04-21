@@ -1,0 +1,174 @@
+\subsection{Operators}
+
+\subsubsection{Assignment Operators}
+
+%---------------------------------------------------------------------------%
+\index{operator =!( onst Individual\& indiv )}
+\setNormalInstance
+\printMethodWithOneParam
+{Individual\&}
+{operator =\ }
+{const Individual\&}
+{indiv}
+{Individual that will be assigned to {\em this}.}
+{Assigns the individual {\em indiv} (i.e. the chromosomes that
+ are contained in {\em indiv} and the values of the internal
+ class variables) to {\em this}.}
+{The individual {\em this} with its new values.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\subsubsection{Comparison Operators}
+
+%---------------------------------------------------------------------------%
+\index{operator ==!( const Individual\& ind )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator ==\ }
+{const Individual\&}
+{ind}
+{Individual that will be compared with {\em this}.}
+{Checks whether the current individual {\em this} and the
+ individual {\em ind} are equal. The individuals are equal,
+ if they contain the same number of chromosomes, if any
+ chromosome of {\em this} is equal to its corresponding
+ chromosome in {\em ind} and if all values of the internal
+ class variables are equal.}
+{
+ {\em true}  - The individuals are equal,\\
+ {\em false} - The individuals are not equal.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator $<$!( const Individual\& ind )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator $<$\ }
+{const Individual\&}
+{ind}
+{Individual that will be compared with {\em this}.}
+{Checks whether the current individual {\em this} is less than
+ the individual {\em ind}, i.e. whether {\em this}
+ contains less chromosomes than {\em ind} or -- if both individuals
+ have the same number of chromosomes -- at least one chromosome
+ of {\em this} is less than its corresponding chromosome
+ in {\em ind}.}
+{
+ {\em true}  - {\em this} is less than {\em ind},\\
+ {\em false} - {\em this} is greater than {\em ind} or both individuals
+ are equal.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{operator $>$!( const Individual\& ind )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator $>$\ }
+{const Individual\&}
+{ind}
+{Individual that will be compared with {\em this}.}
+{Checks whether the current individual {\em this} is greater than
+ the individual {\em ind}, i.e. whether {\em this}
+ contains more chromosomes than {\em ind} or -- if both individuals
+ have the same number of chromosomes -- at least one chromosome
+ of {\em this} is greater than its corresponding chromosome
+ in {\em ind}.}
+{
+ {\em true}  - {\em this} is greater than {\em ind},\\
+ {\em false} - {\em this} is less than {\em ind}, or both individuals
+ are equal.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator $<$=!( const Individual\& ind )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator $<=$\ }
+{const Individual\&}
+{ind}
+{Individual that will be compared with {\em this}.}
+{Checks whether the current individual {\em this} is less than
+ the individual {\em ind} or whether both individuals are equal (see
+ above).}
+{
+ {\em true}  - {\em this} is less than {\em ind} or both individuals
+ are equal,\\
+ {\em false} - {\em this} is greater than {\em ind}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator $>$=!( const Individual\& ind )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator $>=$\ }
+{const Individual\&}
+{ind}
+{Individual that will be compared with {\em this}.} 
+{Checks whether the current individual {\em this} is greater than
+ the individual {\em ind} or whether both individuals are equal (see
+ above).}
+{
+ {\em true}  - {\em this} greater than {\em ind} or both individuals
+ are equal,\\ 
+ {\em false} - {\em this} is less than {\em ind}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{operator $\mid$=!( const Individual\& ind )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator $!=$\ }
+{const Individual\&}
+{ind}
+{Individual that will be compared with {\em this}.} 
+{Checks whether the current individual {\em this} and the
+ individual {\em ind} are different, i.e. whether
+ {\em this} is less or greater than {\em ind} (see above).}
+{
+ {\em true}  - {\em this} and {\em ind} are different,\\
+ {\em false} - {\em this} and {\em ind} are equal.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\subsubsection{Operator for Extracting a Single Chromosome}
+
+%---------------------------------------------------------------------------%
+\index{operator [ ]!( unsigned i )}
+\setNormalInstance
+\printMethodWithOneParam
+{Chromosome\&}
+{operator [\ ]\ }
+{unsigned}
+{i}
+{Index of the chromosome in {\em this}, to be returned.
+ {\em i} must be less than the number of chromosomes in {\em this},
+ otherwise the method will be aborted with an error message.}
+{Returns the chromosome with index {\em i} in the individual {\em this}.}
+{Chromosome with index {\em i}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+
+
+

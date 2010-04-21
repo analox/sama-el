@@ -1,0 +1,2583 @@
+\documentclass[12pt]{report}
+\usepackage{a4,german}
+\usepackage{pstricks}
+\include{Vorlage}
+\begin{document}
+
+\textheight 23cm
+\topmargin -0.54cm
+\textwidth 16.5cm
+\oddsidemargin -0.04cm
+\evensidemargin -0.54cm
+
+
+\newgray{lightgray}{.97}
+\newif\ifmethodgray
+\methodgrayfalse
+\def\method#1#2{%
+  \ifmethodgray
+    \psframebox*[framesep=1pt,fillcolor=lightgray,fillstyle=solid]{%
+      %\begin{minipage}{.996\textwidth}
+      \begin{minipage}{.873\textwidth}
+        \begin{minipage}{17em} #1 \end{minipage}
+        %\begin{minipage}{22.5em} #2 \end{minipage}
+        \begin{minipage}{17.7em} #2 \end{minipage}
+      \end{minipage}}
+    \methodgrayfalse
+  \else
+    \psframebox*[framesep=1pt]{%
+      %\begin{minipage}{.996\textwidth}
+      \begin{minipage}{.873\textwidth}
+        \begin{minipage}{17em} #1 \end{minipage}
+        %\begin{minipage}{22.5em} #2 \end{minipage}
+        \begin{minipage}{17.7em} #2 \end{minipage}
+      \end{minipage}}
+    \methodgraytrue
+  \fi
+}
+
+
+\begin{center}
+{\Large {\bf Schnellreferenz zur Bibliothek EALib}}\\
+{\bf R\"udiger Alberts}\\
+{\bf 2000-01-07}
+\end{center}
+
+\newpage
+\tableofcontents
+\newpage
+\chapter{Einleitung}
+Bei diesem Dokument handelt es sich um eine deutsche Fassung der
+Schnellreferenz f\"ur die {\em EALib}-Bibliothek zur
+Programmierung evolution\"arer Algorithmen von Martin Kreutz.\\
+Diese Referenz beschreibt die Methoden und Variablen der Klassen
+{\tt Chromosome}, {\tt ChromosomeT\_num}, {\tt ChromosomeT\_int},
+{\tt ChromosomeT\_double}, {\tt ChromosomeT\_char}, \\
+{\tt ChromosomeT\_bool}, {\tt Individual}, {\tt Population} und
+{\tt EvoAlg} und entspricht der Schnellreferenz in \cite{EALib}.
+
+\chapter{Klasse {\tt Chromosome}}
+
+% ######################################################################
+\section{Frei verf\"ugbare Methoden}
+% ######################################################################
+
+% -----------------------------------------------------------------------
+\subsection{Konstruktoren und Destruktor}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \textsf{\textbf{\small ChromosomeT\_base}}( ) }{ 
+  Erzeugt ein leeres Chromosom be\-lie\-bi\-gen Typs 
+  und registriert es.
+}\\
+\method{
+  \textsf{\textbf{\small ChromosomeT\_base}}( \emph{unsigned l} ) }{ 
+  Erzeugt und registriert ein leeres Chromosom beliebigen Typs mit 
+  Platz f\"ur {\em l} Allele. 
+}\\
+\method{
+  \textsf{\textbf{\small ChromosomeT\_base}}( \emph{unsigned l,\\ 
+  \hspace*{1.5em}const T\emph{\&} v} ) }{ 
+  Erzeugt und registriert ein Chromosom des Typs {\sl T} mit
+  {\em l} Allelen vom Wert {\em v}.  
+}\\
+\method{
+  \textsf{\textbf{\small ChromosomeT\_base}}(\\ 
+  \hspace*{1.5em}\emph{const vector$<$ T $>$\emph{\&} v} ) }
+  {Erzeugt und registriert ein Chromosom des Typs {\sl T} mit 
+   den Allelwerten {\em v}.
+}\\
+\method{
+  \textsf{\textbf{\small $\sim$Chromosome}}( ) }{
+  Zerst\"ort das aktuelle Chromosom. 
+}\\\hrule
+
+\newpage
+
+
+% -----------------------------------------------------------------------
+\subsection{Operatoren}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{Chromosome\emph{\&}} \textsf{\textbf{\small operator =\ }}(\\ 
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} c} ) }{
+  Weist dem aktuellen Chromosom {\em this} die 
+  Werte des Chromosoms {\em c} zu.
+}\\
+\method{
+  \emph{Chromosome\emph{\&}} \textsf{\textbf{\small operator =\ }}(\\ 
+  \hspace*{1.5em}\emph{const vector$<$ T $>$\emph{\&} c} ) }{
+  Weist dem aktuellen Chromosom {\em this} die Werte von
+  Vektor {\em c} als neue Allelwerte zu.
+}\\
+\method{
+  \emph{Chromosome\emph{\&}} \textsf{\textbf{\small operator =\ }}(\\ 
+  \hspace*{1.5em}\emph{const T\emph{\&} c} ) }{
+  Weist allen Allelen des aktuellen Chromosoms {\em this} den Wert 
+  {\em c} vom Typ {\sl T} zu.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator ==\ }}(\\ 
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} c} ) }{
+  Pr\"uft, ob {\em this} gleich {\em c} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator $<$\ }}(\\ 
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} c} ) }{
+  Pr\"uft, ob {\em this} kleiner als {\em c} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator $<=$\ }}(\\ 
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} c} ) }{
+  Pr\"uft, ob {\em this} kleiner oder gleich {\em c} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator $>$\ }}(\\ 
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} c} ) }{
+  Pr\"uft, ob {\em this} gr\"o{\ss}er als {\em c} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator $>=$\ }}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} c} ) }{
+  Pr\"uft, ob {\em this} gr\"o{\ss}er oder gleich {\em c} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator !$=$\ }}(\\ 
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} c} ) }{
+  Pr\"uft, ob {\em this} ungleich {\em c} ist.
+}\\
+\method{
+  \emph{T} \textsf{\textbf{\small operator [\ ]\ }}(\\
+  \hspace*{1.5em}\emph{unsigned allele} ) }{
+  Gibt Allel Nummer {\em allele} vom Typ {\sl T} zur\"uck.
+}\\\hrule
+
+
+\vspace{4ex}
+
+% -----------------------------------------------------------------------
+\subsection{Informationsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{T} \textsf{\textbf{\small min}}( 
+  \emph{T a, T b} ) }{
+  Vergleicht {\em a} und {\em b}, gibt den kleineren Wert zur\"uck.
+}\\
+\method{
+  \emph{T} \textsf{\textbf{\small max}}( 
+  \emph{T a, T b} ) }{
+  Vergleicht {\em a} und {\em b}, gibt den gr\"o{\ss}eren Wert zur\"uck.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small sameType}}(\\ 
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} c} ) }{
+  Pr\"uft, ob {\em this} und {\em c} denselben Typ haben.
+}\\
+\method{
+  \emph{const char$\ast$} \textsf{\textbf{\small typeOfAlleles}}( ) }{
+  Gibt den Typ des aktuellen Chromosoms zur\"uck.
+}\\
+\method{
+  \emph{unsigned} \textsf{\textbf{\small sizeOfAlleles}}( ) }{
+  Gibt die Gr\"o{\ss}e eines Chromosomenallels in Bytes zur\"uck.
+}\\
+\method{
+  \emph{unsigned} \textsf{\textbf{\small size}}( ) }{
+  Gibt die Anzahl der im Chromosom enthaltenen Allele zur\"uck.
+}\\\hrule
+
+\newpage
+
+
+% -----------------------------------------------------------------------
+\subsection{Strukturver\"anderungsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small resize}}( 
+  \emph{unsigned n} ) }{
+  Anzahl der Chromosomenallele wird auf neue Zahl {\em n} gesetzt.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small duplicate}}( 
+  \emph{unsigned start,\\ 
+  \hspace*{1.5em}unsigned stop, unsigned dest} ) }{
+  Kopiert Allele von {\em start} bis {\em stop} nach {\em dest}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small invert}}( 
+  \emph{unsigned start,\\
+  \hspace*{1.5em}unsigned stop,\\ 
+  \hspace*{1.5em}unsigned granularity} ) }{
+  Invertiert Reihenf\"olge der Allelbl\"ocke von {\em start} bis {\em stop}
+  mit Blockgr\"o{\ss}e {\em granularity}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small invert}}( 
+  \emph{unsigned granularity} ) }{
+  Wie zuvor, jedoch werden alle Allele invertiert.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small transcribe}}( 
+  \emph{unsigned start,\\ 
+  \hspace*{1.5em}unsigned stop,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} chrom} ) }{
+  Kopiert Allelsequenz von {\em start} bis {\em stop} aus {\em chrom}
+  in {\em this}. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small swap}}( 
+  \emph{unsigned i, unsigned j} ) }{
+  Vertauscht die Allele {\em i} und {\em j} miteinander.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small shuffle}}( ) }{
+  \"Andert willk\"urlich die Reihenfolge der Allele im Chromosom.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small replace}}( 
+  \emph{unsigned i, const T\emph{\&} v} ) }{
+  Allel {\em i} erh\"alt den neuen Wert {\em v}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small replace}}( 
+  \emph{unsigned i,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} chrom} ) }{
+  Ersetzt Allele ab Position {\em i} mit Allelwerten in {\em chrom}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small insert}}( 
+  \emph{unsigned i,\\ 
+  \hspace*{1.5em}const T\emph{\&} allele} ) }{
+  F\"ugt Allel {\em allele} an Position {\em i} ein.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small insert}}( 
+  \emph{unsigned i,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} chrom} ) }{
+  F\"ugt Allele in {\em chrom} an Position {\em i} in {\em this} ein.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small append}}( 
+  \emph{const T\emph{\&} allele} ) }{
+  H\"angt Allel {\em allele} am Ende von {\em this} an.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small append}}(\\ 
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} chrom} ) }{
+  H\"angt die Allele in {\em chrom} am Ende von {\em this} an.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small remove}}( 
+  \emph{unsigned i} ) }{
+  Entfernt das Allel an Position {\em i}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small remove}}( 
+  \emph{unsigned i, unsigned k} ) }{
+  Entfernt die Allele {\em i} bis {\em k}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small rotateRight}}( 
+  \emph{unsigned n} ) }{
+  Rotiert alle Allele um {\em n} Positionen nach rechts.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small rotateLeft}}( 
+  \emph{unsigned n} ) }{
+  Rotiert alle Allele um {\em n} Positionen nach links.
+}\\\hrule
+
+
+\newpage
+
+
+% -----------------------------------------------------------------------
+\subsection{Crossover-Methoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small crossover}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom,\\
+  \hspace*{1.5em}const vector$<$unsigned$>$\emph{\&} points} ) }{
+  Neues {\em this} entsteht durch Crossover von {\em dadChrom} und
+  {\em momChrom} an den Positionen {\em points}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small crossover}}( 
+  \emph{Chromosome\emph{\&} mate,\\ 
+  \hspace*{1.5em}const vector$<$unsigned$>$\emph{\&} points} ) }{
+  Crossover von {\em this} und {\em mate} 
+  an den Positionen {\em points}.
+}\\
+\method{%
+  \emph{void} \textsf{\textbf{\small crossover}}(\\ 
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom,\\ 
+  \hspace*{1.5em}const vector$<$ bool $>$\emph{\&} pos} ) }{
+  Neues {\em this} entsteht durch Crossover von {\em dadChrom} und
+  {\em momChrom} an den durch ``true'' in {\em pos} gekennzeichneten 
+  Positionen.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small crossover}}(\\
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} mate,\\
+  \hspace*{1.7em}const vector$<$ bool $>$\emph{\&} pos} ) }{
+  Crossover von {\em this} und {\em mate} 
+  an den durch ``true'' in {\em pos} gekennzeichneten Positionen.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small crossover}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom,\\
+  \hspace*{1.5em}unsigned npoints, unsigned align} ) }{
+  Zuf\"alliges Crossover von {\em dadChrom} und {\em momChrom} in {\em this}
+  an max. {\em npoints} m\"oglichen Punkten mit Mindestabstand {\em align}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small crossover}}(\\ 
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} mate,\\
+  \hspace*{1.5em}unsigned npoints, unsigned align} ) }{
+  Zuf\"alliges Crossover von {\em this} und {\em mate}
+  an max. {\em npoints} m\"oglichen Punkten mit Mindestabstand {\em align}.
+}\\
+\method{%
+  \emph{void} \textsf{\textbf{\small crossover}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} posChrom} ) }{
+  Crossover von {\em dadChrom} und {\em momChrom} in {\em this}
+  an den durch in {\em posChrom} mit ``1'' bezeichneten Punkten.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small crossover}}(\\
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} mate,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} posChrom} ) }{
+  Crossover von {\em this} und {\em mate}
+  an den durch in {\em posChrom} mit ``1'' bezeichneten Punkten.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small crossoverUniform}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom,\\ 
+  \hspace*{1.5em}const vector$<$ bool $>$\emph{\&} pos} ) }{
+  Crossover von {\em dadChrom} und {\em momChrom} in {\em this}.\\
+  Position $pos_i=$``true'' $\rightarrow this_i= 
+  momChrom_i$, $pos_i=$``false'' $\rightarrow this_i= 
+  dadChrom_i$.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small crossoverUniform}}(\\
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} mateChrom,\\
+  \hspace*{1.5em}const vector$<$ bool $>$\emph{\&} pos} ) }{
+  Crossover von {\em this} und {\em mate}.\\
+  Position $pos_i=$``true'' $\rightarrow this_i= 
+  mateChrom_i$, $pos_i=$``false'' $\rightarrow this_i= 
+  this_i$.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small crossoverUniform}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom} ) }{
+  Zuf\"alliges Crossover von {\em dadChrom} und {\em momChrom} in {\em this}
+  mit Wahrscheinlichkeit von $0.5$ pro Elternteil und Allel. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small crossoverUniform}}(\\
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} mateChrom} ) }{
+  Zuf\"alliges Crossover von {\em this} und {\em mate}
+  mit Wahrscheinlichkeit von $0.5$ pro Elternteil und Allel. 
+}\\\hrule
+
+\newpage
+
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small crossoverUniform}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} posChrom} ) }{
+  Crossover von {\em dadChrom} und {\em momChrom} in {\em this}.\\
+  Position $posChrom_i=$``0'' $\rightarrow this_i= 
+  dadChrom_i$, $posChrom_i<>$``0'' $\rightarrow this_i= 
+  momChrom_i$.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small crossoverUniform}}(\\
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} mateChrom,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} posChrom} ) }{
+  Crossover von {\em this} und {\em mate}.\\
+  Position $posChrom_i=$``0'' $\rightarrow this_i= 
+  mateChrom_i$, $posChrom_i<>$``0'' $\rightarrow this_i= 
+  this_i$.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small recombineDiscrete}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom} ) }{
+  Zuf\"allige Rekombination von {\em dadChrom} und {\em momChrom}
+  in {\em this} mit Wahrscheinlichkeit von $0.5$ pro Elternteil
+  und Allel.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small recombineDiscrete}}(\\
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} mate} ) }{
+  Zuf\"allige Rekombination von {\em mate} und {\em this}
+  mit Wahrscheinlichkeit von $0.5$ pro Elternteil
+  und Allel.
+}\\\hrule
+
+\vspace{4ex}
+
+
+% -----------------------------------------------------------------------
+\subsection{Eingabemethode}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule{\hspace{\linewidth}}\\
+\method{%
+  \emph{static Chromosome$\ast$} \textsf{\textbf{\small readNewFrom}}(\\
+  \hspace*{1.5em}\emph{istream\emph{\&} is} ) }{
+  Liest neue Daten f\"ur {\em this} aus {\em is} und registriert es.
+}\\\hrule
+
+
+\newpage
+
+% ######################################################################
+\section{Gesch\"utzte Methoden}
+% ######################################################################
+
+% -----------------------------------------------------------------------
+\subsection{Erzeugungsmethoden}
+% -----------------------------------------------------------------------
+
+
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule{\hspace{\linewidth}}\\
+\method{
+  \emph{Chromosome$\ast$} \textsf{\textbf{\small clone}}( ) }{
+  Gibt eine Kopie des aktuellen Chromosoms zur\"uck.
+}\\
+\method{
+  \emph{Chromosome$\ast$} \textsf{\textbf{\small empty}}( ) }{
+  Gibt ein neues leeres Chromosom zur\"uck.
+}\\\hrule
+
+\vspace{4ex}
+
+% -----------------------------------------------------------------------
+\subsection{Ein-/Ausgabemethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small writeDataTo}}( 
+  \emph{ostream\emph{\&} os} ) }{
+  Schreibt das Chromosom {\em this} in den Ausgabestrom
+  {\em os}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small writeTo}}( 
+  \emph{ostream\emph{\&} os} ) }{
+  Schreibt das Chromosom {\em this} inkl. Typ und Gr\"o{\ss}e in den 
+  Ausgabestrom {\em os}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small readDataFrom}}( 
+  \emph{istream\emph{\&} is} ) }{
+  Neue Allele f\"ur {\em this} werden aus {\em is} eingelesen.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small readFrom}}( 
+  \emph{istream\emph{\&} is} ) }{
+  Neue Allele f\"ur {\em this} werden inkl. Typ und 
+  Gr\"o{\ss}e des Chromosoms aus {\em is} eingelesen.
+}\\\hrule
+
+
+\newpage
+\chapter{Klasse {\tt ChromosomeT\_num}}
+
+% ######################################################################
+\section{Frei verf\"ugbare Methoden}
+% ######################################################################
+
+% -----------------------------------------------------------------------
+\subsection{Initialisierungs- und Anpassungsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small initialize}}( \emph{T min, T max} ) }{ 
+  Initialisiert die Allele mit zuf\"alligen Werten zwischen
+  {\em min} und {\em max}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initialize}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} minChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} maxChrom} ) }{ 
+  Initialisiert $this_i$ mit \nolinebreak $i\ =\ 0\ ..\ n-1$ 
+  \linebreak mit einem zuf\"alligen Wert
+  zwischen $minChrom_i$ und $maxChrom_i$.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small cutOff}}(
+  \emph{T min, T max} ) }{
+  Passt alle Allelwerte au{\ss}erhalb des Intervalls {\em min} bis {\em max}
+  an die n\"achstliegende Intervallgrenze an.  
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small cutOff}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} minChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} maxChrom} ) }{
+  Passt $this_i$ mit $i\ =\ 0\ ..\ n-1, this_i < minChrom_i$ oder
+  $this_i > maxChrom_i$ an die n\"achstliegende Intervallgrenze an.
+}\\\hrule
+
+\vspace{4ex}
+
+\newpage
+% -----------------------------------------------------------------------
+\subsection{Mutationsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small mutateUniform}}( 
+  \emph{T min,\\
+  \hspace*{1.5em}T max,\\
+  \hspace*{1.5em}const vector$<$ double $>$\emph{\&} p,\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{
+  Ersetzt $this_i$ ($i\ =\ 0\ ..\ n-1$) mit Wahrscheinlichkeit $p_i$
+  durch Zufallswert zwischen $min_i$ und $max_i$. 
+  Bei {\em cycle} = ``true'' mehrfaches Durchlaufen von {\em p} 
+  m\"oglich.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateUniform}}( 
+  \emph{T min,\\
+  \hspace*{1.5em}T max,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} p,\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{
+  Ersetzt $this_i$ ($i\ =\ 0\ ..\ n-1$) mit Wahrscheinlichkeit $p_i$
+  durch Zufallswert zwischen $min_i$ und $max_i$. 
+  Bei {\em cycle} = ``true'' mehrfaches Durchlaufen von {\em p} 
+  m\"oglich.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateUniform}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} minChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} maxChrom,\\
+  \hspace*{1.5em}double p} ) }{
+  Ersetzt $this_i$ mit \nolinebreak $i\ =\ 0\ ..\ n-1$ 
+  \linebreak mit Wahrscheinlichkeit {\em p} durch einen zuf\"alligen 
+  Wert zwischen $minChrom_i$ und $maxChrom_i$.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateUniform}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} minChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} maxChrom,\\
+  \hspace*{1.5em}const vector$<$ double $>$\emph{\&} p,\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{
+  Ersetzt $this_i$ ($i\ =\ 0\ ..\ n-1$) mit Wahrscheinlichkeit $p_i$
+  durch Zufallswert zwischen $minChrom_i$ und $maxChrom_i$. 
+  Bei {\em cycle} = ``true'' mehrfaches Durchlaufen von {\em p} 
+  m\"oglich.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateUniform}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} min,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} max,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} p,\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{
+  Ersetzt $this_i$ ($i\ =\ 0\ ..\ n-1$) mit Wahrscheinlichkeit $p_i$
+  durch Zufallswert zwischen $min_i$ und $max_i$. 
+  Bei {\em cycle} = ``true'' mehrfaches Durchlaufen von {\em p} 
+  m\"oglich.
+}\\\hrule
+
+\newpage
+\chapter{Klasse {\tt ChromosomeT$<$ int $>$}}
+
+% ######################################################################
+\section{Frei verf\"ugbare Methoden}
+% ######################################################################
+
+% -----------------------------------------------------------------------
+\subsection{Mutationsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small mutateDiffGeom}}( 
+  \emph{double s}) }{ 
+  Zum Wert jedes Allels wird eine Zufallszahl addiert.
+  {\em s} gibt die Schrittweite f\"ur die spezielle
+  Zufallszahlenverteilung (s. ausf\"uhrliche Referenz) an.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateDiffGeom}}(\\ 
+  \hspace*{1.5em}\emph{const vector$<$ double $>$\emph{\&} s,\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{ 
+  Zu jedem Wert der Allele $this_i$ $(i\ =\ 0..n-1)$ wird eine
+  Zufallszahl mit spezieller
+  Verteilung (s. ausf\"uhrliche Referenz) mit Schrittweite
+  $s_i$ addiert. Bei {\em cycle} = ``true'' kann
+  {\em s} mehrmals durchlaufen werden.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateDiffGeom}}(\\ 
+  \hspace*{1.5em}\emph{const ChromosomeT$<$ double $>$\emph{\&} s,\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{ 
+  Zu jedem Wert der Allele $this_i$ $(i\ =\ 0..n-1)$ wird eine
+  Zufallszahl nach spezieller
+  Verteilung (s. ausf\"uhrliche Referenz) mit Schrittweite
+  $s_i$ addiert. Bei {\em cycle} = ``true'' kann
+  {\em s} mehrmals durchlaufen werden.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateDiffGeom}}(\\ 
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} s,\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{ 
+  Zu jedem Wert der Allele $this_i$ $(i\ =\ 0..n-1)$ wird eine
+  Zufallszahl nach spezieller
+  Verteilung (s. ausf\"uhrliche Referenz) mit Schrittweite
+  $s_i$ addiert. Bei {\em cycle} = ``true'' kann
+  {\em s} mehrmals durchlaufen werden.
+}\\\hrule
+
+
+\newpage
+\chapter{Klasse {\tt ChromosomeT$<$ double $>$}}
+
+% ######################################################################
+\section{Interne Klasse {\tt DerandomConst}}
+% ######################################################################
+
+% -----------------------------------------------------------------------
+\subsection{Variablen}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Variable}{Beschreibung}\hrule
+\method{
+  \textsf{\textbf{\small dim}}}{ 
+  Dimension von {\em this}.
+}\\
+\method{
+  \textsf{\textbf{\small C}}}{ 
+  Kumulationszeitraum, initialisiert mit $\frac{1.0}{\sqrt{n}}$.
+}\\
+\method{
+  \textsf{\textbf{\small Cu}}}{ 
+  Normalisierungsfaktor f\"ur den Summierungsvektor {\em s}, 
+  initialisiert mit $\sqrt{\frac{2.0 - C}{C}}$.
+}\\
+\method{
+  \textsf{\textbf{\small Crr}}}{ 
+  Kumulationszeitraum f\"ur die Vorzugsrichtung, initialisiert mit  
+  $\frac{3.0}{n}$. 
+}\\
+\method{
+  \textsf{\textbf{\small Beta}}}{ 
+  D\"ampfung der globalen Schrittweitenanpassung, initialisiert mit  
+  $\frac{1.0}{\sqrt{n}}$.
+}\\
+\method{
+  \textsf{\textbf{\small BetaI}}}{ 
+  D\"ampfung der individuellen Schrittweitenanpassung, initialisiert mit 
+  $\frac{1}{n}$.
+}\\
+\method{
+  \textsf{\textbf{\small BetaR}}}{ 
+  D\"ampfung der Richtung, initialisiert mit
+  $\frac{1.0}{\sqrt{4n}}$. 
+}\\
+\method{
+  \textsf{\textbf{\small ChiN}}}{ 
+  Erwartungswert der $\chi_n$-Verteilung, initialisiert mit 
+  $\sqrt{n}(1 - \frac{1}{4n} + \frac{1}{21n^2})$.
+}\\
+\method{
+  \textsf{\textbf{\small Chi1}}}{ 
+  Erwartungswert der $\chi_1$-Verteilung, initialisiert mit 
+  $\sqrt{\frac{2}{\pi}}$.
+}\\\hrule
+
+\vspace{10ex}
+
+\newpage
+% -----------------------------------------------------------------------
+\subsection{Methoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \textsf{\textbf{\small DerandomConst}}( 
+  \emph{unsigned n} ) }{
+  Initialisiert alle internen Variablen. {\em dim} wird auf
+  {\em n} gesetzt.
+}\\
+\method{
+  \emph{unsigned} \textsf{\textbf{\small nobj}}( ) }{
+  Gibt den Dimensionswert {\em dim} zur\"uck.
+}\\
+\method{
+  \emph{unsigned} \textsf{\textbf{\small npar}}( ) }{
+  Gibt die Anzahl der ben\"otigten Parameter f\"ur die {\em Derandom}-
+  Mutationsmethode zur\"uck.
+}\\\hrule
+
+
+\newpage
+
+% ######################################################################
+\section{Frei verf\"ugbare Methoden}
+% ######################################################################
+
+
+% -----------------------------------------------------------------------
+\subsection{Initialisierungsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small initializeRotate}}(\\ 
+  \hspace*{1.5em}\emph{double SigmaMin,\\
+  \hspace*{1.5em}double SigmaMax} ) }{
+  Initialisiert die Allele von {\em this} f\"ur die 
+  Methode {\em mutateRotate} (s.u.) mit Zufallszahlen
+  zwischen {\em SigmaMin} und {\em SigmaMax}.   
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeRotate}}(\\ 
+  \hspace*{1.5em}\emph{const vector$<$ double $>$ \emph{\&} sigma} ) }{
+  Initialisiert die Allele von {\em this} f\"ur die 
+  Methode {\em mutateRotate} (s.u.) mit den in {\em sigma}
+  stehenden Werten.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeRotate}}(\\ 
+  \hspace*{1.5em}\emph{const ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma} ) }{
+  Initialisiert die Allele von {\em this} f\"ur die 
+  Methode {\em mutateRotate} (s.u.) mit den in {\em sigma}
+  stehenden Werten.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeDerandom}}(\\
+  \hspace*{1.5em}\emph{double minVal,\\ 
+  \hspace*{1.5em}double maxVal} ) }{
+  Initialisiert die Allele von {\em this} f\"ur die Methode 
+  {\em mutateDerandom} (s.u.) mit Zufallszahlen zwischen {\em minVal}
+  und \nolinebreak {\em maxVal}. \linebreak
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeCMA}}(\\
+  \hspace*{1.5em}\emph{double SigmaMin,\\
+  \hspace*{1.5em}double SigmaMax} ) }{
+  Initialisiert die Allele von {\em this} f\"ur die Methode {\em mutateCMA} 
+  (s.u.) mit Zufallszahlen. $this_0$ erh\"alt dabei einen Wert
+  zwischen {\em SigmaMin} und {\em SigmaMax}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeCMA}}(\\ 
+  \hspace*{1.5em}\emph{const vector$<$ double $>$ \emph{\&} sigma} ) }{
+  Initialisiert die Allele von {\em this} f\"ur
+  die Methode {\em mutateCMA} (s.u.) mit den in {\em sigma} 
+  stehenden Werten.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeCMA}}(\\ 
+  \hspace*{1.5em}\emph{const ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma} ) }{
+  Initialisiert die Allele von {\em this} f\"ur
+  die Methode {\em mutateCMA} (s.u.) mit den in {\em sigma} 
+  stehenden Werten.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeGSA}}(\\
+  \hspace*{1.5em}\emph{double SigmaMin,\\
+  \hspace*{1.5em}double SigmaMax} ) }{
+  Initialisiert die Allele von {\em this} f\"ur die Methode {\em mutateGSA} 
+  (s.u.) mit Zufallszahlen. $this_0$ erh\"alt dabei einen
+  Wert zwischen {\em SigmaMin} und {\em SigmaMax}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeGSA}}(\\ 
+  \hspace*{1.5em}\emph{const vector$<$ double $>$ \emph{\&} sigma,\\
+  \hspace*{1.5em}int baseSize} ) }{
+  Initialisiert die Allele von {\em this} mit den in {\em sigma} stehenden 
+  Werten f\"ur die Methode {\em mutateGSA} (s.u.) mit 
+  {\em baseSize} Vektoren der generierenden
+  Menge.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeGSA}}(\\ 
+  \hspace*{1.5em}\emph{const ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma,\\
+  \hspace*{1.5em}int baseSize} ) }{
+  Initialisiert die Allele von {\em this} mit den in {\em sigma} stehenden 
+  Werten f\"ur die Methode {\em mutateGSA} (s.u.) mit 
+  {\em baseSize} Vektoren der generierenden
+  Menge.
+}\\\hrule
+
+\newpage
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small initializeIDA}}(\\
+  \hspace*{1.5em}\emph{double SigmaMin,\\
+  \hspace*{1.5em}double SigmaMax} ) }{
+  Initialisiert die Allele von {\em this}
+  f\"ur die Methode {\em mutateIDA} (s.u.) mit Zufallszahlen. Diverse
+  Allele werden dabeit mit Werten zwischen {\em SigmaMin} und {\em SigmaMax}
+  belegt.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeIDA}}(\\
+  \hspace*{1.5em}\emph{const vector$<$ double $>$ \emph{\&} sigma} ) }{
+  Initialisiert die Allele von {\em this} f\"ur
+  die Methode {\em mutateIDA} (s.u.)
+  mit den in {\em sigma} stehenden Werten.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeIDA}}(\\
+  \hspace*{1.5em}\emph{const ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma} ) }{
+  Initialisiert die Allele von {\em this} f\"ur
+  die Methode {\em mutateIDA} (s.u.)
+  mit den in {\em sigma} stehenden Werten.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeIDAiso}}(\\
+  \hspace*{1.5em}\emph{double SigmaMin,\\
+  \hspace*{1.5em}double SigmaMax} ) }{
+  Initialisiert die Allele von {\em this} f\"ur die Methode 
+  {\em mutateIDAiso} (s.u.) mit Zufallszahlen. Diverse Allele
+  werden dabei mit Werten zwischen {\em SigmaMin} und {\em SigmaMax}
+  belegt.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeIDAiso}}(\\
+  \hspace*{1.5em}\emph{const vector$<$ double $>$ \emph{\&} sigma} ) }{
+  Initialisiert die Allele von {\em this} f\"ur
+  die Methode {\em mutateIDAiso} (s.u.) mit den in {\em sigma} 
+  stehenden Werten.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small initializeIDAiso}}(\\
+  \hspace*{1.5em}\emph{const ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma} ) }{
+  Initialisiert die Allele von {\em this} f\"ur
+  die Methode {\em mutateIDAiso} (s.u.) mit den in {\em sigma} 
+  stehenden Werten.
+}\\\hrule
+
+\vspace*{10ex}
+
+% -----------------------------------------------------------------------
+\subsection{Dekodierungsmethode}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small decodeBinary}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} chrom,\\
+  \hspace*{1.5em}const Interval\emph{\&} range,\\
+  \hspace*{1.5em}bool useGray = ``false''} ) }{
+  Dekodiert die als Bitstring in {\em chrom} (bei {\em useGray} = ``true''
+  per Gray-Kodierung) mit je {\em nbits} Bits kodierten Zahlen 
+  aus dem Intervall {\em range} und legt sie in {\em this} ab.
+}\\\hrule
+
+\newpage
+
+% -----------------------------------------------------------------------
+\subsection{Kumulationsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small accumulate}}(\\
+  \hspace*{1.5em}\emph{const vector$<$ double $>$ \emph{\&} acc,\\
+  \hspace*{1.5em}double c} ) }{
+  Addiert $acc_i$ (mit $i\ =\ 0\ ..\ n-1$) mit Gewichtung $c_i$ zu 
+  $this_i$.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small accumulate}}(\\
+  \hspace*{1.5em}\emph{const Chromosome \emph{\&} acc,\\
+  \hspace*{1.5em}double c} ) }{
+  Addiert $acc_i$ (mit $i\ =\ 0\ ..\ n-1$) mit Gewichtung $c_i$ zu 
+  $this_i$.
+}\\\hrule
+
+\vspace*{10ex}
+
+
+% -----------------------------------------------------------------------
+\subsection{Mutationsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small mutateNormal}}(
+  \emph{double stddev} ) }{
+  Eine normalverteilte Zufallszahl zwischen ``0'' und {\em stddev} wird
+  zu allen Allelen addiert.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateNormal}}(\\
+  \hspace*{1.5em}\emph{const vector$<$ double $>$ \emph{\&} stddev,\\
+  \hspace*{1.5em}bool cycle} ) }{
+  Eine normalverteilte Zufallszahl zwischen ``0'' und $stddev_i$ 
+  (mit $i\ =\ 0..n-1$) wird zu $this_i$ addiert. Bei {\em cycle} = ``true''
+  kann {\em stddev} mehrmals durchlaufen werden.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateNormal}}(\\
+  \hspace*{1.5em}\emph{const Chromosome \emph{\&} stddev,\\
+  \hspace*{1.5em}bool cycle} ) }{
+  Eine normalverteilte Zufallszahl zwischen ``0'' und $stddev_i$ 
+  (mit $i\ =\ 0..n-1$) wird zu $this_i$ addiert. Bei {\em cycle} = ``true''
+  kann {\em stddev} mehrmals durchlaufen werden.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateNormal}}(\\
+  \hspace*{1.5em}\emph{const ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em} stddev,\\
+  \hspace*{1.5em}bool cycle} ) }{
+  Eine normalverteilte Zufallszahl zwischen ``0'' und $stddev_i$ 
+  (mit $i\ =\ 0..n-1$) wird zu $this_i$ addiert. Bei {\em cycle} = ``true''
+  kann {\em stddev} mehrmals durchlaufen werden.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateCauchy}}(
+  \emph{double scale} ) }{
+  Zu allen Allelen werden mit {\em scale} skalierte Cauchy-Zufallszahlen
+  addiert.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateCauchy}}(\\
+  \hspace*{1.5em}\emph{const vector$<$ double $>$\emph{\&} scale,\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{
+  Zu $this_i$ (mit i\ =\ 0..n-1) werden mit $scale_i$ skalierte 
+  Cauchy-Zufallszahlen addiert. Bei {\em cycle} = ``true'' darf
+  {\em scale} mehrmals durchlaufen werden.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateCauchy}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} scale,\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{
+  Zu $this_i$ (mit i\ =\ 0..n-1) werden mit $scale_i$ skalierte 
+  Cauchy-Zufallszahlen addiert. Bei {\em cycle} = ``true'' darf
+  {\em scale} mehrmals durchlaufen werden.
+}\\\hrule
+
+\newpage
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small mutateCauchy}}(\\
+  \hspace*{1.5em}\emph{const ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}scale,\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{
+  Zu $this_i$ (mit i\ =\ 0..n-1) werden mit $scale_i$ skalierte 
+  Cauchy-Zufallszahlen addiert. Bei {\em cycle} = ``true'' darf
+  {\em scale} mehrmals durchlaufen werden.
+}\\\hrule
+
+\vspace*{10ex}
+
+% -----------------------------------------------------------------------
+\subsection{Rekombinationsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small recombineIntermediate}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom} ) }{
+  $this_i$ (mit $i\ =\ 0\ ..\ n-1$) erh\"alt den Durchschnitt von
+  $dadChrom_i$ und $momChrom_i$ zugewiesen.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small recombineGenIntermediate}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom} ) }{
+  $this_i$ (mit $i\ =\ 0\ ..\ n-1$) erh\"alt gleichverteilte Zufallswerte
+  zwischen $dadChrom_i$ und $momChrom_i$ zugewiesen.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small recombineGeomIntermediate}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} dadChrom,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} momChrom} ) }{
+  $this_i$ (mit $i\ =\ 0\ ..\ n-1$) erh\"alt den Wert
+  $\sqrt{dadChrom_i \cdot momChrom_i}$ zugewiesen.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small recombineIntermediate}}(\\
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} mate} ) }{
+  $this_i$ (mit $i\ =\ 0\ ..\ n-1$) erh\"alt den Durchschnitt von
+  $mate_i$ und $this_{i_{alt}}$ zugewiesen.  
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small recombineGenIntermediate}}(\\
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} mate} ) }{
+  $this_i$ und $mate_i$ (mit $i\ =\ 0\ ..\ n-1$) erhalten gleichverteilte
+  Zufallszahlen zwischen $this_{i_{alt}}$ und $mate_{i_{alt}}$ zugewiesen.  
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small recombineGeomIntermediate}}(\\
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} mate} ) }{
+  $this_i$ und $mate_i$ (mit $i\ =\ 0\ ..\ n-1$) erhalten die Werte
+  $\sqrt{this_{i_{alt}} \cdot mate_{i_{alt}}}$ zugewiesen.  
+}\\\hrule
+
+\newpage
+
+% -----------------------------------------------------------------------
+\subsection{Selbstadaptationsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small mutateLogNormal}}(\\
+  \hspace*{1.5em}\emph{double overallStdDev,\\
+  \hspace*{1.5em}double indivStdDev} ) }{
+  Zu $this_i$ (mit $i\ =\ 0\ ..\ n-1$) wird eine normalverteilte Zufallszahl
+  zwischen ``0'' und $sigma_i^2$ addiert, $sigma_i$ wird f\"ur jedes
+  Allel einzeln ({\em indivStdDev}) und f\"ur alle Allele gemeinsam
+  ({\em overallStdDev}) mutiert. N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateRotate}}(\\
+  \hspace*{1.5em}\emph{ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma} ) }{
+  F\"uhrt eine Mutation von {\em this} und den Stategievariablen auf der
+  Basis einer Rotationsmatrix mit den Standardabweichungen in {\em sigma}
+  aus. N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateRotate}}(\\
+  \hspace*{1.5em}\emph{ChromosomeT$<$ double $>$\emph{\&} sigma,\\
+  \hspace*{1.5em}double tau1, double tau2,\\
+  \hspace*{1.5em}double beta, int sigmaCheck\\
+  \hspace*{1.5em}double epsi} ) }{
+  F\"uhrt eine Mutation von {\em this} und den Stategievariablen auf der
+  Basis einer Rotationsmatrix mit den Standardabweichungen in
+  {\em sigma} f\"ur die Normalverteilung, der Schrittweitenanpassung 
+  f\"ur alle Individuen ({\em tau1}) und f\"ur einzelne Individuen
+  ({\em tau2}), der D\"ampfung {\em beta} der Schrittweitenvariation zwischen 
+  aufeinanderfolgenden Generationen und der unteren Grenze {\em epsi}
+  f\"ur die $\sigma$-Werte aus. {\em sigmaCheck} gibt an, ob {\em sigma}
+  auf zu kleine Werte \"uberpr\"uft werden soll (``true'') oder nicht
+  (``false''). N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateNormalRotAngles}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} sigma,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} alpha} ) }{
+  F\"uhrt eine Mutation von {\em this} und den Stategievariablen auf der
+  Basis einer Rotationsmatrix mit den Standardabweichungen in
+  {\em sigma} f\"ur die Normalverteilung und den Angelpunkten
+  {\em alpha} f\"ur die Rotationen aus. N\"aheres siehe in ausf\"uhrlicher 
+  Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateDerandom}}(\\
+  \hspace*{1.5em}\emph{vector$<$ double $>$\emph{\&} v,\\
+  \hspace*{1.5em}const DerandomConst\emph{\&} K} ) }{
+  F\"uhrt eine Mutation von {\em this} nach der 
+  {\em Derandom}-Methode mit den Parameterwerten {\em v} und
+  den Konstanten {\em K} aus. N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateDerandom}}(\\
+  \hspace*{1.5em}\emph{Chromosome\emph{\&} chrom,\\
+  \hspace*{1.5em}const DerandomConst\emph{\&} K} ) }{
+  F\"uhrt eine Mutation von {\em this} nach der 
+  {\em Derandom}-Methode mit den Parameterwerten {\em chrom} und
+  den Konstanten {\em K} aus. N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\\hrule
+
+\newpage
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small mutateCMA}}(\\
+  \hspace*{1.5em}\emph{ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma} ) }{
+  Mutiert {\em this} und die Strategieparameter anhand der 
+  Mutationsmethode mit Kovarianzmatrix ({\em Covariance Matrix Adaptation})
+  und den Standardabweichungen in {\em sigma} f\"ur die Normalverteilung.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateCMA}}(\\
+  \hspace*{1.5em}\emph{ChromosomeT$<$ double $>$ \emph{\&}\\
+  \hspace*{2.5em}sigma,\\
+  \hspace*{1.5em}double c, double cu,\\
+  \hspace*{1.5em}double ccov, double beta} ) }{
+  Mutiert {\em this} und die Strategieparameter anhand der 
+  Mutationsmethode mit Kovarianzmatrix ({\em Covariance Matrix Adaptation})
+  und den Standardabweichungen in {\em sigma} f\"ur die Normalverteilung,
+  dem Wert {\em c} zur Bestimmung der Kumulationszeit f\"ur den 
+  Summierungsvektor {\em s}, der Normalisierung {\em cu} der Varianz des 
+  Summierungsvektors, der Zeit {\em ccov} zur Durchschnittsbestimmung
+  der Verteilung $ss^t$ \"uber der Generationssequenz und dem
+  Parameter {\em beta} zur D\"ampfung der Schrittweitenvariation zwischen 
+  aufeinanderfolgenden Generationen. N\"aheres siehe in ausf\"uhrlicher 
+  Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateMSR}}(
+  \emph{double xi\_prob} ) }{
+  Mutiert {\em this} und die Strategieparameter anhand der Methode der 
+  {\em mutativen Schrittweitenregelung} mit Wahrscheinlichkeit {\em xi\_prob},
+  da{\ss} der generelle Schrittweiten\"anderungsfaktor $\xi$ den Wert 
+  $\alpha = 1.5$ erh\"alt. N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateGSA}}(\\
+  \hspace*{1.5em}\emph{ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma} ) }{
+  Mutiert {\em this} und die Strategieparameter anhand der 
+  mengengenerierenden Adaptation ({\em Generating Set Adaptation}) mit den
+  Standardabweichungen in {\em sigma} f\"ur die Normalverteilung.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\\hrule
+
+\newpage
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small mutateGSA}}(\\
+  \hspace*{1.5em}\emph{ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma\\
+  \hspace*{1.5em}double beta, double xi\_const,\\
+  \hspace*{1.5em}double cu, double cm} ) }{
+  Mutiert {\em this} und die Strategieparameter anhand der 
+  mengengenerierenden Adaptation ({\em Generating Set Adaptation}) mit den
+  Standardabweichungen in {\em sigma} f\"ur die Normalverteilung, dem
+  Parameter {\em beta} zur D\"ampfung der Schrittweitenvariation zwischen 
+  aufeinanderfolgenden Generationen, dem Faktor {\em xi\_const} zur 
+  Schrittweitenanpassung, dem Normalisierungsfaktor {\em cu} f\"ur Varianzen
+  und dem L\"angenanpassungsfaktor {\em cm}.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateIDA}}(\\
+  \hspace*{1.5em}\emph{ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma} ) }{
+  Mutiert {\em this} und die Strategieparameter anhand der 
+  Adaptation in eine Richtung mit individuellen Schrittweiten
+  ({\em Individual step sizes and one Direction Adaptation}) mit den
+  Standardabweichungen in {\em sigma} f\"ur die Normalverteilung.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateIDA}}(\\
+  \hspace*{1.5em}\emph{ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma\\
+  \hspace*{1.5em}double c, double c\_r\\
+  \hspace*{1.5em}double beta, double beta\_ind,\\
+  \hspace*{1.5em}double beta\_r, double cu, double xi} ) }{
+  Mutiert {\em this} und die Strategieparameter anhand der 
+  Adaptation in eine Richtung mit individuellen Schrittweiten
+  ({\em Individual step sizes and one Direction Adaptation}) mit den
+  Standardabweichungen in {\em sigma} f\"ur die Normalverteilung,
+  der Kumulationszeit {\em c\_r}, dem Parameter zur D\"ampfung der 
+  Schrittweitenvariation zwischen aufeinanderfolgenden Generationen
+  f\"ur alle Individuen ({\em beta}), f\"ur ein Individuum ({\em beta\_ind})
+  und f\"ur die Vorzugsrichtung ({\em beta\_r}), sowie dem 
+  Normalisierungsfaktor {\em cu} f\"ur Varianzen und dem Faktor
+  {\em xi} zur Schrittweitenanpassung.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small mutateIDAiso}}(\\
+  \hspace*{1.5em}\emph{ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma} ) }{
+  Mutiert {\em this} und die Strategieparameter anhand der 
+  isotrophen Adaptation in eine Richtung mit individuellen Schrittweiten 
+  ({\em Individual step sizes and one Direction Adaptation isotropic}) mit
+  den Standardabweichungen in {\em sigma} f\"ur die Normalverteilung.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\\hrule
+
+\newpage
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small mutateIDAiso}}(\\
+  \hspace*{1.5em}\emph{ChromosomeT$<$ double $>$\emph{\&}\\
+  \hspace*{2.5em}sigma\\
+  \hspace*{1.5em}double c, double beta,\\
+  \hspace*{1.5em}double beta\_ind, double cu} ) }{
+  Mutiert {\em this} und die Strategieparameter anhand der 
+  isotrophen Adaptation in eine Richtung mit individuellen Schrittweiten 
+  ({\em Individual step sizes and one Direction Adaptation isotropic}) mit
+  den Standardabweichungen in {\em sigma} f\"ur die Normalverteilung, dem
+  Parameter zur D\"ampfung der Schrittweitenvariation zwischen 
+  aufeinanderfolgenden Generationen f\"ur alle Individuen
+  ({\em beta}) und f\"ur ein Individuum ({\em beta\_ind}), sowie
+  dem Normalisierungsfaktor {\em cu} f\"ur Varianzen.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\\hrule
+
+\vspace*{10ex}
+
+% -----------------------------------------------------------------------
+\subsection{Methoden zur Anzeige von Parametern}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small showRotate}}( ) }{
+  Gibt die Parameter {\em sigma} und {\em alpha} der Selbstadaptationsmethode 
+  {\em mutateRotate} (s.o.) aus. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small showCMA}}( ) }{
+  Gibt die Parameter der Selbstadaptationsmethode {\em mutateCMA} (s.o.)
+  aus.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small showIDA}}( ) }{
+  Gibt die Parameter der Selbstadaptationsmethode {\em mutateIDA} (s.o.)
+  aus. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small showGSA}}( 
+  \emph{int baseSize} ) }{
+  Gibt die Parameter der Selbstadaptationsmethode {\em mutateGSA} (s.o.)
+  mit {\em baseSize} Vektoren der generierenden Menge aus. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small dumpDerandom}}( 
+  \emph{ostream\emph{\&} os} ) }{
+  Gibt die Werte der Parameter f\"ur die 
+  {\em Derandom}-Selbstadaptationsmethode (s.o.) auf dem 
+  Ausgabestrom {\em os} aus. 
+}\\\hrule
+
+
+\newpage
+\chapter{Klasse {\tt ChromosomeT$<$ bool $>$}}
+
+
+% ######################################################################
+\section{Frei verf\"ugbare Methoden}
+% ######################################################################
+
+% -----------------------------------------------------------------------
+\subsection{Initialisierungsmethode}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small initialize}}( ) }{ 
+  Initialisiert alle Allele zuf\"allig mit ``true'' oder
+  ``false''.
+}\\\hrule
+
+\vspace*{10pt}
+
+
+% -----------------------------------------------------------------------
+\subsection{(De-)Kodierungsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small encode}}( \emph{double val,\\
+  \hspace*{1.5em}const Interval\emph{\&} range,\\
+  \hspace*{1.5em}unsigned nbits,\\
+  \hspace*{1.5em}bool useGray = ``false''} ) }{ 
+  Kodiert {\em val} aus dem Intervall {\em range} (bei {\em useGray} = ``true''
+  per Gray-Kodierung) in den Bitstring {\em this} der L\"ange {\em nbits}. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small encodeBinary}}(\\
+  \hspace*{1.5em}\emph{const vector$<$ double $>$\emph{\&} chrom,\\
+  \hspace*{1.5em}const Interval\emph{\&} range,\\
+  \hspace*{1.5em}unsigned nbits,\\
+  \hspace*{1.5em}bool useGray = ``false''} ) }{ 
+  Kodiert alle Zahlen in {\em chrom} aus dem Intervall {\em range} 
+  (bei {\em useGray} = ``true'' per Gray-Kodierung) in den Bitstring 
+  {\em this}.
+  Jede Zahl wird in {\em nbits} Bits kodiert. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small encodeBinary}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} chrom,\\
+  \hspace*{1.5em}const Interval\emph{\&} range,\\
+  \hspace*{1.5em}unsigned nbits,\\
+  \hspace*{1.5em}bool useGray = ``false''} ) }{ 
+  Kodiert alle Zahlen in {\em chrom} aus dem Intervall {\em range} 
+  (bei {\em useGray} = ``true'' per Gray-Kodierung) in den Bitstring 
+  {\em this}.
+  Jede Zahl wird in {\em nbits} Bits kodiert. 
+}\\
+\method{
+  \emph{double} \textsf{\textbf{\small decode}}(\\
+  \hspace*{1.5em}\emph{const Interval\emph{\&} range,\\
+  \hspace*{1.5em}bool useGray = ``false''} ) }{ 
+  Dekodiert die in {\em this} (bei {\em useGray} = ``true'' per
+  Gray-Kodierung) in {\em nbits} Bits kodierte Zahl und gibt sie
+  zur\"uck.
+}\\\hrule
+
+\vspace*{10pt}
+
+
+% -----------------------------------------------------------------------
+\subsection{Mutationsmethoden}
+% -----------------------------------------------------------------------
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small flip}}(
+  \emph{double p} ) }{ 
+  Jeder Allelwert wird mit Wahrscheinlichkeit {\em p} invertiert.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small flip}}(
+  \emph{const vector$<$ double $>$\emph{\&} p\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{ 
+  $this_i$ ($i\ =\ 0..n-1$) wird mit Wahrscheinlichkeit
+  $p_i$ invertiert. Bei {\em cycle} = ``true'' darf {\em p}
+  mehrmals durchlaufen werden.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small flip}}(
+  \emph{const Chromosome\emph{\&} p\\
+  \hspace*{1.5em}bool cycle = ``false''} ) }{ 
+  $this_i$ ($i\ =\ 0..n-1$) wird mit Wahrscheinlichkeit
+  $p_i$ invertiert. Bei {\em cycle} = ``true'' darf {\em p}
+  mehrmals durchlaufen werden.
+}\\\hrule
+
+
+\newpage
+\chapter{Klasse {\tt Individual}}
+
+
+% ######################################################################
+\section{Interne Variablen und Flags}
+% ######################################################################
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Variable/Flag}{Beschreibung}\hrule
+\method{
+  \textsf{\textbf{\small fitness}}}{ 
+  Ergebnis der Bewertung des Individuums, mit ``0'' initialisiert.
+}\\
+\method{
+  \textsf{\textbf{\small scaledFitness}}}{ 
+  Skalierte Fitne{\ss} - positiver Wert, der zusammen mit allen
+  anderen Fitne{\ss}werten die Summe ``1.0'' ergibt. Wird mit
+  ``0'' initialisiert.
+}\\
+\method{
+  \textsf{\textbf{\small age}}}{ 
+  Alter des Individuums, wird mit ``0'' initialisiert.
+}\\
+\method{
+  \textsf{\textbf{\small selProb}}}{ 
+  Selektionswahrscheinlichkeit des Individuums, wird 
+  mit ``0'' initialisiert.
+}\\
+\method{
+  \textsf{\textbf{\small numCopies}}}{ 
+  Anzahl der Reproduktionen des Individuums bei letzter
+  Selektion, wird mit ``0'' initialisiert.
+}\\
+\method{
+  \textsf{\textbf{\small evalFlg}}}{ 
+  Ist das Flag gesetzt, mu{\ss} die FItne{\ss} des Individuums
+  bewertet werden. Das Flag wird mit ``false'' initialisiert.
+}\\
+\method{
+  \textsf{\textbf{\small feasible}}}{ 
+  Ist das Flag gesetzt, so stellt das Individuum eine m\"ogliche
+  L\"osung des Optimierungsproblems dar. Das Flag wird mit ``false''
+  intialisiert.
+}\\
+\method{
+  \textsf{\textbf{\small elitist}}}{ 
+  Ist das Flag gesetzt, so wurde das Individuum bei der letzten Selektion
+  als Elitist ausgew\"ahlt. Das Flag wird mit ``false''
+  intialisiert.
+}\\\hrule
+
+\newpage
+
+% ######################################################################
+\section{Frei verf\"ugbare Methoden}
+% ######################################################################
+
+\subsection{Konstruktoren und Destruktor}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \textsf{\textbf{\small Individual}}( )}{ 
+  Erzeugt ein leeres Individuum.
+}\\
+\method{
+  \emph{explicit} \textsf{\textbf{\small Individual}}( \emph{unsigned n} )}{ 
+  Erzeugt ein Individuum mit {\em n} Chromosomen des Typs {\tt char}.
+}\\
+\method{
+  \textsf{\textbf{\small Individual}}( \emph{unsigned n,\\
+  \hspace*{1.5em}const Chromosome\emph{\&} chrom} )}{ 
+  Erzeugt ein Individuum, mit {\em n} Klonen von {\em chrom}.
+}\\
+\method{
+  \textsf{\textbf{\small Individual}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} chrom0} )}{ 
+  Erzeugt ein Individuum mit Chromosom {\em chrom0}.
+}\\
+\method{
+  \textsf{\textbf{\small Individual}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&}\\
+  \hspace*{2.5em}chrom0, ..., chrom\emph{[1 .. 7]}} )}{ 
+  Erzeugt ein Individuum mit Klonen von {\em chrom0} bis 
+  $chrom_i$ (mit $i\ =\ 1\ ..\ 7$).
+}\\
+\method{
+  \textsf{\textbf{\small Individual}}(\\
+  \hspace*{1.5em}\emph{const vector$<$Chromosome$\ast>$\emph{\&}\\
+  \hspace*{2.5em}chrom} 
+  )}{ 
+  Erzeugt ein Individuum mit Klonen aus {\em chrom}.
+}\\
+\method{
+  \textsf{\textbf{\small Individual}}(\\
+  \hspace*{1.5em}\emph{const Individual\emph{\&} indiv} )}{ 
+  Erzeugt ein Individuum mit Inhalt von {\em indiv}.
+}\\
+\method{
+  \emph{$\sim$} \textsf{\textbf{\small Individual}}( )}{ 
+  L\"oscht alle Individuen in {\em this} und zerst\"ort dann die Instanz.
+}\\\hrule
+
+\vspace*{10pt}
+
+\subsection{Operatoren}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{Individual\emph{\&}} \textsf{\textbf{\small operator\ =\ }}(\\
+  \hspace*{1.5em}\emph{const Individual\emph{\&} indiv} )}{ 
+  Weist {\em this} die Daten vom Individuum {\em indiv} zu.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ ==\ }}(\\
+  \hspace*{1.5em}\emph{const Individual\emph{\&} ind} )}{ 
+  Pr\"uft, ob {\em this} und {\em ind} gleich sind.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ $<$\ }}(\\
+  \hspace*{1.5em}\emph{const Individual\emph{\&} ind} )}{ 
+  Pr\"uft, ob {\em this} kleiner als {\em ind} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ $>$\ }}(\\
+  \hspace*{1.5em}\emph{const Individual\emph{\&} ind} )}{ 
+  Pr\"uft, ob {\em this} gr\"o{\ss}er als {\em ind} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ $<=$\ }}(\\
+  \hspace*{1.5em}\emph{const Individual\emph{\&} ind} )}{ 
+  Pr\"uft, ob {\em this} kleiner oder gleich {\em ind} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ $>=$\ }}(\\
+  \hspace*{1.5em}\emph{const Individual\emph{\&} ind} )}{ 
+  Pr\"uft, ob {\em this} gr\"o{\ss}er oder gleich {\em ind} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ !=\ }}(\\
+  \hspace*{1.5em}\emph{const Individual\emph{\&} ind} )}{ 
+  Pr\"uft, ob {\em this} und {\em ind} verschieden sind.
+}\\
+\method{
+  \emph{Chromosome\emph{\&}} \textsf{\textbf{\small operator\ [\ ]\ }}(\\
+  \hspace*{1.5em}\emph{unsigned i} )}{ 
+  Gibt das Chromosom mit Index {\em i} zur\"uck.
+}\\\hrule
+
+\newpage
+
+\subsection{Informationsmethoden}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{unsigned} \textsf{\textbf{\small size}}( ) }{
+  Gibt die Anzahl der Chromosomen in {\em this} zur\"uck. 
+}\\
+\method{
+  \emph{unsigned} \textsf{\textbf{\small totalSize}}( ) }{
+  Gibt die Gesamtzahl aller Chromosomenallele in {\em this} zur\"uck. 
+}\\
+\method{
+  \emph{double} \textsf{\textbf{\small fitnessValue}}( ) }{
+  Gibt den Fitne{\ss}wert von {\em this} zur\"uck.
+}\\
+\method{
+  \emph{unsigned} \textsf{\textbf{\small getAge}}( ) }{
+  Gibt das Alter von {\em this} zur\"uck.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small needEvaluation}}( ) }{
+  Gibt ``true'' zur\"uck, wenn {\em this} bewertet werden mu{\ss}.
+}\\
+\method{
+  \emph{double} \textsf{\textbf{\small selectionProbability}}( ) }{
+  Gibt die Selektionswahrscheinlichkeit von {\em this} zur\"uck.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small isFeasible}}( ) }{
+  Gibt ``true'' zur\"uck, wenn {\em this} eine m\"ogliche L\"osung des
+  Optimierungsproblems darstellt.
+}\\
+\method{
+  \emph{unsigned} \textsf{\textbf{\small numberOfCopies}}( ) }{
+  Gibt an, wie oft {\em this} bei der letzten Selektion
+  reproduziert wurde.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small isElitist}}( ) }{
+  Gibt ``true'' zur\"uck, wenn {\em this} bei der letzten Selektion als 
+  Elitist ausgew\"ahlt wurde.
+}\\\hrule
+
+\vspace*{10pt}
+
+\subsection{Methoden zur Ver\"anderung interner Variablen und Flags}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small setFitness}}( 
+  \emph{double fit} ) }{
+  Setzt normale und skalierte Fitne{\ss} von {\em this}
+  auf {\em fit}. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small setAge}}(
+  \emph{unsigned a} ) }{
+  Setzt das Alter von {\em this} auf {\em a}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small incAge}}( ) }{
+  Erh\"oht das Alter von {\em this} um den Wert ``1''.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small setEvaluationFlag}}( ) }{
+  Setzt {\em evalFlg} auf den Wert ``true''.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small clearEvaluationFlag}}( ) }{
+  Setzt {\em evalFlg} auf den Wert ``false''.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small setFeasible}}(
+  \emph{bool f} ) }{
+  Setzt das {\em feasible}-Flag auf den neuen Wert {\em f}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small setSelectionProbability}}(\\
+  \hspace*{1.5em}\emph{double ps} ) }{
+  Setzt die Selektionswahrscheinlichkeit des Individuums auf {\em ps}.
+}\\\hrule
+
+\newpage
+
+\subsection{Strukturver\"anderungsmethoden}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small replace}}( 
+  \emph{unsigned i,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} chrom} ) }{
+  Ersetzt Chromosom Nummer {\em i} von {\em this} durch 
+  {\em chrom}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small insert}}( 
+  \emph{unsigned i,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} chrom} ) }{
+  F\"ugt {\em chrom} an Position {\em i} in {\em this}
+  ein.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small append}}(\\
+  \hspace*{1.5em}\emph{const Chromosome\emph{\&} chrom} ) }{
+  H\"angt {\em chrom} am Ende von {\em this} an.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small remove}}( 
+  \emph{unsigned i} ) }{
+  L\"oscht das Chromosom mit Index {\em i} aus {\em this}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small remove}}( 
+  \emph{unsigned from,\\ 
+  \hspace*{1.5em}unsigned to} ) }{
+  L\"oscht die Chromosomem von Index {\em from} bis {\em to} aus {\em this}.
+}\\\hrule
+
+\vspace*{10pt}
+
+\subsection{Ein- und Ausgabemethoden}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small readFrom}}(
+  \emph{istream\emph{\&} is} ) }{ 
+  Die Daten von {\em this} werden durch die aus {\em is} gelesenen
+  Daten ersetzt.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small writeTo}}(
+  \emph{ostream\emph{\&} os} ) }{ 
+  Schreibt die Daten von {\em this} in {\em os}.
+}\\\hrule
+
+
+\newpage
+\chapter{Klasse {\tt Population}}
+
+
+% ######################################################################
+\section{Interne Variablen und Flags}
+% ######################################################################
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Variable/Flag}{Beschreibung}\hrule
+\method{
+  \textsf{\textbf{\small index}}}{ 
+  Index des Individuums mit bestem Fitne{\ss}wert.
+}\\
+\method{
+  \textsf{\textbf{\small subPop}}}{ 
+  ``true'' zeigt an, da{\ss} es sich bei der Population
+  um eine Subpopulation handelt. Das Flag wird mit ``false''
+  initialisiert.
+}\\
+\method{
+  \textsf{\textbf{\small ascending}}}{ 
+  ``true'' zeigt an, da{\ss} die Individuen nach aufsteigenden
+  Fitne{\ss}werten sortiert werden. Bei ``false'' (= Initialwert)
+  wird nach absteigender Fitne{\ss} sortiert.
+}\\
+\method{
+  \textsf{\textbf{\small spinOnce}}}{ 
+  Flag f\"ur Selektionsmethode {\em selectRouletteWheel} (s.u.).
+  Bei ``true'' (= Initialwert) dreht sich das Rad nur einmal, bei ``false''
+  mehrmals.
+}\\\hrule
+
+
+\newpage
+% ######################################################################
+\section{Frei verf\"ugbare Methoden}
+% ######################################################################
+
+\subsection{Konstruktoren und Destruktor}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \textsf{\textbf{\small Population}}( )}{ 
+  Erzeugt eine leere Population.
+}\\
+\method{
+  \emph{explicit} \textsf{\textbf{\small Population}}(
+  \emph{unsigned n} )}{ 
+  Erzeugt eine neue Population mit {\em n}
+  leeren Individuen.
+}\\
+\method{
+  \textsf{\textbf{\small Population}}(\\
+  \hspace*{1.5em}\emph{const Individual\emph{\&} indiv} )}{ 
+  Erzeugt eine neue Population mit Individuum {\em indiv}.
+}\\
+\method{
+  \textsf{\textbf{\small Population}}(
+  \emph{unsigned n,\\ 
+  \hspace*{1.5em}const Individual\emph{\&} indiv} )}{ 
+  Erzeugt eine neue Population mit {\em n} Klonen von {\em indiv}.
+}\\
+\method{
+  \textsf{\textbf{\small Population}}(
+  \emph{unsigned n,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&} chrom0} )}{ 
+  Erzeugt eine neue Population mit {\em n} Individuen, die jeweils aus
+  einem Klon von {\em chrom0} bestehen.
+}\\
+\method{
+  \textsf{\textbf{\small Population}}(
+  \emph{unsigned n,\\ 
+  \hspace*{1.5em}const Chromosome\emph{\&}\\ 
+  \hspace*{2.5em}chrom0, ..., chrom\emph{[1 .. 7]}} )}{ 
+  Erzeugt eine neue Population mit {\em n} Individuen, die jeweils aus
+  den Klonen {\em chrom0} bis $chrom_i$ (mit $i\ =\ 1\ ..\ 7$)
+  bestehen.
+}\\
+\method{
+  \textsf{\textbf{\small Population}}(
+  \emph{unsigned n,\\ 
+  \hspace*{1.5em}const vector$<$ Chromosome $\ast$ $>$\emph{\&}\\ 
+  \hspace*{2.5em}chrom} )}{ 
+  Erzeugt eine neue Population mit {\em n} Individuen, die jeweils aus
+  den Klonen in {\em chrom} bestehen.
+}\\
+\method{
+  \textsf{\textbf{\small Population}}(\\
+  \hspace*{1.5em}\emph{const Population\emph{\&} pop} )}{ 
+  Erzeugt eine neue Population, die aus einer Kopie von {\em pop}
+  besteht.
+}\\
+\method{
+  \emph{$\sim$} \textsf{\textbf{\small Population}}( )}{ 
+  Ist das Flag {\em subPop} auf ``false'' gesetzt, wird die
+  Population inklusive aller Individuen zerst\"ort.
+  {\em subPop} = ``true'', so bleibt die Population erhalten.
+}\\\hrule
+
+\newpage
+
+\subsection{Operatoren}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{Population\emph{\&}} \textsf{\textbf{\small operator\ =\ }}(\\
+  \hspace*{1.5em}\emph{const Individual\emph{\&} indiv} )}{ 
+  Weist allen Individuen von {\em this} die Daten des Individuums 
+  {\em indiv} zu.
+}\\
+\method{
+  \emph{Population\emph{\&}} \textsf{\textbf{\small operator\ =\ }}(\\
+  \hspace*{1.5em}\emph{const Population\emph{\&} pop} )}{ 
+  Weist {\em this} die Daten der Population {\em pop} zu.
+}\\
+
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ ==\ }}(\\
+  \hspace*{1.5em}\emph{const Population\emph{\&} pop} )}{ 
+  Pr\"uft, ob {\em this} und {\em pop} gleich sind.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ $<$\ }}(\\
+  \hspace*{1.5em}\emph{const Population\emph{\&} pop} )}{ 
+  Pr\"uft, ob {\em this} kleiner als {\em pop} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ $>$\ }}(\\
+  \hspace*{1.5em}\emph{const Population\emph{\&} pop} )}{ 
+  Pr\"uft, ob {\em this} gr\"o{\ss}er als {\em pop} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ $<=$\ }}(\\
+  \hspace*{1.5em}\emph{const Population\emph{\&} pop} )}{ 
+  Pr\"uft, ob {\em this} kleiner oder gleich {\em pop} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ $>=$\ }}(\\
+  \hspace*{1.5em}\emph{const Population\emph{\&} pop} )}{ 
+  Pr\"uft, ob {\em this} gr\"o{\ss}er oder gleich {\em pop} ist.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small operator\ !=\ }}(\\
+  \hspace*{1.5em}\emph{const Population\emph{\&} pop} )}{ 
+  Pr\"uft, ob {\em this} und {\em pop} verschieden sind.
+}\\
+\method{
+  \emph{Individual\emph{\&}} \textsf{\textbf{\small operator\ [\ ]\ }}(\\
+  \hspace*{1.5em}\emph{unsigned i} )}{ 
+  Gibt das Individuum mit Index {\em i} zur\"uck.
+}\\
+\method{
+  \emph{Population\emph{\&}} \textsf{\textbf{\small operator\ (\ )\ }}(\\
+  \hspace*{1.5em}\emph{unsigned from, unsigned to} )}{ 
+  Gibt eine Subpopulation, bestehend aus den Individuen {\em from}
+  bis {\em to} aus {\em this} zur\"uck.
+}\\\hrule
+
+\newpage
+
+\subsection{Informationsmethoden}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{int} \textsf{\textbf{\small size}}( ) }{
+  Gibt die Anzahl der in {\em this} enthaltenen Individuen zur\"uck.
+}\\
+\method{
+  \emph{bool} \textsf{\textbf{\small ascendingFitness}}( ) }{
+  Gibt ``true'' zur\"uck, wenn die Individuen in {\em this} nach
+  aufsteigenden Fitne{\ss}werten sortiert sind.
+}\\
+\method{
+  \emph{double} \textsf{\textbf{\small minFitness}}( ) }{
+  Gibt den minimalen Fitne{\ss}wert in {\em this} zur\"uck.
+}\\
+\method{
+  \emph{double} \textsf{\textbf{\small maxFitness}}( ) }{
+  Gibt den maximalen Fitne{\ss}wert in {\em this} zur\"uck.
+}\\
+\method{
+  \emph{double} \textsf{\textbf{\small meanFitness}}( ) }{
+  Gibt den durchschnittlichen Fitne{\ss}wert in {\em this} zur\"uck.
+}\\
+\method{
+  \emph{double} \textsf{\textbf{\small stdDevFitness}}( ) }{
+  Gibt die Standardabweichung aller Fitne{\ss}werte in {\em this} zur\"uck.
+}\\
+\method{
+  \emph{unsigned} \textsf{\textbf{\small bestIndex}}( ) }{
+  Gibt den Index des Individuums mit dem besten Fitne{\ss}wert 
+  (= {\em ascending}-Flag = ``true''? $\Longrightarrow$ niedrigste
+   Fitne{\ss}, {\em ascending}-Flag = ``false''? $\Longrightarrow$ h\"ochste
+   Fitne{\ss}) zur\"uck.
+}\\
+\method{
+  \emph{unsigned} \textsf{\textbf{\small worstIndex}}( ) }{
+  Gibt den Index des Individuums mit dem schlechtesten Fitne{\ss}wert 
+  (= {\em ascending}-Flag = ``true''? $\Longrightarrow$ h\"ochste
+   Fitne{\ss}, {\em ascending}-Flag = ``false''? $\Longrightarrow$ niedrigste
+   Fitne{\ss}) zur\"uck.
+}\\
+\method{
+  \emph{Individual\emph{\&}} \textsf{\textbf{\small best}}( ) }{
+  Gibt das Individuum mit dem besten Fitne{\ss}wert nach den
+  Kriterien von {\em bestIndex} (s.o.) zur\"uck.
+}\\
+\method{
+  \emph{Individual\emph{\&}} \textsf{\textbf{\small worst}}( ) }{
+  Gibt das Individuum mit dem schlechtesten Fitne{\ss}wert nach den
+  Kriterien von {\em worstIndex} (s.o.) zur\"uck.
+}\\\hrule
+
+\vspace*{10pt}
+
+\subsection{Methoden zur Ver\"anderung interner Variablen und Flags}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small setMinimize}}( ) }{
+  Setzt das {\em ascending}-Flag auf ``true''. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small setMaximize}}( ) }{
+  Setzt das {\em ascending}-Flag auf ``false''. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small spinWheelOneTime}}( ) }{
+  Setzt das {\em spinOnce}-Flag auf ``true''.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small spinWheelMultipleTimes}}( 
+  \emph{} ) }{
+  Setzt das {\em spinOnce}-Flag auf ``false''.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small setAge}}( 
+  \emph{unsigned a} ) }{
+  Setzt das Alter aller Individuen auf {\em a}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small incAge}}( 
+  \emph{} ) }{
+  Erh\"oht das Alter aller Individuen um den Wert ``1''.
+}\\\hrule
+
+
+\newpage
+
+\subsection{Strukturver\"anderungsmethoden}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small resize}}( 
+  \emph{unsigned n} ) }{
+  Setzt die Gr\"o{\ss}e von {\em this} auf {\em n} Individuen.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small replace}}( 
+  \emph{unsigned i,\\
+  \hspace*{1.5em}const Individual\emph{\&} ind} ) }{
+  Ersetzt das Individuum an Position {\em i} durch {\em ind}. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small replace}}( 
+  \emph{unsigned i,\\
+  \hspace*{1.5em}const Population\emph{\&} pop} ) }{
+  Ersetzt die Individuen ab Position {\em i} mit denen
+  aus {\em pop}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small insert}}( 
+  \emph{unsigned i,\\
+  \hspace*{1.5em} const Individual\emph{\&} ind} ) }{
+  F\"ugt {\em ind} an Position {\em i} in {\em this} ein.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small insert}}( 
+  \emph{unsigned i,\\
+  \hspace*{1.5em} const Population\emph{\&} pop} ) }{
+  F\"ugt alle Individuen aus {\em pop} ab Position {\em i}
+  in {\em this} ein. 
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small append}}( 
+  \emph{const Individual\emph{\&} ind} ) }{
+  H\"angt {\em ind} am Ende von {\em this} an.
+}\\
+\method{
+  \emph{void } \textsf{\textbf{\small append}}( 
+  \emph{const Population\emph{\&} pop} ) }{
+  H\"angt {\em pop} am Ende von {\em this} an.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small remove}}( 
+  \emph{unsigned i} ) }{
+  Entfernt das Individuum an Position {\em i} aus {\em this}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small remove}}( 
+  \emph{unsigned from,\\ 
+  \hspace*{1.5em}unsigned to} ) }{
+  Entfernt die Individuen von Position {\em from} bis {\em to} 
+  aus {\em this}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small exchange}}( 
+  \emph{Population\emph{\&} pop} ) }{
+  Vertauscht die Inhalte der Populationen {\em this} und {\em pop}
+  miteinander.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small swap}}( 
+  \emph{unsigned i, unsigned j} ) }{
+  Vertauscht die Individuen an den Positionen {\em i} und {\em j}
+  miteinander.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small sort}}( ) }{
+  Sortiert die Individuen in {\em this} entsprechend
+  dem Wert von {\em ascending}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small shuffle}}( ) }{
+  \"Andert die Reihenfolge der Individuen in {\em this}
+  auf zuf\"alliger Basis.
+}\\\hrule
+
+
+\vspace*{10pt}
+
+\subsection{Methoden zur Extraktion einzelner Individuen}
+
+\vspace*{15pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{Individual\emph{\&}} \textsf{\textbf{\small random}}( ) }{ 
+  Gibt ein zuf\"allig ausgew\"ahltes Individuum zur\"uck.
+}\\
+\method{
+  \emph{vector$<$ const Chromosome $\ast$ $>$}\\ 
+  \hspace*{1.5em}\textsf{\textbf{\small matingPool}}(
+  \emph{unsigned chrom,\\ 
+  \hspace*{2.5em}unsigned from = 0,\\ 
+  \hspace*{2.5em}unsigned to = 0} ) }{ 
+  Gibt alle Chromosomen mit Index {\em chrom} aus den
+  Individuen {\em from} bis {\em to} (bei {\em from} = {\em to} = 0
+  aus allen Individuen) zur\"uck.
+}\\\hrule
+
+\newpage
+
+\subsection{Skalierungsmethode}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small linearDynamicScaling}}(\\
+  \emph{\hspace*{1.5em}vector$<$ double $>$\emph{\&} window,\\
+  \hspace*{1.5em}unsigned long t} ) }{ 
+  Skaliert alle Fitne{\ss}werte mittels
+  Skalierungsfenster {\em window} zum Zeitpunkt {\em t}.\\
+}\\\hrule
+
+\vspace*{1.5em}
+
+\subsection{Selektionsmethoden}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small selectMuLambda}}(\\
+  \hspace*{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}unsigned numElitists = 0} ) }{
+  W\"ahlt aus {\em this} und {\em parents} {\em numElitists}
+  Elitisten und weitere Individuen zur Reproduktion nach der 
+  $(\mu\ [,|+]\ \lambda)$-Selektionsmethode aus.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small selectMuLambdaKappa}}(\\
+  \hspace*{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}unsigned lifespan = 1,\\
+  \hspace*{1.5em}unsigned adolescence = 0} ) }{ 
+  Selektiert aus {\em this} und {\em parents} zuerst Individuen
+  mit Alter {\em age} $<$ {\em adolescence} und dann jene mit
+  {\em age} $<=$ {\em lifespan} zur Reproduktion.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{Individual\emph{\&}} 
+  \textsf{\textbf{\small selectOneIndividual}}( ) }{ 
+  Auswahl eines Individuums durch proportionale Selektion.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small selectProportional}}(\\
+  \hspace*{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}unsigned numElitists = 0} ) }{ 
+  Selektiert aus {\em this} und {\em parents} Individuen
+  mittels proportionaler Selektion, \"ubernimmt dabei
+  {\em numElitists} Elitisten.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small selectLinearRanking}}(\\
+  \hspace*{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}double etaMax = 1.1,\\
+  \hspace*{1.5em}unsigned numElitists = 0} ) }{ 
+  Selektiert aus {\em this} und {\em parents} Individuen nach
+  der Methode des linearen Ranges und \"ubernimmt dabei 
+  {\em numElitists} Elitisten. Die maximale Reproduktionsrate
+  von selektierten Individuen betr\"agt {\em etaMax}.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small selectLinearRankingWhitley}}(\\
+  \hspace*{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}double a = 1.1,\\
+  \hspace*{1.5em}unsigned numElitists = 0} ) }{ 
+  Selektiert aus {\em this} und {\em parents} Individuen nach
+  der Methode des linearen Ranges nach Whitley und \"ubernimmt dabei 
+  {\em numElitists} Elitisten. Die maximale Reproduktionsrate
+  von selektierten Individuen betr\"agt {\em a}.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\\hrule
+
+\newpage
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small selectUniformRanking}}(\\
+  \hspace{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}unsigned numElitists = 0} ) }{ 
+  Selektiert aus {\em this} und {\em parents} Individuen nach
+  der Methode des einheitlichen Ranges und \"ubernimmt dabei 
+  {\em numElitists} Elitisten. 
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small reproduce}}(\\
+  \hspace*{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}unsigned numElitists = 0} ) }{ 
+  Entspricht der Selektion anhand der
+  Einheitsrang-Methode (s. {\em selectUniformRanking}).
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small selectTournament}}(\\
+  \hspace*{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}unsigned q = 2,\\
+  \hspace*{1.5em}unsigned numElitists = 0} ) }{ 
+  W\"ahlt in {\em n} Schritten jeweils das beste Individuum
+  aus einer per Zufall zusammengestellten Gruppe von {\em q}
+  Individuen aus {\em this} und {\em parents} aus und
+  \"ubernimmt zus\"atzlich {\em numElitists} Elitisten.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small selectEPTournament}}(\\
+  \hspace*{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}unsigned q} ) }{ 
+  Selektiert Individuen zur Reproduktion, indem jedes
+  Individuum aus {\em this} und {\em parents} gegen
+  {\em q} andere, zuf\"allig ausgew\"ahlte Individuen
+  bestehen mu{\ss}.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\\hrule
+
+% ######################################################################
+\section{Gesch\"utzte Methoden}
+% ######################################################################
+
+\subsection{Konstruktor und Initialisierungsmethode}
+
+\vspace*{15pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \textsf{\textbf{\small Population}}(\\
+  \hspace*{1.5em}\emph{const vector$<$ Individual $\ast$ $>$\emph{\&}\\
+  \hspace*{2.5em}indvec} ) }{ 
+  Erzeugt eine neue Population mit Individuen aus {\em indvec}.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small selectInit}}( ) }{ 
+  Initialisiert die internen Variablen aller Individuen f\"ur 
+  eine sp\"atere Selektionsmethode.
+}\\\hrule
+
+\newpage
+
+\subsection{Vergleichsmethoden}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{static bool} \textsf{\textbf{\small lessFitness}}(\\ 
+  \hspace*{1.5em}\emph{Individual$\ast$const\emph{\&} i1,\\
+  \hspace*{1.5em}Individual$\ast$const\emph{\&} i2} ) }{ 
+  Gibt ``true'' zur\"uck, wenn {\em i1} eine geringere Fitne{\ss}
+  hat als {\em i2}.
+}\\
+\method{
+  \emph{static bool} \textsf{\textbf{\small greaterFitness}}(\\ 
+  \hspace*{1.5em}\emph{Individual$\ast$const\emph{\&} i1,\\
+  \hspace*{1.5em}Individual$\ast$const\emph{\&} i2} ) }{ 
+  Gibt ``true'' zur\"uck, wenn {\em i1} eine h\"ohere Fitne{\ss}
+  hat als {\em i2}.
+}\\
+\method{
+  \emph{static bool} \textsf{\textbf{\small greaterScoreAscending}}(\\ 
+  \hspace*{1.5em}\emph{Individual$\ast$const\emph{\&} i1,\\
+  \hspace*{1.5em}Individual$\ast$const\emph{\&} i2} ) }{ 
+  Gibt ``true'' zur\"uck, wenn die skalierte Fitne{\ss} von {\em i1} 
+  gr\"o{\ss}er oder die normale Fitne{\ss} kleiner ist als die 
+  entsprechenden Werte von {\em i2}.
+}\\
+\method{
+  \emph{static bool} \textsf{\textbf{\small greaterScoreDescending}}(\\ 
+  \hspace*{1.5em}\emph{Individual$\ast$const\emph{\&} i1,\\
+  \hspace*{1.5em}Individual$\ast$const\emph{\&} i2} ) }{ 
+  Gibt ``true'' zur\"uck, wenn die skalierte oder die normale Fitne{\ss} 
+  von {\em i1} gr\"o{\ss}er sind als jene von {\em i2}.
+}\\
+\method{
+  \emph{Individual\emph{\&}} \textsf{\textbf{\small best}}(
+  \emph{Individual\emph{\&} ind0,\\ 
+  \hspace*{1.5em}Individual\emph{\&} ind1} ) }{ 
+  Vergleicht {\em ind0} und {\em ind1} und gibt bei {\em ascending}
+  = ``true'' das Individuum mit der kleineren Fitne{\ss}, bei
+  {\em ascending} = ``false'' jenes mit der gr\"o{\ss}eren
+  Fitne{\ss} zur\"uck.
+}\\
+\method{
+  \emph{Individual\emph{\&}} \textsf{\textbf{\small worst}}(
+  \emph{Individual\emph{\&} ind0,\\ 
+  \hspace*{1.5em}Individual\emph{\&} ind1} ) }{ 
+  Vergleicht {\em ind0} und {\em ind1} und gibt bei {\em ascending}
+  = ``true'' das Individuum mit der gr\"o{\ss}eren Fitne{\ss}, bei
+  {\em ascending} = ``false'' jenes mit der kleineren
+  Fitne{\ss} zur\"uck.
+}\\\hrule
+
+\vspace*{10pt}
+
+\subsection{Sortiermethode}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small sortIndividuals}}(\\ 
+  \hspace*{1.5em}\emph{vector$<$ Individual $\ast$ $>$\emph{\&} indvec} ) }{ 
+  Sortiert die Individuen in {\em indvec} bei {\em ascending} = ``true''
+  nach aufsteigender, bei {\em ascending} = ``false'' nach absteigender
+  Fitne{\ss}.
+}\\\hrule
+
+\newpage
+
+\subsection{Selektionsmethoden}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small selectElitists}}(\\ 
+  \hspace*{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}unsigned numElitists} ) }{ 
+  Selektiert aus {\em this} und {\em parents} {\em numElitists}
+  Elitisten.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small selectRouletteWheel}}(\\ 
+  \hspace*{1.5em}\emph{Population\emph{\&} parents,\\
+  \hspace*{1.5em}unsigned numElitists} ) }{ 
+  Selektiert aus {\em this} und {\em parents} {\em numElitists}
+  Elitisten nach der Roulette-Rad-Methode. Je nach Wert von
+  {\em spinOnce} dreht sich das Rad ein- oder mehrmals.
+  N\"aheres siehe in ausf\"uhrlicher Referenz.
+}\\\hrule
+
+\vspace*{10pt}
+
+\subsection{Ein- und Ausgabemethoden}
+
+\vspace*{10pt}
+
+\methodgrayfalse
+
+\parindent0mm
+\hrule
+\vspace*{1pt}
+\method{Methode}{Beschreibung}\hrule
+\method{
+  \emph{void} \textsf{\textbf{\small readFrom}}(
+  \emph{istream\emph{\&} is} ) }{ 
+  Ersetzt die Daten von {\em this} durch jene, die aus
+  {\em is} gelesen werden.
+}\\
+\method{
+  \emph{void} \textsf{\textbf{\small writeTo}}(
+  \emph{ostream\emph{\&} os} ) }{ 
+  Schreibt die Daten von {\em this} in {\em os}.
+}\\\hrule
+
+
+
+\begin{thebibliography}{55}
+  
+    \bibitem{EALib}
+    {\em EALib: A \cpp\ class library for evolutionary
+    algorithms}, Version 1.5, von M. Kreutz, B. Sendhoff, C. Igel,
+    Institut f\"ur Neuroinformatik, Ruhr-Universit\"at Bochum, 
+    2000.
+
+\end{thebibliography}
+
+\end{document}
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+
+
+
+
+
+
+
+
+
+
+
+

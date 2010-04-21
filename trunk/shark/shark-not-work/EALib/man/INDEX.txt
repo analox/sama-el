@@ -1,0 +1,14 @@
+These are the major tex-files from which the manuals
+are generated:
+
+EALib.tex				The EALib manual.
+Referenz_EALib.tex			Comprehensive reference, detailed 
+					information about the class interfaces,
+					german.
+Reference_EALib.tex			Ditto, english.
+Schnellreferenz_EALib.tex		Quick tabular reference for the EAlib,
+					german.
+QuickReference_EALib.tex		Ditto, english.
+EALib_Structure_Introduction.tex	Shows some details about the structure
+					of the EALib (in english). Use it as 
+					addition to the reference.

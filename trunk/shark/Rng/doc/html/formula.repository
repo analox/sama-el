@@ -1,0 +1,136 @@
+\form#0:$1 - p$
+\form#1:$p$
+\form#2:$ p_x^{(n)} = P(X = x) = {n \choose x} \cdot p^x \cdot q^{n-x} $
+\form#3:$n$
+\form#4:$x$
+\form#5:$p_x^{(n)}$
+\form#6:$q = 1 -p$
+\form#7:$ {n \choose x} = \frac{n \cdot (n-1) \cdot (n-2) \cdot \dots \cdot (n-x+1)}{1 \cdot 2 \cdot \dots \cdot x} = \prod_{i=1}^x \frac{n+1-i}{i} $
+\form#8:${n \choose x}$
+\form#9:$ tt! = tt \cdot (tt - 1) \cdot (tt - 2) \cdot \dots \cdot 2 \cdot 1 = \prod_{i=1}^{tt} i $
+\form#10:$tt!$
+\form#11:$rn$
+\form#12:$\leq rn \leq$
+\form#13:$p = \frac{1}{\mbox{interval length}}$
+\form#14:$\mu$
+\form#15:$\sigma^2$
+\form#16:$k$
+\form#17:$k = \frac{\mu^2}{\sigma^2+0.5}$
+\form#18:$\alpha$
+\form#19:$\alpha = \frac{k}{\mu}$
+\form#20:$\geq 1$
+\form#21:$> 0$
+\form#22:$k = 1$
+\form#23:$\alpha = 0.5$
+\form#24:$\mu \leq 0$
+\form#25:$p = \frac{N_1}{N}$
+\form#26:$p = \frac{1}{2} \cdot (1 - \sqrt{\frac{\sigma^2 / \mu^2 - 1}{\sigma^2 / \mu^2 + 1}})$
+\form#27:$\geq 0$
+\form#28:$p = 0.$
+\form#29:$\sqrt{e}$
+\form#30:$e(e-1)$
+\form#31:$V(X)=\sigma^2$
+\form#32:$x > 0$
+\form#33:$x \leq 0$
+\form#34:$\lambda$
+\form#35:$\lambda = $
+\form#36:$x < 0$
+\form#37:$pStdDev = \sqrt{\mbox{variance}}$
+\form#38:$\lambda = \mbox{mean}$
+\form#39:$\leq rn <$
+\form#40:$\beta$
+\form#41:$alpha$
+\form#42:$1 - pP$
+\form#43:$p_x^{(n)} = P(X = x) = {n \choose x} \cdot p^x \cdot q^{n-x}$
+\form#44:$q = 1 - p$
+\form#45:$n = 8$
+\form#46:$p = 0.3$
+\form#47:$p = 0.5$
+\form#48:$ f(x) = \frac{1}{\pi (1 + x^2)} $
+\form#49:$ f(x) = ( p \cdot (1 - p)^{|x|} ) / (2 - p) $
+\form#50:$p = 0.2$
+\form#51:$p = 0.8$
+\form#52:$[$
+\form#53:$lo \leq rn \leq hi$
+\form#54:$]$
+\form#55:$k = 1,2,3,...$
+\form#56:$k=1,2,3$
+\form#57:$ f(x) = (k \cdot \alpha)^k \cdot x^{(k - 1)} \cdot e^{-k \alpha x} $
+\form#58:$\alpha > 0$
+\form#59:$k > 0$
+\form#60:$k = 1, 2, 3$
+\form#61:$(1-p)$
+\form#62:$x-1$
+\form#63:$ f(x) = p \cdot (1-p)^{x-1} $
+\form#64:$x = 0$
+\form#65:$f(x) = 0$
+\form#66:$T_1$
+\form#67:$N_1$
+\form#68:$T_2$
+\form#69:$N_2$
+\form#70:$N = N_1 + N_2$
+\form#71:$ P(k) = {pN \choose k} {N(1 - p) \choose n - k} / {N \choose k} $
+\form#72:$p \cdot N$
+\form#73:$N \cdot (1 - p)$
+\form#74:$P(k)$
+\form#75:$n \leq N$
+\form#76:$ f_{log}(x) = \frac{1}{\sqrt{2 \pi \sigma^2 x}} \cdot exp \left(- \frac{(ln x - \mu)^2}{2 \sigma^2}\right) $
+\form#77:$f_n(x)$
+\form#78:$f_{log}(x) = \frac{1}{x}f_n(ln x)$
+\form#79:$\sigma$
+\form#80:$V(x) = \sigma^2$
+\form#81:$\mbox{mean} = \sqrt{e}$
+\form#82:$\mbox{standard deviation} = e(e-1)$
+\form#83:$ f(x) = \lambda \cdot e^{- \lambda x} $
+\form#84:$x \geq 0$
+\form#85:$\lambda > 0$
+\form#86:$\lambda = 1.0$
+\form#87:$\lambda = 2.0$
+\form#88:$\lambda = 4.0$
+\form#89:$ f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \cdot exp \left(- \frac{(x- \mu)^2}{2 \sigma^2}\right) $
+\form#90:$0$
+\form#91:$1$
+\form#92:$\mu = 0$
+\form#93:$\sigma = 1$
+\form#94:$V(X)$
+\form#95:$ V(X) = \sigma^2 $
+\form#96:$\sigma = \sqrt{V(X)}$
+\form#97:$ p_x^{(n)} = P(X = x) = ( \lambda^x \cdot e^{- \lambda} ) / x! $
+\form#98:$\lambda = n \cdot p$
+\form#99:$\lambda = 5.0$
+\form#100:$F(X)$
+\form#101:$p = \{p(x): x \in \chi\}$
+\form#102:$H(p)$
+\form#103:$ H(p) = - \sum_{x \in \chi} p(x) \cdot \log {p(x)} = E_p [- \log {p(X)}] $
+\form#104:$q = \{q(x): x \in \chi\}$
+\form#105:$q$
+\form#106:$ D(p,q) = \sum_{x \in \chi} p(x) \cdot \log {\frac{p(x)}{q(x)}} = E_p \big[ \log {\frac{p(X)}{q(X)}}\big] = E_p [ \mbox{log likelihood ratio} ] $
+\form#107:$l$
+\form#108:$ l = \sum_{i=1}^k \log {P( x_i )} $
+\form#109:$P( x_i )$
+\form#110:$x_i$
+\form#111:$ n_i \equiv ( a \cdot n_{i-1} ) \pmod m $
+\form#112:$n_i$
+\form#113:$m$
+\form#114:$n_0$
+\form#115:$a$
+\form#116:$ \mbox{\ }\\ \noindent n_{1,i} \equiv ( a_1 \cdot n_{1, i-1} ) \pmod {m_1}\\ n_{2,i} \equiv ( a_2 \cdot n_{2, i-1} ) \pmod {m_2}\\ n_{3,i} \equiv ( a_3 \cdot n_{3, i-1} ) \pmod {m_3} $
+\form#117:$U_i$
+\form#118:$ U_i \equiv (\frac{n_{1,i}}{m_1} + \frac{n_{2,i}}{m_2} + \frac{n_{3,i}}{m_3}) \pmod {1.0} $
+\form#119:$a_i$
+\form#120:$m_i$
+\form#121:$i = 1, 2, 3$
+\form#122:$6953607871644$
+\form#123:$z_i$
+\form#124:$F$
+\form#125:$ x_i = F^{-1}(z_i) $
+\form#126:$n_{0,1},\mbox{\ }n_{0,2},\mbox{\ }n_{0,3}$
+\form#127:$n_{i,1},\mbox{\ }n_{i,2},\mbox{\ }n_{i,3}$
+\form#128:$n_{i,1}$
+\form#129:$n_{i,2}$
+\form#130:$n_{i,3}$
+\form#131:$lo \leq rn < hi$
+\form#132:$ f(x) = \frac{\alpha}{\beta} \cdot e^{-\frac{1}{\beta} \cdot x^\alpha} \cdot x^{\alpha - 1} $
+\form#133:$\alpha = 1\mbox{,\ } \beta = 2$
+\form#134:$\alpha = 2\mbox{,\ } \beta = 1$
+\form#135:$\alpha = 2\mbox{,\ } \beta = 3$

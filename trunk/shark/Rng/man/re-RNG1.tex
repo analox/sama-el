@@ -1,0 +1,219 @@
+% 24th, Jan, 2001 Ver.1     Tatsuya Okabe
+%                 Ver.2
+%                 Ver.3
+%                 Ver.4
+%                 Ver.5
+%
+%---------------------------------------------------------------------------%
+% Made by Tatsuya Okabe ( HONDA R&D Europe ( Deutschland ) GmbH )           %
+% Checked by Bernhard Sendhoff ( HONDA R&D Europe ( Deutschland ) GmbH )    %
+%---------------------------------------------------------------------------%
+% Class RNG
+
+\section{Abstract}
+
+\noindent
+In the class {\em RNG}, we can set the random seed value. Also, class
+{\em RNG} was instantialized as {\em globalRng}.
+
+\noindent
+A computer seems to be able to generate random numbers. But, we should
+call them ``pseudo random number'' because we can expect. The reason
+why we can do this is that C++ or Fortran uses the following equation
+to generate a random number.
+
+\begin{equation}
+I_{j+1} = a I_{j} + c \hspace{10mm} ( mod \hspace{5mm} m )
+\end{equation}
+
+\noindent
+Here, $I$, $a$, $c$ and $m$ are random number, multiplier, increment
+and modulus, respectively. Specially, $I_0$ is called ``random seed''.
+
+\noindent
+This method is called ``linear congruential method''.
+
+\noindent
+This equation shows that generated random numbers are cyclic and the
+longest frequency is $m$. However, if we failed to select the correct
+values of $a$, $c$ and $m$, the frequency will be shortened. Thus,
+many mathematicians researched these values.
+
+\noindent
+Park and Miller proposed ``Minimal Standard generater'' in 1988. In
+the method, they proposed following values.
+
+\begin{equation}
+a = 7^5 = 16807 \hspace{10mm} m = 2^{31} - 1 = 2147483647
+\hspace{10mm} c = 0
+\end{equation}
+
+\noindent
+For more information, please see [\ref{NRC}].
+
+\vspace*{10mm}
+
+\section{Instantialized classes}
+
+\noindent
+Instantialized classes are as follows.
+
+\vspace*{3mm}
+
+\begin{tabular}{lll}
+RNG       & $\Longrightarrow$ & globalRng   \\
+\end{tabular}
+
+\vspace*{3mm}
+
+\section{Internal Variables}
+
+\begin{itemize}
+\item initialSx - Initial value of random seed 1.
+\item initialSy - Initial value of random seed 2.
+\item initialSz - Initial value of random seed 3.
+\item sx - Current value of random seed 1.
+\item sy - Current value of random seed 2.
+\item sz - Current value of random seed 3.
+\end{itemize}
+
+%********************
+\index{initialSx (Variable)}
+\index{initialSy (Variable)}
+\index{initialSz (Variable)}
+\index{sx (Variable)}
+\index{sy (Variable)}
+\index{sz (Variable)}
+%********************
+
+\vspace*{10mm}
+
+\section{Public Methods}
+
+\noindent
+This method can be used by all \cpp - programs, that have included the
+header file RNG.h and the library EA.
+
+\subsection{Constructors}
+
+%---------------------------------------------------------------------------%
+% 001
+\index{RNG!( long s )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{RNG}
+{long}
+{s}
+{Random seed.}
+{The default constructor. Gerenates this class.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{Operators}
+
+%---------------------------------------------------------------------------%
+% 002
+\index{operator( )!( )}
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{double}
+{operator}
+{Gets a random seed for double type.}
+{A random seed.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsection{Information Retrieval Methods}
+
+%---------------------------------------------------------------------------%
+% 003
+\index{seed!( long s )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{seed}
+{long}
+{s}
+{Random seed.}
+{Sets initial variables and current variables regaring a random seed.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 004
+\index{reset!( )}
+\setNormalInstance
+\printEmptyMethod
+{reset}
+{Initializes current variables.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 005
+\index{genLong!( )}
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{long}
+{genLong}
+{Gets a random seed for long type.}
+{A random seed.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 006
+\index{genDouble!( )}
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{double}
+{genDouble}
+{Gets a random seed for double type.}
+{A random seed.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+% 007
+\index{getStatus!( unsigned $\&$x, unsigned $\&$y, unsigned $\&$z )}
+\setConstInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{$\&$x}{unsigned}{A random seed 1.} 
+\setParamTwo{$\&$y}{unsigned}{A random seed 2.}
+\setParamThree{$\&$z}{unsigned}{A random seed 3.}
+\printMethodWithParamsSaved
+{void}
+{None.}
+{getStatus}
+{Gets the current status {\em sx}, {\em sy} and {\em sz}.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 008
+\index{setStatus!( unsigned $\&$x, unsigned $\&$y, unsigned $\&$z )}
+\setConstInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{$\&$x}{unsigned}{A random seed 1.} 
+\setParamTwo{$\&$y}{unsigned}{A random seed 2.}
+\setParamThree{$\&$z}{unsigned}{A random seed 3.}
+\printMethodWithParamsSaved
+{void}
+{None.}
+{setStatus}
+{Sets the current status {\em sx}, {\em sy} and {\em sz}.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+
+

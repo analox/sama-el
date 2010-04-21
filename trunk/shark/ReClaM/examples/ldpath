@@ -1,0 +1,2 @@
+export LD_LIBRARY_PATH=../lib:../../Tools/Array/lib:../../Tools/LinAlg/lib:\
+../../Tools/FileUtil/lib:../../Mixture/lib:../../Pagode/lib:../../Tools/Rng/lib

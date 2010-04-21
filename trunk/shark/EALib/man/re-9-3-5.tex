@@ -1,0 +1,80 @@
+\subsection{Methods for Modifying Internal Variables and Flags}
+
+%---------------------------------------------------------------------------%
+\index{setMinimize!( )}
+\setNormalInstance
+\printEmptyMethod
+{setMinimize}
+{Sets the value of the {\em ascending}-flag to ``true'', so all
+ individuals will be sorted by ascending fitness values.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{setMaximize!( )}
+\setNormalInstance
+\printEmptyMethod
+{setMaximize}
+{Sets the value of the {\em ascending}-flag to ``false'', so all
+ individuals will be sorted by descending fitness values.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{spinWheelOneTime!( )}
+\setNormalInstance
+\printEmptyMethod
+{spinWheelOneTime}
+{Sets the value of the {\em spinOnce}-flag to ``true'', so the
+ roulette wheel will be spinned only one time during the next
+ {\em selectRouletteWheel}-method call.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{spinWheelMultipleTimes!( )}
+\setNormalInstance
+\printEmptyMethod
+{spinWheelMultipleTimes}
+{Sets the value of the {\em spinOnce}-flag to ``false'', so the
+ roulette wheel will be spinned several times during the next
+ {\em selectRouletteWheel}-method call.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{setAge!( unsigned a )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{setAge}
+{unsigned}
+{a}
+{New age of the individuals. The default value is 0.}
+{Sets the age of all individuals in {\em this} to the new value
+ {\em a}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{incAge!( )}
+\setNormalInstance
+\printEmptyMethod
+{incAge}
+{Increases the age of all individuals inside {\em this} by 1.}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+
+
+

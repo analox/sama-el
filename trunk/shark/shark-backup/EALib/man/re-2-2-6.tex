@@ -1,0 +1,351 @@
+\subsection{Structure Changing Methods}
+
+%---------------------------------------------------------------------------%
+\index{resize!( unsigned n )}
+    \setNormalInstance
+    \printMethodWithOneParam
+    {void} 
+    {resize}
+    {unsigned} 
+    {n} 
+    {New number of alleles of the chromosome.}
+    {Changes the size of {\em this} (i.e. the number
+     of alleles contained in {\em this}) to the new value {\em n}.
+     If $n < |this|$, then $|this| - n$ alleles at the end
+     of {\em this} will be deleted. If $n > |this|$, then
+     $n - |this|$ new and empty alleles will be appended at the
+     end of {\em this}.}
+    {None.}
+    {None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{duplicate!( unsigned start, unsigned stop, unsigned dest )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{start}{unsigned}{Index of the first allele of the 
+sequence that shall be copied. {\em start} must be less than 
+the number of alleles in {\em this}, otherwise the method will be
+aborted with an error message.}
+    \setParamTwo{stop}{unsigned}{Index of the last allele of the 
+sequence that shall be copied. {\em stop} must be less than 
+the number of alleles in {\em this}, otherwise the method will be
+aborted with an error message.}
+    \setParamThree{dest}{unsigned}{Position to where the sequence of
+alleles shall be copied. {\em dest} must be less than 
+the number of alleles in {\em this}, otherwise the method will be
+aborted with an error message.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {duplicate}
+        {Copies the sequence of alleles from index {\em start} until index
+         {\em stop} to position {\em dest}. Because the chromosome
+         is assumed to be cyclic for this operation, {\em start} can be 
+         greater than {\em stop}.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{invert!( unsigned start, unsigned stop, unsigned granularity )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{start}{unsigned}{Index of the first allele of the
+sequence that shall be inverted. {\em start} must be less than the
+number of alleles in {\em this}, otherwise the method will be aborted
+with an error message.}
+    \setParamTwo{stop}{unsigned}{Index of the last allele of the
+sequence that shall be inverted. {\em stop} must be less than the
+number of alleles in {\em this}, otherwise the method will be aborted
+with an error message.}
+    \setParamThree{granularity}{unsigned}{Size of one allele block inside
+the allele sequence, the default value is ``1''.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {invert}
+        {Inverts the order of allele blocks of size {\em granularity} 
+         inside the allele sequence from index {\em start} to index
+         {\em stop}. Because the chromosome is assumed to be cyclic
+         for this operation,
+         {\em start} can be greater than {\em stop}.
+         Example: {\em this} $= < 1, 2, 3, 4, 5, 6, 7, 8, 9 >$,
+         {\em start} $= 0$, {\em stop} $= 8$, {\em granularity} $= 3$,
+         chromosome after calling the method: {\em this}\ 
+         $= < 7, 8, 9, 4, 5, 6, 1, 2, 3 >$. {\em granularity} is set to
+         ``3'', so the order of the numbers inside blocks of size three
+         (``1'' to ``3'', ``4'' to ``6'',
+         ``7'' to ``9'') remains unchanged, only the order of the blocks
+         themselves will be inverted.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{invert!( unsigned granularity )}
+    \printMethodWithOneParam
+    {void} 
+    {invert}
+    {unsigned} 
+    {granularity}
+    {See above.}
+    {Same as above, but here the allele sequence corresponds to
+     the whole chromosome {\em this}.}
+    {None.}
+    {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{transcribe!( unsigned start, unsigned stop, const Chromosome\& chrom )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{start}{unsigned}{Index of the first allele of the
+sequence inside {\em chrom} that shall be transcribed to {\em this}.
+{\em start} must be less than the number of alleles in {\em this},
+otherwise the method will be aborted with an error message.}
+    \setParamTwo{stop}{unsigned}{Index of the last allele of the
+sequence inside {\em chrom} that shall be transcribed to {\em this}.
+{\em stop} must be less than the number of alleles in {\em this},
+otherwise the method will be aborted with an error message.}
+    \setParamThree{chrom}{const Chromosome\&}{Chromosome that contains the
+allele sequence that shall be transcribed to {\em this}.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {transcribe}
+        {Transcribes the allele sequence from index {\em start} to index
+{\em stop} from chromosome {\em chrom} to chromosome {\em this}. Therefore
+the size of {\em this} will be changed to the size of the allele sequence.
+Because {\em chrom} is assumed to be cyclic for this operation, 
+{\em start} can be greater than {\em stop}.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{swap!( unsigned i, unsigned j )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{i}{unsigned}{First allele that shall change its position.
+{\em i} must be less than the number of alleles in {\em this}, otherwise
+the method will be aborted with an error message.}
+    \setParamTwo{j}{unsigned}{Second allele that shall change its position.
+{\em j} must be less than the number of alleles in {\em this}, otherwise
+the method will be aborted with an error message.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {swap}
+        {Exchanges allele at index {\em i} with the one at index {\em j}.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{shuffle!( )}
+    \printEmptyMethod
+    {shuffle}
+    {Randomly changes the order of the alleles inside {\em this}.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{replace!( unsigned i, const T\& v )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{i}{unsigned}{Index of the allele from which the value shall be
+changed. {\em i} must be less than the number of alleles in {\em this},
+otherwise the method will be aborted with an error message.}
+    \setParamTwo{v}{const {\sl T}\&}{New value for the allele.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {replace}
+        {Replaces the value of allele number {\em i} with {\em v}.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{replace!( unsigned i, const Chromosome\& chrom )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{i}{unsigned}{Index of the first allele of {\em this} that
+shall be replaced with the alleles of {\em chrom}. {\em i} must be less than
+the number of alleles in {\em this}, otherwise the method will be aborted
+with an error message.}
+    \setParamTwo{chrom}{const Chromosome\&}{Chromosome that shall 
+replace some alleles of {\em this}. The size of {\em chrom} must be less
+than the number of alleles in {\em this} minus {\em i}, otherwise the
+method will be aborted with an error message.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {replace}
+        {Replaces all alleles of {\em this}, beginning with allele
+         number {\em i}, with the alleles inside the chromosome {\em chrom}.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{insert!( unsigned i, const T\& allele )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{i}{unsigned}{Position in {\em this}, where the new value
+shall be inserted. {\em i} must be less than the number of alleles
+in {\em this}, otherwise the method will be aborted with an error message.}
+    \setParamTwo{allele}{const {\sl T}\&}{Value that shall be inserted in
+chromosome {\em this}.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {insert}
+        {Inserts the value {\em allele} at index {\em i} in chromosome
+         {\em this}.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}    
+
+%---------------------------------------------------------------------------%
+\index{insert!( unsigned i, const Chromosome\& chrom )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{i}{unsigned}{Position in {\em this}, where the alleles of
+{\em chrom} shall be inserted. {\em i} must be less than the number of
+alleles in {\em this}, otherwise the method will be aborted with an
+error message.}
+    \setParamTwo{chrom}{const Chromosome\&}{Chromosome, which alleles shall
+be inserted in chromosome {\em this}.}
+
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {insert}
+        {Inserts all alleles of chromosome {\em chrom} at position {\em i}
+         in chromosome {\em this}.}
+        {This method does not work on systems using a gcc-compiler 
+         in version less than 2.91.x.}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{append!( const T\& allele )}
+    \printMethodWithOneParam
+    {void} 
+    {append}
+    {const {\sl T}\&} 
+    {allele} 
+    {Value to be appended at the end of {\em this}.}
+    {Appends the value {\em allele} at the end of chromosome {\em this}.}
+    {None.}
+    {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{append!( const Chromosome\& chrom )}
+    \printMethodWithOneParam
+    {void} 
+    {append}
+    {const Chromosome\&}
+    {chrom} 
+    {Chromosome to be appended at the end of {\em this}.}
+    {Appends all alleles of chromosome {\em chrom} at the end of {\em this}.}
+    {None.}
+    {This method does not work on systems using a gcc-compiler 
+         in version less than 2.91.x.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{remove!( unsigned i )}
+    \printMethodWithOneParam
+    {void} 
+    {remove}
+    {unsigned}
+    {i} 
+    {Index of the allele that is removed from {\em this}. {\em i}
+     must be less than the number of alleles in {\em this}, otherwise
+     the method will be aborted with an error message.}
+    {Removes the allele with index {\em i} from chromosome {\em this}.}
+    {None.}
+    {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{remove!( unsigned i, unsigned k )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{i}{unsigned}{Index of the first allele that is
+removed from {\em this}. {\em i} must be less than or equal to {\em k},
+otherwise no allele will be removed.}
+    \setParamTwo{k}{unsigned}{Index of the last allele that is removed
+from {\em this}. {\em k} must be less than the number of alleles in {\em this},
+otherwise the method will be aborted with an error message.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {remove}
+        {Removes all alleles in {\em this} from index {\em i} to index {\em k}
+         from chromosome {\em this}.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{rotateRight!( unsigned n )}
+    \printMethodWithOneParam
+    {void} 
+    {rotateRight}
+    {unsigned} 
+    {n} 
+    {Number of positions that the alleles of {\em this} shall be rotated.
+     If no value is given for {\em n}, then all alleles are rotated 
+     one position.}
+    {Rotates all alleles inside {\em this} {\em n} positions to the right.
+     This a cyclic shift, i.e. an allele at the end of the chromosome
+     is not lost during the shift-operation, but is placed at the
+     of the chromosome.}
+    {None.}
+    {This method is not defined for systems that represent a vector of
+     type {\tt bool} as a packed bitstring.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{rotateLeft!( unsigned n )}
+    \printMethodWithOneParam
+    {void} 
+    {rotateLeft}
+    {unsigned} 
+    {n} 
+    {See above.}
+    {The same as above, but here all alleles are rotated to the left.}
+    {None.}
+    {This method is not defined for systems that represent a vector of
+     type {\tt bool} as a packed bitstring.}
+%---------------------------------------------------------------------------%
+
+
+

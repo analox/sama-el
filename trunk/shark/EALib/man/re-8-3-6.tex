@@ -1,0 +1,99 @@
+\subsection{Structure Changing Methods}
+
+%---------------------------------------------------------------------------%
+\index{replace!( unsigned i, const Chromosome\& chrom )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{unsigned}{Index of the chromosome of {\em this}, to
+be replaced. {\em i} must be less than the number of chromosomes
+in {\em this}, otherwise the method will be aborted with an error message.}
+\setParamTwo{chrom}{const Chromosome\&}{Chromosome that
+replaces the old chromosome in {\em this}.}
+\printMethodWithParamsSaved
+{void}
+{}
+{replace}
+{Replaces chromosome number {\em i} with the content of chromosome 
+ {\em chrom}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{insert!( unsigned i, const Chromosome\& chrom )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{unsigned}{Insertion-position in {\em this}.
+The maximum value for {\em i} shall be equal to the
+number of chromosomes in {\em this}, otherwise the method will be
+aborted with an error message.}
+\setParamTwo{chrom}{const Chromosome\&}{Chromosome to be inserted
+into {\em this}.}
+\printMethodWithParamsSaved
+{void}
+{}
+{insert}
+{Inserts chromosome {\em chrom} at position {\em i} into {\em this}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{append!( const Chromosome\& chrom )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{append}
+{const Chromosome\&}
+{chrom}
+{Chromosome to be appended at the end of {\em this}.}
+{Appends the chromosome {\em chrom} at the end of {\em this}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{remove!( unsigned i )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{remove}
+{unsigned}
+{i}
+{Index of the chromosome to be removed from {\em this}.
+{\em i} must be less than the number of chromosomes in {\em this},
+otherwise the method will be aborted with an error message.}
+{Removes the chromosome with index {\em i} from {\em this}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{remove!( unsigned from, unsigned to )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{from}{unsigned}{Index of the first chromosome to be
+removed. {\em from} must be less than the number of chromosomes in {\em this}
+and not greater as {\em to} or the method will be aborted with an
+error message.}
+\setParamTwo{to}{unsigned}{Index of the last chromosome to be
+removed. {\em to} must be less than the number of chromosomes in {\em this}
+and not smaller as {\em from} or the method will be aborted with an
+error message.}
+\printMethodWithParamsSaved
+{void}
+{}
+{remove}
+{Removes all chromosomes with indices in the range $[from, to]$.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+

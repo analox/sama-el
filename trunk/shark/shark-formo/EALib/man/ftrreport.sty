@@ -1,0 +1,39 @@
+%---------------- Identification
+\NeedsTeXFormat{LaTeX2e}[1996/12/01]
+\ProvidesPackage{ftrreport}[1999/03/04]
+%---------------- Initial code
+\RequirePackage{euler}
+\RequirePackage{beton}
+\RequirePackage{epsfig}
+%---------------- declaration of options
+\AtBeginDocument
+{%
+% Enlarge page layout
+%
+%\addtolength{\textheight}{2cm}%
+%\addtolength{\voffset}{-1cm}%
+%\addtolength{\oddsidemargin}{-1cm}%
+%\addtolength{\textwidth}{2cm}%
+%
+%
+% Define font substitutions
+%
+\DeclareFontShape\encodingdefault{ccr}{bx}{n}{<->sub*cmss/sbc/n}{}%
+\DeclareFontShape\encodingdefault{ccr}{bx}{it}{<->sub*cmss/sbc/it}{}%
+\DeclareFontShape\encodingdefault{ccr}{bx}{sl}{<->sub*cmss/sbc/sl}{}%
+\DeclareFontShape\encodingdefault{ccr}{bx}{sc}{<->sub*cmss/sbc/sc}{}%
+%
+%
+% Redefine figure captions 
+%
+\makeatletter
+\renewcommand{\@makecaption}[2]{\footnotesize\textbf{#1} #2\par}
+\makeatother
+\newcommand{\hondalogo}{\epsfig{file=honda-ftr.eps}}
+}% AtBeginDocument
+
+% Panel command
+% \panel{A} This figure shows ... 
+\newcommand{\panel}[1]{\textbf{#1.}}
+
+

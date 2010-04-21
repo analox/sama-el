@@ -1,0 +1,5 @@
+to compile: make
+Please note that the rbf.cc and rbf.h in this directory is slightly different from the original version as some file I/Os are added. Hence, the Makefile will use the rbf.cc and rbf.h from this directory.
+
+to run: ./RBFGUI
+wish (Windowing Shell) should be installed, assuming it is in /usr/bin/wish. If it is installed in other directory, change the interpreter at the top of "RBFGUI" file.

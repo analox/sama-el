@@ -1,0 +1,82 @@
+% 24th, Jan, 2001 Ver.1     Tatsuya Okabe
+%                 Ver.2
+%                 Ver.3
+%                 Ver.4
+%                 Ver.5
+%
+%---------------------------------------------------------------------------%
+% Made by Tatsuya Okabe ( HONDA R&D Europe ( Deutschland ) GmbH )           %
+% Checked by Bernhard Sendhoff ( HONDA R&D Europe ( Deutschland ) GmbH )    %
+%---------------------------------------------------------------------------%
+% Class Rng
+
+\section{Abstract}
+
+\noindent
+In this class {\em Rng}, some classes are instantiated. Additionally,
+the random seed can be set in the class {\em Rng}.
+
+\vspace*{10mm}
+
+\section{Instantialized classes}
+
+\noindent
+Instantialized classes are as follows.
+
+\vspace*{3mm}
+
+\begin{tabular}{lll}
+Bernoulli       & $\Longrightarrow$ & Rng::coinToss   \\
+DiscreteUniform & $\Longrightarrow$ & Rng::discrete   \\
+Uniform         & $\Longrightarrow$ & Rng::uni        \\
+Normal          & $\Longrightarrow$ & Rng::gauss      \\
+Cauchy          & $\Longrightarrow$ & Rng::cauchy     \\
+Geometric       & $\Longrightarrow$ & Rng::geom       \\
+DiffGeometric   & $\Longrightarrow$ & Rng::diffGeom   \\
+Poisson         & $\Longrightarrow$ & Rng::poisson    \\
+\end{tabular}
+
+%********************
+\index{Bernoulli}
+\index{DiscreteUniform}
+\index{Uniform}
+\index{Normal}
+\index{Cauchy}
+\index{Geometric}
+\index{DiffGeometric}
+\index{Poisson}
+\index{Rng::coinToss}
+\index{Rng::discrete}
+\index{Rng::uni}
+\index{Rng::gauss}
+\index{Rng::cauchy}
+\index{Rng::geom}
+\index{Rng::diffGeom}
+\index{Rng::poisson}
+%********************
+
+\vspace*{3mm}
+
+\section{Public Methods}
+
+\noindent
+This method can be used by all \cpp - programs, that have included the
+header file GlobalRng.h and the library EA.
+
+\subsection{Initialization Methods}
+
+%---------------------------------------------------------------------------%
+% 001
+\index{Rng::seed!( long s )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{Rng::seed}
+{long}
+{s}
+{Random seed.}
+{Initializes a random seed.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+

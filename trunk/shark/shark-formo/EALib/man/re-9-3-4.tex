@@ -1,0 +1,157 @@
+\subsection{Information Retrieval Methods}
+
+%---------------------------------------------------------------------------%
+\index{size!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{unsigned}
+{size}
+{Returns the number of individuals in {\em this}.}
+{Number of individuals in {\em this}.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{ascendingFitness!( )}
+\setNormalInstance
+\printEmptyMethodReturn
+{bool}
+{ascendingFitness}
+{Returns whether the individuals inside {\em this} are
+ sorted by ascending or descending fitness values.}
+{Value of the {\em ascending}-flag:\\
+ {\em true} - The individuals are sorted by ascending fitness values,\\
+                    {\em false} - The individuals are sorted by descending
+ fitness values.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{minFitness!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{double}
+{minFitness}
+{Returns the minimum fitness value inside {\em this}.}
+{Minimum fitness value of the population or $0.0$, if the population
+ is empty.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{maxFitness!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{double}
+{maxFitness}
+{Returns the maximum fitness value inside {\em this}.}
+{Maximum fitness value of the population or $0.0$, if the population
+ is empty.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{meanFitness!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{double}
+{meanFitness}
+{Returns the mean fitness value of the population's individuals.}
+{The mean fitness value of the population or $0.0$ if the population
+ is empty.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{stdDevFitness!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{double}
+{stdDevFitness}
+{Returns the standard deviation of all fitness values of the population
+ computed as $\sigma = \frac{1}{n}\sum_{i=0}^{n-1}{[f(this_i) - 
+ \overline{f(this_i)}]}^2$ with $n\ =\ |this|$. {\em f} is the function 
+ that evaluates
+ the fitness of an individual.}
+{Standard deviation of all fitness values or $0.0$, if the population
+ is empty.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{bestIndex!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{unsigned}
+{bestIndex}
+{Returns the index of the individual with the best fitness value.
+ The best fitness value depends on the value of the {\em ascending}-flag.
+ If {\em ascending} is set to ``true'', the minimum fitness value
+ is the best, if {\em ascending} is set to ``false'', the maximum
+ fitness value is the winner. The population must contain at least
+ one individual, otherwise the method will be aborted with an error
+ message. This method also works properly, when the individuals are
+ not already sorted.}
+{Index of the individual with the best fitness value.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{worstIndex!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{unsigned}
+{worstIndex}
+{Returns the index of the individual with the worst fitness value.
+ The worst fitness value depends on the value of the {\em ascending}-flag.
+ If {\em ascending} is set to ``true'', the maximum fitness value
+ is the worst, if {\em ascending} is set to ``false'', the minimum
+ fitness value is the looser. The population must contain at least
+ one individual, otherwise the method will be aborted with an error
+ message. This method also works properly, when the individuals are
+ not already sorted.}
+{Index of the individual with the worst fitness value.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{best!( )}
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{Individual\&}
+{best}
+{Same as above (method {\em bestIndex}), but here not only the index
+ of the best individual, but the individual itself is returned.}
+{Individual with the best fitness value.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{worst!( )}
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{Individual\&}
+{worst}
+{Same as above (method {\em worstIndex}), but here not only the index
+ of the worst individual, but the individual itself is returned.}
+{Individual with the worst fitness value.}
+{None.}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+
+
+

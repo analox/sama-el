@@ -1,0 +1,84 @@
+\begin{theindex}
+
+  \item {cauchyFunc}
+    \subitem {Interpolate\-RBF}, 7
+  \item {cubicFunc}
+    \subitem {Interpolate\-RBF}, 7
+
+  \indexspace
+
+  \item {evaluate}
+    \subitem {Interpolate\-RBF}, 8
+
+  \indexspace
+
+  \item {gaussFunc}
+    \subitem {Interpolate\-RBF}, 8
+  \item {getBaseCentres}
+    \subitem {Interpolate\-RBF}, 9
+  \item {getDesignMatrix}
+    \subitem {Interpolate\-RBF}, 9
+  \item {getDistance}
+    \subitem {Interpolate\-RBF}, 9
+  \item {getWeightMatrix}
+    \subitem {Interpolate\-RBF}, 9
+
+  \indexspace
+
+  \item {initArrayToZero}
+    \subitem {Interpolate\-RBF}, 9
+  \item {InterpolateRBF}, 5
+    \subitem {Interpolate\-RBF}, 7
+  \item {Interpolate\-RBF}
+    \subitem {cauchyFunc}, 7
+    \subitem {cubicFunc}, 7
+    \subitem {evaluate}, 8
+    \subitem {gaussFunc}, 8
+    \subitem {getBaseCentres}, 9
+    \subitem {getDesignMatrix}, 9
+    \subitem {getDistance}, 9
+    \subitem {getWeightMatrix}, 9
+    \subitem {initArrayToZero}, 9
+    \subitem {InterpolateRBF}, 7
+    \subitem {inverseMultiquadricFunc}, 10
+    \subitem {KMean}, 10
+    \subitem {linearFunc}, 10
+    \subitem {mse}, 11
+    \subitem {multiquadricFunc}, 11
+    \subitem {setDesignMatrix}, 11
+    \subitem {setWeightMatrix}, 12
+    \subitem {train}, 12
+  \item {InterpolateRBF.h}, 13
+  \item {inverseMultiquadricFunc}
+    \subitem {Interpolate\-RBF}, 10
+
+  \indexspace
+
+  \item {KMean}
+    \subitem {Interpolate\-RBF}, 10
+
+  \indexspace
+
+  \item {linearFunc}
+    \subitem {Interpolate\-RBF}, 10
+
+  \indexspace
+
+  \item {mse}
+    \subitem {Interpolate\-RBF}, 11
+  \item {multiquadricFunc}
+    \subitem {Interpolate\-RBF}, 11
+
+  \indexspace
+
+  \item {setDesignMatrix}
+    \subitem {Interpolate\-RBF}, 11
+  \item {setWeightMatrix}
+    \subitem {Interpolate\-RBF}, 12
+
+  \indexspace
+
+  \item {train}
+    \subitem {Interpolate\-RBF}, 12
+
+\end{theindex}

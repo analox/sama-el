@@ -1,0 +1,208 @@
+dnl Process this file with autoconf to produce a configure script.
+AC_INIT(src/Chromosome.cpp)
+
+define(ACX_HAVE_LIB, [
+		AC_PROVIDE([$0])
+		AC_MSG_CHECKING(for lib[$1])
+		havelib="yes"
+		if test -f /lib/lib[$1].so.1 ; then LIBS="-l[$1] $LIBS"
+		elif test -f /lib/lib[$1].a ; then LIBS="-l[$1] $LIBS"
+		elif test -f /lib/lib[$1].so ; then LIBS="-l[$1] $LIBS"
+		elif test -f /usr/ucblib/lib[$1].a ; then LIBS="-L/usr/ucblib -l[$1] $LIBS"
+		elif test -f /usr/local/lib[$1].a ; then LIBS="-L/usr/local/lib -l[$1] $LIBS"
+		else havelib="no"
+		fi
+		AC_MSG_RESULT($havelib)
+	])dnl
+
+define(ACX_HAVE_LESSTIF, [
+		AC_PROVIDE([$0])
+		AC_MSG_CHECKING(for lesstif)
+		havelesstif="yes"
+		if test -f $LESSTIFDIR/lib/Xm-2.1/.libs/libXm.so; then 
+			LIBS="-lXm -lXt -lX11 $LIBS"
+			X_CFLAGS="$X_CFLAGS -I$LESSTIFDIR/include/Motif-2.1"
+			X_LIBS="$X_LIBS -L$LESSTIFDIR/lib/Xm-2.1/.libs"
+		elif test -f /usr/lesstif/lib/libXm.so.1 -o -f /usr/lesstif/lib/libXm.a -o -f /usr/lesstif/lib/libXm.so; then 
+			LIBS="-lXm -lXt -lX11 $LIBS"
+			X_CFLAGS="$X_CFLAGS -I/usr/lesstif/include"
+			X_LIBS="$X_LIBS -L/usr/lesstif/lib"
+		elif test -f /usr/local/lesstif/lib/libXm.so.1 -o -f /usr/local/lesstif/lib/libXm.a -o -f /usr/local/lesstif/lib/libXm.so; then 
+			LIBS="-lXm -lXt -lX11 $LIBS"
+			X_CFLAGS="$X_CFLAGS -I/usr/local/lesstif/include"
+			X_LIBS="$X_LIBS -L/usr/local/lesstif/lib"
+		elif test -f /opt/lesstif/lib/libXm.so.1 -o -f /opt/lesstif/lib/libXm.a -o -f /opt/lesstif/lib/libXm.so; then 
+			LIBS="-lXm -lXt -lX11 $LIBS"
+			X_CFLAGS="$X_CFLAGS -I/opt/lesstif/include"
+			X_LIBS="$X_LIBS -L/opt/lesstif/lib"
+		elif test -f /usr/X11R6/LessTif/Motif2.1/lib/libXm.so.1 -o -f /usr/X11R6/LessTif/Motif2.1/lib/libXm.a -o -f /usr/X11R6/LessTif/Motif2.1/lib/libXm.so; then 
+			LIBS="-lXm -lXt -lX11 $LIBS"
+			X_CFLAGS="$X_CFLAGS -I/usr/X11R6/LessTif/Motif2.1/lib"
+			X_LIBS="$X_LIBS -L/usr/X11R6/LessTif/Motif2.1/include"
+		elif test -f /usr/X11R6/LessTif/Motif1.2/lib/libXm.so.1 -o -f /usr/X11R6/LessTif/Motif1.2/lib/libXm.a -o -f /usr/X11R6/LessTif/Motif1.2/lib/libXm.so; then 
+			LIBS="-lXm -lXt -lX11 $LIBS"
+			X_CFLAGS="$X_CFLAGS -I/usr/X11R6/LessTif/Motif1.2/include"
+			X_LIBS="$X_LIBS -L/usr/X11R6/LessTif/Motif1.2/lib"
+		elif test -f /usr/X11R6/lib/libXm.so.1 -o -f /usr/X11R6/lib/libXm.a -o -f /usr/X11R6/lib/libXm.so; then 
+			LIBS="-lXm -lXt -lX11 $LIBS"
+			X_CFLAGS="$X_CFLAGS -I/usr/X11R6/include"
+			X_LIBS="$X_LIBS -L/usr/X11R6/lib"
+		else havelesstif="no"
+		fi
+		AC_MSG_RESULT($havelesstif)
+	])dnl
+
+define(ACX_HAVE_MOTIF, [
+		AC_PROVIDE([$0])
+		AC_MSG_CHECKING(for motif)
+		havemotif="yes"
+		if test -f /usr/dt/lib/libXm.so.1 -o -f /usr/dt/lib/libXm.a -o -f /usr/dt/lib/libXm.so ; then 
+			LIBS="-lXm -lXt -lX11 $LIBS"
+			X_CFLAGS="$X_CFLAGS -I/usr/dt/include"
+			X_LIBS="$X_LIBS -L/usr/dt/lib"
+			if test -d /usr/openwin/lib ; then
+				X_CFLAGS="$X_CFLAGS -I/usr/openwin/include"
+				X_LIBS="$X_LIBS -L/usr/openwin/lib"
+			fi
+		elif test -f /usr/openwin/lib/libXm.so.1 -o -f /usr/openwin/lib/libXm.a -o -f /usr/openwin/lib/libXm.so ; then 
+			LIBS="-lXm -lXt -lX11 $LIBS"
+			X_CFLAGS="$X_CFLAGS -I/usr/openwin/include"
+			X_LIBS="$X_LIBS -L/usr/openwin/lib"
+			if test -d /usr/dt/lib ; then
+				X_CFLAGS = "$X_CFLAGS -I/usr/dt/include"
+				X_LIBS   = "$X_LIBS -L/usr/dt/lib"
+			fi
+		elif test -f /usr/X11R6/lib/libXm.so.1 -o -f /usr/X11R6/lib/libXm.a -o -f /usr/X11R6/lib/libXm.so ; then 
+			LIBS="-lXm -lXt -lX11 $LIBS"
+			X_CFLAGS="$X_CFLAGS -I/usr/X11R6/include"
+			X_LIBS="$X_LIBS -L/usr/X11R6/lib"
+			if test -d /usr/dt/lib ; then
+				X_CFLAGS = "$X_CFLAGS -I/usr/dt/include"
+				X_LIBS   = "$X_LIBS -L/usr/dt/lib"
+			fi
+		else havemotif="no"
+		fi
+		AC_MSG_RESULT($havemotif)
+	])dnl
+
+define(ACX_HAVE_PVM, [
+                AC_PROVIDE([$0])
+                AC_MSG_CHECKING(for pvm)
+                havepvm="yes"
+                if test -f "${PVM_ROOT}/lib/${PVM_ARCH}/libpvm3.a"; then 
+                        LIBS_PVM="-L${PVM_ROOT}/lib/${PVM_ARCH}"
+                elif test -f /usr/share/pvm3/lib/LINUX/libpvm3.a; then 
+                        LIBS_PVM="-L/usr/share/pvm3/lib/LINUX"
+                elif test -f /usr/share/pvm3/lib/SUN4SOL2/libpvm3.a; then 
+                        LIBS_PVM="-L/usr/share/pvm3/lib/SUN4SOL2"
+                elif test -f /usr/lib/pvm3/lib/LINUX/libpvm3.a; then
+                        LIBS_PVM="-L/usr/lib/pvm3/lib/LINUX"
+                elif test -f /usr/lib/pvm3/lib/SUN4SOL2/libpvm3.a; then
+                        LIBS_PVM="-L/usr/lib/pvm3/lib/SUN4SOL2"
+                elif test -f /usr/share/pvm3/lib/LINUXI386/libpvm3.a; then 
+                        LIBS_PVM="-L/usr/share/pvm3/lib/LINUXI386"
+                elif test -f /opt/pvm3/lib/SUN4SOL2/libpvm3.a; then 
+                        LIBS_PVM="-L/opt/pvm3/lib/SUN4SOL2"
+                else havepvm="no"
+                fi
+                AC_MSG_RESULT($havepvm)
+        ])dnl
+
+
+define(ACX_HAVE_PAGODE, [
+		AC_PROVIDE([$0])
+		AC_MSG_CHECKING(for Pagode)
+		havepagode="yes"
+		if test -f "../include/Pagode/CPlot.h"; then 
+			FLAG_PAGODE="__is_existent__"
+		else havepagode="no"
+		fi
+		AC_MSG_RESULT($havepagode)
+	])dnl
+	
+define(ACX_HAVE_MOEALIB, [
+		AC_PROVIDE([$0])
+		AC_MSG_CHECKING(for MOO-EALib)
+		havemoealib="yes"
+		if test -f "../include/MOO-EALib/ArchiveMOO.h"; then 
+			FLAG_MOEALIB="__is_existent__"
+		else havemoealib="no"
+		fi
+		AC_MSG_RESULT($havemoealib)
+	])dnl
+
+define(ACX_HAVE_SIMANN, [
+		AC_PROVIDE([$0])
+		AC_MSG_CHECKING(for SimAnn)
+		havesimann="yes"
+		if test -f "../include/SimAnn/SimAnnealing.h"; then 
+			FLAG_SIMANN="__is_existent__"
+		else havesimann="no"
+		fi
+		AC_MSG_RESULT($havesimann)
+	])dnl
+
+define(ACX_HAVE_SPREADCAT, [
+		AC_PROVIDE([$0])
+		AC_MSG_CHECKING(for SpreadCAT)
+		havespreadcat="yes"
+		if test -f "../include/SpreadCAT/SpreadCAT.h"; then 
+			FLAG_SPREADCAT="__is_existent__"
+		else havespreadcat="no"
+		fi
+		AC_MSG_RESULT($havespreadcat)
+	])dnl
+
+dnl  Check for programs
+AC_PROG_CC
+AC_PROG_CXX
+AC_PATH_PROGS(FIND, gfind find, no)
+if test "$FIND" = no; then
+  AC_MSG_WARN(Could not find either \"find\" or \"gfind\". Assuming \"find\".)
+  find="find"
+fi
+AC_SUBST(FIND)
+AC_PATH_PROGS(MAKE, make gmake, no)
+if test "$MAKE" = no; then
+  AC_MSG_WARN(Could not find either \"make\" or \"gmake\". Assuming \"make\".)
+  MAKE="make"
+fi
+AC_SUBST(MAKE)
+AC_PATH_PROGS(PERL, perl, no)
+if test "$PERL" = no; then
+  AC_MSG_WARN(Could not find \"perl\".)
+  MAKE="perl"
+fi
+AC_SUBST(PERL)
+
+dnl  Check for libraries
+AC_PATH_XTRA
+ACX_HAVE_LESSTIF
+if test ${havelesstif} = no; then
+  ACX_HAVE_MOTIF
+fi
+ACX_HAVE_LIB(m)
+ACX_HAVE_PVM
+AC_SUBST(LIBS_PVM)	
+ACX_HAVE_PAGODE
+AC_SUBST(FLAG_PAGODE)
+ACX_HAVE_MOEALIB
+AC_SUBST(FLAG_MOEALIB)	
+ACX_HAVE_SIMANN
+AC_SUBST(FLAG_SIMANN)
+ACX_HAVE_SPREADCAT
+AC_SUBST(FLAG_SPREADCAT)
+
+AC_OUTPUT(Makefile examples/Makefile man/Makefile doc/Makefile)
+
+
+
+
+
+
+
+
+
+
+
+

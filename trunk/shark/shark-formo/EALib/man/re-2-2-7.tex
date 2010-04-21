@@ -1,0 +1,370 @@
+\subsection{Crossover Methods}
+
+%---------------------------------------------------------------------------%
+\index{crossover!( const Chromosome\& dadChrom, const Chromosome\& momChrom, const vector$<$ unsigned $>$\& points )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{dadChrom}{const Chromosome\&}{Father chromosome from which the first
+allele will be assigned to {\em this}. {\em dadChrom} must contain at least
+one allele, otherwise no crossover will take place.}
+    \setParamTwo{momChrom}{const Chromosome\&}{Mother chromosome that must
+contain the same number of alleles as {\em dadChrom}, otherwise the
+method will be aborted with an error message. Additionally, {\em momChrom}
+must contain at least one allele or no crossover will take place.}
+    \setParamThree{points}{const vector$<$ unsigned $>$\&}{Vector that
+specifies the positions in {\em this}, where a change of the current
+parent chromosome will take place. The number of values in {\em points}
+must be at most equal to the number of alleles of one parent
+chromosome, otherwise the method will be aborted with an error message.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossover}
+        {Alternately assigns the allele values of the parent chromosomes
+{\em dadChrom} and {\em momChrom} to {\em this}. The values inside
+{\em points} specify the indices, where a change of the parent chromosome
+takes place. The size of {\em this} will be adapted to the size
+of the parent chromosomes. During the crossover the first new allele for 
+{\em this} is taken from {\em dadChrom}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{crossover!( Chromosome\& mate, const vector$<$ unsigned $>$\& points )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{mate}{Chromosome\&}{Chromosome that is used for
+crossover with {\em this}. The number of alleles in
+{\em mate} must be equal to the number of alleles in {\em this}, otherwise
+the method will be aborted with an error message. Additionally, {\em mate}
+must contain at least one allele or no crossover will take place.}
+    \setParamTwo{points}{const vector$<$ unsigned $>$\&}{See above.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossover}
+        {Same as above, but here the ``parent'' chromosomes are
+         chromosome {\em mate} and the chromosome {\em this} itself.
+         If the number of values in {\em points} is odd, than {\em this}
+will receive its first allele value from {\em mate}, otherwise the first
+allele will be taken from {\em this}.}
+{}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{crossover!( const Chromosome\& dadChrom, const Chromosome\& momChrom, const vector$<$ bool $>$\& pos )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{dadChrom}{const Chromosome\&}{Father chromosome that
+must contain at least one allele, otherwise no crossover will take place.}
+    \setParamTwo{momChrom}{const Chromosome\&}{Mother chromosome that must
+contain the same number of alleles than {\em dadChrom}, otherwise the
+method will be aborted with an error message. Additionally, {\em momChrom}
+must have at least one allele or no crossover will take place.}
+    \setParamThree{pos}{const vector$<$ bool $>$\&}{Vector that contains
+a {\tt bool} value for each allele of {\em this}. Each value will
+specify, whether a change of the parent chromosome will take place at
+the current allele (``true'') or not (``false'').}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossover}
+        {Alternately assigns the allele values of the parent chromosomes
+{\em dadChrom} and {\em momChrom} to {\em this}. {\em pos} contains
+{\tt bool} values, that will be used to specify for each corresponding 
+allele of
+{\em this}, whether a change of the current parent chromosome
+will take place or not. The size of {\em this} will be adapted to
+the size of one parent chromosome. {\em this} will receive its first allele
+value from {\em dadChrom}, when the first value in {\em pos} is
+``false'', otherwise the first allele value is taken from {\em momChrom}.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{crossover!( Chromosome\& mate, const vector$<$ bool $>$\& pos )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{mate}{Chromosome\&}{Chromosome that is used for crossover 
+with {\em this}. The number of alleles in {\em mate} must be
+the same as in {\em this}, otherwise the method will be aborted with
+an error message. Additionally, {\em mate} must contain at least one allele or
+no crossover will take place.}
+    \setParamTwo{pos}{const vector$<$ bool $>$\&}{See above.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossover}
+        {The same as above, but here the chromosome {\em mate} and the
+chromosome {\em this} itself are taken as ``parent'' chromosomes.
+If the first value in {\em pos} is ``false'', then the first allele
+value of {\em this} will be taken from {\em this} itself, otherwise
+the first allele will be taken from {\em mate}.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{crossover!( const Chromosome\& dadChrom, const Chromosome\& momChrom, unsigned npoints, unsigned align )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{dadChrom}{const Chromosome\&}{Father chromosome that
+must contain at least one allele, otherwise no crossover will take place.}
+    \setParamTwo{momChrom}{const Chromosome\&}{Mother chromosome that must
+contain as many alleles as {\em dadChrom}, otherwise the method will be
+aborted with an error message. Additionally, {\em momChrom} must have at least
+one allele or no crossover will take place.}
+    \setParamThree{npoints}{unsigned}{Maximum number of possible changes
+of the parent chromosome. It is determined randomly, whether a change 
+really takes place or not.}
+    \setParamFour{align}{unsigned}{Minimum size of allele intervals, after
+which a change can take place. If {\em align} has no value, it will be
+set to the default value ``1'', i.e. a change of the current
+parent chromosome can take place at every position.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossover}
+        {Alternately assigns the allele values from the parent chromosomes
+{\em dadChrom} and {\em momChrom} to {\em this}. {\em npoints} is
+the maximum number of possible changes of the current parent chromosome,
+{\em align} indicates the minimum allele intervals where a change
+can take place. The size of {\em this} will be adapted to the
+size of a parent chromosome.\\
+For example: {\em this} = $< 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 >$,\\
+{\em dadChrom} = $< 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 >$, {\em momChrom} 
+= $< 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 >$, {\em npoints} $= 3$, {\em align}
+$= 2$. The current chromosome after a call to the method within
+the given parameters: 
+{\em this} = $< 1, 1, 2, 2, 2, 2, 1, 1, 2, 2 >$. Here, a change of the
+parent chromosome randomly took place at positions 2, 6 and 8.
+Because {\em align} was set to ``2'', a change could only took place
+at positions that are a multiple of ``2''.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{crossover!( Chromosome\& mate, unsigned npoints, unsigned align )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{mate}{Chromosome\&}{Chromosome that is used for crossover
+with {\em this}. {\em mate} must contain the same
+number of alleles than {\em this}, otherwise the method will be aborted
+with an error message. Additionally, {\em mate} must contain at least
+one allele or no crossover will take place.}
+    \setParamTwo{npoints}{unsigned}{See above.}
+    \setParamThree{align}{unsigned}{See above.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossover}
+        {Same as above, but here the chromosomes {\em mate} and
+{\em this} itself are taken as ``parent'' chromosomes.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{crossover!( const Chromosome\& dadChrom, const Chromosome\& momChrom, const Chromosome\& posChrom )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{dadChrom}{const Chromosome\&}{Father chromosome that
+must contain at least one allele, otherwise no crossover will take place.}
+    \setParamTwo{momChrom}{const Chromosome\&}{Mother chromosome that must
+contain the same number of alleles than {\em dadChrom}, otherwise the
+method will be aborted with an error message. Additionally, {\em momChrom}
+must have at least one allele or no crossover will take place.}
+    \setParamThree{posChrom}{const Chromosome\&}{Chromosome, that will
+indicate for each allele of {\em this} whether a change of the current
+parent chromosome will take place (``0'') or not (a value unequal ``0'').}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossover}
+        {Alternately assigns allele values from the parent chromosomes
+{\em dadChrom} and {\em momChrom} to {\em this}. {\em posChrom} specifies
+for each allele of {\em this}, whether a change of the current parent
+chromosome will take place or not. The size of {\em this} will
+be adapted to the size of a parent chromosome. If the first value
+in {\em posChrom} is ``0'', then the first alleles of {\em this} will 
+be taken from {\em dadChrom}.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{crossover!( Chromosome\& mate, const Chromosome\& posChrom )} 
+    \setCorrectWidthThree{8pt}
+    \setParamOne{mate}{Chromosome\&}{Chromosome that will be used for
+crossover with {\em this}. The number of alleles contained
+in {\em mate} must be the same as the number of alleles in {\em this}, 
+otherwise the method will be aborted with an error message. Additionally,
+{\em mate} must have at least one allele or no crossover will take place.}
+    \setParamTwo{posChrom}{const Chromosome\&}{See above.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossover}
+        {Same as above, but here the chromosome {\em mate} and
+{\em this} itself are taken as ``parent'' chromosomes. If the first value
+of {\em posChrom} is ``0'', then the first alleles of {\em this} will
+be the old alleles of {\em this} itself.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{crossoverUniform!( const Chromosome\& dadChrom, const Chromosome\& momChrom, const vector$<$ bool $>$\& pos )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{dadChrom}{const Chromosome\&}{Father chromosome that must
+contain at least one allele, otherwise no crossover will take place.}
+    \setParamTwo{momChrom}{const Chromosome\&}{Mother chromosome that
+must contain the same number of alleles than {\em this}, otherwise the
+method will be aborted with an error message. Additionally, {\em momChrom}
+must have at least one allele or no crossover will take place.}
+    \setParamThree{pos}{const vector$<$ bool $>$\&}{Vector that indicates
+for each allele of {\em this}, whether the current value will be taken
+from {\em dadChrom} (``false'') or from {\em momChrom} (``true'').}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossoverUniform}
+        {Alternately assigns the allele values of the parent chromosomes
+{\em dadChrom} and {\em momChrom} to {\em this}. {\em pos} indicates
+for each allele of {\em this}, whether the current allele value is taken
+from {\em dadChrom} or {\em momChrom}. The size of {\em this} will
+be adapted to the size of a parent chromosome.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{crossoverUniform!( Chromosome\& mateChrom, const vector$<$ bool $>$\& pos )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{mateChrom}{Chromosome\&}{Chromosome that is used for
+crossover with {\em this}. The number of alleles contained
+in {\em mateChrom} must be the same as in {\em this}, otherwise the
+method will be aborted with an error message. Additionally, {\em mateChrom}
+must have at least one allele or no crossover will take place.}
+    \setParamTwo{pos}{const vector$<$ bool $>$\&}{Vector, that indicates
+for each allele of {\em this}, whether the old allele value will be taken
+over (``false'') or transcribed from {\em mateChrom} (``true'').}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossoverUniform}
+        {Same as above, but here the chromosomes {\em mateChrom} and
+{\em this} itself are taken as ``parent'' chromosomes.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{crossoverUniform!( const Chromosome\& dadChrom, const Chromosome\& momChrom )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{dadChrom}{const Chromosome\&}{Father chromsome that must
+contain at least one allele, otherwise no crossover will take place.}
+    \setParamTwo{momChrom}{const Chromosome\&}{Mother chromosome that
+must contain as many alleles as {\em dadChrom}, otherwise the method
+will be aborted with an error message. Additionally, {\em momChrom}
+must have at least one allele or no crossover will take place.}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossoverUniform}
+        {Alternately assigns the allele values of the parent chromosomes
+{\em dadChrom} and {\em momChrom} to {\em this}. For each allele of {\em this}
+it will be randomly determined, whether {\em this} will receive the
+current allele value from {\em dadChrom} (probability = $0.5$) or 
+{\em momChrom} (probability = $0.5$). The size of {\em this} will
+be adapted to the size of a parent chromosome.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{crossoverUniform!( Chromosome\& mateChrom )}
+    \printMethodWithOneParam
+    {void} 
+    {crossoverUniform}
+    {Chromosome\&} 
+    {mateChrom} 
+    {Chromosome that is used for crossover with {\em this}.
+The size of {\em mateChrom} must be equal to the size of {\em this},
+otherwise the method will be aborted with an error message. Additionally,
+{\em mateChrom} must contain at least one allele or no crossover will take
+place.}
+    {Same as above, but here the chromosomes {\em mateChrom} and {\em this}
+itself are taken as ``parent'' chromosomes.}
+    {None.}
+    {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{crossoverUniform!( const Chromosome\& dadChrom, const Chromosome\& momChrom, const Chromosome\& posChrom )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{dadChrom}{const Chromosome\&}{Father chromosome that must
+contain at least one allele, otherwise no crossover will take place.}
+    \setParamTwo{momChrom}{const Chromosome\&}{Mother chromosome that must
+contain as many alleles as {\em dadChrom}, otherwise the method will be
+aborted with an error message. Additionally, {\em momChrom} must have
+at least one allele or no crossover will take place.}
+    \setParamThree{posChrom}{const Chromosome\&}{Chromosome which 
+indicates, whether the current allele value will be
+taken from {\em dadChrom} (``0'') or {\em momChrom} (a value unequal ``0'').}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossoverUniform}
+        {Alternately assigns the allele values of the parent chromosomes
+{\em dadChrom} and {\em momChrom} to {\em this}. {\em posChrom} indicates
+for each allele of {\em this}, whether {\em this} will receive its
+current allele value from {\em dadChrom} or {\em momChrom}. The size of {\em this} will be adapted to the size of a parent chromosome.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{crossoverUniform!( Chromosome\& mateChrom, const Chromosome\& posChrom )}
+    \setCorrectWidthThree{8pt}
+    \setParamOne{mateChrom}{Chromosome\&}{Chromosome that is used for
+crossover with {\em this}. {\em mateChrom} must contain
+the same number of alleles as {\em this}, otherwise the method will be
+aborted with an error message. Additionally, {\em mateChrom} must
+have at least one allele or no crossover will take place.}
+    \setParamTwo{posChrom}{const Chromosome\&}{Chromosome which 
+indicates, whether the current allele value of {\em this} will be taken
+from \\{\em mateChrom} (a value unequal ``0'') or the old value of {\em this}
+will be taken over (``0'').}
+    \printMethodWithParamsSaved
+        {void}
+        {}
+        {crossoverUniform}
+        {Same as above, but here the chromosomes {\em mateChrom} and
+{\em this} itself will be taken as ``parent'' chromosomes.}
+        {}
+    \setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%

@@ -1,0 +1,215 @@
+% 24th, Jan, 2001 Ver.1     Tatsuya Okabe
+%                 Ver.2
+%                 Ver.3
+%                 Ver.4
+%                 Ver.5
+%
+%---------------------------------------------------------------------------%
+% Made by Tatsuya Okabe ( HONDA R&D Europe ( Deutschland ) GmbH )           %
+% Checked by Bernhard Sendhoff ( HONDA R&D Europe ( Deutschland ) GmbH )    %
+%---------------------------------------------------------------------------%
+% Class Uniform
+
+\section{Abstract}
+
+\noindent
+With the class {\em Uniform}, we can simulate the ``Uniform''
+distribution. If you want to get real number from $x_{lower}$ to
+$x_{upper}$ with the same probability, you can use this class. The
+distribution follows the next equation.
+
+\begin{equation}
+f(x) = \left\{
+\begin{array}{ll}
+1 / ( x_{upper} - x_{lower} ) & x_{lower} \le x \le x_{upper} \\
+0 & the \hspace{2mm} other
+\end{array}
+\right.
+\end{equation}
+
+\noindent
+In this equation, $x_{lower}$, $x$ and $x_{upper}$ mean the lower
+boundary, the variable and the upper boundary, respectively.
+
+\vspace*{10mm}
+
+\section{Internal Variables}
+
+\begin{itemize}
+\item pLow - The lower boundary.
+\item pHigh - The upper boundary.
+\end{itemize}
+
+%********************
+\index{pLow (Variable)}
+\index{pHigh (Variable)}
+%********************
+
+\clearpage
+
+\section{Public Methods}
+
+\noindent
+These methods can be used by all \cpp - programs, that have included the
+header file Uniform.h and the library EA.
+
+\subsection{Constructors}
+
+%---------------------------------------------------------------------------%
+% 001
+\index{Uniform!( double lo, double hi )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{lo}{double}{The lower boundary.} 
+\setParamTwo{hi}{double}{The upper boundary.}
+\printMethodWithParamsSaved
+{}
+{None.}
+{Uniform}
+{The default constructor. Generates the random generator of Uniform distribution.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 002
+\index{Uniform!( double lo, double hi, RNG\& rng )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{lo}{double}{The lower boundary.} 
+\setParamTwo{hi}{double}{The upper boundary.}
+\setParamThree{rng}{RNG\&}{RNG class.}
+\printMethodWithParamsSaved
+{}
+{None.}
+{Uniform}
+{The constructor. Generates the random generator of Uniform distribution.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{Operators}
+
+%---------------------------------------------------------------------------%
+% 003
+\index{operator( )!( double lo, double hi )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{lo}{double}{The lower boundary.} 
+\setParamTwo{hi}{double}{The upper boundary.}
+\printMethodWithParamsSaved
+{double}
+{The result of uniform distribution.}
+{operator( )}
+{Gets the result of uniform distribution.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+% 004
+\index{operator( )!( )} 
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{double}
+{operator( )}
+{Gets the result of uniform distribution.}
+{The result of uniform distribution.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{Information Retrieval Methods}
+
+%---------------------------------------------------------------------------%
+% 005
+\index{low!( )} 
+\setConstInstance
+\printEmptyMethodReturnSpecial
+{double}
+{low}
+{Returns the lower boundary {\em pLow}.}
+{The lower boundary {\em pLow}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 006
+\index{hign!( )} 
+\setConstInstance
+\printEmptyMethodReturnSpecial
+{double}
+{high}
+{Returns the upper boundary {\em pHigh}.}
+{The upper boundary {\em pHigh}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 007
+\index{low!( double lo )} 
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{low}
+{double}
+{lo}
+{New value of the lower boundary.}
+{Sets the lower boundary {\em pLow} using new lower boundary {\em lo}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+% 008
+\index{high!( double hi )} 
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{high}
+{double}
+{hi}
+{New value of the upper boundary.}
+{Sets the upper boundary {\em pHigh} using new upper boundary {\em hi}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{The probability}
+
+%---------------------------------------------------------------------------%
+% 009
+\index{p!( const double\& x )} 
+\setConstInstance
+\printMethodWithOneParam
+{double}
+{p}
+{const double\&}
+{x}
+{The factor which you want to calculate the probability.}
+{Returns the probability of {\em x}.}
+{The probability.}
+{None.}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+
+
+
+
+
+
+
+

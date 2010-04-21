@@ -1,0 +1,27 @@
+\section{Abstract}
+
+Evolutionary algorithms basically work with {\em chromosomes},
+that contain a fixed number of data units of any type, called {\em alleles}.
+The \cpp\ program uses vectors of type {\em T} to represent chromosomes. 
+When a new chromosome is generated it will be administrated by using 
+the \cpp\ construct {\tt map}. This construct will use only pointers
+to the vector and registrate the chromosome.
+The chromosome itself will be stored only one time and many of the
+following operations will work only with the pointers. 
+Several classes of administration will be built that correspond to
+the different types {\em T} of the registered chromosomes.
+The type of a chromosome is also used to address the chromosomes of one
+administration class. This administration is, however, not visible for
+the user of the {\tt Chromosome} class, he only works with instances of
+this class.\\
+The class {\tt Chromosome} is the base upon which all other classes
+work. It contains general methods that are valid for all chromosomes.
+The other {\tt Chromosome} classes will contain methods for more special
+kinds of chromosomes.
+The user cannot use an instance of the class {\tt Chromosome} directly,
+because this class is only of declarative character. When using chromosomes,
+the user must always declare chromosomes of a special type,
+e.g. ``Chromosome$<$ int $>$ {\tt chrom}''.
+In the following description of the class methods the current instance
+of class {\tt Chromosome}
+will always be denoted as {\em this} (as usual in \cpp).

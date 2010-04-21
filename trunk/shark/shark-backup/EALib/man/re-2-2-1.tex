@@ -1,0 +1,68 @@
+\subsection{Constructors}
+
+Constructors are not directly defined in this class, but in the class
+{\tt ChromosomeT\_base}, that is built upon the base class.
+Class {\tt Chromosome} is only declared for overloading.\\
+
+%---------------------------------------------------------------------------%
+\index{ChromosomeT\_base!( )}
+\setNormalInstance
+\printEmptyMethod
+{ChromosomeT\_base}
+{Generates a new empty chromosome of any type and registers it.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{ChromosomeT\_base!( unsigned l )}
+\setNormalInstance
+\printMethodWithOneParam
+{explicit}
+{ChromosomeT\_base}
+{unsigned}
+{l}
+{Size of the chromosome.}
+{Generates a new empty chromosome of any type and therefore reserves
+ memory for {\em l} alleles. The chromosome is registered.}
+{None.}
+{{\em explicit} = Implicit calls in commands like 
+ ``ChromosomeT\_base {\tt chrom} = $<$value$>$'' are not possible.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{ChromosomeT\_base!( unsigned l, const T\& v )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{l}{unsigned}{Size of the chromosome.}
+\setParamTwo{v}{const {\sl T}\&}{Initial value for the alleles of the 
+chromosome.}
+\printMethodWithParamsSaved
+{}
+{}
+{ChromosomeT\_base}
+{Generates a new empty chromosome of type {\sl T} with {\em l} alleles
+ and initializes the alleles with the value {\em v}. 
+ The chromosome is registered.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{ChromosomeT\_base!( const vector$<$ T $>$\& v )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{ChromosomeT\_base}
+{const vector$<$ {\sl T} $>$\&}
+{v}
+{Vector with values for the initialization of the alleles of the chromosome.}
+{Generates a new chromosome of type {\sl T} and the values of {\em v}
+ are copied to {\em this}. The chromosome is registered.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%

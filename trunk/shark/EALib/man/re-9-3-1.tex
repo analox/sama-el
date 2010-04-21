@@ -1,0 +1,270 @@
+\subsection{Constructors}
+
+%---------------------------------------------------------------------------%
+\index{Population!( )}
+\setNormalInstance
+\printEmptyMethod
+{Population}
+{Generates a new population.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n )}
+\setNormalInstance
+\printMethodWithOneParam
+{explicit}
+{Population}
+{unsigned}
+{n}
+{Number of individuals in the new population.}
+{Generates a new population and reserves space for {\em n} individuals
+ of undefined type.}
+{None.}
+{{\em explicit} = Implicit calls of the constructor using assignments of type
+Population {\em pop} = $<$Value$>$ are not possible. This function is
+not included in this version.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{Population!( const Individual\& indiv )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Population}
+{const Individual\&}
+{indiv}
+{Individual, that makes up the new population.}
+{Generates a new population that consists of the individual {\em indiv}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n, const Individual\& indiv )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of copies of {\em indiv}
+to form the new population.}
+\setParamTwo{indiv}{const Individual\&}{Individual.}
+\printMethodWithParamsSaved
+{}
+{}
+{Population}
+{Generates a new population consisting of {\em n} copies of the
+ individual {\em indiv}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n, const Chromosome\& chrom0 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of individuals that make up the new
+population.}
+\setParamTwo{chrom0}{const Chromosome\&}{Chromosome.}
+\printMethodWithParamsSaved
+{}
+{}
+{Population}
+{Generates a new population consisting of {\em n} individuals that
+ are formed by cloning chromosome {\em chrom0}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n, const Chromosome\& chrom0, const Chromosome\& chrom1 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of individuals that make up the new
+population.}
+\setParamTwo{chrom0 .. chrom1}{const Chromosome\&}{Chromosomes to be cloned.}
+\printMethodWithParamsSaved
+{}
+{}
+{Population}
+{Generates a new population that consists of {\em n} individuals
+ formed by cloning the chromosomes {\em chrom0} and
+ {\em chrom1}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n, const Chromosome\& chrom0 .. chrom2 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of individuals that make up the new
+population.}
+\setParamTwo{chrom0 .. chrom2}{const Chromosome\&}{Chromosomes to be 
+cloned.}
+\printMethodWithParamsSaved
+{}
+{}
+{Population}
+{Generates a new population that consists of {\em n} individuals
+ formed by cloning the chromosomes {\em chrom0} to {\em chrom2}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n, const Chromosome\& chrom0 .. chrom3 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of individuals that make up the new
+population.}
+\setParamTwo{chrom0 .. chrom3}{const Chromosome\&}{Chromosomes to be 
+cloned.}
+\printMethodWithParamsSaved
+{}
+{}
+{Population}
+{Generates a new population that consists of {\em n} individuals
+ formed by cloning the chromosomes {\em chrom0} to {\em chrom3}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n, const Chromosome\& chrom0 .. chrom4 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of individuals that make up the new
+population.}
+\setParamTwo{chrom0 .. chrom4}{const Chromosome\&}{Chromosomes to be
+cloned.}
+\printMethodWithParamsSaved
+{}
+{}
+{Population}
+{Generates a new population that consists of {\em n} individuals
+ formed by cloning the chromosomes {\em chrom0} to {\em chrom4}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n, const Chromosome\& chrom0 .. chrom5 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of individuals that make up the new
+population.}
+\setParamTwo{chrom0 .. chrom5}{const Chromosome\&}{Chromosomes to be
+cloned.}
+\printMethodWithParamsSaved
+{}
+{}
+{Population}
+{Generates a new population that consists of {\em n} individuals 
+ formed by cloning the chromosomes {\em chrom0} to {\em chrom5}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n, const Chromosome\& chrom0 .. chrom6 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of individuals that make up the new
+population.}
+\setParamTwo{chrom0 .. chrom6}{const Chromosome\&}{Chromosomes to be
+cloned.}
+\printMethodWithParamsSaved
+{}
+{}
+{Population}
+{Generates a new population that consists of {\em n} individuals
+ formed by cloning the chromosomes {\em chrom0} to {\em chrom6}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n, const Chromosome\& chrom0 .. chrom7 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of individuals that make up the new
+population.}
+\setParamTwo{chrom0 .. chrom7}{const Chromosome\&}{Chromosomes to be
+cloned.}
+\printMethodWithParamsSaved
+{}
+{}
+{Population}
+{Generates a new population that consists of {\em n} individuals
+ formed by cloning the chromosomes {\em chrom0} to {\em chrom7}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Population!( unsigned n, const vector$<$ Chromosome $\ast$ $>$\& chrom )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of individuals that make up the new
+population.}
+\setParamTwo{chrom}{const vector$<$ Chromosome $\ast$ $>$\&}{Vector with
+chromosomes to be cloned.}
+\printMethodWithParamsSaved
+{}
+{}
+{Population}
+{Generates a new population that consists of {\em n} individuals
+ formed by cloning the chromosomes that are stored in vector
+ {\em chrom}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Population!( const Population\& pop )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Population}
+{const Population\&}
+{pop}
+{Population, which copy will form the new population.}
+{Generates a new population that consists of a copy of the population
+ {\em pop} including the values for the flags {\em ascending} and 
+ {\em spinOnce}. The other flags and variables will be initialized
+ to their default values.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+
+
+

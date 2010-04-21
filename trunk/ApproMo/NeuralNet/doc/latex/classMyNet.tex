@@ -1,0 +1,71 @@
+\section{My\-Net Class Reference}
+\label{classMyNet}\index{MyNet@{MyNet}}
+My\-Net generates an initial neural network model in different ways. 
+
+
+{\tt \#include $<$My\-Net.h$>$}
+
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+{\bf My\-Net} (const string \&filename)
+\begin{CompactList}\small\item\em Initialize a neural network model by reading in a file.\item\end{CompactList}\item 
+{\bf My\-Net} (const unsigned in, const unsigned out, const Array$<$ int $>$ \&cmat, const Array$<$ double $>$ \&wmat)
+\begin{CompactList}\small\item\em Initialize a neural network model by specifying the structure and weights separately.\item\end{CompactList}\item 
+\index{g@{g}!MyNet@{MyNet}}\index{MyNet@{MyNet}!g@{g}}
+double {\bf g} (double a)\label{classMyNet_a2}
+
+\begin{CompactList}\small\item\em Alternative activation functions for hidden nodes.\item\end{CompactList}\item 
+\index{gOutput@{gOutput}!MyNet@{MyNet}}\index{MyNet@{MyNet}!gOutput@{gOutput}}
+double {\bf g\-Output} (double a)\label{classMyNet_a4}
+
+\begin{CompactList}\small\item\em Linear output nodes.\item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+My\-Net generates an initial neural network model in different ways.
+
+This class is based on classes defined in Re\-Cla\-M of the Shark library. The following Re\-Cla\-M functions are used in {\tt meta\-Model.h} and {\tt Updatemeta\-Model.h} .\begin{enumerate}
+\item 
+{\tt My\-Net.model(input\-NN,output\-NN)} This function returns the output of a neural network for a given input vector {\tt input\-NN}. The output value is stored in the variable {\tt output\-NN}. \item 
+{\tt meta\-Net.init\-Rprop(delta0)}, {\tt meta\-Net.rprop(input\-NN,target\-NN,np,nm,dmax,dmin)}; \par
+ There exist several methods for training neural networks.  The training algorithm used in this software is the Rprop, which is a robust and fast training algorithm. \par
+ The parameters of the training algorithms are:\end{enumerate}
+\begin{CompactItemize}
+\item 
+delta0: the initial learning rate\item 
+np: the increase factor if the learning rate should increase\item 
+nm: the decrease factor if the learning rate should decrease\item 
+dmax: the maximal increase factor allowed\item 
+dmin: the minimal increase factor allowed\item 
+inpu\-NN: the input vector of the training data\item 
+target\-NN: the output vector of the training data \end{CompactItemize}
+\begin{enumerate}
+\item 
+{\tt meta\-Net.input\-Dimension(),meta\-Net.output\-Dimension} These two functions return the input dimension and output dimension of a neural network if it has been defined by a constructor.\item 
+{\tt meta\-Net.get\-Connections()}; This function returns the struture of the neural network which is specified by a connection matrix.\item 
+{\tt meta\-Net.get\-Weights()} This function returns the weight for each connection in the neural network. \end{enumerate}
+
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{MyNet@{My\-Net}!MyNet@{MyNet}}
+\index{MyNet@{MyNet}!MyNet@{My\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}My\-Net::My\-Net (const string \& {\em filename})\hspace{0.3cm}{\tt  [inline]}}\label{classMyNet_a0}
+
+
+Initialize a neural network model by reading in a file.
+
+Both the structure and parameters of the neural network are specified in the file. Information include the number of inputs, the number of hidden nodes and the number of outputs. Besides, the connection between the nodes are also determined by a matrix. If two nodes are connected, the corresponding element in the matrix is 1, otherwise, it is 0. This is the initialization mode adopted in the current software. \index{MyNet@{My\-Net}!MyNet@{MyNet}}
+\index{MyNet@{MyNet}!MyNet@{My\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}My\-Net::My\-Net (const unsigned {\em in}, const unsigned {\em out}, const Array$<$ int $>$ \& {\em cmat}, const Array$<$ double $>$ \& {\em wmat})\hspace{0.3cm}{\tt  [inline]}}\label{classMyNet_a1}
+
+
+Initialize a neural network model by specifying the structure and weights separately.
+
+This function initializes an neural network model by giving the number of inputs, the number of outputs, a matrix that determines the connections between the neurons and a matrix specifying the weight of each connection. 
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+My\-Net.h\end{CompactItemize}

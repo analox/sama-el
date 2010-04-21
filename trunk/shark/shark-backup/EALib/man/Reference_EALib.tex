@@ -1,0 +1,272 @@
+%------------------------------------------------------------------------
+%- Reference for the EALib                                              -
+%------------------------------------------------------------------------
+%- History of modification                                              -
+%-                                                                      -
+%-  ver.1.01 : 2000/05/29 Ruediger Alberts (Institut fuer               -
+%-                        Neuroinformatik, Bochum)                      -
+%-               original                                               -
+%-  ver.1.02 : 2001/01/04 Tatsuya Okabe (HONDA R&D EUROPE DEUTSCHLAND)  -
+%-               separate files , add index                             -
+%-  ver.1.03 : 2001/01/30 Tatsuya Okabe (HONDA R&D EUROPE DEUTSCHLAND)  -
+%-               include some classes about random generator            -
+%-  ver.1.04 : 2001/02/05 Tatsuya Okabe (HONDA R&D EUROPE DEUTSCHLAND)  -
+%-               include some important classes                         -
+%-  ver.1.10 : 2001/02/14 Tatsuya Okabe (HONDA R&D EUROPE DEUTSCHLAND)  -
+%-               release version                                        -
+%-  ver.1.11 : 2001/06/08 Tatsuya Okabe (HONDA R&D EUROPE DEUTSCHLAND)  -
+%-               correct some mistakes                                  -
+%-  ver.1.12 : 2002/05/22 Ruediger Alberts (ZN AG, Bochum)              -
+%-               splitted parts for EALib, Array and Rng                -
+%-                                                                      -
+%-  ver.1.13 :                                                          -
+%-                                                                      -
+%-  ver.1.14 :                                                          -
+%-                                                                      -
+%-  ver.1.15 :                                                          -
+%-                                                                      -
+%------------------------------------------------------------------------
+
+\documentclass{report}
+\usepackage{a4}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\makeindex
+\include{VorlageE}
+\begin{document}
+
+%************************************************************************
+% Set the style
+%************************************************************************
+\input{re-style}
+
+
+%************************************************************************
+% FTR-Title
+%************************************************************************
+\pagestyle{empty}
+\input{i001-0-1}
+
+
+%************************************************************************
+% Title
+%************************************************************************
+\clearpage
+\pagestyle{empty}
+\setcounter{page}{1}
+\input{re-title}
+
+
+%************************************************************************
+% Contents
+%************************************************************************
+\clearpage
+\pagestyle{plain}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\tableofcontents
+
+
+%************************************************************************
+% Preface
+%************************************************************************
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\chapter{Preface}
+\input{re-1-0}
+
+
+%************************************************************************
+% Class Chromosome
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Chromosome}}
+\index{Chromosome}
+
+%------------------------------
+% Abstract
+%------------------------------
+\input{re-2-1}
+
+%------------------------------
+% Public Methods
+%------------------------------
+\clearpage
+\input{re-2-2}
+
+%------------------------------
+% Private Methods
+%------------------------------
+\clearpage
+\input{re-2-3}
+
+
+%************************************************************************
+% Class ChromosomeT_num
+%************************************************************************
+\clearpage
+\chapter{Class {\tt ChromosomeT\_num}}
+\index{ChromosomeT\_num}
+
+%------------------------------
+% Abstract
+%------------------------------
+\input{re-3-1}
+
+%------------------------------
+% Public Methods
+%------------------------------
+\clearpage
+\input{re-3-2}
+
+
+%************************************************************************
+% Class ChromosomeT< bool >
+%************************************************************************
+\clearpage
+\chapter{Class {\tt ChromosomeT$<$ bool $>$}}
+\index{ChromosomeT$<$ bool $>$}
+
+%------------------------------
+% Abstract
+%------------------------------
+\input{re-4-1}
+
+%------------------------------
+% Public Methods
+%------------------------------
+\clearpage
+\input{re-4-2}
+
+
+%************************************************************************
+% Class ChromosomeT< char >
+%************************************************************************
+\clearpage
+\chapter{Class {\tt ChromosomeT$<$ char $>$}}
+\index{ChromosomeT$<$ char $>$}
+
+%------------------------------
+% Abstract
+%------------------------------
+\input{re-5-1}
+
+
+%************************************************************************
+% Class ChromosomeT< int >
+%************************************************************************
+\clearpage
+\chapter{Class {\tt ChromosomeT$<$ int $>$}}
+\index{ChromosomeT$<$ int $>$}
+
+%------------------------------
+% Abstract
+%------------------------------
+\input{re-6-1}
+
+%------------------------------
+% Public Methods
+%------------------------------
+\clearpage
+\input{re-6-2}
+
+
+%************************************************************************
+% Class ChromosomeT< double >
+%************************************************************************
+\clearpage
+\chapter{Class {\tt ChromosomeT$<$ double $>$}}
+\index{ChromosomeT$<$ double $>$}
+
+%------------------------------
+% Abstract
+%------------------------------
+\input{re-7-1}
+
+%------------------------------
+% Internal Class DerandomConst
+%------------------------------
+\input{re-7-2}
+
+%------------------------------
+% Public Methods
+%------------------------------
+\clearpage
+\input{re-7-3}
+
+
+%************************************************************************
+% Class Individual
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Individual}}
+\index{Individual}
+
+%------------------------------
+% Abstract
+%------------------------------
+\input{re-8-1}
+
+%------------------------------
+% Internal Variables & Flags
+%------------------------------
+\input{re-8-2}
+
+%------------------------------
+% Public Methods
+%------------------------------
+\input{re-8-3}
+
+
+%************************************************************************
+% Class Population
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Population}}
+\index{Population}
+
+%------------------------------
+% Abstract
+%------------------------------
+\input{re-9-1}
+
+%------------------------------
+% Internal Variables & Flags
+%------------------------------
+\input{re-9-2}
+
+%------------------------------
+% Public Methods
+%------------------------------
+\clearpage
+\input{re-9-3}
+
+%------------------------------
+% Private Methods
+%------------------------------
+\clearpage
+\input{re-9-4}
+
+%************************************************************************
+% Bibliography
+%************************************************************************
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\input{re-bib}
+
+
+%************************************************************************
+% Index
+%************************************************************************
+\clearpage
+\printindex{}
+
+
+\end{document}
+
+
+
+
+
+

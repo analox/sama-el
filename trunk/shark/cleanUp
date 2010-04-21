@@ -1,0 +1,255 @@
+#!/bin/sh
+rm -f Makefile
+rm -f configure
+rm -f config.status
+rm -f config.log
+rm -f -R autom4te.cache
+echo
+if ( test -d Array  ); 
+    then
+    printf '############# entering Array\n'
+    cd Array/
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# Array clean\n';
+fi;
+echo
+if ( test -d EALib  ); 
+    then
+    printf '############# entering EALib\n'
+    cd  EALib/
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# EALib clean\n';
+fi;
+echo
+if ( test -d Fuzzy ); 
+    then
+    printf '############# entering Fuzzy\n'
+    cd Fuzzy/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# Fuzzy clean\n';
+fi;
+echo
+if ( test -d LinAlg ); 
+    then
+    printf '############# entering LinAlg\n'
+    cd LinAlg/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# LinAlg clean\n';
+fi;
+echo
+if ( test -d Metric ); 
+    then
+    printf '############# entering Metric\n'
+    cd Metric/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# Metric clean\n';
+fi;
+echo
+if ( test -d Mixture ); 
+    then
+    printf '############# entering Mixture\n'
+    cd Mixture/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# Mixture clean\n';
+fi;
+echo
+if ( test -d MOO-EALib ); 
+    then
+    printf '############# entering MOO-EALib\n'
+    cd MOO-EALib/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# MOO-EALib clean\n';
+fi;
+echo
+if ( test -d Pagode ); 
+    then
+    printf '############# entering Pagode\n'
+    cd Pagode/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# Pagode clean\n';
+fi;
+echo
+if ( test -d ReClaM ); 
+    then
+    printf '############# entering ReClaM\n'
+    cd ReClaM/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# ReClaM clean\n';
+fi;
+echo
+if ( test -d Rng ); 
+    then
+    printf '############# entering Rng\n'
+    cd Rng/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# Rng clean\n';
+fi;
+echo
+if ( test -d SimAnn ); 
+    then
+    printf '############# entering SimAnn\n'
+    cd SimAnn/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# SimAnn clean\n';
+fi;
+echo
+if ( test -d SpreadCAT ); 
+    then
+    printf '############# entering SpreadCAT\n'
+    cd SpreadCAT/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f src/*.o`
+    `rm -f -R lib/`
+    `rm -f examples/*_sun4u` 
+    `rm -f examples/*_i686`
+    `rm -f examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# SpreadCAT clean\n';
+fi;
+echo
+if ( test -d TestData ); 
+    then
+    printf '############# entering TestData\n'
+    cd TestData/             
+    `rm -f Makefile`
+    `rm -f configure`
+    `rm -f config.status`
+    `rm -f config.log`
+    `rm -f */src/*.o`
+    `rm -f -R */lib/`
+    `rm -f */Makefile` 
+    `rm -f */examples/*_sun4u` 
+    `rm -f */examples/*_i686`
+    `rm -f */examples/Makefile`
+    `rm -f -R autom4te.cache`
+    cd ..
+    printf '############# TestData clean\n';
+fi;
+echo
+if ( test -d selftest ); 
+    then
+    printf '############# entering selftest\n'
+    cd selftest/             
+    `rm -f */Makefile` 
+    `rm -f */*/Makefile` 
+    `rm -f */*/*/*_sun4u` 
+    `rm -f */*/*/*_i686` 
+    `rm -f */*/*_sun4u` 
+    `rm -f */*/*_i686` 
+    cd ..
+    printf '############# selftest clean\n';
+fi;

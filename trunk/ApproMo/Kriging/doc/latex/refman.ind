@@ -1,0 +1,150 @@
+\begin{theindex}
+
+  \item {$\sim$CompassSearch}
+    \subitem {Compass\-Search}, 8
+  \item {$\sim$PatternSearch}
+    \subitem {Pattern\-Search}, 17
+
+  \indexspace
+
+  \item {BeginSearch}
+    \subitem {Compass\-Search}, 9
+    \subitem {Pattern\-Search}, 17
+
+  \indexspace
+
+  \item {CleanSlate}
+    \subitem {Pattern\-Search}, 17
+  \item {CompassSearch}, 7
+    \subitem {Compass\-Search}, 8
+  \item {Compass\-Search}
+    \subitem {$\sim$CompassSearch}, 8
+    \subitem {BeginSearch}, 9
+    \subitem {CompassSearch}, 8
+    \subitem {CreatePattern}, 9
+    \subitem {ExploratoryMoves}, 9
+    \subitem {operator=}, 9
+    \subitem {UpdatePattern}, 9
+  \item {CopySearch}
+    \subitem {Pattern\-Search}, 18
+  \item {CreatePattern}
+    \subitem {Compass\-Search}, 9
+
+  \indexspace
+
+  \item {delta}
+    \subitem {Pattern\-Search}, 21
+
+  \indexspace
+
+  \item {Evaluate}
+    \subitem {Krig\-Approx}, 11, 12
+  \item {ExploratoryMoves}
+    \subitem {Compass\-Search}, 9
+    \subitem {Pattern\-Search}, 18
+
+  \indexspace
+
+  \item {GetDelta}
+    \subitem {Pattern\-Search}, 18
+  \item {GetInitialStepLength}
+    \subitem {Pattern\-Search}, 18
+  \item {GetPatternLength}
+    \subitem {Pattern\-Search}, 18
+
+  \indexspace
+
+  \item {InitializeDesign}
+    \subitem {Pattern\-Search}, 19
+  \item {initialStepLength}
+    \subitem {Pattern\-Search}, 21
+
+  \indexspace
+
+  \item {KrigApprox}, 10
+  \item {Krig\-Approx}
+    \subitem {Evaluate}, 11, 12
+    \subitem {MSE}, 12
+    \subitem {ScanSquare3D}, 12, 13
+    \subitem {Train}, 13
+    \subitem {Train\_\-MLM}, 14
+  \item {KrigApprox.h}, 23
+
+  \indexspace
+
+  \item {MSE}
+    \subitem {Krig\-Approx}, 12
+
+  \indexspace
+
+  \item {NextPoint}
+    \subitem {Pattern\-Search}, 19
+
+  \indexspace
+
+  \item {operator=}
+    \subitem {Compass\-Search}, 9
+    \subitem {Pattern\-Search}, 19
+
+  \indexspace
+
+  \item {patternLength}
+    \subitem {Pattern\-Search}, 21
+  \item {PatternSearch}, 15
+    \subitem {Pattern\-Search}, 16
+  \item {Pattern\-Search}
+    \subitem {$\sim$PatternSearch}, 17
+    \subitem {BeginSearch}, 17
+    \subitem {CleanSlate}, 17
+    \subitem {CopySearch}, 18
+    \subitem {delta}, 21
+    \subitem {ExploratoryMoves}, 18
+    \subitem {GetDelta}, 18
+    \subitem {GetInitialStepLength}, 18
+    \subitem {GetPatternLength}, 18
+    \subitem {InitializeDesign}, 19
+    \subitem {initialStepLength}, 21
+    \subitem {NextPoint}, 19
+    \subitem {operator=}, 19
+    \subitem {patternLength}, 21
+    \subitem {PatternSearch}, 16
+    \subitem {PrintDesign}, 19
+    \subitem {ReadInFile}, 20
+    \subitem {ReplaceMinimum}, 20
+    \subitem {ScalePattern}, 20
+    \subitem {SetInitialStepLength}, 20
+    \subitem {Stop}, 20
+  \item {PrintDesign}
+    \subitem {Pattern\-Search}, 19
+
+  \indexspace
+
+  \item {ReadInFile}
+    \subitem {Pattern\-Search}, 20
+  \item {ReplaceMinimum}
+    \subitem {Pattern\-Search}, 20
+
+  \indexspace
+
+  \item {ScalePattern}
+    \subitem {Pattern\-Search}, 20
+  \item {ScanSquare3D}
+    \subitem {Krig\-Approx}, 12, 13
+  \item {SetInitialStepLength}
+    \subitem {Pattern\-Search}, 20
+  \item {Stop}
+    \subitem {Pattern\-Search}, 20
+
+  \indexspace
+
+  \item {Train}
+    \subitem {Krig\-Approx}, 13
+  \item {Train\_\-MLM}
+    \subitem {Krig\-Approx}, 14
+
+  \indexspace
+
+  \item {UpdatePattern}
+    \subitem {Compass\-Search}, 9
+
+\end{theindex}

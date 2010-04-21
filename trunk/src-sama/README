@@ -1,0 +1,77 @@
+===================================================================================
+Surrogate-Assisted Memetic Algorithm/SAMA (using GA + L-BFGS-B + RBF model) Example
+===================================================================================
+
+Note:
+*****
+
+*This code is the reconstructed basic version of SAMA which has inspired many of our previous works. While some parts are different such as due to the proprietary code which requires us to replace it with other code with similar functionality (e.g. the code for performing local searches), the basic flow of the algorithm is the same. Hence, if you are to use any part of this code, please cite the following publications (ordered chronologically):
+
+-D. Lim, Y. Jin, Y. S. Ong and B. Sendhoff, "Generalizing Surrogate-assisted Evolutionary Computation", IEEE Transactions on Evolutionary Computation, Accepted & In Press, 2008.
+
+-Z. Z. Zhou, Y. S. Ong, M. H. Lim and B. S. Lee, "Memetic Algorithm using Multi-Surrogates for Computationally Expensive Optimization Problems", Soft Computing Journal, Vol. 11, No. 10,  pp. 957-971, August 2007.
+
+-D. Lim, Y. S. Ong, Y. Jin and B. Sendhoff, "A Study on Metamodeling Techniques, Ensembles, and Multi-Surrogates in Evolutionary Computation", Genetic and Evolutionary Computation Conference. London, UK, pp. 1288 - 1295, 2007.
+
+-Z. Z. Zhou, Y. S. Ong, P. B. Nair, A. J. Keane and K. Y. Lum, "Combining Global and Local Surrogate Models to Accelerate Evolutionary Optimization", IEEE Transactions On Systems, Man and Cybernetics - Part C, Vol. 37, No. 1, pp. 66-76, 2007.
+
+-Y. S. Ong, P. B. Nair and K. Y. Lum, "Max-Min Surrogate-Assisted Evolutionary Algorithm for Robust Aerodynamic Design", IEEE Transactions on Evolutionary Computation, Vol. 10, No. 4, pp. 392-404, August 2006. 
+
+-Y. S. Ong, Z. Z. Zhou and D. Lim, "Curse and Blessing of Uncertainty in Evolutionary Algorithm Using Approximation", IEEE Congress on Evolutionary Computation, pp. 2928 - 2935, July 16-21, Sheraton Vancouver Wall Centre, Vancouver, BC, Canada, 2006. 
+
+-Z. Z. Zhou, Y. S. Ong, M. H. Nguyen and D. Lim, "A Study on Polynomial Regression and Gaussian Process Global Surrogate Model in Hierarchical Surrogate-Assisted Evolutionary Algorithm", Special Session on Evolutionary Computation in Dynamic and Uncertain Environments (ECiDUE'05), IEEE Congress on Evolutionary Computation, Edinburgh, United Kingdom, pp. 2832- 2839, Vol. 3, September 2-5, 2005.
+
+-Z. Z. Zhou, Y. S. Ong and P. B. Nair, "Hierarchical Surrogate-Assisted Evolutionary Optimization Framework", IEEE Congress on Evolutionary Computation, Special Session on Learning and Approximation in Design Optimization, Portland, USA, pp. 1586 - 1593, Vol.2, June 20-23, 2004.
+
+-Y. S. Ong, P. B. Nair and A. J. Keane, "Evolutionary Optimization of Computationally Expensive Problems via Surrogate Modeling", American Institute of Aeronautics and Astronautics Journal, Vol. 41, No. 4, pp. 687-696, 2003.
+
+
+Requirements:
+*************
+
+*This code uses the Shark optimization library, particularly it has been tested with version 1.4.4 at the time of development. Obtain it from :
+http://www.mirrorservice.org/sites/download.sourceforge.net/pub/sourceforge/s/sh/shark-project/
+To proceed, compile the libraries in Shark based on its own installation instruction or readme file included in its package.
+
+*Local search method used here is the L-BFGS-B obtained from an external source, and added into this package with minimum modification.
+Please read and follow the license/agreement on the use L-BFGS-B in ./temp/lbfgsb.cpp. No installation/compilation is required for this part.
+
+*Please make sure the SHARKDIR and location of gcc/g++ are correctly assigned in Makefile.
+
+
+To compile: 
+**********
+Just type make
+
+To run 1 time only  :
+*********************
+./sama   ==> default param file is param.dat
+or ./sama paramFileName
+
+To run n times:
+***************
+./run.sh n
+e.g.  ./run.sh 20
+
+Log files:
+**********
+All logs files are located in directory ./logs/
+bestFile-$i.dat, logs the best fitness so far, where $i is the run index (e.g. 20 runs, will output files bestFile-1.dat - bestFile-20.dat).
+bestVecFile-$i.dat, logs the best design vector so far.
+
+To get statistic of best fitness after n runs:
+***********************************************
+./statistic nRun nEvalOfEachRun
+where nRun = number of runs, nEvalOfEachRun = number of function evaluations for each run
+
+e.g. ./statistic 20 10000
+
+output of statistic is "statistic.dat"
+
+Contact:
+********
+Please contact me at dudy0001@ntu.edu.sg for any enquiries.
+
+
+
+

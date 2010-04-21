@@ -1,0 +1,345 @@
+\section{Evo\-Net Class Reference}
+\label{classEvoNet}\index{EvoNet@{EvoNet}}
+This class provides different functions for meta model support in EALib programs. 
+
+
+{\tt \#include $<$Evo\-Net.h$>$}
+
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\index{EvoNet@{EvoNet}!EvoNet@{EvoNet}}\index{EvoNet@{EvoNet}!EvoNet@{EvoNet}}
+{\bf Evo\-Net} ()\label{classEvoNet_a0}
+
+\begin{CompactList}\small\item\em constructor\item\end{CompactList}\item 
+{\bf Evo\-Net} (string Filename)
+\begin{CompactList}\small\item\em This constructor generates a network with the structure and weights given in the file named according to the string given in $<$Filename$>$.\item\end{CompactList}\item 
+{\bf Evo\-Net} (const unsigned in, const unsigned out)
+\begin{CompactList}\small\item\em This constructor generates a network with the parameter dimensions $<$in$>$ of the input data and $<$out$>$ of the output data .\item\end{CompactList}\item 
+{\bf Evo\-Net} (const unsigned in, const unsigned out, const Array$<$ int $>$ \&cmat, const Array$<$ double $>$ \&wmat)
+\begin{CompactList}\small\item\em This constructor generates a network with the parameter dimensions $<$in$>$ of the input data and $<$out$>$ output data and the connection matrix $<$cmat$>$ and weight matrix $<$wmat$>$ respectively.\item\end{CompactList}\item 
+\index{~EvoNet@{$\sim$EvoNet}!EvoNet@{EvoNet}}\index{EvoNet@{EvoNet}!~EvoNet@{$\sim$EvoNet}}
+{\bf $\sim$Evo\-Net} ()\label{classEvoNet_a4}
+
+\begin{CompactList}\small\item\em destructor\item\end{CompactList}\item 
+int {\bf set\-Structure} (const Array$<$ int $>$ \&cmat, const Array$<$ double $>$ \&wmat)
+\begin{CompactList}\small\item\em This function sets the connection matrix and the weight matrix of the neural network to the matrices given in $<$cmat$>$ and $<$wmat$>$.\item\end{CompactList}\item 
+int {\bf Structure\-Optimization} (Database Data)
+\begin{CompactList}\small\item\em This function optimizes the structure of the neural network based on the data stored in the database $<$Data$>$.\item\end{CompactList}\item 
+double {\bf Error\_\-MSE} (Database Data)
+\begin{CompactList}\small\item\em This function the mean square error of the neural network considering the given database $<$Data$>$.\item\end{CompactList}\item 
+int {\bf Evaluate} (Population \&offsprings)
+\begin{CompactList}\small\item\em This function evaluates the $<$offsprings$>$ with the neural network and stores the results as the fitness value in each offspring.\item\end{CompactList}\item 
+int {\bf Evaluate} (Individual \&offspring)
+\begin{CompactList}\small\item\em This function evaluates the $<$offspring$>$ with the neural network and stores the results as the fitness value in the offspring.\item\end{CompactList}\item 
+int {\bf Evaluate} (Array$<$ double $>$ Input\-Data, Array$<$ double $>$ \&Output\-Data)
+\begin{CompactList}\small\item\em This function evaluates the data in $<$Input\-Data$>$ with the neural network and stores the results in $<$Output\-Data$>$.\item\end{CompactList}\item 
+int {\bf Train} (Database Data)
+\begin{CompactList}\small\item\em This function trains the neural network on the datas which are stored in the database $<$Data$>$.\item\end{CompactList}\item 
+int {\bf Save} (string Filename)
+\begin{CompactList}\small\item\em This function saves the connection and weight matrices to a file named $<$Filename$>$.\item\end{CompactList}\item 
+int {\bf Load} (string Filename)
+\begin{CompactList}\small\item\em This function loads the connection and weight matrices and generates a neural network.\item\end{CompactList}\item 
+int {\bf Get\-Learn\-Steps} ()
+\begin{CompactList}\small\item\em This function returns the number of Learn\-Steps of the neural network.\item\end{CompactList}\item 
+int {\bf Set\-Learn\-Steps} (unsigned New\-Step)
+\begin{CompactList}\small\item\em This function sets the number of Learn\-Steps to $<$New\-Step$>$.\item\end{CompactList}\item 
+int {\bf Get\-Input\-Dimension} ()
+\begin{CompactList}\small\item\em This function returns the dimension of the input parameters of the neural network.\item\end{CompactList}\item 
+int {\bf Get\-Output\-Dimension} ()
+\begin{CompactList}\small\item\em This function returns the dimension of the output parameters of the neural network.\item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class provides different functions for meta model support in EALib programs.
+
+This class includes a meta model based on Shark's Reclam and manages the neccessary database handling. For using this class in an appropriate way it is required to create an instance of the class database. After the known data is stored in the database the functionality of the neural network can be applied. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{EvoNet@{Evo\-Net}!EvoNet@{EvoNet}}
+\index{EvoNet@{EvoNet}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Evo\-Net::Evo\-Net (string {\em Filename})}\label{classEvoNet_a1}
+
+
+This constructor generates a network with the structure and weights given in the file named according to the string given in $<$Filename$>$.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Filename}]Name of the file containing the network definition \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!EvoNet@{EvoNet}}
+\index{EvoNet@{EvoNet}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Evo\-Net::Evo\-Net (const unsigned {\em in}, const unsigned {\em out})}\label{classEvoNet_a2}
+
+
+This constructor generates a network with the parameter dimensions $<$in$>$ of the input data and $<$out$>$ of the output data .
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+in}]parameter dimension of the input data \item[{\em 
+out}]parameter dimension of the output data \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!EvoNet@{EvoNet}}
+\index{EvoNet@{EvoNet}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Evo\-Net::Evo\-Net (const unsigned {\em in}, const unsigned {\em out}, const Array$<$ int $>$ \& {\em cmat}, const Array$<$ double $>$ \& {\em wmat})}\label{classEvoNet_a3}
+
+
+This constructor generates a network with the parameter dimensions $<$in$>$ of the input data and $<$out$>$ output data and the connection matrix $<$cmat$>$ and weight matrix $<$wmat$>$ respectively.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+in}]parameter dimension of the input data \item[{\em 
+out}]parameter dimension of the output data \item[{\em 
+cmat}]connection matrix \item[{\em 
+wmat}]weight matrix \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{EvoNet@{Evo\-Net}!Error_MSE@{Error\_\-MSE}}
+\index{Error_MSE@{Error\_\-MSE}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Evo\-Net::Error\_\-MSE (Database {\em Data})}\label{classEvoNet_a7}
+
+
+This function the mean square error of the neural network considering the given database $<$Data$>$.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Data}]the database containing the input and target data \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+error\_\-MSE}]mean square error of the neural network \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Evaluate (Array$<$ double $>$ {\em Input\-Data}, Array$<$ double $>$ \& {\em Output\-Data})}\label{classEvoNet_a10}
+
+
+This function evaluates the data in $<$Input\-Data$>$ with the neural network and stores the results in $<$Output\-Data$>$.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Input\-Data}]Array containing the input parameters  \item[{\em 
+Output\-Data}]Array containing the evaluation results \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Evaluate (Individual \& {\em offspring})}\label{classEvoNet_a9}
+
+
+This function evaluates the $<$offspring$>$ with the neural network and stores the results as the fitness value in the offspring.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+offspring}]Individual to be evaluated \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Evaluate (Population \& {\em offsprings})}\label{classEvoNet_a8}
+
+
+This function evaluates the $<$offsprings$>$ with the neural network and stores the results as the fitness value in each offspring.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+offsprings}]population of offsprings to be evaluated \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!GetInputDimension@{GetInputDimension}}
+\index{GetInputDimension@{GetInputDimension}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Get\-Input\-Dimension ()}\label{classEvoNet_a16}
+
+
+This function returns the dimension of the input parameters of the neural network.
+
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+Input\-Dimension}]dimension of input parameters \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!GetLearnSteps@{GetLearnSteps}}
+\index{GetLearnSteps@{GetLearnSteps}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Get\-Learn\-Steps ()}\label{classEvoNet_a14}
+
+
+This function returns the number of Learn\-Steps of the neural network.
+
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+Learn\-Steps}]number of Learn\-Steps \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!GetOutputDimension@{GetOutputDimension}}
+\index{GetOutputDimension@{GetOutputDimension}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Get\-Output\-Dimension ()}\label{classEvoNet_a17}
+
+
+This function returns the dimension of the output parameters of the neural network.
+
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+Output\-Dimension}]dimension of output parameters \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!Load@{Load}}
+\index{Load@{Load}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Load (string {\em Filename})}\label{classEvoNet_a13}
+
+
+This function loads the connection and weight matrices and generates a neural network.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Filename}]name of file of which the connection and weight matrices are loaded \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if file cannot be opened \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!Save@{Save}}
+\index{Save@{Save}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Save (string {\em Filename})}\label{classEvoNet_a12}
+
+
+This function saves the connection and weight matrices to a file named $<$Filename$>$.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Filename}]name of file in which the connection and weight matrices are stored \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if file cannot be created \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!SetLearnSteps@{SetLearnSteps}}
+\index{SetLearnSteps@{SetLearnSteps}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Set\-Learn\-Steps (unsigned {\em New\-Step})}\label{classEvoNet_a15}
+
+
+This function sets the number of Learn\-Steps to $<$New\-Step$>$.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+New\-Step}]new number of Learn\-Steps \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!setStructure@{setStructure}}
+\index{setStructure@{setStructure}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::set\-Structure (const Array$<$ int $>$ \& {\em cmat}, const Array$<$ double $>$ \& {\em wmat})}\label{classEvoNet_a5}
+
+
+This function sets the connection matrix and the weight matrix of the neural network to the matrices given in $<$cmat$>$ and $<$wmat$>$.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+cmat}]connection matrix \item[{\em 
+wmat}]weight matrix \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!StructureOptimization@{StructureOptimization}}
+\index{StructureOptimization@{StructureOptimization}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Structure\-Optimization (Database {\em Data})}\label{classEvoNet_a6}
+
+
+This function optimizes the structure of the neural network based on the data stored in the database $<$Data$>$.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Data}]the database containing the input and target data \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if database $<$Data$>$ is empty \end{description}
+\end{Desc}
+\index{EvoNet@{Evo\-Net}!Train@{Train}}
+\index{Train@{Train}!EvoNet@{Evo\-Net}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Evo\-Net::Train (Database {\em Data})}\label{classEvoNet_a11}
+
+
+This function trains the neural network on the datas which are stored in the database $<$Data$>$.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Data}]Database containing the data which are used for training \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+{\bf Evo\-Net.h}\end{CompactItemize}

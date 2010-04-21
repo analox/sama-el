@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Array Reference</title>
+  </head>
+
+  <body>
+    <h1>Array Reference</h1>
+
+    <p>
+    The package "Array" provides structures and methods for constructing
+    and dealing with arrays. In principle an array can be viewed as an 
+    instance of an ordinary C-array, like type <em>item[10][5][3]</em>. 
+    However, this is a static instantiation of an array. <BR>
+    The arrays in package "Array" are more flexible in that it is possible 
+    to dynamically resize or change the number of dimensions. <BR>
+    Furthermore, parameter passing by value and
+    assignment works properly (i.e., the value is passed or assigned and
+    not a pointer to the value) and the subscript operator <em>[ ]</em> may
+    perform a range check at run-time (this is implemented by the exception
+    mechanism of C++ - see 
+    class <a href="./html/#01">check_exception</a> and file
+    <a href="./html/#02">ArrayCheck.h</a>). 
+    </p>
+
+    <BR>
+    <BR>
+    <img src="./images/arrow.gif"> &nbsp; <a href="#types">Types of Arrays</a><BR>
+    <img src="./images/arrow.gif"> &nbsp; <a href="#ops">Array Operations</a><BR>
+
+    <br><br>
+    <a name="types">
+    <h2>Types of Arrays</h2>
+    <p>
+    There are several classes for different types of arrays in package
+    "Array":
+    <ul>
+        <li>
+            <b>Arrays for any number of dimensions:</b><BR>
+            These Arrays can have any number of dimensions with
+            arbitrary sizes.<BR>
+            Therefore, class <a href="./html/#03">ArrayBase</a>
+            offers the basic structures and methods and class 
+            <a href="./html/#04">Array&lt; T &gt;</a>
+            can be used to really create Arrays and deal with them.
+        </li>
+        <li>
+            <b>2-dimensional Arrays:</b><BR>
+            The classes <a href="./html/#05">Array2D&lt; T &gt;</a> and
+            <a href="./html/#06">ArrayTable&lt; T &gt;</a> use special
+            storage mechanisms to speed up the work with
+            2-dimensional arrays.
+        </li>
+        <li>
+            <b>3-dimensional Arrays:</b><BR>
+            Class <a href="./html/#06">ArrayTable&lt; T &gt;</a> also offers
+            3-dimensional arrays, that are implemented more efficient
+            to speed up the work compared with using the "normal" 
+            Array type.
+        </li>
+        <li>
+            <b><a href="./html/#07">Index Arrays:</a></b><BR>
+            These are special one-dimensional Arrays of type <em>unsigned</em>,
+            that are used for exchanging data with the programming
+            language <em>IDL</em> (<em>I</em>nteractive <em>D</em>ata
+            <em>L</em>anguage).
+        </li>
+        <li>
+            <b>References to Arrays:</b><BR>
+            Sometimes it is more efficient to work with references
+            to Arrays to avoid copies of the same Array, wasting
+            memory.<BR> 
+            There are reference types available for Arrays
+            of class <a href="./html/#08">Array&lt; T &gt;</a> and also
+            for Arrays of class <a href="./html/#09">Array2D&lt; T &gt;</a>.
+        </li>
+    </ul>
+    </p>
+
+    <br><br>
+    <a name="ops">
+    <h2>Array Operations</h2>
+    <p>
+    Please notice, that the lists of methods for each operation type are not 
+    complete. In many classes of the library "Array" you can find further 
+    methods, that are so special, that they couldn't be associated to one 
+    of the operation types listed here. This list here will give you a 
+    survey only.
+    <ul>
+        <li>
+            <a href="./html/#10"><b>Creating Arrays</b></a><BR>
+            Methods for creating Arrays of different types
+            with or without content.
+        </li>
+        <li>
+            <a href="./html/#11"><b>Information Retrieval</b></a><BR>
+            Get some information about the used Arrays, such as
+            the number of elements or the size of the different dimensions.
+        </li>
+        <li>
+            <a href="./html/#12"><b>Resizing Arrays</b></a><BR>
+            Dynamically change the size of Arrays.
+        </li>
+        <li>
+            <a href="./html/#13"><b>Extracting Array elements:</b></a><BR>
+            Extract one or several elements stored in an Array.
+        </li>
+        <li>
+            <a href="./html/#14"><b>Copying</b></a><BR>
+            Copy Arrays or parts of them.
+        </li>
+        <li>
+            <a href="./html/#15"><b>Assigning values to an Array</b></a><BR>
+        </li>
+        <li>
+            <a href="./html/#16"><b>Adding content to an Array</b></a><BR>
+        </li>
+        <li>
+            <a href="./html/#17"><b>Removing content from an Array</b></a><BR>
+        </li>
+        <li>
+            <a href="./html/#18"><b>Input/Output of Arrays</b></a><BR>
+            Read in an Array from an input stream or write an Array's
+            content to an output stream.
+        </li>
+        <li>
+            <a href="./html/#19"><b>Comparing Arrays</b></a><BR>
+            The contents of two Arrays is compared.
+        </li>
+        <li>
+            <a href="./html/#20"><b>Mathematic Functions</b></a><BR>
+            Many mathematic functions, such as logical or arithmetic
+            functions, matrix functions, etc.
+        </li>
+    </ul>
+    </p>
+
+    <hr><BR>
+    <p>
+    You can also go directly to the Array class reference as 
+    created by the doxygen program:
+    </p>
+            
+    View the <a href="./html/index.html">overview</a>.<BR>
+    View the <a href="./html/files.html">list of files</a> in Array.<BR>
+    View the <a href="./html/annotated.html">list of classes</a> in Array.<BR>
+  </body>
+</html>

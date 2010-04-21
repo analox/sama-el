@@ -1,0 +1,120 @@
+\section{Private Methods}
+
+These methods can only be used by the classes {\tt ChromosomeT\_num}, 
+{\tt ChromosomeT}$<$Type$>$, {\tt Individual} and {\tt Population}.
+
+\subsection{Generating Methods}
+
+%---------------------------------------------------------------------------%
+\index{clone!( )}
+    \setConstInstance   
+    \printEmptyMethodReturn
+    {Chromosome$\ast$} 
+    {clone}
+    {Returns a copy of the current chromosome {\em this}.}
+    {Pointer to copy of {\em this}.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{empty!( )}
+    \printEmptyMethodReturn
+    {Chromosome$\ast$} 
+    {empty}
+    {Returns a new empty chromosome.}
+    {Pointer to the new chromosome.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsection{Input- and Output Methods}
+
+%---------------------------------------------------------------------------%
+\index{writeDataTo!( ostream\& os )}
+    \printMethodWithOneParam
+    {void} 
+    {writeDataTo}
+    {ostream\&} 
+    {os} 
+    {Output stream.}
+    {Writes the content of {\em this} to the output stream {\em os}.
+The single alleles of the chromosome will be separated by a tab character.}
+    {None.}
+    {This function is not included in this version.}
+    \setNormalInstance
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{writeTo!( ostream\& os )}
+    \setConstInstance
+    \printMethodWithOneParam
+    {void}
+    {writeTo}
+    {ostream\&} 
+    {os} 
+    {Output stream.}
+    {Writes the content of {\em this} to the output stream {\em os},
+that means the type, size and the allele values will be send to 
+{\em os}. The single alleles will be separated by a tab
+character.}
+    {None.}
+    {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{readDataFrom!( istream\& is )}
+    \setNormalInstance
+    \printMethodWithOneParam
+    {void} 
+    {readDataFrom}
+    {istream\&} 
+    {is} 
+    {Input stream.}
+    {The values of the single alleles of {\em this} will be replaced
+by new values, read from the input stream {\em is}.}
+    {None.}
+    {This function is not included in this version.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{readFrom!( istream\& is )}
+    \setNormalInstance
+    \printMethodWithOneParam
+    {void}
+    {readFrom}
+    {istream\&} 
+    {is}
+    {Input stream.}
+    {Replaces the chromosome {\em this} with the values, that will be
+read from the input stream {\em is}. The data must have the 
+following format:\\
+     ``{\tt ChromosomeT$<$}'',\\
+     {\tt Type of the chromosome},\\ 
+     ``{\tt $>$(}'',\\
+     {\tt Number of chromosome alleles},\\ 
+     ``{\tt )}'',\\ 
+     {\tt Newline},\\
+     {\tt Values of the single alleles, 
+      separated by a space or tab character}.\\
+     For example the data ``{\tt ChromosomeT< int >(5)\\n 1 2 3 4 5}''  
+     is written into a file to create a chromosome of type {\tt int}
+     with the five alleles 1, 2, 3, 4 and 5.}
+    {None.}
+    {None.}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+
+
+
+

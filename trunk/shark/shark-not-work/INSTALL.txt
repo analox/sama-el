@@ -1,0 +1,358 @@
+INSTALL, 2000-06-06, updated 2001-05-04, 2003-12-10
+
+Some notes on the compilation and installation of the Shark energy
+libraries, served chilled. If something goes wrong remember: It's not
+the bite, it's the fight!
+
+For an overview about all references and manuals attached to this Shark 
+distribution please refer to the file shark_index.html.
+
+Unix/Linux/compatible:
+----------------------
+
+####### Compilation
+#
+
+The Shark distribution needs and uses "autoconf" to create a top-level
+Makefile. Run "autoconf" in the Shark-directory; this will generate a
+configure-script from the "configure.in" file. Run this
+configure-script, i.e., do something like "./configure". This will
+produce the top-level Makefile from the "Makefile.in" template. Run
+"make" to compile the libraries and "make all" to compile the libraries,
+example programs and documentations/references.
+
+To sum up, the whole procedure should be as easy as:
+
+> autoconf
+> ./configure
+> make (make all)
+
+If you have a network of different computer types and operating
+systems and want to use the Shark libraries for all these
+systems without using several different directories, then
+follow the directions above for the first of the systems. 
+For each system you want to add to the existing one, log in on a 
+machine of this new system, go to the Shark home directory and
+type:
+
+> rm -f ./config.*
+> autoconf
+> ./configure
+> make (make all)
+
+Please don't forget the rm-command, because otherwise
+the autoconf procedure will simply ignore the data
+about the new system.
+A suffix will be appended to all libraries, examples programs
+and object files. This suffix is the type of the machine
+from which you have compiled the package.
+After typing in "make install", you will find two directors named 
+"lib_[suffix]" and "man" in the root directory of Shark. 
+"suffix" is the machine type again.
+In "lib_[suffix]" you will find all libraries without the
+suffix, so you only have to change the values LD_LIBRARY_PATH
+and LD_RUN_PATH when using Shark from different systems.
+In "man" you will find links to all postscript documentations.
+There are also some references in the "doc" subdirectories of
+the packages. 
+
+####### Makefile Rules
+#
+The top-level Makefile comes with various rules intended to ease
+compilation and maintenance of the Shark libraries. Before you even
+consider digging into the details of the Makefile, we will give you a
+short overview of the major rules that might be handy. Anyway, for a quick
+start it should suffice to say "make" in the Shark-directory, cf. the
+description of the make-rule. If you like dependencies, you might want
+to do a "make depend" first.
+For all members of the ZN: When using the makefile rules, please
+add the suffix "_zn" to the normal rules. The ZN-version lacks some
+packages that are not used here. 
+
+make/make all
+  Simply saying "make" in the Shark directory should compile each and
+  every of the packages that come with the Shark-distribution.
+  If you don't have Motif or LessTif installed on your system, the
+  libraries "Pagode" and "SpreadCAT" will not be compiled.
+  The compiled libraries will be
+  stored in the lib_[suffix]-subdir (suffix is the name of the
+  system under which you have compiled the packages) of the 
+  corresponding package.
+
+make all_zn
+  For ZN members. Only the libraries Array, Rng, LinAlg, Mixture,
+  EALib and ReClaM will be compiled.
+
+make depend
+  Create dependencies for Makefiles.
+
+make depend_zn
+  For ZN members. Create dependencies for Makefiles only for the libraries
+  listed above.
+
+make independ
+  Erase dependencies.
+
+make independ_zn
+  For ZN members. Erase dependencies for Makefiles only for the libraries
+  listed above.
+
+make debug
+  Produce debug-versions of the libraries and stores them in the
+  lib_[suffix]/debug subdirectories of the package.
+
+make debug_zn
+  For ZN members. Produce debug version only of the libraries
+  listed above.
+
+make examples
+  Create examples for all the packages that come with example programs.
+  The examples are stored in the examples-subdirectory of the
+  corresponding package.
+
+make examples_zn
+  For ZN members. Create examples only for the libraries listed above,
+  excluding "Mixture", because the example programs for this package
+  use commands from a library, that is not used at the ZN.
+
+make examples-debug
+  Ditto for the debug version of the examples. The debug versions are,
+  unlike the debug libraries, stored in the same directory as the non-debug
+  examples, but with the suffix "_debug".
+
+make examples-debug_zn
+  For ZN members. Creates debug versions of the examples only for the
+  libraries listed above, excluding "Mixture".
+
+make man
+  Create the documentation (if available) in the man-subdir of the 
+  corresponding package.
+  NB: Not all packages have a (separate) documentation.
+
+make man_zn
+  For ZN members. Create the documentation only for the libraries
+  listed above.
+
+make doc
+  Create the reference (if available) in the doc-subdir of the corresponding 
+  package.
+  These references are created from special comments in the
+  source files of the libraries. 
+  NB: Not all packages have a (separate) reference.
+
+make doc_zn
+  For ZN members. Create the reference only for the libraries
+  listed above.
+
+make everything
+  Does "make", "make debug", "make examples", "make examples-debug",
+  "make man" and "make doc" one after another.
+
+make everything_zn
+  Does "make_zn", "make debug_zn", "make examples_zn", 
+  "make examples-debug_zn", "make man_zn" and "make doc_zn" one after another.
+
+make configure
+  Creates all Makefiles of the packages from the Makefile.in-files.
+
+make configure_zn
+  For ZN members. The same as above but only for the libraries used at
+  the ZN.
+
+make clean
+  Deletes all temporary or intermediate files as well as all object-files.
+
+make clean_zn
+  For ZN members. Deletes all temporary, intermediate and object files for
+  the libraries listed above.
+
+make distclean
+  The same as "make clean" plus deleting all examples, libraries,
+  documentations and references.
+
+make distclean_zn
+  The same as "make clean_zn" plus deleting all libraries listed above and
+  the example programs, documentations and references for them.
+
+make install
+  Creates directories lib_[suffix], lib_[suffix]/debug and man in the
+  Shark-directory and produces symolic links in these dirs that point to
+  the normal libraries, to the debug libraries and to the manuals/references 
+  of the packages (if available). "suffix" here stands for the name of the
+  system under which you are compiling.
+
+make install_zn
+  Not available, because at the ZN only the single libraries without
+  the "Shark root directory" are used.
+
+make install-ini
+  For members of the Institut fuer Neuro-Informatik in Bochum.
+  Adapted version for the special usage of symbolic links in the
+  directory, where also Shark is installed.
+
+make install-clean:
+  Will delete the directories "lib_[suffix]", "lib_[suffix]/debug"
+  and "man" in the Shark root directory.
+
+make install-clean_zn:
+  Not available, because at the ZN only the single libraries without
+  the "Shark root directory" are used.
+
+make selftest-install
+  Builds all test programs of the self-test environment of Shark.  
+
+make selftest
+  Runs all fast (single run) test programs of the self-test environment.
+  This requires to run "make install" previously.
+  
+make selftest-full
+  Rund all test programs, including the statistical tests. 
+  
+make selftest-clean
+  Removes all executable, object and backup files of the self-test environment. 
+  
+make $(LIBRARY)-selftest-install
+  Builds test programs only for the $(LIBRARY) library.  
+
+make $(LIBRARY)-selftest
+  Runs only fast (single run) tests only for $(LIBRARY) library.
+  
+make $(LIBRARY)-selftest-full
+  Rund all test programs, including the statistical tests, only for $(LIBRARY) library.
+  
+make $(LIBRARY)-selftest-clean
+  Removes all executable, object and backup files only for test of $(LIBRARY)
+  library.
+  
+make selftest-man
+  Create the doxygen documentation for the SelfTest framework.
+  
+make changeversion
+  Automatic change the version number of Shark. 
+  The string "VERSION = x.x.x" will be replaced in all files (e.g. Makefile, Makefile.in, etc.) from 
+  Shark with the string "VERSION = newx.newx.newx". The new version number "newx.newx.newx" must be 
+  inputted after the prompt "Input the new version number:" 
+  
+make dist; make dist-bz2
+  Create a distribution archive of Shark. Version number is maintained in 
+  the top-level makefile as VERSION=x.x. The first rule uses gzip to 
+  compress the produced tar file, the latter rule uses bzip2.
+
+make dist_zn; make dist-bz2_zn
+  For ZN members. The same as above but only for the libraries used
+  at the ZN.
+
+make dist-and-clean; make dist-bz2-and-clean
+  The same as above, but the directory used to store the links
+  for the archiving rule will be deleted at the end.
+
+make dist-and-clean_zn; make dist-bz2-and-clean_zn
+  For ZN members. The same as above but only for the libraries used
+  at the ZN.
+
+make tar
+  Creates the directory with the symbolic links for the 
+  "make dist"/"make dist-bz2" rule.
+
+make tar_zn
+  For ZN members. The same as above but only for the libraries used
+  at the ZN.
+
+make rights
+  Will set the rights for all files in the Shark package.
+
+make rights_zn
+  Use "make rights".
+
+make dos2unix
+  Will remove all carriage returns from the sourcefiles of Shark.
+
+make dos2unix_zn
+  Use "make dos2unix".
+
+make dos2unix_all
+  The same as above, but not only for the source- but for all files.
+
+make dos2unix_all_zn
+  Use "make dos2unix_zn".
+
+make unix2dos
+  Set all "*.dsp"- and "*.dsw"-files to Windows format, so they can
+  used by Visual C++.
+  
+make unix2dos_zn
+  Use "make unix2dos".
+
+Furthermore, there are separate rules for the packages that allow to
+compile the libraries (and more) for every package on its own.
+
+make [package name]			- Produces the library of the package 
+					  "package name".
+make [package name]-debug		- Produces the debug version of the 
+					  library of the package 
+					  "package name".
+make [package name]-conf		- Creates the Makefiles for the
+                                          package from the Makefile.in-files.
+
+
+Windows:
+--------
+ 
+In each package directory and example subdirectory you will find
+"*.dsp" files to use with Visual C++.
+To avoid compiling each single library and example program 
+on its own, you will find several workspaces ("*.dsw") in the
+root directory of Shark. Choose the batch creation when
+compiling.
+
+1. Shark_All.dsw		Will create the release and debug
+				versions of all (Windows-compatible)
+				libraries and example programs.
+4. Shark_Libs.dsw		Will create the release and debug
+				versions of all (Windows-compatible)
+				libraries.
+
+Referring the installation of any addon package like 'SimAnn' you should 
+distinguish the following options.
+
+a) You are opening any *.dsw workspace from Shark that matches your need, 
+   but any of the MS-Windows compatible addon packages is missing, then 
+   you are asked by a dialog to show the addon packages locations. All 
+   those requests have to be cancelled and, nonetheless, a batch build 
+   can be started.
+
+b) You have extracted as well Shark-x.x.x as all addon packages like 
+   'SimAnn-x.x.x.zip' at once. Open any *.dsw workspace from Shark 
+   that matches your need and run the batch build.
+
+c) Shark was already locally compiled and installed before any addon 
+   package was extracted to your local 'Shark-x.x.x' directory. Open 
+   any *.dsw workspace from Shark, and make sure that all check boxes
+   referring to this addon package in the batch build dialog are 
+   activated. Then run the batch build.
+
+After compilation you will find the directories "lib/WinNT/Release" or/and
+"lib/WinNT/Debug" in the root directory of Shark, containing the
+release and debug versions of all libraries.
+The directory "win_tmp" (with subdirectories "Release" and "Debug")
+will contain all temporary files created by the Visual C++ compiler.
+Each library has its own subdirectory to avoid
+overwriting temporary files of one library by another.
+The executable example programs can be find in the "example"
+subdirectory of each package. There you will find a "win_tmp"
+directory, too.
+
+To create all documentations/references for Windows, you can use the
+"makedocs.bat" file in the Shark root directory or (for creation
+of single documenations) the batch files "makeref.bat"/"makedoc.bat" 
+in the "doc"/"man" subdirectories.
+You will need some additional programs for Windows to do this.
+For details please refer to the README files in the "doc" subdirectories
+of the packages.
+
+
+
+
+
+
+

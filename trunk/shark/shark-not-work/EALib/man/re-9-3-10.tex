@@ -1,0 +1,251 @@
+\subsection{Selection Methods}
+
+\subsubsection{Deterministic Selection}
+
+%---------------------------------------------------------------------------%
+\index{selectMuLambda!( Population\& parents, unsigned numElitists = 0 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{Parent population.}
+\setParamTwo{numElitists}{unsigned}{Number of elitists to be
+taken over from both populations. The default value is 0.}
+\printMethodWithParamsSaved
+{void}
+{}
+{selectMuLambda}
+{Selects individuals from the parent population {\em parents} and/or
+ from the population {\em this} for reproduction. {\em numElitists}
+ elite individuals will be taken over from {\em parents} and {\em this}.
+ Is {\em numElitists} set to zero, then all parent individuals will be
+ dismissed; this is equal to a ($\mu$, $\lambda$)-selection. Is
+ {\em numElitists} greater than zero, then this number of elitists
+ will be taken over from both populations; this is equal to a 
+ ($\mu + \lambda$)-selektion.
+ For more information cf. \cite{Baeck}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{selectMuLambdaKappa!( Population\& parents, unsigned lifespan = 1, unsigned adolescence = 0 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{The parent population.}
+\setParamTwo{lifespan}{unsigned}{Maximum lifespan of an individual, the
+default value is 1.}
+\setParamThree{adolescence}{unsigned}{An individual must have fallen
+short of this age to be in the set of ``youngest'' individuals.
+The default value is 0.}
+\printMethodWithParamsSaved
+{void}
+{}
+{selectMuLambdaKappa}
+{Selects some individuals from the population {\em this} and its
+ parent population {\em parents} for reproduction. The ``youngest''
+ individuals will be chosen first, i.e. those individuals,
+ whose age is less than the value of {\em adolescence}. Second,
+ those individuals will be selected, which do not belong to the
+ set of ``youngest'', but whose lifespan has not reached the value 
+ {\em lifespan} yet. Older individuals will be dismissed.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\subsubsection{Proportional Selection}
+
+%---------------------------------------------------------------------------%
+\index{selectOneIndividual!( )}
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{Individual\&}
+{selectOneIndividual}
+{Selects an individual for reproduction by using proportional
+ selection, i.e. the selection probability of all
+ individuals will be adapted to scaled fitness values. After that,
+ an individual will be chosen by calling the method
+ {\em selectRouletteWheel}.\\
+ For more information cf. \cite{EALibRef}.}
+{The selected individual.}
+{The fitness values of all individuals must be positive.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{selectProportional!( Population\& parents, unsigned numElitists = 0 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{The parent population.}
+\setParamTwo{numElitists}{unsigned}{Number of elitists to be
+taken over. If {\em numElitists} is zero, then a proportional
+selection takes place. If the value is greater than zero, {\em numElitists}
+elitists will be taken over from both populations and the rest will
+be selected from {\em parents}.}
+\printMethodWithParamsSaved
+{void}
+{}
+{selectProportional}
+{Selects individuals from the parent population {\em parents} and
+ the population {\em this} for reproduction using the proportional
+ selection, i.e. all fitness values will be adapted in a way
+ that they are proportional to the scaled fitness values. After that, the
+ individuals are chosen for reproduction by calling the method
+ {\em selectRouletteWheel}.\\
+ For more information cf. \cite{EALibRef}.}
+{The fitness values of all individuals of the population must be
+ positive.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\subsubsection{Selection by Ranking}
+
+%---------------------------------------------------------------------------%
+\index{selectLinearRanking!( Population\& parents, double etaMax = 1.1, unsigned numElitists = 0 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{The parent population.}
+\setParamTwo{etaMax}{double}{Maximum reproduction rate, the default value
+is $1.1$.}
+\setParamThree{numElitists}{unsigned}{Number of elitists to be taken
+over from both populations. The default is set to 0.}
+\printMethodWithParamsSaved
+{void}
+{}
+{selectLinearRanking}
+{Selects individuals from the population {\em this} for reproduction by 
+ using the method of {\em Linear Ranking}, i.e. each individual
+ receives a selection probability based upon its ``ranking''
+ inside the population. The ranking is determined by the order of
+ the individuals refering to descending fitness values.
+ After evaluating the probabilities, the individuals are selected
+ using the method {\em selectRouletteWheel}.
+ Additionally {\em numElitists} elitists
+ can be taken over from the previous population and the parent
+ population.\\
+ For more information cf. \cite{Baker} and \cite{AlgoWork}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{selectLinearRankingWhitley!( Population\& parents, double a = 1.1, unsigned numElitists = 0 )} 
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{The parent population.}
+\setParamTwo{a}{double}{Maximum reproduction rate, the default value
+is set to $1.1$.}
+\setParamThree{numElitists}{unsigned}{Number of elititst to be 
+ taken over from both populations. The default is 0.}
+\printMethodWithParamsSaved
+{void}
+{}
+{selectLinearRankingWhitley}
+{Same as above, but here the evaluation of the selection
+ probability differs.\\
+ For more information cf. \cite{Whitley}.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{selectUniformRanking!( Population\& parents, unsigned numElitists = 0 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{Parent population, from which
+elititsts can be taken over.}
+\setParamTwo{numElitists}{unsigned}{Number of elititsts. The default value 
+is 0.}
+\printMethodWithParamsSaved
+{void}
+{}
+{selectUniformRanking}
+{Selects individuals from the population {\em this} for reproduction
+ using the method of {\em selectUniformRanking}, i.e.
+ each individual receives the same selection probability and the method
+ {\em selectRouletteWheel} is used for selection.
+ Additionally {\em numElitists} elitits can be taken over from the
+ previous population and the parent population {\em parents}.
+ For more information cf. \cite{EALibRef}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{reproduce!( Population\& parents, unsigned numElitists = 0 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{See above.}
+\setParamTwo{numElitists}{unsigned}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{reproduce}
+{Same as method {\em selectUniformRanking}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsubsection{Tournament Selection}
+
+%---------------------------------------------------------------------------%
+\index{selectTournament!( Population\& parents, unsigned q = 2, unsigned numElitists = 0 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{The parent population.}
+\setParamTwo{q}{unsigned}{Number of tournament opponents, the default
+number is 2.}
+\setParamThree{numElitists}{unsigned}{Number of elitists to be
+taken over from both populations, the default value is 0.}
+\printMethodWithParamsSaved
+{void}
+{}
+{selectTournament}
+{Selects the best individual out of a randomly chosen group of {\em q}
+ individuals from the parent population {\em parents} and takes it over
+ to the new population {\em this}. This selection is repeated as long as
+ there are free slots in the new population. Additionally
+ {\em numElitists} elitists can be taken over from {\em parents} and
+ {\em this}. No correction of the selection probabilities for elitists
+ will take place.\\
+ For more information cf. \cite{Goldberg}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{selectEPTournament!( Population\& parents, unsigned q )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{The parent population.}
+\setParamTwo{q}{unsigned}{Number of opponents for each individual.}
+\printMethodWithParamsSaved
+{void}
+{}
+{selectEPTournament}
+{Selects individuals from the parent population {\em parents} and
+ the population {\em this} by using the {\em EP-style Tournament Selection}
+ by D. B. Fogel. Each individual of both populations has
+ to compete against {\em q} randomly chosen individuals of the
+ populations {\em this} and {\em parents}. An individual wins a round,
+when it has collected more wins during the last round, i.e.
+when its fitness value was better than the value of its opponent. If
+two individuals have the same number of wins, then the individual with
+the better fitness value wins.\\
+For more information cf. \cite{Fogel}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+

@@ -1,0 +1,209 @@
+\subsection{Operators}
+
+\subsubsection{Assignment Operators}
+
+%---------------------------------------------------------------------------%
+\index{operator =!( const Individual\& indiv )}
+\setNormalInstance
+\printMethodWithOneParam
+{Population\&}
+{operator =\ }
+{const Individual\&}
+{ind}
+{Individual.}
+{The values of individual {\em ind} will be assigned to all individuals 
+ of {\em this}.}
+{The population with its new individuals.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator =!( const Population\& pop )}
+\setNormalInstance
+\printMethodWithOneParam
+{Population\&}
+{operator =\ }
+{const Population\&}
+{pop}
+{Population.}
+{Assigns all individuals of {\em pop} to {\em this}. This method will
+ only work if both populations consist of the same number of individuals
+ or if {\em this} is no supopulation, otherwise the method will be
+ aborted with an error message.}
+{The population with its new individuals.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsubsection{Comparison Operators}
+
+%---------------------------------------------------------------------------%
+\index{operator ==!( const Population\& pop )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator ==\ }
+{const Population\&}
+{pop}
+{Population, that shall be compared with {\em this}.}
+{Tests whether the populations {\em this} and {\em pop}
+ are equal. {\em this} and {\em pop} are equal, if
+ they contain the same number of individuals, all individual
+ of {\em this} are equal to the corresponding individuals of
+ {\em pop} and the values of all internal variables of {\em this}
+ and {\em pop} are the same.}
+{{\em true} - {\em this} and {\em pop} are equal,\\
+ {\em false} - {\em this} and {\em pop} are different.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator $<$!( const Population\& pop )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator $<$\ }
+{const Population\&}
+{pop}
+{Population to be compared with {\em this}.}
+{Tests whether {\em this} is less than {\em pop}, i.e.
+ whether {\em this} contains less individuals than {\em pop}
+ or -- if both populations have the same number of individuals --
+ whether at least one individual of {\em this} is less than
+ its corresponding individual in {\em pop}.}
+{{\em true} - {\em this} is less than {\em pop},\\
+ {\em false} - {\em this} is greater than {\em pop} or both populations
+ are equal.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator $>$!( const Population\& pop )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator $>$\ }
+{const Population\&}
+{pop}
+{Population to be compared with {\em this}.}
+{Tests whether {\em this} is greater than {\em pop}, i.e.
+ whether {\em this} contains more individuals than {\em pop}
+ or -- if both populations have the same number of individuals --
+ whether at least one individual of {\em this} is greater than
+ its corresponding individual in {\em pop}.}
+{{\em true} - {\em this} is greater than {\em pop},\\
+ {\em false} - {\em this} is less than {\em pop} or both populations
+are equal.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{operator $<$=!( const Population\& pop )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator $<=$\ }
+{const Population\&}
+{pop}
+{Population to be compared with {\em this}.}
+{Tests whether {\em this} is less than {\em pop} or both
+ populations are equal (see above).}
+{{\em true} - {\em this} is less than {\em pop} or both populations are
+ equal,\\
+ {\em false} - {\em this} is greater than {\em pop}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator $>$=!( const Population\& pop )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator $>=$\ }
+{const Population\&}
+{pop}
+{Population to be compared with {\em this}.}
+{Tests whether {\em this} is greater than {\em pop} or both
+ populations are equal (see above).}
+{{\em true} - {\em this} is greater than {\em pop} or both populations
+are equal,\\
+ {\em false} - {\em this} is less than {\em pop}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator $\mid$=!( const Population\& pop )}
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{operator !=\ }
+{const Population\&}
+{pop}
+{Population to be compared with {\em this}.}
+{Tests whether {\em this} and {\em pop} are different, i.e.
+ whether {\em this} is less or greater than {\em pop}
+ (see above).}
+{{\em true} - {\em this} and {\em pop} are different,\\
+ {\em false} - {\em this} and {\em pop} are equal.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsubsection{Operators for Extracting Single Individuals}
+
+%---------------------------------------------------------------------------%
+\index{operator [ ]!( unsigned i )}
+\setNormalInstance
+\printMethodWithOneParam
+{Individual\&}
+{operator [\ ]\ }
+{unsigned}
+{i}
+{Index of the individual to be returned. {\em i} must be less
+ than the number of individuals in {\em this}, otherwise the method
+ will be aborted with an error message.}
+{Returns individual number {\em i} out of {\em this}.}
+{The individual number {\em i}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator ( )!( unsigned from, unsigned to )}
+\setConstInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{from}{unsigned}{Index of the first individual of the
+subpopulation. {\em from} must be $<=$ {\em to}, otherwise the method 
+will be aborted with an error message.}
+\setParamTwo{to}{unsigned}{Index of the last individual of the
+subpopulation. {\em to} must be less than the number of individuals
+in {\em this} and $>$ {\em from}, otherwise the method will be aborted 
+with an error message.}
+\printMethodWithParamsSaved
+{Population}
+{Subpopulation of {\em this}.}
+{operator (\ )\ }
+{Returns a subpopulation of {\em this} consisting of the individuals
+ from index {\em from} to index {\em to}.}
+{}
+\setCorrectWidthThree{4pt}
+\setNormalInstance
+%---------------------------------------------------------------------------%
+
+
+

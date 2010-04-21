@@ -1,0 +1,352 @@
+% 24th, Jan, 2001 Ver.1     Tatsuya Okabe
+%                 Ver.2
+%                 Ver.3
+%                 Ver.4
+%                 Ver.5
+%
+%---------------------------------------------------------------------------%
+% Made by Tatsuya Okabe ( HONDA R&D Europe ( Deutschland ) GmbH )           %
+% Checked by Bernhard Sendhoff ( HONDA R&D Europe ( Deutschland ) GmbH )    %
+%---------------------------------------------------------------------------%
+% arraybase
+
+\noindent
+In the class {\em arraybase}, functions are defined for treating the
+index and changing the structure of an array. Using this class, we can
+get information about e.g. the number of dimensions and the number of
+elements. Additionally, the structure of the array can be changed.
+
+\vspace*{10mm}
+
+\section{Internal Variables}
+
+\begin{itemize}
+\item unsigned* d - The pointer to the dimension vector.
+\item unsigned nd - The number of dimensions.
+\item unsigned ne - The number of elements
+\item bool stat - The flag which signals whether object is a static ref.
+\end{itemize}
+
+%********************
+\index{*d (Variable)}
+\index{nd (Variable)}
+\index{ne (Variable)}
+\index{stat (Variable)}
+%********************
+
+\clearpage
+
+\section{Public Methods}
+
+\subsection{Destructor}
+
+%---------------------------------------------------------------------------%
+% 014
+\index{$\sim$arraybase!( )}
+\setNormalInstance
+\printEmptyMethodReturn
+{}
+{$\sim$arraybase}
+{The destructor. Destructs {\em this} object if there is anything to
+destruct and it is not a static reference (signalled by the flag
+``{\em stat}'').}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{Information Retrieval Methos}
+
+%---------------------------------------------------------------------------%
+% 001
+\index{ndim!( )} 
+\setConstInstance
+\printEmptyMethodReturnSpecial
+{unsigned}
+{ndim}
+{Returns the number of dimensions, i.e. the length of the index vector.}
+{The number of dimensions.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 002
+\index{nelem!( )} 
+\setConstInstance
+\printEmptyMethodReturnSpecial
+{unsigned}
+{nelem}
+{Returns the total number of elements, i.e. the product over all dimensions.}
+{The total number of elements.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsection{Structure Changing Methods}
+
+%---------------------------------------------------------------------------%
+% 003
+\index{samedim!( const arraybase\& v )} 
+\setConstInstance
+\printMethodWithOneParam
+{bool}
+{samedim}
+{const arraybase\&}
+{v}
+{The reference array.}
+{Checks whether two arrays have the same dimensions independent from
+their respective types, returns true if both dimensions are the same.}
+{The result of this check.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 004
+\index{resize!( unsigned i, bool copy )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{unsigned}{The size of an one-dimensional array.} 
+\setParamTwo{copy}{bool}{The flag of copy.}
+\printMethodWithParamsSaved
+{void}
+{None.}
+{resize}
+{Resizes an array to an one-dimensional array of the size ``{\em i}'', the
+flag ``{\em copy}'' signals whether existing elements are copied ( if
+possible ).}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 005
+\index{resize!( unsigned i, unsigned j, bool copy )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{unsigned}{The size of an one dimensional array.}
+\setParamTwo{j}{unsigned}{The size of the other dimensional array.} 
+\setParamThree{copy}{bool}{The flag of copy.}
+\printMethodWithParamsSaved
+{void}
+{None.}
+{resize}
+{Resizes an array to an two-dimensional array of the size ``{\em i $\times$
+j}'', the
+flag ``{\em copy}'' signals whether existing elements are copied ( if
+possible ).}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+% 006
+\index{resize!( unsigned i, unsigned j, unsigned k, bool copy )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{unsigned}{The size of an one-dimensional array.}
+\setParamTwo{j}{unsigned}{The size of a two-dimensional array.} 
+\setParamThree{k}{unsigned}{The size of a three-dimensional array.}
+\setParamThree{copy}{bool}{The flag of copy.}
+\printMethodWithParamsSaved
+{void}
+{None.}
+{resize}
+{Resizes an array to an three-dimensional array of the size ``{\em i $\times$
+j $\times$ k}'', the flag ``{\em copy}'' signals whether existing elements
+are copied ( if possible ).}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 007
+\index{resize!( const std::vector$<$ unsigned $>$\& i, bool copy )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{const std::vector$<$ unsigned $>$\&}{The vector
+setting dimensions.} 
+\setParamTwo{copy}{bool}{The flag of copy.}
+\printMethodWithParamsSaved
+{void}
+{None.}
+{resize}
+{Resizes an array to an array with dimensions defined in vector ``{\em
+i}'',
+the flag ``{\em copy}'' signals whether existing elements are copied.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 009
+\index{dim!( unsigned i )} 
+\setNormalInstance
+\printMethodWithOneParam
+{unsigned}
+{dim}
+{unsigned}
+{i}
+{The dimension whose value you want to know.}
+{Returns the ``{\em i}''th dimension, range check may be performed if not
+disabled by the preprocessor directive ``-DNDEBUG''.}
+{The ``{\em i}''th dimension.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+% 010
+\index{dimvec!( )} 
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{unsigned*}
+{dimvec}
+{Returns the pointer to the dimension vector.}
+{The pointer to the dimension vector.}
+{Handle with care.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 011
+\index{dimvec!( )} 
+\setConstInstance
+\printEmptyMethodReturnSpecial
+{unsigned*}
+{dimvec}
+{Returns the pointer to the dimension vector for const objects.}
+{The pointer to the dimension vector for const objects.}
+{Handle with care.}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{Generating Methods}
+
+%---------------------------------------------------------------------------%
+% 012
+\index{clone!( )} 
+\setConstInstance
+\printEmptyMethodReturnSpecial
+{arraybase*}
+{clone}
+{The pure virtual function which is defined in template class array$<$
+T $>$. Returns an identical copy of this object.}
+{The pointer.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 013
+\index{empty!( )} 
+\setConstInstance
+\printEmptyMethodReturnSpecial
+{arraybase*}
+{empty}
+{The pure virtual function which is defined in template class array$<$
+T $>$. Returns an empty array with the same type as this object.}
+{The pointer.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\section{Private Methods}
+
+\subsection{Constructors}
+
+%---------------------------------------------------------------------------%
+% 015
+\index{arraybase!( )}
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{}
+{arraybase}
+{The default constructor. Initializes the number of dimensions, the
+total number of elements and the flag ``{\em stat}'' to false.}
+{None.}
+{This function should never be used directly.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 016
+\index{arraybase!( const arraybase\& v )} 
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{arraybase}
+{const arraybase\&}
+{v}
+{The dimension vector.}
+{The copy constructor. Only the dimension vector is copied, the data
+vector must be copied in the copy constructor of template class
+array$<$ T $>$}
+{None.}
+{This function should never be used directly.}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{Structure Changing Methods}
+
+%---------------------------------------------------------------------------%
+% 017
+\index{resize\_i!( unsigned*, unsigned, bool )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{}{unsigned}{} 
+\setParamTwo{}{unsigned}{}
+\setParamThree{}{bool}{}
+\printMethodWithParamsSaved
+{void}
+{None.}
+{resize\_i}
+{The pure virtual function. Handles memory allocation of the
+respective template type in case of resizing.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{Input and Output Methods}
+
+%---------------------------------------------------------------------------%
+% 018
+\index{readFrom!( std::istream\& is )} 
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{readFrom}
+{std::istream\&}
+{is}
+{Input stream.}
+{Replaces the data of {\em this} with the data read from the input stream
+{\em is}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 019
+\index{writeTo!( std::ostream\& os )} 
+\setConstInstance
+\printMethodWithOneParam
+{void}
+{writeTo}
+{std::ostream\&}
+{os}
+{Output stream.}
+{Writes all data of the array {\em this} to the output stream {\em os}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+
+
+

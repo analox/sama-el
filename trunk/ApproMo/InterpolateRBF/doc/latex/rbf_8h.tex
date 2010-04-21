@@ -1,0 +1,48 @@
+\section{rbf.h File Reference}
+\label{rbf_8h}\index{rbf.h@{rbf.h}}
+{\tt \#include \char`\"{}EALib/Population.h\char`\"{}}\par
+{\tt \#include \char`\"{}Array/Array\-Op.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf RBF}
+\begin{CompactList}\small\item\em This class provides different functions for the approximation using an RBF model. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef enum kernel {\bf kernel\-Type}\label{rbf_8h_a0}
+
+\item 
+typedef enum lm {\bf learn\-Method}\label{rbf_8h_a1}
+
+\item 
+typedef enum err {\bf err\-Method}\label{rbf_8h_a2}
+
+\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum {\bf kernel} \{ \par
+{\bf gaussian} =  0, 
+{\bf linear\_\-spline}, 
+{\bf cubic\_\-spline}, 
+{\bf multiquadric}, 
+\par
+{\bf inverse\_\-multiquadric}, 
+{\bf cauchy}
+ \}
+\item 
+enum {\bf lm} \{ {\bf interpolate} =  0, 
+{\bf ridge\-Regression}, 
+{\bf OLS\_\-Forward\-Selection}
+ \}
+\item 
+enum {\bf err} \{ {\bf GCV} =  0, 
+{\bf UEV}, 
+{\bf FPE}, 
+{\bf BIC}
+ \}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}

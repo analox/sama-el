@@ -1,0 +1,503 @@
+\noindent
+{\Large A-1. Array}
+\addcontentsline{toc}{section}{A-1. Array}
+
+\vspace*{7mm}
+
+\noindent
+In this section, I will explain how to use the class {\em Array}. For
+this, I prepared five sample programs. Thus, in order to use this
+class, please refer to the sample programs.
+
+
+\vspace*{10mm}
+
+\noindent
+{\Large A-1-1. Sample Program 1}
+\addcontentsline{toc}{subsection}{A-1-1. Sample Program 1}
+
+\vspace*{7mm}
+
+\noindent
+This sample program shows how to use following procedures.
+
+\begin{enumerate}
+\item Constructor.
+\item To get the number of dimensions.
+\item To get the total number of elements.
+\item To check whether two arrays have the same dimensions.
+\item To get the number of elements in dimension {\em n} in the array.
+\item To get the value of one element in the array.
+\item To get the vector which indicates the position of the array.
+\end{enumerate}
+
+\vspace*{5mm}
+
+\noindent
+The sample program is as follows.
+
+\clearpage
+
+{\small
+\begin{center}
+\begin{tabular}{|l|}\hline
+\#include $<$array.h$>$\\
+\hspace*{15cm}\\
+void main(void)\\
+\{\\
+\hspace*{10mm}int i;\\
+\\
+\hspace*{10mm}// To set the array "test23" (integer).\\    
+\hspace*{10mm}array$<$int$>$ test23(2,3);\\
+\hspace*{10mm}test23(0,0) = 11;\\
+\hspace*{10mm}test23(0,1) = 12;\\
+\hspace*{10mm}test23(0,2) = 13;\\
+\hspace*{10mm}test23(1,0) = 21;\\
+\hspace*{10mm}test23(1,1) = 22;\\
+\hspace*{10mm}test23(1,2) = 23;\\
+\\
+\hspace*{10mm}// To set the array "test32" (bool).\\
+\hspace*{10mm}array$<$bool$>$ test32(3,2);\\
+\\
+\hspace*{10mm}// To get the number of dimensions.\\
+\hspace*{10mm}cout $<<$ test23.ndim() $<<$ endl;\\
+\\
+\hspace*{10mm}// To get the total number of elements.\\
+\hspace*{10mm}cout $<<$ test23.nelem() $<<$ endl;\\
+\\
+\hspace*{10mm}// To check whether two arrays have the same dimensions.\\
+\hspace*{10mm}cout $<<$ test23.samedim( test32 ) $<<$ endl; \\
+\\
+\hspace*{10mm}// To get the number of elements in dimension 2 in "test23".\\
+\hspace*{10mm}cout $<<$ test23.dim( 0 ) $<<$ endl;\\
+\\
+\hspace*{10mm}// To get the value of [1,0] in "test23".\\
+\hspace*{10mm}cout $<<$ test23.elem(3) $<<$ endl;\\
+\hspace*{10mm}cout $<<$ test23(1,0) $<<$ endl;\\
+\\
+\hspace*{10mm}// To get the vector which indicate the position of the array.\\
+\hspace*{10mm}array$<$unsigned$>$ pos(3);\\
+\hspace*{10mm}pos = test23.pos2idx(5); \\
+\hspace*{10mm}for (i=0;i$<$test23.ndim();i++)\{\\
+\hspace*{20mm}cout $<<$ pos(i) $<<$ endl;\\
+\hspace*{10mm}\}\\
+\\
+\}\\\hline
+\end{tabular}
+\vspace*{5mm}
+
+Example 1. Sample Program 1.
+\end{center}
+}
+
+\clearpage
+
+\noindent
+The result of this program is as follows.
+
+\begin{center}
+\begin{tabular}{|lll|}\hline
+2  & $\Longrightarrow$  & The number of dimensions.\\
+6  & $\Longrightarrow$  & The total number of elements.\\
+0  & $\Longrightarrow$  & The result of checking ( false ).\\
+2  & $\Longrightarrow$  & The number of elements in dimension 2.\\
+21 & $\Longrightarrow$  & The value of [1,0].\\
+21 & $\Longrightarrow$  & The value of [1,0].\\
+1  & $\Longrightarrow$  & The position in dimension 1.\\
+2  & $\Longrightarrow$  & The position in dimension 2.\\\hline
+\end{tabular}
+\vspace*{5mm}
+
+Result 1. The result of the sample program 1.
+\end{center}
+
+\vspace*{20mm}
+
+\noindent
+{\Large A-1-2. Sample Program 2}
+\addcontentsline{toc}{subsection}{A-1-2. Sample Program 2}
+
+\vspace*{7mm}
+
+\noindent
+This sample program shows how to use following procedures.
+
+\begin{enumerate}
+\item To resize the array.
+\item To get the dimension vector.
+\item To get the element vector.
+\end{enumerate}
+
+\vspace*{5mm}
+
+\noindent
+The sample program is as follows.
+
+\clearpage
+
+{\small
+\begin{center}
+\begin{tabular}{|l|}\hline
+\#include $<$array.h$>$\\
+\hspace*{\textwidth}\\
+void main(void)\\
+\{\\
+\hspace*{10mm}int i;\\
+\\
+\hspace*{10mm}// To set the array "test23".\\
+\hspace*{10mm}array$<$int$>$ test23(2,3);\\
+\hspace*{10mm}test23(0,0) = 11;\\
+\hspace*{10mm}test23(0,1) = 12;\\
+\hspace*{10mm}test23(0,2) = 13;\\
+\hspace*{10mm}test23(1,0) = 21;\\
+\hspace*{10mm}test23(1,1) = 22;\\
+\hspace*{10mm}test23(1,2) = 23;\\
+\\
+\hspace*{10mm}// To resize the array "test23".\\
+\hspace*{10mm}test23.resize(4,3,true);\\
+\\
+\hspace*{10mm}// To get the dimension vector of "test23".\\
+\hspace*{10mm}array$<$unsigned$>$ dimension;\\
+\hspace*{10mm}dimension = test23.dimarr();\\
+\hspace*{10mm}for (i=0;i$<$dimension.nelem();i++)\{\\
+\hspace*{20mm}cout $<<$ dimension(i) $<<$ endl;\\
+\hspace*{10mm}\}\\
+\\
+\hspace*{10mm}// To get the element vector of "test23".\\
+\hspace*{10mm}int* element;\\
+\hspace*{10mm}element = test23.elemvec();\\
+\hspace*{10mm}for (i=0;i$<$12;i++)\{\\
+\hspace*{20mm}cout $<<$ *element++ $<<$ endl;\\
+\hspace*{10mm}\}\\
+\\
+\}\\\hline
+\end{tabular}
+\vspace*{5mm}
+
+Example 2. Sample Program 2.
+\end{center}
+}
+
+\clearpage
+
+\noindent
+The result of this program is as follows.
+
+\begin{center}
+\begin{tabular}{|lll|}\hline
+4  & $\Longrightarrow$  & The number of elements in dimension 1.\\
+3  & $\Longrightarrow$  & The number of elements in dimension 2.\\
+11 & $\Longrightarrow$  & The value of element [0,0].\\
+12 & $\Longrightarrow$  & The value of element [0,1].\\
+13 & $\Longrightarrow$  & The value of element [0,2].\\
+21 & $\Longrightarrow$  & The value of element [1,0].\\
+22 & $\Longrightarrow$  & The value of element [1,1].\\
+23 & $\Longrightarrow$  & The value of element [1,2].\\
+0  & $\Longrightarrow$  & The value of element [2,0].\\
+0  & $\Longrightarrow$  & The value of element [2,1].\\
+0  & $\Longrightarrow$  & The value of element [2,2].\\
+0  & $\Longrightarrow$  & The value of element [3,0].\\
+0  & $\Longrightarrow$  & The value of element [3,1].\\
+0  & $\Longrightarrow$  & The value of element [3,2].\\\hline
+\end{tabular}
+\vspace*{5mm}
+
+Result 2. The result of the sample program 2.
+\end{center}
+
+\vspace*{20mm}
+
+\noindent
+{\Large A-1-3. Sample Program 3}
+\addcontentsline{toc}{subsection}{A-1-3. Sample Program 3}
+
+\vspace*{7mm}
+
+\noindent
+This sample program shows how to use following procedures.
+
+\begin{enumerate}
+\item To append rows.
+\item To append columns.
+\end{enumerate}
+
+\vspace*{5mm}
+
+\noindent
+The sample program is as follows.
+
+\clearpage
+
+{\small
+\begin{center}
+\begin{tabular}{|l|}\hline
+\#include $<$array.h$>$\\
+\hspace*{\textwidth}\\
+void main(void)\\
+\{\\
+\hspace*{10mm}int i;\\
+\\
+\hspace*{10mm}// To set the array "test23".\\
+\hspace*{10mm}array$<$int$>$ test23(2,3);\\
+\hspace*{10mm}test23(0,0) = 11;\\
+\hspace*{10mm}test23(0,1) = 12;\\
+\hspace*{10mm}test23(0,2) = 13;\\
+\hspace*{10mm}test23(1,0) = 21;\\
+\hspace*{10mm}test23(1,1) = 22;\\
+\hspace*{10mm}test23(1,2) = 23;\\
+\\
+\hspace*{10mm}// To set the array "test13".\\
+\hspace*{10mm}array$<$int$>$ test13(1,3);\\
+\hspace*{10mm}test13(0,0) = 31;\\
+\hspace*{10mm}test13(0,1) = 32;\\
+\hspace*{10mm}test13(0,2) = 33;\\
+\\
+\hspace*{10mm}// To set the array "test31"\\
+\hspace*{10mm}array$<$int$>$ test31(3,1);\\
+\hspace*{10mm}test31(0,0) = 41;\\
+\hspace*{10mm}test31(1,0) = 42;\\
+\hspace*{10mm}test31(2,0) = 43;\\
+\\
+\hspace*{10mm}// To append rows "test13" to "test23".\\
+\hspace*{10mm}test23.append\_rows(test13);\\
+\hspace*{10mm}cout $<<$ test23.dim(0) $<<$ endl;\\
+\hspace*{10mm}cout $<<$ test23.dim(1) $<<$ endl;\\
+\\
+\hspace*{10mm}// To append columns "test31" to "test".\\
+\hspace*{10mm}array$<$int$>$ test;\\
+\hspace*{10mm}test = test23.append\_cols(test31);\\
+\hspace*{10mm}cout $<<$ test.dim(0) $<<$ endl;\\
+\hspace*{10mm}cout $<<$ test.dim(1) $<<$ endl;\\
+\hspace*{10mm}for (i=0;i$<$test.nelem();i++)\{\\
+\hspace*{20mm}cout $<<$ test.elem(i) $<<$ endl;\\
+\hspace*{10mm}\}\\
+\\
+\}\\\hline
+\end{tabular}
+\vspace*{5mm}
+
+Example 3. Sample Program 3.
+\end{center}
+}
+
+\clearpage
+
+\noindent
+The result of this program is as follows.
+
+\begin{center}
+\begin{tabular}{|lll|}\hline
+3  & $\Longrightarrow$  & The number of elements in dimension 1.\\
+3  & $\Longrightarrow$  & The number of elements in dimension 2.\\
+3  & $\Longrightarrow$  & The number of elements in dimension 1.\\
+4  & $\Longrightarrow$  & The number of elements in dimension 2.\\
+11 & $\Longrightarrow$  & The value of element [0,0].\\
+12 & $\Longrightarrow$  & The value of element [0,1].\\
+13 & $\Longrightarrow$  & The value of element [0,2].\\
+41 & $\Longrightarrow$  & The value of element [0,3].\\
+21 & $\Longrightarrow$  & The value of element [1,0].\\
+22 & $\Longrightarrow$  & The value of element [1,1].\\
+23 & $\Longrightarrow$  & The value of element [1,2].\\
+42 & $\Longrightarrow$  & The value of element [1,3].\\
+31 & $\Longrightarrow$  & The value of element [2,0].\\
+32 & $\Longrightarrow$  & The value of element [2,1].\\
+33 & $\Longrightarrow$  & The value of element [2,2].\\
+43 & $\Longrightarrow$  & The value of element [2,3].\\\hline
+\end{tabular}
+\vspace*{5mm}
+
+Result 3. The result of the sample program 3.
+\end{center}
+
+\vspace*{20mm}
+
+\noindent
+{\Large A-1-4. Sample Program 4}
+\addcontentsline{toc}{subsection}{A-1-4. Sample Program 4}
+
+\vspace*{7mm}
+
+\noindent
+This sample program shows how to use following procedures.
+
+\begin{enumerate}
+\item To remove row.
+\item To remove column.
+\end{enumerate}
+
+\vspace*{5mm}
+
+\noindent
+The sample program is as follows.
+
+\clearpage
+
+{\small
+\begin{center}
+\begin{tabular}{|l|}\hline
+\#include $<$array.h$>$\\
+\hspace*{\textwidth}\\
+void main(void)\\
+\{\\
+\hspace*{10mm}int i;\\
+\\
+\hspace*{10mm}// To set the array "test33".\\
+\hspace*{10mm}array$<$int$>$ test33(3,3);\\
+\hspace*{10mm}test33(0,0) = 11;\\
+\hspace*{10mm}test33(0,1) = 12;\\
+\hspace*{10mm}test33(0,2) = 13;\\
+\hspace*{10mm}test33(1,0) = 21;\\
+\hspace*{10mm}test33(1,1) = 22;\\
+\hspace*{10mm}test33(1,2) = 23;\\
+\hspace*{10mm}test33(2,0) = 31;\\
+\hspace*{10mm}test33(2,1) = 32;\\
+\hspace*{10mm}test33(2,2) = 33;\\
+\\
+\hspace*{10mm}// To remove row from "test33".\\
+\hspace*{10mm}test33.remove\_row(1);\\
+\hspace*{10mm}cout $<<$ test33.dim(0) $<<$ endl;\\
+\hspace*{10mm}cout $<<$ test33.dim(1) $<<$ endl;\\
+\hspace*{10mm}for (i=0;i$<$test33.nelem();i++)\{\\
+\hspace*{20mm}cout $<<$ test33.elem(i) $<<$ endl;\\
+\hspace*{10mm}\}\\
+\\
+\hspace*{10mm}// To remove column from "test33".\\
+\hspace*{10mm}array$<$int$>$ test;\\
+\hspace*{10mm}test = test33.remove\_col(1);\\
+\hspace*{10mm}cout $<<$ test.dim(0) $<<$ endl;\\
+\hspace*{10mm}cout $<<$ test.dim(1) $<<$ endl;\\
+\hspace*{10mm}for (i=0;i$<$test.nelem();i++)\{\\
+\hspace*{20mm}cout $<<$ test.elem(i) $<<$ endl;\\
+\hspace*{10mm}\}\\
+\\
+\}\\\hline
+\end{tabular}
+\vspace*{5mm}
+
+Example 4. Sample Program 4.
+\end{center}
+}
+
+\clearpage
+
+\noindent
+The result of this program is as follows.
+
+\begin{center}
+\begin{tabular}{|lll|}\hline
+2  & $\Longrightarrow$  & The number of elements in dimension 1.\\
+3  & $\Longrightarrow$  & The number of elements in dimension 2.\\
+11 & $\Longrightarrow$  & The value of element [0,0].\\
+12 & $\Longrightarrow$  & The value of element [0,1].\\
+13 & $\Longrightarrow$  & The value of element [0,2].\\
+31 & $\Longrightarrow$  & The value of element [1,0].\\
+32 & $\Longrightarrow$  & The value of element [1,1].\\
+33 & $\Longrightarrow$  & The value of element [1,2].\\
+2  & $\Longrightarrow$  & The number of elements in dimension 1.\\
+2  & $\Longrightarrow$  & The number of elements in dimension 2.\\
+11 & $\Longrightarrow$  & The value of element [0,0].\\
+13 & $\Longrightarrow$  & The value of element [0,1].\\
+31 & $\Longrightarrow$  & The value of element [1,0].\\
+33 & $\Longrightarrow$  & The value of element [1,1].\\\hline
+\end{tabular}
+\vspace*{5mm}
+
+Result 4. The result of the sample program 4.
+\end{center}
+
+\vspace*{20mm}
+
+\noindent
+{\Large A-1-5. Sample Program 5}
+\addcontentsline{toc}{subsection}{A-1-5. Sample Program 5}
+
+\vspace*{7mm}
+
+\noindent
+This sample program shows how to use following procedures.
+
+\begin{enumerate}
+\item To pick up row.
+\item To pick up column.
+\end{enumerate}
+
+\vspace*{5mm}
+
+\noindent
+The sample program is as follows.
+
+\clearpage
+
+{\small
+\begin{center}
+\begin{tabular}{|l|}\hline
+\#include $<$array.h$>$\\
+\hspace*{\textwidth}\\
+void main(void)\\
+\{\\
+\hspace*{10mm}int i;\\
+\\
+\hspace*{10mm}// To set the array "test33".\\
+\hspace*{10mm}array$<$int$>$ test33(3,3);\\
+\hspace*{10mm}test33(0,0) = 11;\\
+\hspace*{10mm}test33(0,1) = 12;\\
+\hspace*{10mm}test33(0,2) = 13;\\
+\hspace*{10mm}test33(1,0) = 21;\\
+\hspace*{10mm}test33(1,1) = 22;\\
+\hspace*{10mm}test33(1,2) = 23;\\
+\hspace*{10mm}test33(2,0) = 31;\\
+\hspace*{10mm}test33(2,1) = 32;\\
+\hspace*{10mm}test33(2,2) = 33;\\
+\\
+\hspace*{10mm}// To pick up row from "test33".\\
+\hspace*{10mm}array$<$int$>$ row;\\
+\hspace*{10mm}row = test33.row(1);\\
+\hspace*{10mm}cout $<<$ row.dim(0) $<<$ endl;\\
+\hspace*{10mm}for (i=0;i$<$row.nelem();i++)\{\\
+\hspace*{20mm}cout $<<$ row.elem(i) $<<$ endl;\\
+\hspace*{10mm}\}\\
+\\
+\hspace*{10mm}// To pick up column form "test33".\\
+\hspace*{10mm}array$<$int$>$ column;\\
+\hspace*{10mm}column = test33.col(1);\\
+\hspace*{10mm}cout $<<$ column.dim(0) $<<$ endl;\\
+\hspace*{10mm}for (i=0;i$<$column.nelem();i++)\{\\
+\hspace*{20mm}cout $<<$ column.elem(i) $<<$ endl;\\
+\hspace*{10mm}\}\\
+\\
+\}\\\hline
+\end{tabular}
+\vspace*{5mm}
+
+Example 5. Sample Program 5.
+\end{center}
+}
+
+\clearpage
+
+\noindent
+The result of this program is as follows.
+
+\begin{center}
+\begin{tabular}{|lll|}\hline
+3  & $\Longrightarrow$  & The number of elements in dimension 1.\\
+21 & $\Longrightarrow$  & The value of element [0,0].\\
+22 & $\Longrightarrow$  & The value of element [0,1].\\
+23 & $\Longrightarrow$  & The value of element [0,2].\\
+3  & $\Longrightarrow$  & The number of elements in dimension 1.\\
+12 & $\Longrightarrow$  & The value of element [0,0].\\
+22 & $\Longrightarrow$  & The value of element [0,1].\\
+32 & $\Longrightarrow$  & The value of element [0,2].\\\hline
+\end{tabular}
+\vspace*{5mm}
+
+Result 5. The result of the sample program 5.
+\end{center}
+
+\clearpage
+
+
+
+
+
+

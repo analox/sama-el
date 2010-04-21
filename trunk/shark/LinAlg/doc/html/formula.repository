@@ -1,0 +1,134 @@
+\form#0:$ f(x) \approx c - b x + \frac{1}{2} x A x $
+\form#1:$ f $
+\form#2:$ A $
+\form#3:$ b $
+\form#4:$ \frac{1}{2} N (N + 1) $
+\form#5:$ A^{-1} $
+\form#6:$ H_i $
+\form#7:$ \lim_{i\to\infty} H_i = A^{-1} $
+\form#8:$ f' $
+\form#9:$ x $
+\form#10:$ x' $
+\form#11:$ f(x) $
+\form#12:$ f'(x) $
+\form#13:$ x_{min} $
+\form#14:$ x_{old} $
+\form#15:$ p $
+\form#16:$ x_{new} $
+\form#17:$ x_{new} = x_{old} + \lambda p, \hspace{2em} 0 < \lambda \leq 1 $
+\form#18:$ f(x_{new})$
+\form#19:$ f(x_{new}) \leq f(x_{old}) + \alpha \nabla f \cdot (x_{new} - x_{old}) $
+\form#20:$ 0 < \alpha < 1 $
+\form#21:$ \nabla f \cdot p $
+\form#22:$ F(x) = 0 $
+\form#23:$ 0.25 $
+\form#24:$ x_j $
+\form#25:$ \prod_{j=1}^n x_j $
+\form#26:$ n \times n $
+\form#27:$m \times m$
+\form#28:$m$
+\form#29:$ = \#(classes) - 1$
+\form#30:$ N $
+\form#31:$ P $
+\form#32:$ n $
+\form#33:$ \lambda $
+\form#34:$ f(P + \lambda n) $
+\form#35:$ P + \lambda n $
+\form#36:$ \lambda n $
+\form#37:$ \sqrt{\sum_{i=0}^n \left(\sum_{j=0}^n A(i,j) \ast x(j,c) - x(i,c) \ast \lambda(c) \right)^2} $
+\form#38:$ \begin{array}{*{3}{r}} v_{11} & v_{21} & v_{31}\\ v_{12} & v_{22} & v_{32}\\ v_{13} & v_{23} & v_{33}\\ & & \\ v_1 & v_2 & v_3\\ \end{array} $
+\form#39:$ v_1 $
+\form#40:$ ( v_{11}\ v_{12}\ v_{13} ) $
+\form#41:$ v_1 > v_2 > v_3 $
+\form#42:$ Ax = \lambda x $
+\form#43:$ P_{pq} = \left( \begin{array}{*{7}{c}} 1 \\ & \dots \\ & & c & \dots & s \\ & & \vdots & 1 & \vdots \\ & & -s & \dots & c \\ & & & & & \dots \\ & & & & & & 1 \\ \end{array} \right) $
+\form#44:$ \Phi $
+\form#45:$ c^2 + s^2 = 1$
+\form#46:$h$
+\form#47:$t$
+\form#48:$h(t)$
+\form#49:$H$
+\form#50:$f$
+\form#51:$H(f)$
+\form#52:$- \infty < f < \infty$
+\form#53:$ H(f) = \int_{- \infty}^{\infty} h(t)e^{2\pi i f t} dt$
+\form#54:$h(t) = \int_{- \infty}^{\infty} H(f)e^{-2\pi i f t} df$
+\form#55:$N$
+\form#56:$h_k$
+\form#57:$H_n \equiv \sum_{k=0}^{N-1} h_k e^{2 \pi i k n / N}$
+\form#58:$h_k = \frac{1}{N} \sum_{n=0}^{N-1} H_n e^{-2 \pi i k n / N}$
+\form#59:$O(N^2)$
+\form#60:$\frac{N}{2}$
+\form#61:$O(N log_2 N)$
+\form#62:$H_n \equiv \sum_{k=0}^{N-1} data_k e^{2 \pi i k n / N}$
+\form#63:$h_k = \frac{1}{N} \sum_{n=0}^{N-1} data_k e^{-2 \pi i k n / N}$
+\form#64:$ X $
+\form#65:$ X' $
+\form#66:$ XX'X = X $
+\form#67:$ det(X) = 0 $
+\form#68:$ m \times n $
+\form#69:$ n \times m $
+\form#70:\[ mean = \frac{1}{N1} \sum_{i=1}^{N1} x_i \]
+\form#71:\[ \left( \begin{array}{*{4}{c}} 1 & 2 & 3 & 4\\ 5 & 6 & 7 & 8\\ 9 & 10 & 11 & 12\\ \end{array} \right) \longrightarrow \frac{1}{3} \left( \begin{array}{*{4}{c}} 1+5+9 & 2+6+10 & 3+7+11 & 4+8+12\\ \end{array} \right) \longrightarrow \left( \begin{array}{*{4}{c}} 5 & 6 & 7 & 8\\ \end{array} \right) \]
+\form#72:\[ variance = \frac{1}{N1} \sum_{i=1}^{N1} (x_i - m_i)^2 \]
+\form#73:\[ angle = \frac{\sum_{i=1}^{N} (x_i * y_i)}{\sum_{i=1}^{N} x_i * \sum_{i=1}^{N} y_i} \]
+\form#74:$x$
+\form#75:$y$
+\form#76:$n$
+\form#77:$ r := \frac{cov(x, y)}{\Delta x \Delta y} $
+\form#78:$cov(x, y)$
+\form#79:$\Delta x$
+\form#80:$\Delta y$
+\form#81:$-1 \leq r \leq 1$
+\form#82:$r^2$
+\form#83:$X = (x_{ij})$
+\form#84:$ r := (r_{kl}) \mbox{,\ } r_{kl} = \frac{c_{kl}}{\Delta x_k \Delta x_l}\mbox{,\ } k,l = 1, \dots, N $
+\form#85:$c_{kl}$
+\form#86:$\Delta x_k$
+\form#87:$\Delta x_l$
+\form#88:$x_k$
+\form#89:$x_l$
+\form#90:$n \times N$
+\form#91:$N \times N$
+\form#92:$(x_i, y_i)$
+\form#93:$i = 1, \dots, n$
+\form#94:$ cov = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \overline{x}) (y_i - \overline{y}) $
+\form#95:$\overline{x}$
+\form#96:$\overline{y}$
+\form#97:$ Cov = (c_{kl}) \mbox{,\ } c_{kl} = \frac{1}{n - 1} \sum_{i=1}^n (x_{ik} - \overline{x_k})(x_{il} - \overline{x_l})\mbox{,\ } k,l = 1, \dots, N $
+\form#98:$\overline{x_j} = \frac{1}{n} \sum_{i = 1}^n x_{ij}$
+\form#99:$x_j \mbox{,\ }j = 1, \dots, N$
+\form#100:$E$
+\form#101:$ E = \frac{1}{n} \sum_{i=1}^n | y_i - C_{z(i)}(x_i)| $
+\form#102:$x_i$
+\form#103:$y_i$
+\form#104:$C_{z(i)}$
+\form#105:$z(i) = \{x_1, \dots, x_{i-1}, x_{i+1}, x_n\}$
+\form#106:$n \times n$
+\form#107:$n \times m$
+\form#108:$m \times n$
+\form#109:$A^T$
+\form#110:$y = A \cdot x + b$
+\form#111:$b$
+\form#112:$A$
+\form#113:$(x, y)$
+\form#114:$ \frac{1}{\sqrt{\lambda_j}} $
+\form#115:$ A = UWV^T $
+\form#116:$ UU^T = VV^T = V^TV = 1 $
+\form#117:$ m \geq n $
+\form#118:\[ \left( \begin{array}{*{4}{c}} 1 & 2 & 3 & 4\\ 5 & 6 & 7 & 8\\ 9 & 10 & 11 & 12\\ 13 & 14 & 15 & 16\\ \end{array} \right) \longrightarrow \left( \begin{array}{*{4}{c}} 1 & 5 & 9 & 13\\ 2 & 6 & 10 & 14\\ 3 & 7 & 11 & 15\\ 4 & 8 & 12 & 16\\ \end{array} \right) \]
+\form#119:\[ \left( \begin{array}{*{4}{c}} 1 \\ 2 \\ 3 \\ 4 \\ \end{array} \right) \longrightarrow \left( \begin{array}{*{4}{c}} 1 & 0 & 0 & 0\\ 0 & 2 & 0 & 0\\ 0 & 0 & 3 & 0\\ 0 & 0 & 0 & 4\\ \end{array} \right) \]
+\form#120:\[ \left( \begin{array}{*{4}{c}} {\bf 1} & 5 & 9 & 13\\ 2 & {\bf 6} & 10 & 14\\ 3 & 7 & {\bf 11} & 15\\ 4 & 8 & 12 & {\bf 16}\\ \end{array} \right) \longrightarrow 1 + 6 + 11 + 16 = 34 \]
+\form#121:$d$
+\form#122:$meanM_i = \sum_{j=1}^n {v_j}_i \mbox{,\ for\ } i = 1, \dots, d$
+\form#123:$d \times d$
+\form#124:$covarM_{i, j} = \sum_{k=1}^n {v_k}_i \cdot {v_k}_j \mbox{,\ for\ } i, j = 1, \dots, d$
+\form#125:$ A = \Gamma \Lambda \Gamma^T $
+\form#126:$ \Lambda $
+\form#127:$ \Gamma $
+\form#128:$ p - 1 $
+\form#129:$make\ examples$
+\form#130:$ gnuplot $
+\form#131:$ plot\ "pre.dat",\ "pca.dat",\ "white.dat",\ "red.dat" $
+\form#132:$ plot\ "pre.dat",\ "pca.dat",\ "pca\_rt.dat" $
+\form#133:$ plot\ "pre.dat",\ "white.dat",\ "white\_rt.dat" $

@@ -1,0 +1,615 @@
+\section{RBF Class Reference}
+\label{classRBF}\index{RBF@{RBF}}
+This class provides different functions for the approximation using an RBF model.  
+
+
+{\tt \#include $<$rbf.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf RBF} ()\label{classRBF_a0}
+
+\begin{CompactList}\small\item\em constructor \item\end{CompactList}\item 
+{\bf RBF} (unsigned in\-Dim, kernel\-Type a\-Kernel, Array$<$ double $>$ kernel\-Params)
+\begin{CompactList}\small\item\em This constructor generates an Interpolation RBF model. \item\end{CompactList}\item 
+{\bf RBF} (unsigned in\-Dim, kernel\-Type a\-Kernel, Array$<$ double $>$ kernel\-Params, unsigned n\-Kernel, double reg\-Param, double max\-Err, err\-Method an\-Err\-Method, unsigned max\-KMean\-Iter, unsigned max\-Reg\-Iter)
+\begin{CompactList}\small\item\em This constructor generates a Ridge Regression RBF model. \item\end{CompactList}\item 
+{\bf RBF} (unsigned in\-Dim, kernel\-Type a\-Kernel, Array$<$ double $>$ kernel\-Params, unsigned maximum\-Basis, double max\-Err)
+\begin{CompactList}\small\item\em This constructor generates an Orthogonal Least Square Forward Selection RBF model. \item\end{CompactList}\item 
+{\bf $\sim$RBF} ()\label{classRBF_a4}
+
+\begin{CompactList}\small\item\em destructor \item\end{CompactList}\item 
+void {\bf evaluate} (Individual \&offspring)
+\begin{CompactList}\small\item\em This function evaluates the individual $<$offspring$>$ with the RBF model and stores the result as the fitness value of the offspring. \item\end{CompactList}\item 
+void {\bf evaluate} (Population \&offsprings)
+\begin{CompactList}\small\item\em This function evaluates the population $<$offsprings$>$ with the RBF model and stores the results as the fitness value of each member of offsprings. \item\end{CompactList}\item 
+void {\bf evaluate} (Array$<$ double $>$ input\-Data, Array$<$ double $>$ \&output\-Data)
+\begin{CompactList}\small\item\em This function evaluates the data in $<$inputdata$>$ with the RBF model and stores the results in $<$outputdata$>$. \item\end{CompactList}\item 
+void {\bf Evaluate} (Array$<$ double $>$ input\-Data, Array$<$ double $>$ \&output\-Data)\label{classRBF_a8}
+
+\item 
+double {\bf mse} (Array$<$ double $>$ Input, Array$<$ double $>$ Target)
+\begin{CompactList}\small\item\em This function calculates the mean square error of the approximation considering the given arrays $<$input$>$ and $<$target$>$. \item\end{CompactList}\item 
+double {\bf mse2} (Array$<$ double $>$ Input, Array$<$ double $>$ Target)\label{classRBF_a10}
+
+\item 
+double {\bf mse} (Population offsprings)
+\begin{CompactList}\small\item\em This function calculates the mean square error of the approximation considering a given population $<$offsprings$>$. \item\end{CompactList}\item 
+void {\bf train} (Array$<$ double $>$ Input\-Data, Array$<$ double $>$ Target\-Data)
+\begin{CompactList}\small\item\em This function approximates the datas which are stored in the arrays $<$inputdata$>$ and $<$targetdata$>$ using the RBF model. \item\end{CompactList}\item 
+void {\bf set\-Design\-Matrix} (Array$<$ double $>$ \&input\-Data)
+\begin{CompactList}\small\item\em This function set the design(hidden) matrix of the RBF model based on $<$inputdata$>$ provided. \item\end{CompactList}\item 
+void {\bf set\-Design\-Matrix2} (Array$<$ double $>$ \&input\-Data)\label{classRBF_a14}
+
+\item 
+void {\bf set\-Weight\-Matrix} (Array$<$ double $>$ \&target\-Data)
+\begin{CompactList}\small\item\em This function set the weight matrix of the RBF model based on $<$targetdata$>$ provided. \item\end{CompactList}\item 
+void {\bf set\-Weight\-Matrix2} (Array$<$ double $>$ \&target\-Data)\label{classRBF_a16}
+
+\item 
+Array$<$ double $>$ {\bf get\-Design\-Matrix} ()
+\begin{CompactList}\small\item\em This function returns the design(hidden) matrix of the RBF model. \item\end{CompactList}\item 
+Array$<$ double $>$ {\bf get\-Weight\-Matrix} ()
+\begin{CompactList}\small\item\em This function returns the weight matrix of the RBF model. \item\end{CompactList}\item 
+Array$<$ double $>$ {\bf get\-Orthogonal\-Matrix} ()
+\begin{CompactList}\small\item\em This function returns the orthogonal matrix of the OLSForward (Orthogonal Least Square - Forward Selection) RBF model. \item\end{CompactList}\item 
+Array$<$ double $>$ {\bf get\-Orthogonal\-Weight\-Matrix} ()
+\begin{CompactList}\small\item\em This function returns the orthogonal weight matrix of the OLSForward (Orthogonal Least Square - Forward Selection) RBF model. \item\end{CompactList}\item 
+Array$<$ double $>$ {\bf get\-Base\-Centres} ()
+\begin{CompactList}\small\item\em This function returns the kernel function centres of the RBF model. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+double {\bf get\-Distance} (Array$<$ double $>$ \&input, unsigned i, Array$<$ double $>$ \&centre, unsigned j)
+\begin{CompactList}\small\item\em This function calculates the distance between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf gauss\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the gaussian kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf cubic\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the cubic spline kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf linear\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the linear spline kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf multiquadric\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the multiquadrics kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf inverse\-Multiquadric\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the inverse multiquadrics kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf cauchy\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the cauchy kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf YPYFunc} (Array$<$ double $>$ des\-Matrix, Array$<$ double $>$ output, double reg\-Param, Array$<$ double $>$ \&A)
+\begin{CompactList}\small\item\em This function is a helper function to calculate sum squared error analytically. It is used in the regularization parameter optimization. \item\end{CompactList}\item 
+double {\bf GCVFunc} (Array$<$ double $>$ des\-Matrix, Array$<$ double $>$ output, double reg\-Param)
+\begin{CompactList}\small\item\em This function calculates the Generalized Cross-Validation error. \item\end{CompactList}\item 
+double {\bf UEVFunc} (Array$<$ double $>$ des\-Matrix, Array$<$ double $>$ output, double reg\-Param)
+\begin{CompactList}\small\item\em This function calculates the Unbiased Estimate Variance. \item\end{CompactList}\item 
+double {\bf FPEFunc} (Array$<$ double $>$ des\-Matrix, Array$<$ double $>$ output, double reg\-Param)
+\begin{CompactList}\small\item\em This function calculates the Final Prediction Error. \item\end{CompactList}\item 
+double {\bf BICFunc} (Array$<$ double $>$ des\-Matrix, Array$<$ double $>$ output, double reg\-Param)
+\begin{CompactList}\small\item\em This function calculates the Bayesian Information Criterion error. \item\end{CompactList}\item 
+double {\bf est\-Reg\-Param\-GCV} (double reg\-Param, Array$<$ double $>$ weight\-Matrix, Array$<$ double $>$ design\-Matrix, Array$<$ double $>$ predicted)
+\begin{CompactList}\small\item\em This function estimates the new regularization parameter based on the Generalized Cross-Validation error. \item\end{CompactList}\item 
+double {\bf est\-Reg\-Param\-UEV} (double reg\-Param, Array$<$ double $>$ weight\-Matrix, Array$<$ double $>$ design\-Matrix, Array$<$ double $>$ predicted)
+\begin{CompactList}\small\item\em This function estimates the new regularization parameter based on the Unbiased Estimate Variance. \item\end{CompactList}\item 
+double {\bf est\-Reg\-Param\-FPE} (double reg\-Param, Array$<$ double $>$ weight\-Matrix, Array$<$ double $>$ design\-Matrix, Array$<$ double $>$ predicted)
+\begin{CompactList}\small\item\em This function estimates the new regularization parameter based on the Final Prediction Error. \item\end{CompactList}\item 
+double {\bf est\-Reg\-Param\-BIC} (double reg\-Param, Array$<$ double $>$ weight\-Matrix, Array$<$ double $>$ design\-Matrix, Array$<$ double $>$ predicted)
+\begin{CompactList}\small\item\em This function estimates the new regularization parameter based on the Bayesian Information Criterion. \item\end{CompactList}\item 
+void {\bf KMean} (unsigned n\-Cluster, unsigned max\-Iter, Array$<$ double $>$ input, Array$<$ double $>$ \&centres\-Found, Array$<$ unsigned $>$ \&clust\-Map)
+\begin{CompactList}\small\item\em This function performs the K-Mean clustering algorithm to provide $<$ncluster$>$ clusters based on a set of inputs $<$input$>$. \item\end{CompactList}\item 
+template$<$class Type$>$ void {\bf init\-Array\-To\-Zero} (Array$<$ Type $>$ \&arr)
+\begin{CompactList}\small\item\em This function initializes an array to zero. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class provides different functions for the approximation using an RBF model. 
+
+This class is based on the RBF approximation models. For using this class in an appropriate way it is required to create an instance of the class $<$database$>$ or arrays of input\-Data and target\-Data. After the known data is stored in the database or the arrays, the functionality of the approximation can be applied. Therefore in the next step the model should be trained and after this the evaluation functions can be used. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{RBF@{RBF}!RBF@{RBF}}
+\index{RBF@{RBF}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}RBF::RBF (unsigned {\em in\-Dim}, kernel\-Type {\em a\-Kernel}, Array$<$ double $>$ {\em kernel\-Params})}\label{classRBF_a1}
+
+
+This constructor generates an Interpolation RBF model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em in\-Dim}]dimensionality of the problem. \item[{\em a\-Kernel}]kernel function used. \item[{\em kernel\-Params}]parameters for the kernel function.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!RBF@{RBF}}
+\index{RBF@{RBF}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}RBF::RBF (unsigned {\em in\-Dim}, kernel\-Type {\em a\-Kernel}, Array$<$ double $>$ {\em kernel\-Params}, unsigned {\em n\-Kernel}, double {\em reg\-Param}, double {\em max\-Err}, err\-Method {\em an\-Err\-Method}, unsigned {\em max\-KMean\-Iter}, unsigned {\em max\-Reg\-Iter})}\label{classRBF_a2}
+
+
+This constructor generates a Ridge Regression RBF model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em in\-Dim}]dimensionality of the problem. \item[{\em a\-Kernel}]kernel function used. \item[{\em kernel\-Params}]parameters for the kernel function. \item[{\em n\-Kernel}]number of kernel function centres used. \item[{\em reg\-Param}]starting value of the regularization parameter. \item[{\em max\-Err}]maximum training MSE allowed. \item[{\em an\-Err\-Method}]error calculation method used in optimizing the regularization parameter. \item[{\em max\-KMean\-Iter}]maximum K-Mean clustering iteration to determine the centres of kernel functions. \item[{\em max\-Reg\-Iter}]maximum regularization parameter optimization iteration.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!RBF@{RBF}}
+\index{RBF@{RBF}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}RBF::RBF (unsigned {\em in\-Dim}, kernel\-Type {\em a\-Kernel}, Array$<$ double $>$ {\em kernel\-Params}, unsigned {\em maximum\-Basis}, double {\em max\-Err})}\label{classRBF_a3}
+
+
+This constructor generates an Orthogonal Least Square Forward Selection RBF model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em in\-Dim}]dimensionality of the problem. \item[{\em a\-Kernel}]kernel function used. \item[{\em kernel\-Params}]parameters for the kernel function. \item[{\em maximum\-Basis}]maximum number of kernel functions. \item[{\em max\-Err}]maximum training MSE allowed.\end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{RBF@{RBF}!BICFunc@{BICFunc}}
+\index{BICFunc@{BICFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::BICFunc (Array$<$ double $>$ {\em des\-Matrix}, Array$<$ double $>$ {\em output}, double {\em reg\-Param})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e11}
+
+
+This function calculates the Bayesian Information Criterion error. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em des\-Matrix}]array containing the design matrix. \item[{\em output}]array containing the desired output value. \item[{\em reg\-Param}]regularization parameter. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em BICError}]BIC error.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!cauchyFunc@{cauchyFunc}}
+\index{cauchyFunc@{cauchyFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::cauchy\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e6}
+
+
+This function calculates the cauchy kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the cauchy kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!cubicFunc@{cubicFunc}}
+\index{cubicFunc@{cubicFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::cubic\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e2}
+
+
+This function calculates the cubic spline kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the cubic spline kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!estRegParamBIC@{estRegParamBIC}}
+\index{estRegParamBIC@{estRegParamBIC}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::est\-Reg\-Param\-BIC (double {\em reg\-Param}, Array$<$ double $>$ {\em weight\-Matrix}, Array$<$ double $>$ {\em design\-Matrix}, Array$<$ double $>$ {\em predicted})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e15}
+
+
+This function estimates the new regularization parameter based on the Bayesian Information Criterion. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em reg\-Param}]regularization parameter. \item[{\em weight\-Matrix}]array containing the weight matrix. \item[{\em design\-Matrix}]array containing the design matrix. \item[{\em predicted}]array containing the predicted output. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em new\-Reg\-Param}]new regularization parameter.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!estRegParamFPE@{estRegParamFPE}}
+\index{estRegParamFPE@{estRegParamFPE}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::est\-Reg\-Param\-FPE (double {\em reg\-Param}, Array$<$ double $>$ {\em weight\-Matrix}, Array$<$ double $>$ {\em design\-Matrix}, Array$<$ double $>$ {\em predicted})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e14}
+
+
+This function estimates the new regularization parameter based on the Final Prediction Error. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em reg\-Param}]regularization parameter. \item[{\em weight\-Matrix}]array containing the weight matrix. \item[{\em design\-Matrix}]array containing the design matrix. \item[{\em predicted}]array containing the predicted output. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em new\-Reg\-Param}]new regularization parameter.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!estRegParamGCV@{estRegParamGCV}}
+\index{estRegParamGCV@{estRegParamGCV}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::est\-Reg\-Param\-GCV (double {\em reg\-Param}, Array$<$ double $>$ {\em weight\-Matrix}, Array$<$ double $>$ {\em design\-Matrix}, Array$<$ double $>$ {\em predicted})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e12}
+
+
+This function estimates the new regularization parameter based on the Generalized Cross-Validation error. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em reg\-Param}]regularization parameter. \item[{\em weight\-Matrix}]array containing the weight matrix. \item[{\em design\-Matrix}]array containing the design matrix. \item[{\em predicted}]array containing the predicted output. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em new\-Reg\-Param}]new regularization parameter.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!estRegParamUEV@{estRegParamUEV}}
+\index{estRegParamUEV@{estRegParamUEV}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::est\-Reg\-Param\-UEV (double {\em reg\-Param}, Array$<$ double $>$ {\em weight\-Matrix}, Array$<$ double $>$ {\em design\-Matrix}, Array$<$ double $>$ {\em predicted})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e13}
+
+
+This function estimates the new regularization parameter based on the Unbiased Estimate Variance. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em reg\-Param}]regularization parameter. \item[{\em weight\-Matrix}]array containing the weight matrix. \item[{\em design\-Matrix}]array containing the design matrix. \item[{\em predicted}]array containing the predicted output. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em new\-Reg\-Param}]new regularization parameter.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void RBF::evaluate (Array$<$ double $>$ {\em input\-Data}, Array$<$ double $>$ \& {\em output\-Data})}\label{classRBF_a7}
+
+
+This function evaluates the data in $<$inputdata$>$ with the RBF model and stores the results in $<$outputdata$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input\-Data}]array containing the input parameters. \item[{\em output\-Data}]reference to array containing the evaluation results.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void RBF::evaluate (Population \& {\em offsprings})}\label{classRBF_a6}
+
+
+This function evaluates the population $<$offsprings$>$ with the RBF model and stores the results as the fitness value of each member of offsprings. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offsprings}]population of offspring to be evaluated.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void RBF::evaluate (Individual \& {\em offspring})}\label{classRBF_a5}
+
+
+This function evaluates the individual $<$offspring$>$ with the RBF model and stores the result as the fitness value of the offspring. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offspring}]individual of offspring to be evaluated.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!FPEFunc@{FPEFunc}}
+\index{FPEFunc@{FPEFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::FPEFunc (Array$<$ double $>$ {\em des\-Matrix}, Array$<$ double $>$ {\em output}, double {\em reg\-Param})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e10}
+
+
+This function calculates the Final Prediction Error. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em des\-Matrix}]array containing the design matrix. \item[{\em output}]array containing the desired output value. \item[{\em reg\-Param}]regularization parameter. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em FPEError}]FPE error.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!gaussFunc@{gaussFunc}}
+\index{gaussFunc@{gaussFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::gauss\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e1}
+
+
+This function calculates the gaussian kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the gaussian kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!GCVFunc@{GCVFunc}}
+\index{GCVFunc@{GCVFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::GCVFunc (Array$<$ double $>$ {\em des\-Matrix}, Array$<$ double $>$ {\em output}, double {\em reg\-Param})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e8}
+
+
+This function calculates the Generalized Cross-Validation error. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em des\-Matrix}]array containing the design matrix. \item[{\em output}]array containing the desired output value. \item[{\em reg\-Param}]regularization parameter. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em GCVError}]GCV error.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!getBaseCentres@{getBaseCentres}}
+\index{getBaseCentres@{getBaseCentres}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Array$<$double$>$ RBF::get\-Base\-Centres ()}\label{classRBF_a21}
+
+
+This function returns the kernel function centres of the RBF model. 
+
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em base\-Centres}]array containing the $<$basecentres$>$ of the RBF model.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!getDesignMatrix@{getDesignMatrix}}
+\index{getDesignMatrix@{getDesignMatrix}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Array$<$double$>$ RBF::get\-Design\-Matrix ()}\label{classRBF_a17}
+
+
+This function returns the design(hidden) matrix of the RBF model. 
+
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em design\-Matrix}]array containing the $<$designmatrix$>$ of the RBF model.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!getDistance@{getDistance}}
+\index{getDistance@{getDistance}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::get\-Distance (Array$<$ double $>$ \& {\em input}, unsigned {\em i}, Array$<$ double $>$ \& {\em centre}, unsigned {\em j})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e0}
+
+
+This function calculates the distance between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em distance}]value of distance.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!getOrthogonalMatrix@{getOrthogonalMatrix}}
+\index{getOrthogonalMatrix@{getOrthogonalMatrix}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Array$<$double$>$ RBF::get\-Orthogonal\-Matrix ()}\label{classRBF_a19}
+
+
+This function returns the orthogonal matrix of the OLSForward (Orthogonal Least Square - Forward Selection) RBF model. 
+
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em orthogonal\-Matrix}]array containing the $<$orthogonalmatrix$>$ of the RBF model.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!getOrthogonalWeightMatrix@{getOrthogonalWeightMatrix}}
+\index{getOrthogonalWeightMatrix@{getOrthogonalWeightMatrix}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Array$<$double$>$ RBF::get\-Orthogonal\-Weight\-Matrix ()}\label{classRBF_a20}
+
+
+This function returns the orthogonal weight matrix of the OLSForward (Orthogonal Least Square - Forward Selection) RBF model. 
+
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em orthogonal\-Weight\-Matrix}]array containing the $<$orthogonalweightmatrix$>$ of the RBF model.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!getWeightMatrix@{getWeightMatrix}}
+\index{getWeightMatrix@{getWeightMatrix}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Array$<$double$>$ RBF::get\-Weight\-Matrix ()}\label{classRBF_a18}
+
+
+This function returns the weight matrix of the RBF model. 
+
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em weight\-Matrix}]array containing the $<$weightmatrix$>$ of the RBF model.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!initArrayToZero@{initArrayToZero}}
+\index{initArrayToZero@{initArrayToZero}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type$>$ void RBF::init\-Array\-To\-Zero (Array$<$ Type $>$ \& {\em arr})\hspace{0.3cm}{\tt  [inline, static]}}\label{classRBF_e17}
+
+
+This function initializes an array to zero. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em arr}]array to be initialized to zero.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!inverseMultiquadricFunc@{inverseMultiquadricFunc}}
+\index{inverseMultiquadricFunc@{inverseMultiquadricFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::inverse\-Multiquadric\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e5}
+
+
+This function calculates the inverse multiquadrics kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the inverse multiquadrics kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!KMean@{KMean}}
+\index{KMean@{KMean}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void RBF::KMean (unsigned {\em n\-Cluster}, unsigned {\em max\-Iter}, Array$<$ double $>$ {\em input}, Array$<$ double $>$ \& {\em centres\-Found}, Array$<$ unsigned $>$ \& {\em clust\-Map})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e16}
+
+
+This function performs the K-Mean clustering algorithm to provide $<$ncluster$>$ clusters based on a set of inputs $<$input$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em n\-Cluster}]number of desired clusters. \item[{\em max\-Iter}]maximum iteration count. \item[{\em input}]array containing the inputs. \item[{\em centres\-Found}]reference to array containing the cluster centres found. \item[{\em clust\-Map}]reference to array containing the pair of inputs and cluster numbers to which each of them are assigned.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!linearFunc@{linearFunc}}
+\index{linearFunc@{linearFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::linear\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e3}
+
+
+This function calculates the linear spline kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the linear spline kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!mse@{mse}}
+\index{mse@{mse}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::mse (Population {\em offsprings})}\label{classRBF_a11}
+
+
+This function calculates the mean square error of the approximation considering a given population $<$offsprings$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offsprings}]population containing the parameters in the first Chromosome and the fitness value as target value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em MSE}]mean square error of the approximation\end{description}
+\end{Desc}
+\index{RBF@{RBF}!mse@{mse}}
+\index{mse@{mse}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::mse (Array$<$ double $>$ {\em Input}, Array$<$ double $>$ {\em Target})}\label{classRBF_a9}
+
+
+This function calculates the mean square error of the approximation considering the given arrays $<$input$>$ and $<$target$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input}]array containing the input data. \item[{\em Target}]array containing the target data. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em MSE}]mean square error of the approximation.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!multiquadricFunc@{multiquadricFunc}}
+\index{multiquadricFunc@{multiquadricFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::multiquadric\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e4}
+
+
+This function calculates the multiquadrics kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the multiquadrics kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!setDesignMatrix@{setDesignMatrix}}
+\index{setDesignMatrix@{setDesignMatrix}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void RBF::set\-Design\-Matrix (Array$<$ double $>$ \& {\em input\-Data})}\label{classRBF_a13}
+
+
+This function set the design(hidden) matrix of the RBF model based on $<$inputdata$>$ provided. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input\-Data}]array containing the inputdata which are used for approximation.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!setWeightMatrix@{setWeightMatrix}}
+\index{setWeightMatrix@{setWeightMatrix}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void RBF::set\-Weight\-Matrix (Array$<$ double $>$ \& {\em target\-Data})}\label{classRBF_a15}
+
+
+This function set the weight matrix of the RBF model based on $<$targetdata$>$ provided. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input\-Data}]array containing the inputdata which are used for approximation. \item[{\em target\-Data}]array containing the target data used for approximation.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!train@{train}}
+\index{train@{train}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void RBF::train (Array$<$ double $>$ {\em Input\-Data}, Array$<$ double $>$ {\em Target\-Data})}\label{classRBF_a12}
+
+
+This function approximates the datas which are stored in the arrays $<$inputdata$>$ and $<$targetdata$>$ using the RBF model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input\-Data}]array containing the inputdata which are used for approximation. \item[{\em Target\-Data}]array containing the targetdata which are used for approximation.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!UEVFunc@{UEVFunc}}
+\index{UEVFunc@{UEVFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::UEVFunc (Array$<$ double $>$ {\em des\-Matrix}, Array$<$ double $>$ {\em output}, double {\em reg\-Param})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e9}
+
+
+This function calculates the Unbiased Estimate Variance. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em des\-Matrix}]array containing the design matrix. \item[{\em output}]array containing the desired output value. \item[{\em reg\-Param}]regularization parameter. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em UEVError}]UEV error.\end{description}
+\end{Desc}
+\index{RBF@{RBF}!YPYFunc@{YPYFunc}}
+\index{YPYFunc@{YPYFunc}!RBF@{RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double RBF::YPYFunc (Array$<$ double $>$ {\em des\-Matrix}, Array$<$ double $>$ {\em output}, double {\em reg\-Param}, Array$<$ double $>$ \& {\em A})\hspace{0.3cm}{\tt  [static]}}\label{classRBF_e7}
+
+
+This function is a helper function to calculate sum squared error analytically. It is used in the regularization parameter optimization. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em des\-Matrix}]array containing the design matrix. \item[{\em output}]array containing the desired output value. \item[{\em reg\-Param}]regularization parameter. \item[{\em A}]reference to array containing a helper matrix A. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em sum\-Square\-Error}]sum squared error\end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+{\bf rbf.h}\end{CompactItemize}

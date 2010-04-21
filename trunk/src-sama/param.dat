@@ -1,0 +1,40 @@
+useThisFileFlag	1
+dimension 	10
+popSize		100
+maxCount	8000
+mutateProb	1.0
+crossProb 	1.0	
+memeticProb	1.0
+trIteration	3
+databaseBuildingPhase	1000
+evalFunc	schwefel213
+sameBoundFlag	1
+loBound		-100
+hiBound		100
+rotated		0	
+shifted		0
+
+
+**********    
+PARAMETERS
+**********
+
+useThisFileFlag	= 1 if want to use setting from this param.dat file
+		  0 if want to use default setting from ga.cpp file, i.e. not reading this file 
+dimension 	= dimensionality of the problem
+popSize 	= population size
+maxCount 	= maximum function evaluation count to run
+mutateProb 	= mutation probability
+memeticProb	= local search probability
+memeticIntensity= number of evaluations per local search
+evalFunc 	= function name inside the code used for fitness evaluation
+		  Eg: griewank, rastrigin, ackley, sphere, bump, elliptic, griewankrosenbrock, rosenbrock, scaffer, step, schwefel102, weierstrass
+			schwefel206, schwefel213
+sameBoundFlag 	= 1 or true if all dimensions using the same bound, hence need to enter only once in the subsequent parameter below
+		  0 or false if not all dimensions using the same bound, hence need to enter as many as dimension bounds below
+loBound 	= the low bound ( only one value if sameBoundFlag is 1 , otherwise as many as the dimensionality)
+hiBound		= the high bound ( only one value if sameBoundFlag is 1 , otherwise as many as the dimensionality)
+rotated		= if rotation matrix is used	
+shifted		= if translation vector is used
+
+

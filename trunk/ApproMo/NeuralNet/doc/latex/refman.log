@@ -1,0 +1,742 @@
+This is TeX, Version 3.14159 (Web2C 7.4.5) (format=latex 2007.8.1)  25 SEP 2007 17:39
+**refman.tex
+(./refman.tex
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, n
+ohyphenation, loaded.
+(/usr/share/texmf/tex/latex/base/book.cls
+Document Class: book 2001/04/21 v1.4e Standard LaTeX document class
+(/usr/share/texmf/tex/latex/base/bk10.clo
+File: bk10.clo 2001/04/21 v1.4e Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texmf/tex/latex/misc/a4wide.sty
+Package: a4wide 1994/08/30
+
+(/usr/share/texmf/tex/latex/ntgclass/a4.sty
+Package: a4 1999/03/03 v1.2f A4 based page layout
+))
+(/usr/share/texmf/tex/latex/base/makeidx.sty
+Package: makeidx 2000/03/29 v1.0m Standard LaTeX package
+)
+(/usr/share/texmf/tex/latex/fancyhdr/fancyhdr.sty
+\headwidth=\dimen103
+)
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2001/08/31 v1.1 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: dvips.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/usr/share/texmf/tex/latex/tools/multicol.sty
+Package: multicol 2000/07/10 v1.5z multicolumn formatting (FMi)
+\c@tracingmulticols=\count88
+\mult@box=\box26
+\multicol@leftmargin=\dimen106
+\c@unbalance=\count89
+\c@collectmore=\count90
+\doublecol@number=\count91
+\multicoltolerance=\count92
+\multicolpretolerance=\count93
+\full@width=\dimen107
+\page@free=\dimen108
+\premulticols=\dimen109
+\postmulticols=\dimen110
+\multicolsep=\skip43
+\multicolbaselineskip=\skip44
+\partial@page=\box27
+\last@line=\box28
+\mult@rightbox=\box29
+\mult@grightbox=\box30
+\mult@gfirstbox=\box31
+\mult@firstbox=\box32
+\@tempa=\box33
+\@tempa=\box34
+\@tempa=\box35
+\@tempa=\box36
+\@tempa=\box37
+\@tempa=\box38
+\@tempa=\box39
+\@tempa=\box40
+\@tempa=\box41
+\@tempa=\box42
+\@tempa=\box43
+\@tempa=\box44
+\@tempa=\box45
+\@tempa=\box46
+\@tempa=\box47
+\@tempa=\box48
+\@tempa=\box49
+\c@columnbadness=\count94
+\c@finalcolumnbadness=\count95
+\last@try=\dimen111
+\multicolovershoot=\dimen112
+\multicolundershoot=\dimen113
+\mult@nat@firstbox=\box50
+\colbreak@box=\box51
+)
+(/usr/share/texmf/tex/latex/misc/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count96
+\float@exts=\toks15
+\float@box=\box52
+\@float@everytoks=\toks16
+\@floatcapt=\box53
+)
+(/usr/share/texmf/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+) (./doxygen.sty
+Package: doxygen 
+
+(/usr/share/texmf/tex/latex/tools/calc.sty
+Package: calc 1998/07/07 v4.1b Infix arithmetic (KKT,FJ)
+\calc@Acount=\count97
+\calc@Bcount=\count98
+\calc@Adimen=\dimen114
+\calc@Bdimen=\dimen115
+\calc@Askip=\skip45
+\calc@Bskip=\skip46
+LaTeX Info: Redefining \setlength on input line 59.
+LaTeX Info: Redefining \addtolength on input line 60.
+\calc@denominator=\count99
+)
+(/usr/share/texmf/tex/latex/tools/array.sty
+Package: array 1998/05/13 v2.3m Tabular extension package (FMi)
+\col@sep=\dimen116
+\extrarowheight=\dimen117
+\NC@list=\toks17
+\extratabsurround=\skip47
+\backup@length=\skip48
+)
+\tmplength=\skip49
+)
+\@indexfile=\write3
+\openout3 = `refman.idx'.
+
+
+Writing index file refman.idx
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.12 \setlength{\footrulewidth}{0.4pt}
+                                      
+? 
+! Interruption.
+\GenericError  ...                                
+                                                  \endgroup 
+l.12 \setlength{\footrulewidth}{0.4pt}
+                                      
+? quit
+OK, entering \batchmode...
+! Missing number, treated as zero.
+<to be read again> 
+                   \def 
+l.13 \begin{document}
+                     
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   \def 
+l.13 \begin{document}
+                     
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+No file refman.aux.
+\openout1 = `refman.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+ [1
+
+] [2
+
+] [1] [2
+
+]
+No file refman.toc.
+\tf@toc=\write4
+\openout4 = `refman.toc'.
+
+ [1
+
+] [2
+
+]
+Chapter 1.
+ (./hierarchy.tex
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 3.
+
+LaTeX Warning: Reference `classEvoNet' on page 1 undefined on input line 3.
+
+
+LaTeX Warning: Reference `classFFManip' on page 1 undefined on input line 4.
+
+
+LaTeX Warning: Reference `classFFOps__Basic__neu' on page 1 undefined on input 
+line 6.
+
+
+LaTeX Warning: Reference `classFFOps__OL__neu' on page 1 undefined on input lin
+e 8.
+
+
+LaTeX Warning: Reference `classMyNet' on page 1 undefined on input line 11.
+
+
+LaTeX Warning: Reference `classOps__Basic' on page 1 undefined on input line 12
+.
+
+
+LaTeX Warning: Reference `classFFOps__Basic__neu' on page 1 undefined on input 
+line 14.
+
+) [1
+
+] [2
+
+]
+Chapter 2.
+ (./annotated.tex
+
+LaTeX Warning: Reference `classEvoNet' on page 3 undefined on input line 3.
+
+
+LaTeX Warning: Reference `classFFManip' on page 3 undefined on input line 4.
+
+
+LaTeX Warning: Reference `classFFOps__Basic__neu' on page 3 undefined on input 
+line 5.
+
+
+LaTeX Warning: Reference `classFFOps__OL__neu' on page 3 undefined on input lin
+e 6.
+
+
+LaTeX Warning: Reference `classMyNet' on page 3 undefined on input line 7.
+
+
+LaTeX Warning: Reference `classOps__Basic' on page 3 undefined on input line 8.
+
+
+) [3] [4
+
+]
+Chapter 3.
+ (./files.tex
+
+LaTeX Warning: Reference `EvoNet_8h' on page 5 undefined on input line 3.
+
+
+LaTeX Warning: Reference `FFManip_8h' on page 5 undefined on input line 4.
+
+
+LaTeX Warning: Reference `FFOps__Basic__neu_8h' on page 5 undefined on input li
+ne 5.
+
+
+LaTeX Warning: Reference `FFOps__OL__neu_8h' on page 5 undefined on input line 
+6.
+
+
+LaTeX Warning: Reference `MyNet_8h' on page 5 undefined on input line 7.
+
+
+LaTeX Warning: Reference `Ops__Basic_8h' on page 5 undefined on input line 8.
+
+) [5] [6
+
+]
+Chapter 4.
+ (./classEvoNet.tex
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 11.
+ (/usr/share/texmf/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 11.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 16.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 16.
+ [7] [8]
+Underfull \hbox (badness 10000) in paragraph at lines 69--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--82
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 96--96
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--121
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--134
+
+ []
+
+ [9]
+Underfull \hbox (badness 10000) in paragraph at lines 141--141
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--154
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--173
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 179--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 192--192
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
+
+ []
+
+ [10]
+Underfull \hbox (badness 10000) in paragraph at lines 218--218
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 231--231
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 237--237
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 257--257
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 271--271
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--277
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--290
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--297
+
+ []
+
+ [11]
+Underfull \hbox (badness 10000) in paragraph at lines 310--310
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 316--316
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--330
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
+
+ []
+
+) [12]
+\openout2 = `classFFManip.aux'.
+
+ (./classFFManip.tex
+File: classFFManip.eps Graphic file (type eps)
+ <classFFManip.eps> [13
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 63--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+
+ []
+
+ [14]
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 126--126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--158
+
+ []
+
+ [15]
+Underfull \hbox (badness 10000) in paragraph at lines 172--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 189--189
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
+
+ []
+
+) [16]
+\openout2 = `classFFOps__Basic__neu.aux'.
+
+ (./classFFOps__Basic__neu.tex
+File: classFFOps__Basic__neu.eps Graphic file (type eps)
+ <classFFOps__Basic__neu.eps> [17
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 72--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
+
+ []
+
+ [18]
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
+
+ []
+
+
+LaTeX Warning: Reference `classOps__Basic_a11' on page 19 undefined on input li
+ne 145.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--153
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--167
+
+ []
+
+ [19]
+Underfull \hbox (badness 10000) in paragraph at lines 181--181
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 195--195
+
+ []
+
+) [20]
+\openout2 = `classFFOps__OL__neu.aux'.
+
+ (./classFFOps__OL__neu.tex
+File: classFFOps__OL__neu.eps Graphic file (type eps)
+ <classFFOps__OL__neu.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 51--51
+
+ []
+
+ [21
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 66--66
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 81--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--95
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 108--108
+
+ []
+
+) [22]
+\openout2 = `classMyNet.aux'.
+
+ (./classMyNet.tex [23
+
+
+]) [24]
+\openout2 = `classOps__Basic.aux'.
+
+ (./classOps__Basic.tex
+File: classOps__Basic.eps Graphic file (type eps)
+ <classOps__Basic.eps> [25
+
+
+] [26]
+Underfull \hbox (badness 10000) in paragraph at lines 87--87
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 117--117
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 131--131
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--144
+
+ []
+
+ [27]
+Underfull \hbox (badness 10000) in paragraph at lines 157--157
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 170--170
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 183--183
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--196
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 209--209
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--223
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--236
+
+ []
+
+ [28]
+Underfull \hbox (badness 10000) in paragraph at lines 251--251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 280--280
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 294--294
+
+ []
+
+ [29]
+Underfull \hbox (badness 10000) in paragraph at lines 308--308
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--323
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 337--337
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 352--352
+
+ []
+
+) [30]
+Chapter 5.
+ (./EvoNet_8h.tex)
+No file refman.ind.
+ [31
+
+
+] (./refman.aux (./classFFManip.aux) (./classFFOps__Basic__neu.aux) (./classFFO
+ps__OL__neu.aux) (./classMyNet.aux) (./classOps__Basic.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1127 strings out of 95847
+ 14345 string characters out of 1194790
+ 64897 words of memory out of 1000001
+ 4030 multiletter control sequences out of 10000+50000
+ 9542 words of font info for 34 fonts, out of 500000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 30i,12n,43p,500b,557s stack positions out of 1500i,500n,5000p,200000b,5000s
+
+Output written on refman.dvi (37 pages, 67444 bytes).

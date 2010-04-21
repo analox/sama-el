@@ -1,0 +1,101 @@
+\subsection{Methods for Manipulating Internal Variables and Flags}
+
+%---------------------------------------------------------------------------%
+\index{setFitness!( double fit )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{setFitness}
+{double}
+{fit}
+{New value for the normal and scaled fitness.}
+{Sets the fitness and scaled fitness of {\em this} to the new
+ value {\em fit}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{setAge!( unsigned a )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{setAge}
+{unsigned}
+{a}
+{New age of {\em this}. The default is 0.}
+{Sets the age of {\em this} to the new value {\em a}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{incAge!( )}
+\setNormalInstance
+\printEmptyMethod
+{incAge}
+{Increments the age of {\em this} by 1.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{setEvaluationFlag!( )}
+\setNormalInstance
+\printEmptyMethod
+{setEvaluationFlag}
+{Sets {\em evalFlg} to ``true''.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{clearEvaluationFlag!( )}
+\setNormalInstance
+\printEmptyMethod
+{clearEvaluationFlag}
+{Sets {\em evalFlg} to ``false''.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{setFeasible!( bool f )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{setFeasible}
+{bool}
+{f}
+{New value for the {\em feasible} flag:\\
+{\em true} - The individual is a possible solution for the current
+ optimization problem,\\
+{\em false} - The individual does not represent a feasible solution.}
+{Sets the {\em feasible} flag to the new value {\em f}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{setSelectionProbability!( double ps )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{setSelectionProbability}
+{double}
+{ps}
+{New selection probability for {\em this}.}
+{Sets the selection probability of {\em this} to the new value {\em ps}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+
+
+

@@ -1,0 +1,35 @@
+%% ######################################################################
+	\section{Signal Processing Routines}
+%% ######################################################################
+
+Overview:
+
+\bigskip
+
+y = dct( x )  Discrete Cosine Transform
+x = idct( y ) Inverse Discrete Cosine Transform
+
+\subsection{Discrete Cosine Transform}
+
+An 1-dimensional $N$ Discrete Cosine Transform (DCT) is defined as follows:
+\begin{equation}
+  F(u) ~=~ \frac{2}{N}\, C(u) \sum_{x=0}^{N-1} f(x)\,\cos\!\left(\frac{\pi(2x+1)u}{2N}\right)\enspace,
+\end{equation}
+where $u,x=0,1,\dots,N-1$ and
+\begin{equation}
+  C(u) ~=~ \left\{\begin{array}{cl}
+    \displaystyle\frac{1}{\sqrt{2}} & \mbox{if~} u=0 \\[2ex]
+    1 & \mbox{otherwise}
+  \end{array}\right.
+\end{equation}
+The DCT is separable and, therefore, easily extends to higher dimensions,
+e.g.\ the 2-dimensional DCT reads:
+\begin{equation}
+  F(u,v) ~=~ \frac{2}{N}\, C(u)\,C(v) \sum_{x=0}^{N-1}\sum_{y=0}^{N-1} f(x,y)\,\cos\!\left(\frac{\pi(2x+1)u}{2N}\right)\,\cos\!\left(\frac{\pi(2y+1)v}{2N}\right)\enspace.
+\end{equation}
+The inverse DCT (IDCT) is defined as follows:\footnote{Extended to 2-D this
+implementation conforms to the IEEE Standard Specification for the $8\times 8$
+Inverse Discrete Cosine Transform, Std 1180-1990, December 6, 1990.}
+\begin{equation}
+  f(x) ~=~ \frac{2}{N} \sum_{u=0}^{N-1} C(u)\,F(u)\,\cos\!\left(\frac{\pi(2x+1)u}{2N}\right)\enspace,
+\end{equation}

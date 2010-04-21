@@ -1,0 +1,387 @@
+\section{Regr\-App Class Reference}
+\label{classRegrApp}\index{RegrApp@{RegrApp}}
+This class provides different functions for the approximation using a Regression model.  
+
+
+{\tt \#include $<$Regr\-App.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Regr\-App} ()\label{classRegrApp_fa0ef6c6b2990d1db8267e7879fcea3d}
+
+\begin{CompactList}\small\item\em constructor \item\end{CompactList}\item 
+{\bf Regr\-App} (int degree)
+\begin{CompactList}\small\item\em This constructor generates a linear regression model of order $<$degree$>$ without considering interaction terms. \item\end{CompactList}\item 
+{\bf Regr\-App} (int degree, bool interact)
+\begin{CompactList}\small\item\em This constructor generates a linear regression model of order $<$degree$>$. If $<$interact$>$ is TRUE the interaction terms are considered, if $<$FALSE$>$ they are neglected. \item\end{CompactList}\item 
+{\bf $\sim$Regr\-App} ()\label{classRegrApp_4b527c8600487a91ce96d154f6b874e2}
+
+\begin{CompactList}\small\item\em destructor \item\end{CompactList}\item 
+double {\bf MSE} (Database Data)
+\begin{CompactList}\small\item\em This function calculates the mean square error of the approximation considering the given database $<$Data$>$. \item\end{CompactList}\item 
+double {\bf MSE} (Array$<$ double $>$ Input, Array$<$ double $>$ Target)
+\begin{CompactList}\small\item\em This function calculates the mean square error of the approximation considering the given arrays $<$Input$>$ and $<$Target$>$. \item\end{CompactList}\item 
+double {\bf MSE} (Population offsprings)
+\begin{CompactList}\small\item\em This function calculates the mean square error of the approximation considering a given population $<$offsprings$>$. \item\end{CompactList}\item 
+int {\bf Evaluate} (Population \&offsprings)
+\begin{CompactList}\small\item\em This function evaluates the $<$offsprings$>$ with the Regression model and stores the results as the fitness value in each offspring. \item\end{CompactList}\item 
+int {\bf Evaluate} (Individual \&offspring)
+\begin{CompactList}\small\item\em This function evaluates the $<$offspring$>$ with the Regression model and stores the results as the fitness value in the offspring. \item\end{CompactList}\item 
+int {\bf Evaluate} (Array$<$ double $>$ Input\-Data, Array$<$ double $>$ \&Output\-Data)
+\begin{CompactList}\small\item\em This function evaluates the data in $<$Input\-Data$>$ with the Regression model and stores the results in $<$Output\-Data$>$. \item\end{CompactList}\item 
+int {\bf Train} (Array$<$ double $>$ Input\-Data, Array$<$ double $>$ Target\-Data)
+\begin{CompactList}\small\item\em This function approximates the datas which are stored in the arrays $<$Input\-Data$>$ and $<$Target\-Data$>$ using the Regression model (default algorithm). \item\end{CompactList}\item 
+int {\bf Train\_\-LSM} (Array$<$ double $>$ Input\-Data, Array$<$ double $>$ Target\-Data)
+\begin{CompactList}\small\item\em This function approximates the datas which are stored in the arrays $<$Input\-Data$>$ and $<$Target\-Data$>$ using the Regression model. \item\end{CompactList}\item 
+int {\bf Train} (Database Data)
+\begin{CompactList}\small\item\em This function approximates the datas which are stored in the database $<$Data$>$ using the Regression model (default algorithm). \item\end{CompactList}\item 
+int {\bf Train\_\-LSM} (Database Data)
+\begin{CompactList}\small\item\em This function approximates the datas which are stored in the database $<$Data$>$ using the Regression model. \item\end{CompactList}\item 
+int {\bf Calc\-Natural\-Coefficients} ()
+\begin{CompactList}\small\item\em This function calculates the natural model coefficients from the trained ones (only for first order model). \item\end{CompactList}\item 
+int {\bf Scan\-Square3D} (int lower\-Border, int upper\-Border, Array$<$ double $>$ \&Output\-Data)
+\begin{CompactList}\small\item\em This function scans an area of the data which must have an input dimension of 2 and an output dimension of 1. The scanning area is between the borders given as the parameters $<$lower\-Border$>$ and $<$upper\-Border$>$. The resolution is fixed to 100. The results can be further used for matlab. \item\end{CompactList}\item 
+int {\bf Scan\-Square3D} (int lower\-Border, int upper\-Border, Array$<$ double $>$ \&Output\-Data, int ind1, int ind2, Array$<$ double $>$ Parameters\-To\-Keep\-Constant)
+\begin{CompactList}\small\item\em This function scans an area of the data in the parameters $<$ind1$>$ and $<$ind2$>$ . The scanning area is between the borders given as the parameters $<$lower\-Border$>$ and $<$upper\-Border$>$. The resolution is fixed to 100. The results can be further used for matlab. \item\end{CompactList}\item 
+int {\bf Get\-Degree\-Of\-Regr\-Model} ()
+\begin{CompactList}\small\item\em This function returns the degree of the regression model. \item\end{CompactList}\item 
+int {\bf Set\-Degree\-Of\-Regr\-Model} (int new\-Degree)
+\begin{CompactList}\small\item\em This function sets the degree of the regression model. \item\end{CompactList}\item 
+bool {\bf interaction\-Terms\-Considered} ()
+\begin{CompactList}\small\item\em This function returns $<$true$>$ if the interaction terms are considered, $<$false$>$ if not. \item\end{CompactList}\item 
+int {\bf Set\-Interaction\-Terms} (bool choice)
+\begin{CompactList}\small\item\em This function sets the consideration of the interaction terms of the regression model. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Public Attributes}
+\begin{CompactItemize}
+\item 
+double $\ast$ {\bf Model\-Coefficients}\label{classRegrApp_9db233f325bc0ae754a648ca801302d4}
+
+\item 
+int {\bf column\-Dimension}\label{classRegrApp_e46084979221a0f9f78bcd2775fcc376}
+
+\item 
+double $\ast$ {\bf Natural\-Model\-Coefficients}\label{classRegrApp_f6e9ebf9f47598a0b99ff7b5095b5461}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class provides different functions for the approximation using a Regression model. 
+
+This class is based on the Regression approximation models. For using this class in an appropriate way it is required to create an instance of the class $<$database$>$. After the known data is stored in the database the functionality of the approximation can be applied. Therefore in the next step the model should be trained and after this the evaluation functions can be used. The consideration of the interaction terms and the degree of the Regression model can be chosen freely ($>$0) 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{RegrApp@{Regr\-App}!RegrApp@{RegrApp}}
+\index{RegrApp@{RegrApp}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Regr\-App::Regr\-App (int {\em degree})}\label{classRegrApp_750cfd3cf6881ece0f0a2e50e54dfd8a}
+
+
+This constructor generates a linear regression model of order $<$degree$>$ without considering interaction terms. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em degree}]degree of the regression model ($>$0) \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!RegrApp@{RegrApp}}
+\index{RegrApp@{RegrApp}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Regr\-App::Regr\-App (int {\em degree}, bool {\em interact})}\label{classRegrApp_cde25206c40d6a50d3660bac57c226f5}
+
+
+This constructor generates a linear regression model of order $<$degree$>$. If $<$interact$>$ is TRUE the interaction terms are considered, if $<$FALSE$>$ they are neglected. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em degree}]degree of the regression model ($>$0) \item[{\em interact}]choice if the interaction terms shall be considered \end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{RegrApp@{Regr\-App}!CalcNaturalCoefficients@{CalcNaturalCoefficients}}
+\index{CalcNaturalCoefficients@{CalcNaturalCoefficients}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Calc\-Natural\-Coefficients ()}\label{classRegrApp_e56a976350597eb03c8afdafc74b561e}
+
+
+This function calculates the natural model coefficients from the trained ones (only for first order model). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]Database containing the data which are used for approximation \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Evaluate (Array$<$ double $>$ {\em Input\-Data}, Array$<$ double $>$ \& {\em Output\-Data})}\label{classRegrApp_3d87f03fcc07f23d87acdfc89008a06d}
+
+
+This function evaluates the data in $<$Input\-Data$>$ with the Regression model and stores the results in $<$Output\-Data$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input\-Data}]Array containing the input parameters \item[{\em Output\-Data}]Array containing the evaluation results \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \item[{\em 1}]Model was not trained so far \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Evaluate (Individual \& {\em offspring})}\label{classRegrApp_c9e8fd89855a32f0eaee5685bee702ad}
+
+
+This function evaluates the $<$offspring$>$ with the Regression model and stores the results as the fitness value in the offspring. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offspring}]Individual to be evaluated \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \item[{\em 1}]Model was not trained so far \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Evaluate (Population \& {\em offsprings})}\label{classRegrApp_73425496f0f416efd7236e333b88e009}
+
+
+This function evaluates the $<$offsprings$>$ with the Regression model and stores the results as the fitness value in each offspring. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offsprings}]population of offsprings to be evaluated \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \item[{\em 1}]Model was not trained so far \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!GetDegreeOfRegrModel@{GetDegreeOfRegrModel}}
+\index{GetDegreeOfRegrModel@{GetDegreeOfRegrModel}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Get\-Degree\-Of\-Regr\-Model ()}\label{classRegrApp_122a5f31e8f5f5538e111cabc589d68b}
+
+
+This function returns the degree of the regression model. 
+
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em deg\-Of\-Model}]degree of regression model \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!interactionTermsConsidered@{interactionTermsConsidered}}
+\index{interactionTermsConsidered@{interactionTermsConsidered}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}bool Regr\-App::interaction\-Terms\-Considered ()}\label{classRegrApp_26e00c7d7555f4e0a3073af386d3556f}
+
+
+This function returns $<$true$>$ if the interaction terms are considered, $<$false$>$ if not. 
+
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em interaction\-Terms}]$<$true$>$ if interaction terms are considered else $<$false$>$ \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!MSE@{MSE}}
+\index{MSE@{MSE}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Regr\-App::MSE (Population {\em offsprings})}\label{classRegrApp_0d2f4648a96dbbc2a10e25e0c340b8ec}
+
+
+This function calculates the mean square error of the approximation considering a given population $<$offsprings$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offsprings}]population containing the parameters in the first Chromosome and the fitness value as target value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em MSE}]mean square error of the approximation \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!MSE@{MSE}}
+\index{MSE@{MSE}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Regr\-App::MSE (Array$<$ double $>$ {\em Input}, Array$<$ double $>$ {\em Target})}\label{classRegrApp_3070339bdbf81658b45a06e86e8592bf}
+
+
+This function calculates the mean square error of the approximation considering the given arrays $<$Input$>$ and $<$Target$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input}]array containing the input data \item[{\em Target}]array containing the target data \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em MSE}]mean square error of the approximation \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!MSE@{MSE}}
+\index{MSE@{MSE}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Regr\-App::MSE (Database {\em Data})}\label{classRegrApp_92022efb15d1c039dfc3e67ea804dbe4}
+
+
+This function calculates the mean square error of the approximation considering the given database $<$Data$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]the database containing the input and target data \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em MSE}]mean square error of the approximation \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!ScanSquare3D@{ScanSquare3D}}
+\index{ScanSquare3D@{ScanSquare3D}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Scan\-Square3D (int {\em lower\-Border}, int {\em upper\-Border}, Array$<$ double $>$ \& {\em Output\-Data}, int {\em ind1}, int {\em ind2}, Array$<$ double $>$ {\em Parameters\-To\-Keep\-Constant})}\label{classRegrApp_0b2333d0504438f5a2f7f30be963c6ad}
+
+
+This function scans an area of the data in the parameters $<$ind1$>$ and $<$ind2$>$ . The scanning area is between the borders given as the parameters $<$lower\-Border$>$ and $<$upper\-Border$>$. The resolution is fixed to 100. The results can be further used for matlab. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em lower\-Border}]lower border of the area which is to be scanned \item[{\em upper\-Border}]upper border of the area which is to be scanned \item[{\em Output\-Data}]Array containing the datas of the scanned areas in format [x-coordinate, y-coordinate, approximation value] \item[{\em ind1}]parameter 1 \item[{\em ind2}]parameter 2 \item[{\em Parameters\-To\-Keep\-Constant}]one dimensional array containing the remaining values of the parameters which should be kept constant in increasing order \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!ScanSquare3D@{ScanSquare3D}}
+\index{ScanSquare3D@{ScanSquare3D}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Scan\-Square3D (int {\em lower\-Border}, int {\em upper\-Border}, Array$<$ double $>$ \& {\em Output\-Data})}\label{classRegrApp_1ee97b91ff9b0ed39e1d240f7a7ad8d5}
+
+
+This function scans an area of the data which must have an input dimension of 2 and an output dimension of 1. The scanning area is between the borders given as the parameters $<$lower\-Border$>$ and $<$upper\-Border$>$. The resolution is fixed to 100. The results can be further used for matlab. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em lower\-Border}]lower border of the area which is to be scanned \item[{\em upper\-Border}]upper border of the area which is to be scanned \item[{\em Output\-Data}]Array containing the datas of the scanned areas in format [x-coordinate, y-coordinate, approximation value] \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!SetDegreeOfRegrModel@{SetDegreeOfRegrModel}}
+\index{SetDegreeOfRegrModel@{SetDegreeOfRegrModel}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Set\-Degree\-Of\-Regr\-Model (int {\em new\-Degree})}\label{classRegrApp_fc1e2a46caf8b952fafa463a1ee47772}
+
+
+This function sets the degree of the regression model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em new\-Degree}]degree of the regression model \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]\end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!SetInteractionTerms@{SetInteractionTerms}}
+\index{SetInteractionTerms@{SetInteractionTerms}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Set\-Interaction\-Terms (bool {\em choice})}\label{classRegrApp_64e327dfa4e326022f3e3a6057dd48c6}
+
+
+This function sets the consideration of the interaction terms of the regression model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em choice}]sets the new state of the consideration of the interaction terms \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!Train@{Train}}
+\index{Train@{Train}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Train (Database {\em Data})}\label{classRegrApp_717db1b6823b6c5ac50748097daf7870}
+
+
+This function approximates the datas which are stored in the database $<$Data$>$ using the Regression model (default algorithm). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]Database containing the data which are used for approximation \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \item[{\em 1}]degree of regression model is lower 1 \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!Train@{Train}}
+\index{Train@{Train}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Train (Array$<$ double $>$ {\em Input\-Data}, Array$<$ double $>$ {\em Target\-Data})}\label{classRegrApp_3ea864f3bf4457209194a0ec4e82ba6a}
+
+
+This function approximates the datas which are stored in the arrays $<$Input\-Data$>$ and $<$Target\-Data$>$ using the Regression model (default algorithm). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input\-Data}]array containing the inputdata which are used for approximation \item[{\em Target\-Data}]array containing the targetdata which are used for approximation \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \item[{\em 1}]degree of regression model is lower 1 \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!Train_LSM@{Train\_\-LSM}}
+\index{Train_LSM@{Train\_\-LSM}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Train\_\-LSM (Database {\em Data})}\label{classRegrApp_1775e256632e522ff256f499eb2fa165}
+
+
+This function approximates the datas which are stored in the database $<$Data$>$ using the Regression model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]Database containing the data which are used for approximation \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \item[{\em 1}]degree of regression model is lower 1 \end{description}
+\end{Desc}
+\index{RegrApp@{Regr\-App}!Train_LSM@{Train\_\-LSM}}
+\index{Train_LSM@{Train\_\-LSM}!RegrApp@{Regr\-App}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Regr\-App::Train\_\-LSM (Array$<$ double $>$ {\em Input\-Data}, Array$<$ double $>$ {\em Target\-Data})}\label{classRegrApp_ecec65b3529dac00ecea0d2a64f5b340}
+
+
+This function approximates the datas which are stored in the arrays $<$Input\-Data$>$ and $<$Target\-Data$>$ using the Regression model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input\-Data}]array containing the inputdata which are used for approximation \item[{\em Target\-Data}]array containing the targetdata which are used for approximation \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \item[{\em 1}]degree of regression model is lower 1 \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+{\bf Regr\-App.h}\end{CompactItemize}

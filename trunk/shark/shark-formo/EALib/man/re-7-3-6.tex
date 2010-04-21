@@ -1,0 +1,321 @@
+\subsection{Self Adaptative Methods}
+
+%---------------------------------------------------------------------------%
+\index{mutateLogNormal!( double overallStdDev, double indivStdDev )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{overallStdDev}{double}{Standard deviation for the mutation
+of the stepsize for all components of {\em this}.}
+\setParamTwo{indivStdDev}{double}{Standard deviation for the mutation
+of the stepsize for one component of {\em this}.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateLogNormal}
+{Mutates {\em this} by adding a normally distributed random number between
+ ``0'' and $\sigma_i^2$ to each allele. The stepsize $\sigma_i$ will also
+ be mutated for each component of {\em this} separately (parameter 
+ {\em indivStdDev}) and for all components (parameter {\em overallStdDev}).
+ For more information cf. \cite{EALibRef}, page 20.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateRotate!( ChromosomeT$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{mutateRotate}
+{ChromosomeT$<$ double $>$ \&}
+{sigma}
+{Chromosome with standard deviations for the normal distribution.}
+{Mutates {\em this} and the strategy variables by using a
+ rotation matrix. For more information cf.
+ \cite{EALibRef}, p. 20 ff.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateRotate!( ChromosomeT$<$ double $>$\& sigma, double tau1, double tau2, double beta, int sigmaCheck, double epsi )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{sigma}{ChromosomeT$<$ double $>$\&}
+{Chromosome with standard deviations for the normal distribution.}
+\setParamTwo{tau1}{double}{Stepsize adaptation for all individuals.}
+\setParamThree{tau2}{double}{Stepsize adaptation for one individual.}
+\setParamFour{beta}{double}{Parameter $\beta$ for damping the
+stepsize variation between successive generations.}
+\setParamFive{sigmaCheck}{int}{If ``true''
+check {\em sigma} for too small values.} 
+\setParamSix{epsi}{double}{Lower boundary for the {\em sigma} values.}
+\printMethodWithParamsSaved 
+{void}
+{}
+{mutateRotate}
+{Same as above, but with more parameters.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateNormalRotAngles!( const Chromosome\& sigma, const Chromosome\& alpha )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{sigma}{const Chromosome\&}
+{Chromosome with standard deviations for the normal distribution.}
+\setParamTwo{alpha}{const Chromosome\&}
+{Chromosome with anchor points for the rotations.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateNormalRotAngles}
+{Mutates {\em this} and the strategy variables by using a
+ rotation matrix. For the rotations the rotation-anchor-points in
+ {\em alpha} will be used. For more information cf.
+ \cite{GSA}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateDerandom!( vector$<$ double $>$\& v, const DerandomConst\& K )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{v}{vector$<$ double $>$\&}{Vector with parameter values for
+the mutation method.}
+\setParamTwo{K}{const DerandomConst\&}{Instance of the class 
+{\em DerandomConst} with some constants for the mutation method.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateDerandom}
+{Mutates {\em this} by using the {\em Derandom} method. For more
+ information cf. \cite{GSA}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateDerandom!( Chromosome\& chrom, const DerandomConst\& K )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{chrom}{Chromosome\&}{Chromosome with parameter values for
+the mutation method.}
+\setParamTwo{K}{const DerandomConst\&}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateDerandom}
+{Same as above, but a chromosome is used to store the parameter
+ values.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateCMA!( ChromosomeT$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{mutateCMA}
+{ChromosomeT$<$ double $>$ \&}
+{sigma}
+{Chromosome with standard deviations for the normal distribution.}
+{Mutates {\em this} and the strategy parameters by using the mutation
+ method with covariance matrix ({\em Covariance Matrix Adaptation}).
+ For more information cf. \cite{CMA}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateCMA!( ChromosomeT$<$ double $>$\& sigma, double c, double cu, double ccov, double beta )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{sigma}{ChromosomeT$<$ double $>$ \&}{Chromosome with standard 
+deviations for the normal distribution.}
+\setParamTwo{c}{double}{Value for determination of the cumulation
+time for the sum vector {\em s}.}
+\setParamThree{cu}{double}{Normalizes the variance of the sum vector {\em s}.}
+\setParamFour{ccov}{double}{Time for the evaluation of the average
+of the distribution $ss^t$ over the generation sequence.}
+\setParamFive{beta}{double}{Parameter $\beta$ for damping the stepsize
+varation between successive generations.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateCMA}
+{Same as above, but with more parameters.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateMSR!( double xi\_prob )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{mutateMSR}
+{double}
+{xi\_prob}
+{Probability to assign the value $\alpha = 1.5$ to the general
+ stepsize variation factor $\xi$. The alternative value for
+ $\xi$ is $\frac{1}{\alpha}$.}
+{Mutates {\em this} and the strategy parameters by using the method
+ with {\em mutative stepsize regulation}.
+ For more information cf. \cite{MSR}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateGSA!( ChromosomeT$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{mutateGSA}
+{ChromosomeT$<$ double $>$ \&}
+{sigma}
+{Chromosome with standard deviation for the normal distribution.}
+{Mutates {\em this} and the strategy parameters by using the method
+ with the {\em Generating Set Adaptation}.
+ For more information cf. \cite{GSA}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateGSA!( ChromosomeT$<$ double $>$\& sigma, double beta, double xi\_const, double cu, double cm )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{sigma}{ChromosomeT$<$ double $>$ \&}
+{Chromosome with standard deviation for the normal distribution.}
+\setParamTwo{beta}{double}{Parameter $\beta$ for damping the stepsize
+variation between successive generations.}
+\setParamThree{xi\_const}{double}{Factor for the stepsize adaptation.
+Normally the values $1.5$ and $\frac{1}{1.5}$ will be assigned to 
+{\em xi\_const} with the same probability. Here the factor can be
+stated explicitly.}
+\setParamFour{cu}{double}{Normalizing factor for the variances.}
+\setParamFive{cm}{double}{Length adaptation factor.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateGSA}
+{Same as above, but with more parameters.} 
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateIDA!( ChromosomeT$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{mutateIDA}
+{ChromosomeT$<$ double $>$ \&}
+{sigma}
+{Chromosome with standard deviations for the normal distribution.}
+{Mutates {\em this} and the strategy parameters by using the {\em Individual 
+ step sizes and one Direction Adaptation}.\\
+ For more informations cf. \cite{EALibRef}, p. 22 ff.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateIDA!( ChromosomeT$<$ double $>$\& sigma, double c, double c\_r, double beta, double beta\_ind, double beta\_r, double cu, double xi )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{sigma}{ChromosomeT$<$ double $>$ \&}
+{Chromosome with standard deviations for the normal distribution.}
+\setParamTwo{c}{double}{Defines the cumulation time.}
+\setParamThree{c\_r}{double}{Also defines the cumulation time.}
+\setParamFour{beta}{double}{Parameter $\beta$ for damping the stepsize
+variation between successive generations.}
+\setParamFive{beta\_ind}{double}{Parameter for damping the stepsize
+variation between successive generations for one individual.}
+\setParamSix{beta\_r}{double}{Parameter for damping the stepsize
+variation between successive generations for the direction.}
+\setParamSeven{cu}{double}{Normalizing factor for variances.}
+\setParamEight{xi}{double}{Factor for the stepsize adaptation.
+Normally the values $1.5$ and $\frac{1}{1.5}$ will be assigned to 
+{\em xi} with the same probability. Here the factor can be stated
+explicitly.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateIDA}
+{Same as above, but with more parameters.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateIDAiso!( ChromosomeT$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{mutateIDAiso}
+{ChromosomeT$<$ double $>$ \&}
+{sigma}
+{Chromosome with standard deviations for the normal distribution.}
+{This method does the same as {\em mutateIDA}, but here 
+ no adaptation of the preference direction takes place.}
+{Keiner.}
+{Keine.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateIDAiso!( ChromosomeT$<$ double $>$\& sigma, double c, double beta, double beta\_ind, double cu )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{sigma}{ChromosomeT$<$ double $>$ \&}
+{Chromosome with standard deviations for the normal distribution.}
+\setParamTwo{c}{double}{Defines the cumulation time.}
+\setParamThree{beta}{double}{Parameter $\beta$ for damping the stepsize
+variation between successive generations.}
+\setParamFour{beta\_ind}{double}{Parameter for damping the stepsize
+variation between successive generations for one individual.}
+\setParamFive{cu}{double}{Normalizing factor for the variances.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateIDAiso}
+{Same as above, but with more parameters.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+
+
