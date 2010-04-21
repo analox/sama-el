@@ -36,10 +36,10 @@ LDLIBS		:=  	-lArray_${ARCH_MACH} 		\
                         -lg2c  
 ############### objects needed to generate target
 #
-OBJS = 	sama.o tools/distribution/WeightCal.o tools/distribution/UniformDistFunc.o tools/distribution/GaussianDistFunc.o \
+#OBJS = 	sama.o tools/distribution/WeightCal.o tools/distribution/UniformDistFunc.o tools/distribution/GaussianDistFunc.o \
 	tools/database/DBEntry.o tools/database/ILDatabase.o tools/utilities.o OSS2/oss2.o
 
-#OBJS = sama-airfoil.o tools/distribution/WeightCal.o tools/distribution/UniformDistFunc.o tools/distribution/GaussianDistFunc.o \
+OBJS = sama-airfoil.o tools/distribution/WeightCal.o tools/distribution/UniformDistFunc.o tools/distribution/GaussianDistFunc.o \
 	tools/database/DBEntry.o tools/database/ILDatabase.o tools/utilities.o OSS2/oss2.o
 
 PURIFY	= purify $(PFLAGS)
