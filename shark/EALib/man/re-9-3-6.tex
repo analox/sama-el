@@ -1,0 +1,202 @@
+\subsection{Structure Modifying Methods}
+
+%---------------------------------------------------------------------------%
+\index{resize!( unsigned n )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{resize}
+{unsigned}
+{n}
+{New size of the population.}
+{Changes the size of the population to the new value {\em n}. If {\em n}
+ is less than the old size {\em m} of {\em this}, then all {\em m} - {\em n}
+ individuals at the end of {\em this} will be removed, if {\em n} is greater
+ than {\em m}, then {\em n} - {\em m} new empty individuals will be
+ appended at the end of {\em this}. All other individuals will remain
+ unchanged.} 
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{replace!( unsigned i, const Individual\& ind )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{unsigned}{Index of the individual inside of {\em this}
+to be replaced. {\em i} must be less than the number of individuals
+in {\em this}, otherwise the method will be aborted with an error message.}
+\setParamTwo{ind}{const Individual\&}{Individual to replace the
+old one.}
+\printMethodWithParamsSaved
+{void}
+{}
+{replace}
+{Replaces individual number {\em i} by the individual {\em ind}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{replace!( unsigned i, const Population\& pop )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{unsigned}{Index of the first individual in {\em this}.}
+\setParamTwo{pop}{const Population\&}{Population.}
+\printMethodWithParamsSaved
+{void}
+{}
+{replace}
+{Replaces all individuals inside of {\em this}, beginning with the one
+ at position number {\em i}, by the individuals of the population {\em pop}.
+ If the number of individuals inside of {\em pop} is greater than the
+ number of individuals in {\em this} beginning at position {\em i}, then
+ the method will be aborted with an error message.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{insert!( unsigned i, const Individual\& ind )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{unsigned}{Index at which {\em ind} is inserted
+in {\em this}. {\em i} must be at most as great as the number of
+individuals in {\em this}, otherwise the method will be aborted with
+an error message.}
+\setParamTwo{ind}{const Individual\&}{Individual to be
+inserted.}
+\printMethodWithParamsSaved
+{void}
+{}
+{insert}
+{Inserts the individual {\em ind} at index {\em i} inside the population
+ {\em this}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{insert!( unsigned i, const Population\& pop )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{unsigned}{Index of {\em this} where the first
+individual of {\em pop} is inserted. {\em i} must be at most
+as great as the number of individuals in {\em this}, otherwise the 
+method will be aborted with an error message.}
+\setParamTwo{pop}{const Population\&}{Population, with the individuals that
+will be inserted into {\em this}.}
+\printMethodWithParamsSaved
+{void}
+{}
+{insert}
+{Inserts all individuals of {\em pop} into {\em this}, beginning at
+ position {\em i}.} 
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{append!( const Individual\& ind )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{append}
+{const Individual\&}
+{ind}
+{The individual to be appended to {\em this}.}
+{Appends individual {\em ind} at the end of {\em this}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{append!( const Population\& pop )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{append}
+{const Population\&}
+{pop}
+{Population.}
+{Appends all individuals of Population {\em pop} at the end of 
+ population {\em this}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{remove!( unsigned i )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{remove}
+{unsigned}
+{i}
+{Index of the individual that is to be removed from {\em this}.
+ {\em i} must be less than the number of individuals in {\em this},
+ otherwise the method will be aborted with an error message.}
+{Removes individual number {\em i} from {\em this}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{remove!( unsigned from, unsigned to )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{from}{unsigned}{Index of the first individual of {\em this}
+to be removed. {\em from} must be less than the number of individuals
+in {\em this}, otherwise the method will be aborted with an error message.
+Additionally, {\em from} must be at most as great as {\em to} or
+no individual will be removed from {\em this}.}
+\setParamTwo{to}{unsigned}{Index of the last individual to be
+removed from {\em this}. {\em to} must be less than the number of
+individuals in {\em this}, otherwise the method will be aborted with
+an error message.}
+\printMethodWithParamsSaved
+{void}
+{}
+{remove}
+{Removes all individuals in the range $[from, to]$ from the
+ population {\em this}.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{exchange!( Population\& pop )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{exchange}
+{Population\&}
+{pop}
+{Population.}
+{Swaps all individuals of {\em pop} with the individuals of {\em this}.
+ The populations must contain the same number of individuals, otherwise
+ the method will be aborted with an error message.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+
+

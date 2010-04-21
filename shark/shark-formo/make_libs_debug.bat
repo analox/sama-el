@@ -1,0 +1,10 @@
+call msdev Shark_Libs_Debug.dsw /MAKE "Array - Win32 Debug" > make_libs_debug.log
+call msdev Shark_Libs_Debug.dsw /MAKE "EALib - Win32 Debug" >> make_libs_debug.log
+call msdev Shark_Libs_Debug.dsw /MAKE "LinAlg - Win32 Debug" >> make_libs_debug.log
+call msdev Shark_Libs_Debug.dsw /MAKE "Metric - Win32 Debug" >> make_libs_debug.log
+call msdev Shark_Libs_Debug.dsw /MAKE "Mixture - Win32 Debug" >> make_libs_debug.log
+call msdev Shark_Libs_Debug.dsw /MAKE "RandomDistr - Win32 Debug" >> make_libs_debug.log
+call msdev Shark_Libs_Debug.dsw /MAKE "ReClaM - Win32 Debug" >> make_libs_debug.log
+call msdev Shark_Libs_Debug.dsw /MAKE "Rng - Win32 Debug" >> make_libs_debug.log
+call msdev Shark_Libs_Debug.dsw /MAKE "SimAnn - Win32 Debug" >> make_libs_debug.log
+call msdev Shark_Libs_Debug.dsw /MAKE "TimeSeries - Win32 Debug" >> make_libs_debug.log

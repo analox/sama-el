@@ -1,0 +1,40 @@
+\section{Interpolate\-RBF.h File Reference}
+\label{InterpolateRBF_8h}\index{InterpolateRBF.h@{InterpolateRBF.h}}
+{\tt \#include \char`\"{}EALib/Population.h\char`\"{}}\par
+{\tt \#include \char`\"{}Array/Array\-Op.h\char`\"{}}\par
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class {\bf Interpolate\-RBF}
+\begin{CompactList}\small\item\em This class provides different functions for the approximation using an Interpolation\-RBF model. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Typedefs}
+\begin{CompactItemize}
+\item 
+typedef enum kernel {\bf kernel\-Type}\label{InterpolateRBF_8h_a0}
+
+\item 
+typedef enum err {\bf err\-Method}\label{InterpolateRBF_8h_a1}
+
+\end{CompactItemize}
+\subsection*{Enumerations}
+\begin{CompactItemize}
+\item 
+enum {\bf kernel} \{ \par
+{\bf gaussian} =  0, 
+{\bf linear\_\-spline}, 
+{\bf cubic\_\-spline}, 
+{\bf multiquadric}, 
+\par
+{\bf inverse\_\-multiquadric}, 
+{\bf cauchy}
+ \}
+\item 
+enum {\bf err} \{ {\bf GCV} =  0, 
+{\bf UEV}, 
+{\bf FPE}, 
+{\bf BIC}
+ \}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}

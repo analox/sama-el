@@ -1,0 +1,377 @@
+#!/opt/ActiveTcl/bin/wish8.5
+
+
+package require BWidget
+wm title . "Radial Basis Function Demo"
+wm resizable . 0 0 
+
+#-------------------Start menu bar-------------------------------
+frame .menubar -relief raised -bd 2
+pack .menubar -side top -fill x  -padx 5 -pady 2
+
+menubutton .menubar.file -text File  -menu .menubar.file.menu
+menubutton .menubar.help -text Help  -menu .menubar.help.menu
+pack .menubar.file  .menubar.help -side left -padx 5 -pady 2
+
+set filemenu [menu .menubar.file.menu -tearoff 0]
+$filemenu add command -label Exit  -command {exit}
+
+set helpmenu [menu .menubar.help.menu -tearoff 0]
+$helpmenu add command -label "About program"  -command showAbtProj
+
+proc showAbtProj {} {
+	toplevel .about
+	wm title .about "About The Program"
+	label .about.label -text "\n ~**  Radial Basis Function Demo  **~ \n" -fg blue -font *-times-bold-normal-*-15-*
+	
+	label .about.label2 -text "Dudy Lim (dlim@ntu.edu.sg)\
+	\nJuly 2006\n"
+	pack .about.label  .about.label2 -side top -padx 5 -pady 2
+	wm resizable  .about 0 0
+}
+
+frame .heading 
+label .heading.label -text "RBF DEMO" -font *-sans-italic-r-*-20-*
+pack .heading.label -side top -fill x -expand 0 -padx 5 -pady 2
+pack .heading -fill x -expand 0 -padx 5 -pady 2
+ 
+#-------------------Start common parameters------------------------------- 
+labelframe .c -text "Common Parameters"  -font *-halvetica-bold-r-*-15-* 
+pack .c -fill both -expand 1  -padx 5 -pady 2
+
+foreach {x} {left center right} {
+	frame .c.$x
+	pack .c.$x -side left -fill both -expand 1 -padx 5 -pady 2
+}
+set nx 0
+foreach {x y} {"lm" "Learning Strategy" "tf" "Test Function" "ni" "Number of Training Inputs" "rk" "Kernel Function" "kw" "Kernel Width (for function with \u03c3 param.)"} {
+	label .c.left.$x -text $y
+	pack .c.left.$x -side top -anchor nw -padx 5 -pady 2
+	incr nx
+}
+for {set i 0} {$i<$nx} {incr i} {
+	label .c.center.$i -text ":"
+	pack .c.center.$i -side top -anchor nw -padx 5 -pady 2
+}
+.c.center.[expr $nx-1] configure -fg grey
+
+ComboBox .c.right.lm -values { "RBF - Interpolate" "RBF - OLS Forw. Selection" "RBF - Ridge Regression"} -editable 0 -modifycmd {
+ 	set temp [expr [.c.right.lm getvalue]]
+ 	foreach {x y} {0 "Interpolate" 1 "OLSForward" 2 "Regression" } {
+ 		if {$temp==$x} {
+ 			set lm $y
+			switchLM $x
+ 		}
+ 	}
+}
+set lm "Interpolate"
+.c.right.lm setvalue first
+
+ComboBox .c.right.tf -values { "Ackley" "Griewank" "Rastrigin" "Rosenbrock" "Sphere"} -editable 0 -modifycmd {
+ 	set temp [expr [.c.right.tf getvalue]]
+ 	foreach {x y} {0 "ackley" 1 "griewank" 2 "rastrigin" 3 "rosenbrock" 4 "sphere"} {
+		if {$temp==$x} {
+ 			set tf $y
+ 		}
+ 	
+ 	}
+}
+set tf "ackley"
+.c.right.tf setvalue first
+
+spinbox .c.right.ni -from 10 -to 200 -textvariable ni -justify right -increment 5
+set ni 50
+
+spinbox .c.right.kw -from 0.10 -to 100.0 -textvariable kw -justify right -increment 0.01
+set kw 1.00
+
+ComboBox .c.right.rk -values { "Gaussian" "Linear Spline" "Cubic Spline" "Thin Plate Spline" "Multiquadric" "Inverse Multiquadric" "Cauchy"} -editable 0 -modifycmd {
+ 	set temp [expr [.c.right.rk getvalue]]
+ 	
+ 	foreach {x y} {0 "gaussian" 1 "linear_spline" 2 "cubic_spline" 3 "thin_plate_spline" 4 "multiquadric" 5 "inverse_multiquadric" 6 "cauchy"} {
+ 		if {$temp==$x} {
+ 			set rk $y
+ 		}
+ 	}
+}
+set rk "gaussian"
+.c.right.rk setvalue first
+
+
+
+foreach {x} {"lm" "tf" "ni" "rk" "kw"} {
+	pack .c.right.$x -side top -anchor nw -padx 5 -pady 1
+}
+
+#-------------------Start other parameters------------------------------- 
+labelframe .o -text "Other Parameters"  -font *-halvetica-bold-r-*-15-* 
+pack .o -fill both -expand 1  -padx 5 -pady 2
+
+#-------------------Start Orthogonal Least Square Forward Selection-------------------------------
+labelframe .o.ols -text "Orthogonal Least Square Forward Selection"  -font *-halvetica-bold-r-*-12-*  -fg grey
+pack .o.ols -fill both -expand 1  -padx 5 -pady 2
+
+foreach {x} {left center right} {
+	frame .o.ols.$x
+	pack .o.ols.$x -side left -fill both -expand 1 -padx 5 -pady 2
+}
+set nx 0
+foreach {x y} {"mb" "Max. Number of Basis Function(s)" "me" "Max. Error"} {
+	label .o.ols.left.$x -text $y -fg grey
+	pack .o.ols.left.$x -side top -anchor nw -padx 5 -pady 2
+	incr nx
+}
+
+for {set i 0} {$i<$nx} {incr i} {
+	label .o.ols.center.$i -text ":" -fg grey
+	pack .o.ols.center.$i -side top -anchor nw -padx 5 -pady 2
+}
+
+spinbox .o.ols.right.mb -from 1 -to 200 -textvariable mb -justify right -increment 5 -state disabled
+set mb 50
+
+entry .o.ols.right.me -textvariable maxerrorO -justify right -state disabled
+set maxerrorO 0.001
+
+foreach {x} {"mb" "me"} {
+	pack .o.ols.right.$x -side top -anchor nw -padx 5 -pady 1
+}
+
+#-------------------Start ridge regression-------------------------------
+labelframe .o.reg -text "Ridge Regression"  -font *-halvetica-bold-r-*-12-*  -fg grey
+pack .o.reg -fill both -expand 1  -padx 5 -pady 2
+
+foreach {x} {left center right} {
+	frame .o.reg.$x 
+	pack .o.reg.$x -side left -fill both -expand 1 -padx 5 -pady 2
+}
+set nx 0
+foreach {x y} {"nb" "Number of Basis Function(s)" "rp" "Regularisation Parameter" "me" "Max. Error" "em" "Error Method" "mkmean" "Max. Clustering Iteration" "mreg" "Max. Regularisation Optim. Iteration"} {
+	label .o.reg.left.$x -text $y -fg grey
+	pack .o.reg.left.$x -side top -anchor nw -padx 5 -pady 2
+	incr nx
+}
+for {set i 0} {$i<$nx} {incr i} {
+	label .o.reg.center.$i -text ":" -fg grey
+	pack .o.reg.center.$i -side top -anchor nw -padx 5 -pady 2
+}
+
+spinbox .o.reg.right.nb -from 1 -to 200 -textvariable nb -justify right -increment 5 -state disabled
+set nb 50
+
+entry .o.reg.right.rp -textvariable regparam -justify right -state disabled
+set regparam 0.001
+
+entry .o.reg.right.me -textvariable maxerror -justify right -state disabled
+set maxerror 0.001
+
+ComboBox .o.reg.right.em -values { "GCV" "BIC" "FPE" "UEV" } -editable 0 -state disabled -modifycmd {
+	set temp [expr [.o.reg.right.em getvalue]]
+	foreach {x y} {0 "GCV" 1 "BIC" 2 "FPE" 3 "UEV"} {
+ 		if {$temp==$x} {
+ 			set errmethod $y
+ 		}
+ 	}
+}
+set errmethod "GCV"
+.o.reg.right.em setvalue first
+
+spinbox .o.reg.right.mkmean -from 1 -to 200 -textvariable mkmean -justify right -state disabled -increment 5
+set mkmean 20
+
+spinbox .o.reg.right.mreg -from 1 -to 200 -textvariable mreg -justify right -increment 5 -state disabled
+set mreg 20
+
+foreach {x} {"nb" "rp" "me" "em" "mkmean" "mreg"} {
+	pack .o.reg.right.$x -side top -anchor nw -padx 5 -pady 1
+}
+
+#-------------------Start Footer-------------------------------
+frame .foot
+button .foot.start -text "Start" -command { executeWindow }
+button .foot.reset -text "Reset" -command {}
+button .foot.exit -text "Exit" -command {exit}
+pack .foot .foot.start .foot.reset .foot.exit -side left -anchor center -fill x -expand 1 -padx 5 -pady 2 
+
+proc executeWindow {} {
+	wm iconify .
+	global lm tf ni rk kw mb maxerrorO maxerror nb errmethod mkmean mreg regparam af afparam maxhidden
+
+	catch {destroy .exe }
+
+	toplevel .exe
+	wm title .exe "Training Window"
+	labelframe .exe.pic -text "Training Result" -font *-halvetica-bold-r-*-15-*
+	
+	frame .exe.text
+
+	text .exe.text.log -bg white -setgrid true -yscrollcommand {.exe.text.scroll set}
+	scrollbar .exe.text.scroll -command {.exe.text.log yview}
+	pack .exe.text.log -side left -fill both -expand 1	
+	pack .exe.text.scroll -side left -fill y
+
+	set width 380
+	set height 285
+
+	canvas .exe.pic.canvas1 -width $width -height $height -borderwidth 2 
+	canvas .exe.pic.canvas2 -width $width -height $height -borderwidth 2 
+
+	
+	pack .exe.pic.canvas1 .exe.pic.canvas2 -anchor nw -side left -padx 5 -pady 2
+	
+	frame .exe.info
+	label .exe.info.left -text "Original Function"
+	label .exe.info.right -text "Trained Function"
+	pack .exe.info.left .exe.info.right -side left -fill both -expand 1 -padx 5 -pady 2
+
+	foreach {x} {"pic" "info" "text"} {
+		pack .exe.$x -side top -fill both -expand 1 -padx 5 -pady 2
+	}
+	
+	#clean the directory
+	set fileList [exec /bin/ls ./plot$lm/]
+	for {set i 0} {$i<[llength $fileList]} {incr i} {
+		file delete ./plot$lm/[lindex $fileList $i]
+	}
+
+	#================
+	
+	if {$lm=="Interpolate"} { exec ./RBFGUITest $lm $tf $ni $rk $kw & } \
+	elseif {$lm=="Regression"} {
+		exec ./RBFGUITest $lm $tf $ni $rk $kw $nb $regparam $maxerror $errmethod $mkmean $mreg &
+	} \
+	elseif {$lm=="OLSForward"} {
+		exec ./RBFGUITest $lm $tf $ni $rk $kw $mb $maxerrorO &
+	} 
+
+	#================
+	
+	source "./plotBenchmark/$tf.tcl"
+	gnuplot .exe.pic.canvas1
+	
+	set i 0
+	set finished 0
+	set data 0
+	while { $finished == 0 } {
+		update
+		catch {
+			set temp $data	
+			set fd [open "./plot$lm/out$lm.dat"]		
+			set data [read $fd]
+			close $fd
+			if {$temp!=$data} {
+				.exe.text.log delete 0.0 500.500
+				.exe.text.log insert end $data
+				.exe.text.log yview moveto 1.0
+			}
+		}
+
+		update
+		
+		if [file exists "./plot$lm/plot-$i.tcl"] {
+			exec /bin/sleep 1
+			source "./plot$lm/plot-$i.tcl"
+			gnuplot .exe.pic.canvas2
+			incr i
+			update
+		}	
+		 		
+
+		set finishRun [checkFinished $lm]
+		if {$finishRun==1} {
+			set ff [open "./plot$lm/finish.dat" RDONLY]
+			set n [read $ff]
+			if {$i>$n} {set finished 1}
+		}
+
+		catch {
+			set temp $data	
+			set fd [open "./plot$lm/out$lm.dat"]		
+			set data [read $fd]
+			close $fd
+			if {$temp!=$data} {
+				.exe.text.log delete 0.0 500.500
+				.exe.text.log insert end $data
+				.exe.text.log yview moveto 1.0
+			}
+		}
+		
+	}
+	tk_messageBox -message "Done..."
+}
+
+proc checkFinished {learnMethod} {
+	set finished [file exists "./plot$learnMethod/finish.dat"]
+	return $finished
+}
+
+proc switchLM {x} {
+	switch $x {
+		0 {
+			disableParam OLSForward
+			disableParam Regression
+		}
+		1 {
+			enableParam OLSForward
+			disableParam Regression
+		}
+		2 {
+			disableParam OLSForward
+			enableParam Regression
+		}
+		3 {
+			disableParam OLSForward
+			disableParam Regression
+		}
+	}
+}
+
+proc enableParam {x} {
+	switch $x {
+		OLSForward {
+			.o.ols configure -fg black
+			for {set i 0} {$i<2} {incr i} {
+				.o.ols.center.$i configure -fg black
+			}
+			foreach {y} {"mb" "me"} {
+				.o.ols.left.$y configure -fg black
+				.o.ols.right.$y configure -state normal
+			}
+		}
+		Regression {
+			.o.reg configure -fg black
+			for {set i 0} {$i<6} {incr i} {
+				.o.reg.center.$i configure -fg black
+			}
+			foreach {y} {"nb" "rp" "me" "em" "mkmean" "mreg"} {
+				.o.reg.left.$y configure -fg black
+				.o.reg.right.$y configure -state normal
+			}
+		}
+	}
+}
+
+proc disableParam {x} {
+	switch $x {
+		OLSForward {
+			.o.ols configure -fg grey
+			for {set i 0} {$i<2} {incr i} {
+				.o.ols.center.$i configure -fg grey
+			}
+			foreach {y} { "mb" "me" } {
+				.o.ols.left.$y configure -fg grey
+				.o.ols.right.$y configure -state disabled
+			}
+		}
+		Regression {
+			.o.reg configure -fg grey
+			for {set i 0} {$i<6} {incr i} {
+				.o.reg.center.$i configure -fg grey
+			}
+			foreach {y} { "nb" "rp" "me" "em" "mkmean" "mreg" } {
+				.o.reg.left.$y configure -fg grey
+				.o.reg.right.$y configure -state disabled
+			}
+		}
+	}
+}

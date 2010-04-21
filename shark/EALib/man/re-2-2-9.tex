@@ -1,0 +1,29 @@
+\subsection{Input- and Output Methods}
+
+%---------------------------------------------------------------------------%
+\index{readNewFrom!( istream\& is )}
+    \setNormalInstance
+    \printMethodWithOneParam
+    {static Chromosome$\ast$} 
+    {readNewFrom}
+    {istream\&} 
+    {is}
+    {Input stream from which the data for {\em this} are read.}
+    {Reads chromosome data from {\em is} and stores the data in
+     {\em this}. The new chromosome is registered. The
+     data to be read from {\em is} must have the following
+     format:\\
+     ``{\tt ChromosomeT$<$}'',\\ 
+     {\tt Type of the chromosome},\\ 
+     ``{\tt $>$(}'',\\ 
+     {\tt Number of alleles},\\
+     ``{\tt )}'',\\ 
+     {\tt Newline},\\
+     {\tt Values for the single alleles, separated by a space or tab
+     character}.\\
+     For example the data ``{\tt ChromosomeT< int >(5)\\n 1 2 3 4 5}''  
+     is written into a file to create a chromosome of type {\tt int}
+     with the five alleles 1, 2, 3, 4 and 5.}    
+    {Pointer to the new chromosome.}
+    {This function is not included in this version.}
+%---------------------------------------------------------------------------%

@@ -1,0 +1,44 @@
+\subsection{Methods for Changing the Order of Individuals}
+
+%---------------------------------------------------------------------------%
+\index{swap!( unsigned i, unsigned j )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i}{unsigned}{Index of the first individual. {\em i} must be
+less than the number of individuals in {\em this}, otherwise the
+method will be aborted with an error message.}
+\setParamTwo{j}{unsigned}{Index of the second individual. {\em j} must be
+less than the number of individuals in {\em this}, otherwise the method
+will be aborted with an error message.}
+\printMethodWithParamsSaved
+{void}
+{}
+{swap}
+{Swaps individuals number {\em i} and {\em j}. The method also works
+ properly, when {\em i} is greater than {\em j}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{sort!( )}
+\setNormalInstance
+\printEmptyMethod
+{sort}
+{Sorts all individuals inside of {\em this} according to the setting of the
+ {\em ascending}-flag. If the flag is ``true'', then the individuals
+ will be sorted by ascending fitness values, if it is ``false'',
+ they will be sorted by descending fitness values.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{shuffle!( )}
+\setNormalInstance
+\printEmptyMethod
+{shuffle}
+{Randomly changes the positions of the individuals inside of {\em this}.}
+%---------------------------------------------------------------------------%

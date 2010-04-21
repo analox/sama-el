@@ -1,0 +1,74 @@
+\subsection{Methods for Displaying Parameters}
+
+%---------------------------------------------------------------------------%
+\index{showRotate!( )}
+\setNormalInstance
+\printEmptyMethod
+{showRotate}
+{Displays the parameters {\em sigma} and {\em alpha} of the self adaptation
+ method {\em mutateRotate} (see above).}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{showCMA!( )}
+\setNormalInstance
+\printEmptyMethod
+{showCMA}
+{Displays the parameters of the self adaptation
+ method {\em mutateCMA} (see above).}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{showIDA!( )}
+\setNormalInstance
+\printEmptyMethod
+{showIDA}
+{Displays the parameters of the self adaptation
+ method {\em mutateIDA} (see above).}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{showGSA!( int baseSize )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{showGSA}
+{int}
+{baseSize}
+{Number of vectors of the generating set, ranging from $n^2$ to 
+ $2n^2$ ($n\ =\ $ number of alleles in {\em this}).}
+{Displays the parameters of the self adaptation
+ method {\em mutateGSA} (see above).}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{dumpDerandom!( ostream\& os )}
+\setConstInstance
+\printMethodWithOneParam
+{void}
+{dumpDerandom}
+{ostream\&}
+{os}
+{Output stream to which the parameter values will be written.}
+{Writes the parameter values of the {\em Derandom Self Adaptation} method
+ (see above) to the output stream {\em os}.}
+{None.}
+{The chromosome {\em this} must contain at least 5 alleles, otherwise
+ the method will be aborted with an error message.}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+

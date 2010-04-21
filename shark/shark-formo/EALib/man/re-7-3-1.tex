@@ -1,0 +1,315 @@
+\subsection{Initializing Methods}
+
+These methods correspond to the methods described in the
+section ``Self Adaptative Methods''.
+
+\vspace*{2ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeRotate!( double SigmaMin, double SigmaMax )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{SigmaMin}{double}{Minimum possible random value.} 
+\setParamTwo{SigmaMax}{double}{Maximum possible random value.}
+\printMethodWithParamsSaved
+{void}
+{}
+{initializeRotate}
+{Initializes the strategy parameters (that means the alleles of
+ {\em this}) for the method {\em mutateRotate} (see below) with
+ normally distributed random values.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeRotate!( const vector$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{initializeRotate}
+{const vector$<$ double $>$ \&}
+{sigma}
+{Vector containing initializing values for {\em this}.}
+{Initializes the strategy parameters (that means the alleles of
+ {\em this}) for the method {\em mutateRotate} (see below) with
+ values contained in vector {\em sigma}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{initializeRotate!( const ChromosomeT$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{initializeRotate}
+{const ChromosomeT$<$ double $>$ \&}
+{sigma}
+{Chromosome containing initializing values for {\em this}.}
+{Same as above, but here a chromosome is used to store the
+ initializing values.}
+{Keiner.}
+{Keine.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeDerandom!( double minVal, double maxVal )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{minVal}{double}{Lower boundary of the random values interval.}
+\setParamTwo{maxVal}{double}{Upper boundary of the random values interval.}
+\printMethodWithParamsSaved
+{void}
+{}
+{initializeDerandom}
+{Initializes the strategy parameters (i.e. the alleles of
+ {\em this}) for the method {\em mutateDerandom} (see below) with
+ equally distributed random values.}
+{Chromosome {\em this} must contain at least 5 alleles, otherwise
+ the method will be aborted with an error message.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeCMA!( double SigmaMin, double SigmaMax )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{SigmaMin}{double}{Minimum possible random value for the first
+allele of {\em this}.}
+\setParamTwo{SigmaMax}{double}{Maximum possible random value for the first
+allele of {\em this}.}
+\printMethodWithParamsSaved
+{void}
+{}
+{initializeCMA}
+{Initializes the strategy parameters (i.e. the alleles of
+ {\em this}) for the method {\em mutateCMA} (see below).}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{initializeCMA!( const vector$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{initializeCMA}
+{const vector$<$ double $>$ \&}
+{sigma}
+{Vector containing initializing values for {\em this}.}
+{Initializes the strategy parameters (i.e. the alleles of
+ {\em this}) for the method {\em mutateCMA} (see below) with 
+ values contained in vector {\em sigma}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeCMA!( const ChromosomeT$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{initializeCMA}
+{const ChromosomeT$<$ double $>$ \&}
+{sigma}
+{Chromosome containing the initializing values for {\em this}.}
+{Same as above, but here a chromosome is used to store
+ the initializing values.}
+{Keiner.}
+{Keine.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeGSA!( double SigmaMin, double SigmaMax )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{SigmaMin}{double}{Minimum possible random value for the first
+allele of {\em this}.}
+\setParamTwo{SigmaMax}{double}{Maximum possible random value for the first allele of {\em this}.}
+\setParamThree{baseSize}{int}{Number of vectors of the
+ generating set, ranging from $n^2$ to $2n^2$ ($n\ =\ $ number of
+ alleles in {\em this}).}
+\printMethodWithParamsSaved
+{void}
+{}
+{initializeGSA}
+{Initializes the strategy parameters (i.e. the alleles of
+ {\em this}) for the method {\em mutateGSA} (see below).}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{initializeGSA!( const vector$<$ double $>$\& sigma, int baseSize )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{sigma}{const vector$<$ double $>$ \&}{Vector containing
+ initializing values for {\em this}.}
+\setParamTwo{baseSize}{int}{Number of vectors of the
+ generating set, ranging from $n^2$ to $2n^2$ ($n\ =\ $ number of
+ alleles in {\em this}).}
+\printMethodWithParamsSaved
+{void}
+{}
+{initializeGSA}
+{Initializes the strategy parameters (i.e. the alleles of
+ {\em this}) for the method {\em mutateGSA} (see below) using
+ values contained in vector {\em sigma}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeGSA!( const ChromosomeT$<$ double $>$\& sigma, int baseSize )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{sigma}{const ChromosomeT$<$ double $>$ \&}{Chromosome containing
+ the initializing values for {\em this}.}
+\setParamTwo{baseSize}{int}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{initializeGSA}
+{Same as above, but here a chromosome is used to store the
+ initializing values for {\em this}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeIDA!( double SigmaMin, double SigmaMax )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{SigmaMin}{double}{Minimum possible random value for several
+  alleles of {\em this}.}
+\setParamTwo{SigmaMax}{double}{Maximum possible random value for several
+  alleles of {\em this}.}
+\printMethodWithParamsSaved
+{void}
+{}
+{initializeIDA}
+{Initializes the strategy parameters (i.e. the alleles of
+ {\em this}) for the method {\em mutateIDA} (see below).}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{initializeIDA!( const vector$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{initializeIDA}
+{const vector$<$ double $>$ \&}
+{sigma}
+{Vector containing initializing values for {\em this}.}
+{Initializes the strategy parameters (i.e. the alleles of
+ {\em this}) for the method {\em mutateIDA} (see below) using
+ values contained in vector {\em sigma}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeIDA!( const ChromosomeT$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{initializeIDA}
+{const ChromosomeT$<$ double $>$ \&}
+{sigma}
+{Chromosome containing the initializing values for {\em this}.}
+{Same as above, but here a chromosome is used to store the
+ initializing values for {\em this}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeIDAiso!( double SigmaMin, double SigmaMax )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{SigmaMin}{double}{Minimum possible random value for several
+ alleles of {\em this}.}
+\setParamTwo{SigmaMax}{double}{Maximum possible random value for several
+ alleles of {\em this}.}
+\printMethodWithParamsSaved
+{void}
+{}
+{initializeIDAiso}
+{Initializes the strategy parameters (i.e. the alleles of
+ {\em this}) for the method {\em mutateIDAiso} (see below).}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{initializeIDAiso!( const vector$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{initializeIDAiso}
+{const vector$<$ double $>$ \&}
+{sigma}
+{Vector containing initializing values for {\em this}.}
+{Initializes the strategy parameters (i.e. the alleles of
+ {\em this}) for the method {\em mutateIDAiso} (see below) using
+ values contained in vector {\em sigma}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{initializeIDAiso!( const ChromosomeT$<$ double $>$\& sigma )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{initializeIDAiso}
+{const ChromosomeT$<$ double $>$ \&}
+{sigma}
+{Chromosome with initializing values for {\em this}.}
+{Same as above, but here a chromosome is used to store the
+ initializing values for {\em this}.}
+{Keiner.}
+{Keine.}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+
+
+
+

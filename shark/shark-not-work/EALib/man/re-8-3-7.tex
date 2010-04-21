@@ -1,0 +1,52 @@
+\subsection{Input- and Output Methods}
+
+%---------------------------------------------------------------------------%
+\index{readFrom!( istream\& is )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{readFrom}
+{istream\&}
+{is}
+{Input stream.}
+{Replaces the data of {\em this} with the data read from the
+ input stream {\em is}. The data must have the following format:\\
+    ``{\tt Individual(}'',\\
+    {\tt Size of the individual},\\ 
+    ``{\tt )}'', Newline,\\ 
+    {\tt Fitness value of the individual}, {\tt Newline},\\
+    {\tt Scaled fitness value}, {\tt Newline},\\
+    {\tt The value of {\em evalFlg}}, {\tt Newline},\\
+    {\tt The value of the {\em feasible}-flag}, {\tt Newline},\\
+    {\tt Selection probability of the individual}, {\tt Newline},\\
+    {\tt Number of reproductions of the individual}, {\tt Newline},\\
+    {\tt The value of the {\em elitist}-flag}, {\tt Newline},\\
+    {\tt Age of the individual}, {\tt Newline},\\
+    Then for each chromosome in the individual the following data:\\    
+    ``{\tt ChromosomeT$<$}'',\\
+    {\tt Type of the current chromosome},\\ 
+    ``{\tt $>$(}'',\\ 
+    {\tt Number of alleles of the current chromosome},\\
+    ``{\tt )}'', {\tt Newline},\\
+    {\tt The values of the single alleles of the current chromosome, separated by
+    a space or a tab character}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{writeTo!( ostream\& os )}
+\setConstInstance
+\printMethodWithOneParam
+{void}
+{writeTo}
+{ostream\&}
+{os}
+{Ouput stream.}
+{Writes all data of the individual {\em this} to the
+ output stream {\em os}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%

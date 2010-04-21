@@ -1,0 +1,44 @@
+\subsection{Cumulation Methods}
+
+%---------------------------------------------------------------------------%
+\index{accumulate!( const vector$<$ double $>$\& acc, double c )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{acc}{const vector$<$ double $>$ \&}{Vector that contains
+the values to be added to the alleles of {\em this}.
+{\em acc} must contain as many values as there are alleles in {\em this}.
+ Otherwise the method will be aborted with an error message.}
+\setParamTwo{c}{double}{Weighting factor for the values contained
+in {\em acc}.}
+\printMethodWithParamsSaved
+{void}
+{}
+{accumulate}
+{Adds the values contained in {\em acc} with weight {\em c} to
+ the corresponding alleles of {\em this}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{accumulate!( const Chromosome\& acc, double c )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{acc}{const Chromosome \&}{See above.}
+\setParamTwo{c}{double}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{accumulate}
+{Same as above, but here a chromosome is used to store 
+ the values to be added to the alleles of {\em this}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+
+
+
+

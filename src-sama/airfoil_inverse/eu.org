@@ -1,0 +1,17 @@
+      NI=129
+      NJ=65
+      IHF=65
+      INI=0
+      ITM=12000
+      NST=1
+      NRSD=500
+      NFSV=500
+      E2I=0.9
+	  E2J=0.5
+      E4I=0.1
+      E4J=0.1
+      COUR4=0.7
+      EPS=0.333
+      RMF=0.5
+      AL=2.0
+      ECRI=0.0000000001

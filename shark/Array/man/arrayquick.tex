@@ -1,0 +1,117 @@
+%
+%%
+%% file: arrayquick.tex
+%%
+%% Quick reference for the array class interface (Appendix).
+%%
+%
+
+%% ######################################################################
+	\section{Quick Reference to the Class Interface}
+	\label{classReference:sec:array}
+%% ######################################################################
+
+%% ======================================================================
+	\subsection{Member Functions of Class Array}
+%% ======================================================================
+
+\begin{tabular}{l|l}
+\multicolumn{2}{c}{\hspace*{\columnwidth}\hspace*{-2\tabcolsep}\mbox{}}\\[-1.5ex]
+\hline
+Operator & Explanation \\
+\hline
+{\sffamily\bfseries\small array}( ) & constructs an array with unspecified size\\
+{\sffamily\bfseries\small array}( $i$ ) & constructs a $i$-dim.\ vector\\
+{\sffamily\bfseries\small array}( $i$, $j$ ) & constructs a $i\times j$ matrix\\
+{\sffamily\bfseries\small array}( $i$, $j$, $k$ ) & constructs a 3-dim.\ array\\
+{\sffamily\bfseries\small array}( $vec$ ) & constructs an array with arbitrary dimensions defined in $vec$\\
+{\em x}.{\sffamily\bfseries\small $\sim$array}( ) &
+destroys {\em x} (should not be called directly)\\
+\hline
+{\em x}.{\sffamily\bfseries\small ndim}( ) & returns the number of dimensions\\
+{\em x}.{\sffamily\bfseries\small dimvec}( ) & returns the dimensions vector \\
+{\em x}.{\sffamily\bfseries\small dim}( $i$ ) & returns the $i$th dimension \\
+{\em x}.{\sffamily\bfseries\small nelem}( ) & returns the total number of elements\\
+{\em x}.{\sffamily\bfseries\small elemvec}( ) & returns the element vector\\
+{\em x}.{\sffamily\bfseries\small elem}( $i$ ) & returns the $i$th element\\
+{\em x}.{\sffamily\bfseries\small samedim}( $y$ ) & returns true if $x$ and $y$ have the same dimensions\\
+\hline
+{\em x}$[$ $i$ $]$ & returns the $i$th sub--array\\
+{\em x}( $i$ ) & returns the $i$th element of a vector\\
+{\em x}( $i$, $j$ ) & returns the matrix element at position $(i,j)$\\
+{\em x}( $i$, $j$, $k$ ) & returns the array element at position $(i,j,k)$\\
+{\em x}( $vec$ ) & returns the array element at the position defined by $vec$\\
+\hline
+\\[-2.5ex]
+{\em x}.{\sffamily\bfseries\small resize}( $i$ ) &
+\begin{minipage}{30em}
+resizes array $x$ to a vector of
+length $i$, an optional flag signals whether the original elements should be
+copied
+\end{minipage}\\[1.5ex]
+{\em x}.{\sffamily\bfseries\small resize}( $i$, $j$ ) & resizes $x$ to an $i\times j$
+matrix\\
+{\em x}.{\sffamily\bfseries\small resize}( $i$, $j$, $k$ ) & resizes $x$ to an
+$i\times j\times k$ array \\
+{\em x}.{\sffamily\bfseries\small resize}( $vec$ ) & resizes $x$ to an arbitrary size specified by $vec$\\
+\hline
+{\em x} $=$ {\em y} & assigns $y$ to $x$, $y$ may be either an array or an STL--vector\\
+{\em x}.{\sffamily\bfseries\small writeTo}( $out$ ) & writes array $x$ to output stream $out$\\
+{\em x}.{\sffamily\bfseries\small readFrom}( $in$ ) & reads array $x$ from input stream $in$\\
+\hline
+\end{tabular}
+
+
+%% ======================================================================
+	\subsection{General Operators of Class Array}
+%% ======================================================================
+
+\begin{tabular}{l|l}
+\multicolumn{2}{c}{\hspace*{\columnwidth}\hspace*{-2\tabcolsep}\mbox{}}\\[-1.5ex]
+\hline
+Operator & Explanation \\
+\hline
+$x$~==~$y$ & returns true if {\em x\/} and {\em y} are equal\\
+$x$~!=~$y$ & returns true if {\em x\/} and {\em y} are not equal\\
+\hline
+$!x$ & returns the componentwise logical complement\\
+$\sim\!x$ & returns the componentwise arithmetic complement\\
+$+x$ & returns $x$ \\
+$-x$ & returns $-x$ \\
+\hline
+$x~\;||\;~y$ & returns the componentwise logical or\\
+$x~\;\&\&\;~y$ & returns the componentwise logical and\\
+$x~\;|\;~y$ & returns the componentwise arithmetic or\\
+$x~\;\hat{~}\;~y$ & returns the componentwise arithmetic xor\\
+$x~\;\&\;~y$ & returns the componentwise arithmetic and\\
+$x~+~y$ & returns the componentwise sum of $x$ and $y$\\
+$x~-~y$ & returns the componentwise difference of $x$ and $y$\\
+$x~*~y$ & returns the componentwise product of $x$ and $y$\\
+$x~\;/\;~y$ & returns the componentwise division of $x$ by $y$\\
+$x~\;\%\;~y$ & returns the componentwise modulo of $x$ by $y$\\
+\hline
+$x~\;|\!=~y$ & \\
+$x~\;\hat{~}\!=~y$ & \\
+$x~\;\&\!=~y$ & \mbox{~~~}compound assigment operators of the binary operators\\
+$x~\;+\!=~y$ & \mbox{~~~~~~~~~~~}$|~~\hat{~}~~\&~~+~~-~~*~~/~~\%$\\
+$x~\;-\!=~y$ & \mbox{~~~}all operators work with two arguments $x$ and $y$ of\\
+$x~\;*\!=~y$ & \mbox{~~~}equal size or alternatively with a scalar value $y$\\
+$x~\;/\!=~y$ & \\
+$x~\;\%\!=~y$ & \\
+\hline
+$func$( $x$ ) & extension of mathematical functions like sin, cos,$\dots$\\
+$func2$( $x$, $y$ ) &  atan2, pow, etc.\ to arrays\\
+\hline
+{\sffamily\bfseries\small inner\_product}( $x$, $y$ ) & returns the inner product of $x$ and $y$\\
+{\sffamily\bfseries\small outer\_product}( $x$, $y$ ) & returns the outer product of $x$ and $y$\\
+{\sffamily\bfseries\small scalar\_product}( $x$, $y$ ) & returns the scalar product of $x$ and $y$\\
+{\sffamily\bfseries\small euclidian\_distance}( $x$, $y$ ) & returns the euclidian distance between $x$ and $y$\\
+\hline
+{\sffamily\bfseries\small sum}( $x$ ) & returns the total sum of elements in $x$\\
+{\sffamily\bfseries\small sumOfAbs}( $x$ ) & returns the sum of absolute values of $x$\\
+{\sffamily\bfseries\small sumOfSqr}( $x$ ) & returns the sum of squares of $x$\\
+\hline
+$out$~$<<$~$x$ & sends $x$ to output stream $out$\\
+$in$~$>>$~$y$ & reads $x$ from input stream $in$\\
+\hline
+\end{tabular}

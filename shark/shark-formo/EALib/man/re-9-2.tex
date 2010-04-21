@@ -1,0 +1,40 @@
+\section{Internal Variables and Flags}
+
+\subsection{Internal Variables}
+
+\begin{itemize}
+
+\index{index (Variable)}
+\item {\em index} -
+The index of the individual with the best fitness value in the
+population. {\em index} will not be initialized.
+
+\end{itemize}
+
+\subsection{Internal Flags}
+
+\begin{itemize}
+
+\index{subPop (Variable)}
+\item {\em subPop} -
+Denotes whether the population is a subpopulation (``true'') or
+not (``false''). A subpopulation can be generated when using
+extinctive selection, where an individual can receive a
+selection probability of zero. {\em subPop} will be initialized
+with ``false''.
+
+\index{ascending (Variable)}
+\item {\em ascending} -
+The individuals in the population are sorted according
+to their fitness values. If the {\em ascending} flag is ``true'', the
+individuals will be sorted by ascending fitness values, else by 
+descending fitness values.
+{\em ascending} will be initialized with ``false''.
+
+\index{spinOnce (Variable)}
+\item {\em spinOnce} -
+In case {\em Roulette-Wheel-Selection} is 
+used, the {\em spinOnce}-flag indicates whether the roulette
+wheel will spin only one time (``true'') or several times
+(``false''). The flag will be initialized with ``true''.
+\end{itemize}

@@ -1,0 +1,172 @@
+\section{Public Methods}
+
+These methods can be used by all \cpp\ -programs that have included
+the header file {\em ChromosomeT.h} and the library {\em EA}.
+
+\subsection{Initializing Method}
+
+%---------------------------------------------------------------------------%
+\index{initialize!( )}
+\setNormalInstance
+\printEmptyMethod
+{initialize}
+{Randomly initializes the alleles of {\em this} with the
+ value ``true'' or ``false''. Each value has the same chance
+ to be chosen.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsection{Encoding Methods}
+
+%---------------------------------------------------------------------------%
+\index{encode!( double val, const Interval\& range, unsigned nbits, bool useGray = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{val}{double}{Value to be encoded.}
+\setParamTwo{range}{const Interval\&}{{\em val} $\in [${\em range}$]$}
+\setParamThree{nbits}{unsigned}{Number of bits that shall be used for encoding.}
+\setParamFour{useGray}{bool}{Specifies the encoding method:\\
+ {\em true}\hspace{2pt} - The Gray encoding method is used,\\
+ {\em false} - The standard encoding method is used, this is also the default.}
+\printMethodWithParamsSaved
+{void}
+{}
+{encode}
+{Encodes the double value {\em val} out of the interval {\em range} into
+ a bitstring of length {\em nbits} and stores it in {\em this}.
+ The flag {\em useGray} specifies, whether the Gray method is used
+ for encoding or not.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{encodeBinary!( onst vector$<$ double $>$\& chrom, const Interval\& range, unsigned nbits, bool useGray = false )} 
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{chrom}{const vector$<$ double $>$\&}{Vector that contains the
+values, to be encoded.}
+\setParamTwo{range}{const Interval\&}{See above.}
+\setParamThree{nbits}{unsigned}{Number of bits, that are used for
+each value to encode it.}
+\setParamFour{useGray}{bool}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{encodeBinary}
+{Same as above, but here not only one, but several double values,
+ contained in the vector {\em chrom}, are encoded.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{encodeBinary!( const Chromosome\& chrom, const Interval\& range, unsigned nbits, bool useGray = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{chrom}{const Chromosome\&}{Chromosome that contains
+the values, to be encoded.}
+\setParamTwo{range}{const Interval\&}{See above.}
+\setParamThree{nbits}{unsigned}{See above.}
+\setParamFour{useGray}{bool}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{encodeBinary}
+{Same as above, but here the values to be encoded are stored
+ in a chromosome.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\subsection{Decoding Method}
+
+%---------------------------------------------------------------------------%
+\index{decode!( const Interval\& range, bool useGray = false )}
+\setConstInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{range}{const Interval\&}{{\em val} $\in [${\em range}$]$}
+\setParamTwo{useGray}{bool}{Specifies the encoding method:\\
+ {\em true}\hspace{2pt} - the Gray encoding method was used,\\
+ {\em false} - the standard encoding method was used, this is also the default.}
+\printMethodWithParamsSaved
+{double}
+{The decoded value.}
+{decode}
+{Decodes a value out of the interval {\em range}, that is encoded as
+ bitstring and stored in {\em this}. The flag {\em useGray} specifies,
+ whether the Gray method was used for the encoding process or not.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+ 
+\subsection{Mutation methods}
+
+%---------------------------------------------------------------------------%
+\index{flip!( double p )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{flip}
+{double}
+{p}
+{Probability for flipping an allele value.}
+{Each allele of {\em this} is flipped with probability {\em p},
+ that means a value of ``true'' is flipped to ``false'' and
+ vice versa.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{flip!( const vector$<$ double $>$\& p, bool cycle = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{p}{const vector$<$ double $>$\&}{Vector with probabilities
+for each allele of {\em this} to be flipped. {\em p} should contain
+at most as many values as there are alleles in {\em this}. Otherwise the
+method will be aborted with an error message.}
+\setParamTwo{cycle}{bool}{Specifies, whether {\em p} is used
+circular ({\em cycle} = ``true'') or not ({\em cycle} = ``false'', this
+is also the default).}
+
+\printMethodWithParamsSaved
+{void}
+{}
+{flip}
+{Same as above but {\em p} contains separate probabilities for each
+ allele of {\em this}. As {\em p} can contain less values than {\em this}
+ has alleles, the flag {\em cycle} is used to specify, whether {\em p}
+ can is used circular or not.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{flip!( const Chromosome\& p, bool cycle = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{p}{const Chromosome\&}{See above.}
+\setParamTwo{cycle}{bool}{See above.}
+
+\printMethodWithParamsSaved
+{void}
+{}
+{flip}
+{Same as above, but here a chromosome is used to store the
+ probability values.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+

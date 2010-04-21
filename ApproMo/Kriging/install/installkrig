@@ -1,0 +1,24 @@
+#!/bin/sh
+gtar zxvf krig.tgz
+#gunzip KrigifierDocumentation.ps.gz
+gtar zxvf netlibfiles.tgz
+g77 -O -c blas/*.f
+ar r libBLAS.a *.o
+ranlib libBLAS.a
+rm -f *.o
+rm -rf blas
+gcc -O -c clapack/double/*.c
+ar r libLAPACK.a *.o
+ranlib libLAPACK.a
+rm -f *.o
+rm -rf clapack
+cd libf2c
+cp makefile.u makefile
+make
+cd ..
+mv libf2c/libf2c.a .
+mv libf2c/f2c.h .
+ranlib libf2c.a
+rm -f libf2c/*.o
+mkdir ../lib
+cp *.a ../lib

@@ -1,0 +1,731 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>ReClaM Reference</title>
+  </head>
+
+  <body>
+    <h1>ReClaM Reference</h1>
+
+    Reference for the <strong>Re</strong>gression and 
+    <strong>Cla</strong>ssification <strong>M</strong>odels Toolbox.<br>
+    <p>
+    To achieve most flexibility, the ReClaM package is build like
+    a construction kit, i.e. a network is divided into three
+    major components: The structure and the behavior of the network,
+    named here as "model", the algorithm used for the optimization
+    of the free parameters (weights) of the network and the error
+    measures that are used by the optimization algorithms to minimize
+    the network error. You can choose predefined types of each
+    of the components to build your desired network or add new
+    types by your own. To manage the communication between
+    the different components, the class 
+    <a href="./html/#MODELINT">Model Interface</a>
+    is used.
+    </p>
+
+    <BR>
+    <BR>
+    <img src="./images/arrow.gif"> &nbsp; <a href="#predefined">Predefined Networks (Models)</a><BR>
+    <img src="./images/arrow.gif"> &nbsp; <a href="#error">Error Measures</a><BR>
+    <img src="./images/arrow.gif"> &nbsp; <a href="#optimization">Optimization Algorithms</a><BR>
+    <img src="./images/arrow.gif"> &nbsp; <a href="#tools">Tools</a><BR>
+    <img src="./images/arrow.gif"> &nbsp; <a href="#examples">Example Programs</a><BR>
+
+
+    <br><br>
+    <a name="predefined">
+    <h2>Predefined Networks (Models)</h2>
+    <p>
+    The next table will list all predefined networks, that come
+    with the ReClaM package, with their major features:
+    <ul>
+        <li><strong>Name</strong> - The name of the class, that implements 
+            the network</li>
+	<li><strong>Type</strong> - There are several base types of networks, 
+            possible types are <em>Feed Forward</em>, <em>Recurrent</em>
+            and <em>Radial Basis Function</em></li>
+        <li><strong>Activation Functions</strong> - Each neuron of the 
+            network has an activation function that determines
+            how input values will be propagated through the network. The 
+            activation functions of the hidden layer and
+            output layer neurons can be set separately.</li>
+        <li><strong>Error Measures</strong> - Error measures are used for the 
+            optimization of the network parameters (weights) during
+            the training process. But you can also define
+            some additional error measure for monitoring
+            the current training status of the network.</li>
+        <li><strong>Optimization Algorithm</strong>  - The parameters of a 
+            network can be optimized using several types of
+            algorithms.</li>
+    </ul>
+    </p>
+
+    <table border="1" cellpadding="5" frame="box">
+    <tr>
+        <th>
+            Name
+        </th>    
+        <th>
+            Type
+        </th>
+        <th colspan="2">
+            Activation Functions
+        </th>    
+        <th colspan="2">
+            Error Measures
+        </th>
+        <th>
+            Optimization <br>
+            Algorithm
+        </th>
+    </tr>
+    <tr>
+        <th>
+        </th>    
+        <th>
+        </th>    
+        <th>
+            Hidden Neurons
+        </th>
+        <th>
+            Output Neurons
+        </th>    
+        <th>
+            Training
+        </th>
+        <th>
+            Monitoring 
+        </th>
+        <th>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#FF">FFNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>    
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#BFF">BFFNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>    
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#MSEFF">MSEFFNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>    
+        <td align="center">
+            Mean Squared Error
+        </td>
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#MSEBFF">MSEBFFNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>    
+        <td align="center">
+            Mean Squared Error
+        </td>
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#LINOUTFF">LinOutFFNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>
+        <td align="center">
+            <img src="./images/lin.gif">
+        </td>    
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td> 
+        <td align="center">
+            none
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#LINOUTMSEFF">LinOutMSEFFNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>
+        <td align="center">
+            <img src="./images/lin.gif">
+        </td>    
+        <td align="center">
+            Mean Squared Error
+        </td>
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#LINOUTMSEBFF">LinOutMSEBFFNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>
+        <td align="center">
+            <img src="./images/lin.gif">
+        </td>    
+        <td align="center">
+            Mean Squared Error
+        </td>
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#TANH">TanhNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/tanh.gif">
+        </td>
+        <td align="center">
+            <img src="./images/tanh.gif">
+        </td>    
+        <td align="center">
+            Squared Error
+        </td>
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            Steepest Descent
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#LINOUTTANH">LinearOutputTanhNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/tanh.gif">
+        </td>
+        <td align="center">
+            <img src="./images/lin.gif">
+        </td>    
+        <td align="center">
+            Squared Error
+        </td>
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            Steepest Descent
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#PROBEN">ProbenNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/fabs.gif">
+        </td>
+        <td align="center">
+            <img src="./images/lin.gif">
+        </td>    
+        <td align="center">
+            Mean Squared Error
+        </td>
+        <td align="center">
+            general
+        </td>
+        <td align="center">
+            Resilent Backpropagation <br>
+            without weight backtracking
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#PROBENB">ProbenBNet</a>
+        </td>    
+        <td>
+            Feed Forward
+        </td>    
+        <td align="center">
+            <img src="./images/fabs.gif">
+        </td>
+        <td align="center">
+            <img src="./images/lin.gif">
+        </td>    
+        <td align="center">
+            Mean Squared Error
+        </td>
+        <td align="center">
+            general
+        </td>
+        <td align="center">
+            Resilent Backpropagation <br>
+            without weight backtracking
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#MSERN">MSERNNet</a>
+        </td>    
+        <td>
+            Recurrent
+        </td>    
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>
+        <td align="center">
+            <img src="./images/sigm1.gif">
+        </td>    
+        <td align="center">
+            Mean Squared Error
+        </td>
+        <td align="center">
+            Error Percentage
+        </td>
+        <td align="center">
+            none
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#RBF">RBFNet</a>
+        </td>    
+        <td>
+            Radial Basis Function
+        </td>    
+        <td align="center">
+            special
+        </td>
+        <td align="center">
+            special
+        </td>    
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="./html/#MSERBF">MSERBFNet</a>
+        </td>    
+        <td>
+            Radial Basis Function
+        </td>    
+        <td align="center">
+            special
+        </td>
+        <td align="center">
+            special
+        </td>    
+        <td align="center">
+            Mean Squared Error
+        </td>
+        <td align="center">
+            none
+        </td>
+        <td align="center">
+            none
+        </td>
+    </tr>
+    </table>
+
+<br><br>
+<a name="error"> 
+    <h2>Error Measures</h2>
+    <p>
+        Error measures are used for the optimization of networks, i.e.
+        the optimization algorithms will adapt the parameters
+        (weights) of the network in a way, that the error of the
+        network is minimized.<br>
+        There are some error measures, that are used only for this
+        (training) purpose.<br>
+        Additionally, you can use some error measures to monitor
+        the current state of the training process, where these
+        measures are not used by the optimization algorithms.
+    </p>
+        <ol>
+            <li>Training</li>
+            <ul>
+                <li>General</li>
+                <ul>
+                    <li>
+                        <a href="./html/#SQRE">
+                            Squared Error
+                        </a> 
+                    </li>
+                    <li>
+                        <a href="./html/#MSQRE">
+                            Mean Squared Error
+                        </a> 
+                    </li>
+                </ul>
+                <li>Classification Tasks</li>
+                <ul>
+                    <li>
+                        <a href="./html/#CROSSENT">
+                            Cross Entropy
+                        </a> 
+                    </li>
+                </ul>
+            </ul>
+
+            <li>Monitoring</li>
+            <ul>
+                <li>General</li> 
+                <ul>
+                    <li>
+                        <a href="./html/#EMSQR">
+                            Squared Error
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./html/#EMMSQR">
+                            Mean Squared Error
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./html/#EMEP"> 
+                            Error Percentage
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./html/#EMVAR">
+                            Variance
+                        </a>
+                    </li>   
+                </ul>
+                <li>Classification Tasks</li>
+                <ul>
+                    <li>
+                        <a href="./html/#EMCROSSENT">
+                            Cross Entropy
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./html/#EMBC">
+                            Binary Criterion
+                        </a>
+                    </li>
+                    <li>
+                        <a href="./html/#EMWTA">
+                            Winner Takes All
+                        </a>
+                    </li> 
+                
+                    <li>
+                        <a href="./html/#CLASSE">
+                            Classification Error
+                        </a> 
+                    </li>
+                </ul>
+            </ul>
+        </ol>
+
+    <br><br>
+    <a name="optimization">
+    <h2>Optimization Algorithms</h2>
+    <p>
+        For the adaptation of the network parameters, ReClaM
+        offers several algorithms. The following list
+        shows all algorithms, separated by their types.
+        An arrow means, that the algorithm at the right
+        is an improvement of the algorithm at the left.
+    </p>
+
+    <table border="0" cellpadding="5">
+    <tr>
+        <td>
+            <a href="./html/#STEEPDESC">Steepest 
+            Descent</a><br>
+            (Gradient Descent)<br>
+            &nbsp;
+        </td>
+        <td>
+	    <img src="./images/arrow.gif"><br>
+            &nbsp;<br>
+            &nbsp;
+	</td>
+        <td>
+            Adaptive Learning Rates<br>
+            <a href="./html/#ADAP1">version 1</a><br>
+            <a href="./html/#ADAP2">version 2</a><br>
+        </td>
+        <td>
+	    <img src="./images/arrow.gif"><br>
+            &nbsp;<br>
+            &nbsp;
+	</td>
+        <td>
+            Resilent Backpropagation<br>
+            <a href="./html/#RPROPP">with 
+            weight-backtracking</a><br>
+            <a href="./html/#RPROPM">without 
+            weight-backtracking</a>
+        </td>
+        <td>
+	    <img src="./images/arrow.gif"><br>
+            &nbsp;<br>
+            &nbsp;
+	</td>
+        <td>
+            Improved Resilent Backpropagation<br>
+            <a href="./html/#IRPROPP">with 
+            weight-backtracking</a><br>
+            <a href="./html/#IRPROPM">without 
+            weight-backtracking</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <img src="./images/arrow.gif">
+            &nbsp;
+        </td>
+        <td>
+            <a href="./html/#QPROP">Quickprop</a><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <img src="./images/arrow.gif">
+            &nbsp;
+        </td>
+        <td>
+            <a href="./html/#CG">Conjugate Gradients</a><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <img src="./images/arrow.gif">
+            &nbsp;
+        </td>
+        <td>
+            <a href="./html/#STOCHGRADDESC">Stochastic Gradient Descent</a><br>
+        </td>
+    </tr>
+    </table>
+
+    <br><br>
+    <a name="tools">
+    <h2>Tools</h2>
+    <h3>Input/Output</h3>
+    <p>
+        Here you will find tools for reading and writing configuration
+        files, that can be used to define a special instance (structure) of a
+        network, completely with error measures and optimization
+        algorithms. You then only have to read in such a configuration
+        file to instantly start the training of your network.<br>
+        You can also use methods to dynamically read in/write training/test
+        patterns for a network.<br>
+        An arrow means, that the class/file at the right contains
+        more specialized methods/functions than the class/file at
+        the left.
+    </p>
+    <table border="0" cellpadding="5">
+    <tr>
+        <td>
+            <a href="./html/#FILEUTIL">
+                Low level functions
+            </a>
+        </td>
+        <td>
+            <img src="./images/arrow.gif">
+        </td>
+        <td>
+            <a href="./html/#PARAMS">
+                Base class for network configuration files
+            </a>
+        </td>
+        <td>
+            <img src="./images/arrow.gif">
+        </td>
+        <td>
+            <a href="./html/#NETPARAMS">
+                Using a predefined network configuration file
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <img src="./images/arrow.gif">
+        </td>
+        <td>
+            <a href="./html/#IOTOOLS">
+            Reading/Writing input patterns/target values<br> 
+            from/to files
+            </a>
+        </td> 
+    </tr>
+    </table>
+
+    <h3>Connection matrix creation</h3>
+    <p>
+    Use the methods of this file to automatically create connection
+    matrices for networks with several layers.<BR>
+    Flags are offered that can be set to establish standard connections
+    between the neurons of the network:
+    </p>
+    <a href="./html/#CREATECONNECT">createConnectionMatrix.h</a>
+
+    <h3>Monitoring the training</h3>
+    <p>
+    Use this class to avoid a overfitting during the training process,
+    that leads to a loss of generality of the network:
+    </p>
+    <a href="./html/#EARLYSTOP">Early Stopping</a>
+
+    <h3>Active Learning</h3>
+    <p>
+    Enhance the learning speed of your network by allowing it to
+    add a new pattern to the training set at each step, where the
+    pattern is chosen in a way, that it will minimize the 
+    network error.
+    </p>
+    <a href="./html/#VAREST">Variance Estimator</a>
+
+    <br><br>
+    <a name="examples">
+    <h2>Example Programs</h2>
+    <p>
+        To give you a better idea, how using the several components
+        of ReClaM to build your own networks, you can take a look
+        at some commented source codes of example programs for the three types
+        of predefined networks. To run these programs please go to
+        the examples directory of ReClaM.
+    </p>
+        <ul>
+            <li>
+                <a href="./html/#EXFF">
+                A simple example for feed forward neural networks
+                </a>
+            </li>
+            <li>
+                <a href="./html/#EXRBF">
+                A simple example for radial basis function neural networks
+                </a>
+            </li>
+            <li>
+                <a href="./html/#EXRN">
+                A simple example for recurrent neural networks
+                </a>
+            </li>
+        </ul>
+
+
+    <hr><BR>
+    <p>
+    You can also go directly to the ReClaM class reference as 
+    created by the doxygen program:
+    </p>
+            
+    View the <a href="./html/index.html">overview</a>.<BR>
+    View the <a href="./html/files.html">list of files</a> in ReClaM.<BR>
+    View the <a href="./html/annotated.html">list of classes</a> in ReClaM.<BR>
+  </body>
+</html>
+
+

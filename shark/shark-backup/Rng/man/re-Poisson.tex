@@ -1,0 +1,175 @@
+% 24th, Jan, 2001 Ver.1     Tatsuya Okabe
+%                 Ver.2
+%                 Ver.3
+%                 Ver.4
+%                 Ver.5
+%
+%---------------------------------------------------------------------------%
+% Made by Tatsuya Okabe ( HONDA R&D Europe ( Deutschland ) GmbH )           %
+% Checked by Bernhard Sendhoff ( HONDA R&D Europe ( Deutschland ) GmbH )    %
+%---------------------------------------------------------------------------%
+% Class Poisson
+
+\section{Abstract}
+
+\noindent
+With the class {\em Poisson}, we can simulate the ``Poisson''
+distribution. Now let's guess the situation where we try somethings
+$n$ times and we saw the factor $x$ times with the probability
+$p$. This distribution follows ``Binomial'' distribution as the next
+equation. 
+
+\begin{equation}
+f(x) = _n \hspace{-2mm} C_x p^x (1-p)^{n-x} = \frac{n!}{x! (n-x)!} p^x (1-p)^{n-x}
+\end{equation} 
+
+\noindent
+If the number of experiences is sufficiently large, this equation can
+be approximated by ``Poisson'' distribution, which will be shown in
+the next equation.
+
+\begin{equation}
+f(x) = \frac{e^\lambda \lambda^x}{x!}
+\end{equation}
+
+\noindent
+In this equation, $\lambda$ and x mean the constant and the factor respectively.
+
+\vspace*{10mm}
+
+\section{Internal Variables}
+
+\begin{itemize}
+\item pMean - Corresponding to $\lambda$ in upper equation.
+\end{itemize}
+
+%********************
+\index{pMean (Variable)}
+%********************
+
+\clearpage
+
+\section{Public Methods}
+
+\noindent
+These methods can be used by all \cpp - programs, that have included the
+header file Poisson.h and the library EA.
+
+\subsection{Constructors}
+
+%---------------------------------------------------------------------------%
+% 001
+\index{Poisson!( double mean )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Poisson}
+{double}
+{mean}
+{The constant $\lambda$.}
+{The default constructor. Generates the random generator of Poisson distribution.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 002
+\index{Poisson!( double mean, RNG\& r )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{mean}{double}{The constant $\lambda$.} 
+\setParamTwo{r}{RNG\&}{RNG class.}
+\printMethodWithParamsSaved
+{}
+{None.}
+{Poisson}
+{The constructor. Generates the random generator of Poisson distribution.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{Operators}
+
+%---------------------------------------------------------------------------%
+% 003
+\index{operetor( )!( double mean )}
+\setNormalInstance
+\printMethodWithOneParam
+{long}
+{operator( )}
+{double}
+{mean}
+{The constant $\lambda$.}
+{Gets the result of Poisson distribution.}
+{The result of Poisson distribution.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+% 004
+\index{operator( )!( )} 
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{long}
+{operator( )}
+{Gets the result of Poisson distribution {\em ( $\lambda$ = pMean )}.}
+{The result of Poisson distribution {\em ( $\lambda$ = pMean )}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{Information Retrieval Methods}
+
+%---------------------------------------------------------------------------%
+% 005
+\index{mean!( )} 
+\setConstInstance
+\printEmptyMethodReturnSpecial
+{double}
+{mean}
+{Returns the variable {\em $\lambda$} {\em pMean}.}
+{The variable {\em $\lambda$} {\em pMean}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 006
+\index{mean!( double newMean )} 
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{mean}
+{double}
+{newMean}
+{New $\lambda$.}
+{Sets the mean {\em pMean} using new mean {\em newMean}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{The probability}
+
+%---------------------------------------------------------------------------%
+% 007
+\index{p!( const long\& x )} 
+\setConstInstance
+\printMethodWithOneParam
+{double}
+{p}
+{const long\&}
+{x}
+{The factor which you want to calculate the probability.}
+{Returns the probability of {\em x}.}
+{The probability.}
+{None.}
+%---------------------------------------------------------------------------%
+
+
+

@@ -1,0 +1,318 @@
+\section{Private Methods}
+
+These methods can only be used by the class {\em EvoAlg}.
+\index{EvoAlg}
+
+\subsection{Constructors}
+
+%---------------------------------------------------------------------------%
+\index{Population!( const vector$<$ Individual $\ast$ $>$\& indvec )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Population}
+{const vector$<$ Individual $\ast$ $>$\&}
+{indvec}
+{Vector with individuals that make up the new population.}
+{Generates a new population consisting of the individuals that are
+ stored in vector {\em indvec}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\subsection{Initialization Methods}
+
+%---------------------------------------------------------------------------%
+\index{selectInit!( )}
+\setNormalInstance
+\printEmptyMethod
+{selectInit}
+{Initializes the internal variables of all individuals of the population
+ for a following selection method.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsection{Comparison Methods}
+
+These methods compare two individuals of a population 
+and either return the status of this comparison or 
+one of the individuals. The methods described here are used as 
+auxiliary methods by other major methods.
+
+\vspace{2ex}
+
+%---------------------------------------------------------------------------%
+\index{lessFitness!( Individual$\ast$ const\& i1, Individual$\ast$ const\& i2 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i1}{Individual$\ast$const\&}{Individual 1.}
+\setParamTwo{i2}{Individual$\ast$const\&}{Individual 2.}
+\printMethodWithParamsSaved
+{static bool}
+{Status of the fitness comparison:\\
+ {\em true} - The fitness of individual {\em i1} is less than the fitness
+ of individual {\em i2},\\
+ {\em false} - The fitness of individual {\em i1} is greater than or equal
+ to the fitness of individual {\em i2}.}
+{lessFitness}
+{Returns whether the fitness of individual {\em i1} is less than the 
+ fitness of individual {\em i2}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{greaterFitness!( Individual$\ast$ const\& i1, Individual$\ast$ const\& i2 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i1}{Individual$\ast$const\&}{Individual 1.}
+\setParamTwo{i2}{Individual$\ast$const\&}{Individual 2.}
+\printMethodWithParamsSaved
+{static bool}
+{Status of the fitness comparison:\\
+ {\em true} - The fitness of individual {\em i1} is greater than the fitness
+ of individual {\em i2},\\
+ {\em false} - The fitness of individual {\em i1} is less than or equal
+ to the fitness of individual {\em i2}.}
+{greaterFitness}
+{Returns whether the fitness of individual {\em i1} is greater than the 
+ fitness of individual {\em i2}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{greaterScoreAscending!( Individual$\ast$ const\& i1, Individual$\ast$ const\& i2 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i1}{Individual$\ast$ const\&}{First individual.}
+\setParamTwo{i2}{Individual$\ast$ const\&}{Second individual.}
+\printMethodWithParamsSaved
+{static bool}
+{
+ {\em true} - The scaled fitness of individual {\em i1}
+              is greater than the scaled fitness of individual {\em i2}
+              or the normal fitness of individual {\em i1} is less than
+              the normal fitness of individual {\em i2}.\\
+ {\em false} - The scaled fitness of individual {\em i1} is less than
+               the scaled fitness of individual {\em i2} or the
+               normal fitness of individual {\em i1} is greater than
+               the normal fitness of individual {\em i2}.}
+{greaterScoreAscending}
+{Auxiliary method for {\em selectEPTournament}.
+ Checks whether the scaled fitness of individual {\em i1} 
+ is greater or whether the normal fitness is less than the
+ corresponding values of individual {\em i2}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{greaterScoreDescending!( Individual$\ast$ const\& i1, Individual$\ast$ const\& i2 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{i1}{Individual$\ast$const\&}{First individual.}
+\setParamTwo{i2}{Individual$\ast$const\&}{Second individual}
+\printMethodWithParamsSaved
+{static bool}
+{
+ {\em true} - The scaled fitness value or the normal fitness value
+              is greater than the corresponding values of {\em i2},\\
+ {\em false} - The scaled fitness value or the normal fitness value
+               is less than the corresponding values of {\em i2}.}
+{greaterScoreDescending}
+{Auxiliary method for {\em selectEPTournament}.
+ Checks whether the scaled or normal fitness of individual {\em i1} 
+ is greater than the corresponding values of individual {\em i2}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{best!( Individual\& ind0, Individual\& ind1 )}
+\setConstInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{ind0}{Individual\&}{First individual.}
+\setParamTwo{ind1}{Individual\&}{Second individual.}
+\printMethodWithParamsSaved
+{Individual\&}
+{The individual with the ``better'' fitness according to 
+ {\em ascending}-flag. Is the flag set to ``true'',
+ then the individual with the smaller fitness value will be returned, is
+ the flag set to ``false'', the individual with the greater fitness
+ value is returned.}
+{best}
+{Returns the individual with the better fitness values.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{worst!( Individual\& ind0, Individual\& ind1 )}
+\setConstInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{ind0}{Individual\&}{First individual.}
+\setParamTwo{ind1}{Individual\&}{Second individual.}
+\printMethodWithParamsSaved
+{Individual\&}
+{The individual with the ``worst'' fitness value according
+ to {\em ascending}-flag. Is the flag set to ``true'',
+ then the individual with the greater fitness value will be returned, is
+ the flag set to ``false'', the individual with the smaller fitness
+ value is returned.}
+{worst}
+{Returns the individual with the worst fitness values.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\subsection{Sorting Method}
+
+%---------------------------------------------------------------------------%
+\index{sortIndividuals!( vector$<$ Individual$\ast$ $>$\& indvec )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{sortIndividuals}
+{vector$<$ Individual $\ast$ $>$\&}
+{indvec}
+{Vector with individuals to be sorted.}
+{Sorts all individuals in {\em indvec} according to
+ {\em ascending}-flag. Is the flag set to ``true'', then all individuals
+ are sorted by ascending fitness, otherwise by descending fitness.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsection{Selection Methods}
+
+%---------------------------------------------------------------------------%
+\index{selectElitists!( Population\& parents, unsigned numElitists )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{Parent population.}
+\setParamTwo{numElitists}{unsigned}{Number of elitists.
+If {\em numElitists} is greater than the number
+of individuals in {\em this}, then only as many elitists are sought as
+{\em this} contains individuals.}
+\printMethodWithParamsSaved
+{void}
+{}
+{selectElitists}
+{Looks for {\em numElitists}
+ individuals with the best fitness values and copies them to the
+ beginning of the population {\em this}. The selection probability
+ of the parent individuals and the elitists will be adapted.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{selectRouletteWheel!( Population\& parents, unsigned numElitists )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{parents}{Population\&}{The parent population, from which
+the elitists are chosen.}
+\setParamTwo{numElitists}{unsigned}{Number of elitists to be
+selected.}
+\printMethodWithParamsSaved
+{void}
+{}
+{selectRouletteWheel}
+{Selects {\em numElitists} individuals from the parent population
+ {\em parents} as elitists and stores them at the beginning of the
+ population {\em this}. The basic idea behind this selection
+ method is a spinning roulette wheel. Depending on the value of the 
+ {\em spinOnce}-flag, the wheel can be spinned several times
+ (flag = ``false'') which is similar to a stochastic selection or
+ only one time (flag = ``true'') which is similar to a non-stochastic
+ selection.
+ For more information cf. \cite{Search} and \cite{Jong}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsection{Input- and Output Methods}
+
+%---------------------------------------------------------------------------%
+\index{readFrom!( istream\& is )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{readFrom}
+{istream\&}
+{is}
+{Input stream.}
+{Replaces the data of the current population {\em this} by the data
+ read from the input stream {\em is}. The data must have
+ the following format:\\
+    ``{\tt Population(}'',\\
+    Size of the population,\\
+    ``{\tt )}'', Newline,\\
+    Index of the best individual, Newline,\\
+    Value of the {\em subPop}-flag, Newline,\\
+    Value of the {\em ascending}-flag, Newline,\\
+    Value of the {\em spinOnce}-flag, Newline,\\
+    Following now are the values of the single individuals inside
+    the population:\\
+    ``{\tt Individual(}'',\\
+    Size of the current individual,\\ 
+    ``{\tt )}'', Newline,\\ 
+    Fitness value of the individual, Newline,\\
+    Scaled fitness of the individual, Newline,\\
+    Value of the {\em eval}-flag, Newline,\\
+    Value of the {\em feasible}-flag, Newline,\\
+    Selection probability of the individual, Newline,\\
+    Number of reproductions of the individual, Newline,\\
+    Value of the {\em elitist}-flag, Newline,\\
+    Age of the individual, Newline,\\
+    And then the data of the single chromosomes will follow:\\
+    ``{\tt ChromosomeT$<$}'',\\
+    Type of the current chromosome,\\ 
+    ``{\tt $>$(}'',\\ 
+    Number of alleles,\\    
+    ``{\tt )}'', Newline,\\
+    Values of the single allele values, separated by a space or
+    tab character.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{writeTo!( ostream\& os )}
+\setConstInstance
+\printMethodWithOneParam
+{void}
+{writeTo}
+{ostream\&}
+{os}
+{Output stream.}
+{Writes the data of the population to the output stream {\em os}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+

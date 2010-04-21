@@ -1,0 +1,1103 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "Array"=".\Array\Array.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "EALib"=".\EALib\EALib.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "LinAlg"=".\LinAlg\LinAlg.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Metric"=".\Metric\Metric.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Mixture"=".\Mixture\Mixture.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "RandomDistr"=".\TestData\RandomDistr\RandomDistr.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ReClaM"=".\ReClaM\ReClaM.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Rng"=".\Rng\Rng.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "RngTest"=".\Rng\examples\RngTest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "RngTest2"=".\Rng\examples\RngTest2.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "RngTestSimple"=".\Rng\examples\RngTestSimple.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "MOOEALib"=".\MOO-EALib\MOOEALib.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "SimAnn"=".\SimAnn\SimAnn.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "TimeSeries"=".\TestData\TimeSeries\TimeSeries.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ackleyES"=".\EALib\examples\ackleyES.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name EALib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "bfgs2_test"=".\LinAlg\examples\bfgs2_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "bfgs_test"=".\LinAlg\examples\bfgs_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "cblnsrch_test"=".\LinAlg\examples\cblnsrch.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "cmaExample"=".\EALib\examples\cmaExample.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name EALib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ReClaM
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "countingOnes"=".\EALib\examples\countingOnes.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name EALib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "covar_corrcoef_test"=".\LinAlg\examples\covar_corrcoef_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "detsymm_test"=".\LinAlg\examples\detsymm_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "dlinmin_test"=".\LinAlg\examples\dlinmin_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "dwa"=".\MOO-EALib\examples\dwa.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name MOOEALib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name EALib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ReClaM
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "eigenerr_test"=".\LinAlg\examples\eigenerr_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "eigensort_test"=".\LinAlg\examples\eigensort_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "eigensymmJacobi2_test"=".\LinAlg\examples\eigensymmJacobi2_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "eigensymmJacobi_test"=".\LinAlg\examples\eigensymmJacobi_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "eigensymm_test"=".\LinAlg\examples\eigensymm_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "embeddingTest"=".\TestData\TimeSeries\examples\embeddingTest.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name TimeSeries
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "fft_test"=".\LinAlg\examples\fft_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "g_inverse_matrix"=".\LinAlg\examples\g_inverse_matrix.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "integerES"=".\EALib\examples\integerES.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name EALib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "linalg_simple_test"=".\LinAlg\examples\linalg_simple_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "linearClassifier_test"=".\LinAlg\examples\linearClassifier_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "linearRegression_test"=".\LinAlg\examples\linearRegression_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "linmin_test"=".\LinAlg\examples\linmin_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "lnsrch_test"=".\LinAlg\examples\lnsrch_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "meanvar"=".\Array\examples\meanvar.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "metric_test"=".\Metric\examples\metric_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Metric
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "mg_example"=".\Mixture\examples\mg_example.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Mixture
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name TimeSeries
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "moga"=".\MOO-EALib\examples\moga.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name MOOEALib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "nsga2"=".\MOO-EALib\examples\nsga2.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name MOOEALib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "paes"=".\MOO-EALib\examples\paes.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name MOOEALib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "pca_test"=".\LinAlg\examples\pca_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "rank_decomp_test"=".\LinAlg\examples\rank_decomp_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "rank_test"=".\LinAlg\examples\rank_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "rbfn_example"=".\Mixture\examples\rbfn_example.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Mixture
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name TimeSeries
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "realcoded-nsga2"=".\MOO-EALib\examples\realcodednsga2.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "simpleFFNet"=".\ReClaM\examples\simpleFFNet.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name ReClaM
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "simpleFFNetSource"=".\ReClaM\examples\simpleFFNetSource.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name ReClaM
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "simpleMSERNNet"=".\ReClaM\examples\simpleMSERNNet.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ReClaM
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "simpleRBFNet"=".\ReClaM\examples\simpleRBFNet.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Mixture
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name ReClaM
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "simpleRNNet"=".\ReClaM\examples\simpleRNNet.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name ReClaM
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "sphereGA"=".\EALib\examples\sphereGA.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name EALib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "sphereOstermeier"=".\EALib\examples\sphereOstermeier.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name EALib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "steadyState"=".\EALib\examples\steadyState.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name EALib
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "svd_test"=".\LinAlg\examples\svd_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "svdrank_test"=".\LinAlg\examples\svdrank_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "svdsort_test"=".\LinAlg\examples\svdsort_test.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name LinAlg
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "testmain"=".\SimAnn\examples\testmain.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name Rng
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name SimAnn
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "vega"=".\MOO-EALib\examples\vega.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name Array
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name MOOEALib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

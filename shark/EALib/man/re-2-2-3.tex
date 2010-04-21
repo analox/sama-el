@@ -1,0 +1,219 @@
+\subsection{Operators}
+
+\subsubsection{Assignment Operators}
+
+%---------------------------------------------------------------------------%
+\index{operator =!( const Chromosome\& c )}
+    \printMethodWithOneParam
+        {Chromosome\&}
+        {operator = } 
+        {const Chromosome\&}
+        {c} 
+        {Chromosome, from which values will be assigned to {\em this}.}
+        {Assigns the values in chromosome {\em c} to {\em this}.}
+        {The chromosome {\em this} with the new values.}
+        {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator =!( const vector$<$ T $>$\& c )}
+    \printMethodWithOneParam
+        {Chromosome\&}  
+        {operator = } 
+        {const vector$<$ {\sl T} $>$\&}
+        {c} 
+        {Vector, from which values will be assigned to {\em this}.}
+        {Assigns the values in vector {\em c} to {\em this}.}
+        {The chromosome {\em this} with the new values.}
+        {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator =!( const T\& c )}
+    \printMethodWithOneParam
+        {Chromosome\&}  
+        {operator = } 
+        {const {\sl T}\&}
+        {c} 
+        {Value that will be assigned to all alleles of {\em this}.}
+        {Assigns value {\em c} to all alleles of {\em this}.}
+        {The chromosome {\em this} with the new values.}
+        {None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsubsection{Comparison Operators}
+
+%---------------------------------------------------------------------------%
+\index{operator $<$!( const Chromosome\& c )}
+    \setConstInstance
+    \printMethodWithOneParam
+        {bool}  
+        {operator $<$\ } 
+        {const Chromosome\&}
+        {c} 
+        {Chromosome that will be compared to {\em this}.}
+        {Tests whether {\em this} is smaller than chromosome {\em c}.\\
+         {\em this} is smaller than {\em c} if {\em this} contains
+         less alleles than {\em c} or -- if both chromosomes have the
+         same number of alleles -- at least one allele value of {\em this}
+         is smaller than the corresponding value of {\em c}.}
+        {
+         {\em true}\hspace{2pt} - {\em this} is smaller than {\em c},\\
+         {\em false} - {\em this} is greater than {\em c} or both
+         chromosomes are equal.}
+        {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator ==!( const Chromosome\& c )}
+    \setConstInstance
+    \printMethodWithOneParam
+        {bool}  
+        {operator ==\ } 
+        {const Chromosome\&}
+        {c} 
+        {Chromosome that will be compared to {\em this}.}
+        {Tests whether the chromosomes {\em this} and {\em c} are
+         equal, i.e. both chromosomes must contain the same
+         number of alleles and each allele value of {\em this} must
+         be equal to the corresponding allele value of {\em c}.}
+        {
+         {\em true}\hspace{2pt} - {\em this} and {\em c} are equal,\\
+         {\em false} - {\em this} is greater or smaller than {\em c}.}
+        {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator $>$!( const Chromosome\& c )}
+    \setConstInstance
+    \printMethodWithOneParam
+        {bool}  
+        {operator $>$\ } 
+        {const Chromosome\&}
+        {c} 
+        {Chromosome that will be compared to {\em this}.}
+        {Tests whether {\em this} is greater than chromosome {\em c}.\\
+         {\em this} is greater than {\em c} if {\em this} contains
+         more alleles than {\em c} or - if both chromosomes have the
+         same number of alleles - at least one allele value of {\em this}
+         is greater than the corresponding value of {\em c}.}
+        {
+         {\em true}\hspace{2pt} - {\em this} is greater than {\em c},\\
+         {\em false} - {\em this} is smaller than {\em c} or both chromosomes
+         are equal.}
+        {None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{operator $<$=!( const Chromosome\& c )}
+    \setConstInstance
+    \printMethodWithOneParam
+        {bool}  
+        {operator $<=$\ } 
+        {const Chromosome\&}
+        {c} 
+        {Chromosome that will be compared to {\em this}.}
+        {Tests whether {\em this} is smaller than chromosome {\em c}
+         or both chromosomes are equal (see above).}
+        {
+         {\em true}\hspace{2pt} - {\em this} is smaller than {\em c} or both
+         chromosomes are equal,\\
+         {\em false} - {\em this} is greater than {\em c}.}
+        {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator $>$=!( const Chromosome\& c )}
+    \setConstInstance
+    \printMethodWithOneParam
+        {bool}  
+        {operator $>=$\ } 
+        {const Chromosome\&}
+        {c}
+        {Chromosome that will be compared to {\em this}.}
+        {Tests whether {\em this} is greater than chromosome {\em c}
+         or both chromosomes are equal (see above).}
+        {
+         {\em true}\hspace{2pt} - {\em this} is greater than {\em c} or both
+         chromosomes are equal,\\ 
+         {\em false} - {\em this} is smaller than {\em c}.}
+        {None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{operator $\mid$=!( const Chromosome\& c )}
+    \setConstInstance
+    \printMethodWithOneParam
+        {bool}  
+        {operator !$=$\ } 
+        {const Chromosome\&}
+        {c} 
+        {Chromosome that will be compared to {\em this}.}
+        {Tests whether {\em this} and chromosome {\em c} are
+         different, i.e. whether {\em this} is greater or
+         smaller than {\em c} (see above).}
+        {
+         {\em true}\hspace{2pt} - {\em this} and {\em c} are different,\\
+         {\em false} - {\em this} and {\em c} are equal.}
+        {None.}
+%---------------------------------------------------------------------------%
+
+\subsubsection{Operator to get Single Allele Values}
+
+%---------------------------------------------------------------------------%
+\index{operator [ ]!( unsigned allele )}
+    \setNormalInstance
+    \printMethodWithOneParam
+        {T}  
+        {operator [\ ]\ } 
+        {unsigned}
+        {allele} 
+        {Index of the allele to be returned. 
+         {\em allele} must $\in [0, |this|-1]$.
+         Otherwise
+         the method will be aborted with an error message.}
+        {Returns the value of the allele with index {\em allele}.}
+        {Allele number {\em allele}.}
+        {None.}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

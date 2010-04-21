@@ -1,0 +1,292 @@
+\form#0:$\lambda$
+\form#1:$n = $
+\form#2:$n = |w| + 1$
+\form#3:$w$
+\form#4:$g_{hidden}(x)$
+\form#5:$M$
+\form#6:$c$
+\form#7:$n$
+\form#8:$i \mbox{,\ } c \leq i < M - n$
+\form#9:$ z_i = g_{hidden}(x) = \frac{1}{1 + \exp (-a)} $
+\form#10:$a$
+\form#11:$ a = \left( \sum_{j=0}^{j<i} w_{ij} z_j + \Theta_i \right) $
+\form#12:$ \Theta_i $
+\form#13:$ z_i $
+\form#14:$g^*_{\mbox{hidden}}$
+\form#15:$ g^*_{hidden}(g_{hidden}(x)) = \frac{\partial g_{hidden}(x)}{\partial x} $
+\form#16:$g^*_{hidden}(g_{hidden}(x))$
+\form#17:$g_{output}(x)$
+\form#18:$i \mbox{,\ } M - n \leq i < M $
+\form#19:$ z_i = g_{output}(x) = \frac{1}{1 + \exp (-a)} $
+\form#20:$g^*_{\mbox{output}}$
+\form#21:$ g^*_{output}(g_{output}(x)) = \frac{\partial g_{output}(x)}{\partial x} $
+\form#22:$g^*_{output}(g_{output}(x))$
+\form#23:$f(x,w)$
+\form#24:$ \nabla f(w) = \left( \frac{\partial f}{\partial w_1}, \dots , \frac{\partial f}{\partial w_n} \right)^T $
+\form#25:$j$
+\form#26:$i$
+\form#27:$j < i$
+\form#28:$ \begin{array}{ll} var1 & ("0.25"\ "0.32"\ "0.99")\\ var2 & "testfile.dat"\\ var3 & 10\\ \end{array} $
+\form#29:$0.25$
+\form#30:$0.32$
+\form#31:$0.99$
+\form#32:$var1$
+\form#33:$testfile.dat$
+\form#34:$var2$
+\form#35:$10$
+\form#36:$var3$
+\form#37:$model(in)$
+\form#38:$in$
+\form#39:$target$
+\form#40:$N$
+\form#41:$P$
+\form#42:\[ E = \frac{1}{N} \sum_{p=1}^P\sum_{i=1}^N(model(in)_{ip} - target_{ip})^{2} \]
+\form#43:$E$
+\form#44:$ \frac{\partial E}{\partial w_i} $
+\form#45:$ EP = \frac{100}{(outmax - outmin)^2} \ast E $
+\form#46:$outmax$
+\form#47:$outmin$
+\form#48:$warmup-length$
+\form#49:$number\ of\ time\ steps$
+\form#50:$\tilde{x}$
+\form#51:$x_i$
+\form#52:$y_i \mbox{,\ } i = 1, \dots, m$
+\form#53:$ S^2 = \frac{1}{m} \sum_{i = 1}^m (y_i - \hat{y}(x_i))^2 $
+\form#54:$\hat{y}$
+\form#55:$ A = \frac{1}{S^2} \sum_{i = 1}^m \frac{\partial \hat{y}}{\partial w} \frac{\partial \hat{y}}{\partial w}^T $
+\form#56:$\hat{y} = f_{\hat{w}}(x)$
+\form#57:$x$
+\form#58:$y$
+\form#59:$\hat{w}$
+\form#60:$S^2$
+\form#61:$y_i$
+\form#62:$A$
+\form#63:$x_i \mbox{,\ } i = 1, \dots, m$
+\form#64:$A^{-1}$
+\form#65:$A^{-1} \cdot {\langle \frac{\partial \hat{y}}{\partial w}\frac{\partial \hat{y}}{\partial w}^T \rangle}_X \cdot A^{-1}$
+\form#66:${\langle \cdot \rangle}_X$
+\form#67:$X$
+\form#68:$(\tilde{x}, \tilde{y})$
+\form#69:$\sigma^2_{\hat{y}|x_r}$
+\form#70:$x_r$
+\form#71:$ {\langle \sigma^2_{\hat{y}} \rangle}_X = {\langle \frac{\partial \hat{y}}{\partial w}\rangle}_X^T A^{-1} {\langle \frac{\partial \hat{y}}{\partial w}\rangle}_X + \mbox{trace}(A^{-1} {\langle \frac{\partial \hat{y}}{\partial w} \rangle}_X^T {\langle \frac{\partial \hat{y}}{\partial w}\rangle}_X) $
+\form#72:${\langle \sigma^2_{\hat{y}} \rangle}_X$
+\form#73:$ \sigma^2_{\hat{y}|x_r} \approx \frac{\partial \hat{y}}{\partial w}^T A^{-1} \frac{\partial \hat{y}}{\partial w} $
+\form#74:$\tilde{y}$
+\form#75:\[ {\langle \Delta \sigma^2_{\hat{y}|\tilde{x}}\rangle}_{X,\tilde{Y}} = \frac{\frac{\partial \hat{y}}{\partial w}^T \cdot {\langle \frac{\partial \hat{y}}{\partial w}\frac{\partial \hat{y}}{\partial w}^T \rangle}_X \cdot A^{-1} \cdot \frac{\partial \hat{y}}{\partial w}}{S^2 + \frac{\partial \hat{y}}{\partial w}^T \cdot A^{-1} \cdot \frac{\partial \hat{y}}{\partial w}}, \]
+\form#76:${\langle \cdot \rangle}_{X, \tilde{Y}}$
+\form#77:$\tilde{Y}$
+\form#78:$\eta_i$
+\form#79:$w_i$
+\form#80:$\frac{\partial E}{\partial w_i}$
+\form#81:$t - 1$
+\form#82:$t$
+\form#83:$E^{(t)}$
+\form#84:$w_i,\ i = 1, \dots, n$
+\form#85:$\alpha$
+\form#86:$\eta$
+\form#87:$\eta_0$
+\form#88:$w^{(t)}$
+\form#89:\[ E(w) = E(w^{(t)}) + (w - w^{(t)})^{T} \frac{\partial E}{\partial w} \arrowvert_{w^{(t)}} + \frac{1}{2}(w - w^{(t)})^{T} H \arrowvert_{w^{(t)}} (w - w^{(t)}) \]
+\form#90:$H \arrowvert_{w^{(t)}}$
+\form#91:\[ h_{ij} \arrowvert_{w^{(t)}} = \frac{\partial^2 E} {\partial w_i \partial w_j} \arrowvert_{w^{(t)}} \]
+\form#92:\[ \nabla E \arrowvert_w \approx \nabla E \arrowvert_{w^{(t)}} + H \arrowvert_{w^{(t)}} (w - w^{(t)}) \]
+\form#93:$w^{opt}$
+\form#94:$ \nabla E \arrowvert_w^{(t)} = 0$
+\form#95:\[ w^{opt} - w^{(t)} \approx - H^{-1} \arrowvert_{w^{(t)}} \nabla E \arrowvert_{w^{(t)}} \]
+\form#96:$d$
+\form#97:$ E(\lambda) = E(w + \lambda d) $
+\form#98:\[ //! maximize f(\alpha) = l^T \alpha - \frac{1}{2} \alpha^T diag(d) K diag(d) \alpha //! \]
+\form#99:$ \sum_{i=1}^\ell e_i \alpha_i = 0 $
+\form#100:$ 0 \leq \alpha_i \leq u_i \,\forall\, i $
+\form#101:$ f(\alpha) = l^T \alpha - \frac{1}{2} \alpha^T D K D \alpha $
+\form#102:$ e^T \alpha = const $
+\form#103:$ 0 \leq \alpha_i \leq u_i \,\forall i $
+\form#104:\[ //! K \leftarrow K + diag(1 / u_i) \]
+\form#105:$ \alpha $
+\form#106:$ \alpha^* $
+\form#107:$ f(\alpha^*) $
+\form#108:$d^{(t)}$
+\form#109:$w^{(t + 1)}$
+\form#110:$ w^{(t + 1)} = w^{(t)} + \lambda^{(t)} d^{(t)}, \mbox{\ with\ } \lambda \mbox{\ used for minimization, i.e.} $
+\form#111:$ E_{min} = E(\lambda) = E( w^{(t)} + \lambda d^{(t)}). $
+\form#112:$g$
+\form#113:$ \frac{\partial}{\partial \lambda} E(w^{(t)} + \lambda d^{(t)}) = 0 $
+\form#114:$ g^{(t + 1)T} d^{(t)} = 0, \mbox{\ where\ } g \equiv \nabla E. $
+\form#115:$d^{(t + 1)}$
+\form#116:$ g(w^{(t + 1)} + \lambda d^{(t + 1)})^Td^{(t)} = 0 $
+\form#117:$ d^{(t + 1)T} H d^{(t)} = 0 $
+\form#118:$H$
+\form#119:$ d^{( t + 1)} := - \nabla E \arrowvert_{w^{(t + 1)}} + \frac{\nabla E \arrowvert^T_{w^{(t + 1)}} (\nabla E \arrowvert_{w^{(t + 1)}} - \nabla E \arrowvert_{w^{(t)}})} {\nabla E \arrowvert^T_{w^{(t + 1)}} \nabla E \arrowvert_{w^{(t)}}}d^{(t)} $
+\form#120:\[ //! \frac{1}{2} \left( \frac{a}{p} + \frac{b}{n} \right) . //! \]
+\form#121:$i+1$
+\form#122:$j > i$
+\form#123:\[ E = - \sum_{i=1}^N \sum_{k=1}^C \left\{tar^i_k \cdot\ln \frac{\exp{(model_k(in^i))}} {\sum_{k^{\prime}=1}^C \exp{(model_{k^{\prime}}(in^i))}} \right\} \]
+\form#124:\[ \sum_{k=1}^C \frac{\exp{(model_k(in^i))}}{\sum_{k^{\prime}=1}^C \exp{(model_{k^{\prime}}(in^i))}} = 1 \]
+\form#125:\[ E = - \sum_{i=1}^N \left\{tar^i\cdot \ln model(in^i) + (1-tar^i) \cdot\ln (1-model(in^i))\right\} \]
+\form#126:\[ E = - \sum_{i=1}^N \sum_{k=1}^C \left\{tar^i_k\cdot \ln \frac{\exp{(model_k(in^i))}} {\sum_{k^{\prime}=1}^C \exp{(model_{k^{\prime}}(in^i))}}\right\} \]
+\form#127:\[ E = - \sum_{i=1}^N \left\{tar^i\cdot \ln model(in^i) + (1-tar^i) \ln (1-model(in^i))\right\} \]
+\form#128:\[ \frac{\partial E}{\partial w} = - \sum_{i=1}^N \sum_{k=1}^C \left\{ \left( tar^i_k - \frac{\exp{(model_k(in^i))}}{\sum_{k^{\prime}=1}^C \exp{(model_{k^{\prime}}(in^i))}} \right) \cdot\frac{\partial model_k(in^i)}{\partial w}\right\} \]
+\form#129:\[ \frac{\partial E}{\partial w} = - \sum_{i=1}^N \left\{ \frac{tar^i - model(in^i)}{model(in^i)\cdot(1-model(in^i))} \cdot\frac{\partial model(in^i)}{\partial w}\right\} \]
+\form#130:\[ E = - \sum_{i=1}^N \sum_{k=1}^{C} \{tar^i_k \ln model_k(in^i) + (1-tar^i_k) \ln (1-model_k(in^i))\} \]
+\form#131:\[ E = - \sum_{i=1}^N \{tar^i \ln model(in^i) + (1-tar^i) \ln (1-model(in^i))\} \]
+\form#132:\[ \frac{\partial E}{\partial w} = - \sum_{i=1}^N \sum_{k=1}^{C} \left\{ \frac{tar^i_k - model_k(in^i)}{model_k(in^i)\cdot(1-model_k(in^i))} \cdot\frac{\partial model_k(in^i)}{\partial w}\right\} \]
+\form#133:\[ \frac{\partial E}{\partial w} = - \sum_{i=1}^N \sum_{k=1}^C \left\{ \left(tar^i_k - \frac{\exp{(model_k(in^i))}}{\sum_{k^{\prime}=1}^C \exp{(model_{k^{\prime}}(in^i))}} \right) \cdot\frac{\partial model_k(in^i)}{\partial w}\right\} \]
+\form#134:\[ E = \frac{1}{NP} \sum_{p=1}^P\sum_{i=1}^N(model(output)_{i}^{p} - target_{i}^{p})^{2} \]
+\form#135:$1000 \ast \frac{E_{T_{average}}}{E_{T_{min}} - 1}$
+\form#136:$E_{T_{average}}$
+\form#137:$E_{T_{min}}$
+\form#138:$100 \ast \frac{E_{V}}{E_{V_{min}} - 1}$
+\form#139:$E_{V}$
+\form#140:$E_{V_{min}}$
+\form#141:$\frac{GL}{TP}$
+\form#142:$\Delta$
+\form#143:$\Delta_i$
+\form#144:$\eta^+$
+\form#145:$\eta^-$
+\form#146:$\Delta w_i^{(t)}$
+\form#147:\[\frac{\partial E}{\partial \omega_i} = \frac{E(\omega_i + \epsilon) - E(\omega_i)}{\epsilon} + O(\epsilon) \]
+\form#148:\[ E = \frac{100}{NP(max\{out_{ip}\} - min\{out_{ip}\})^{2}} \sum_{p=1}^P\sum_{i=1}^N(model(in)_{ip} - out_{ip})^{2} \]
+\form#149:\[ E = \frac{1}{N} \sum_{p=1}^P\sum_{i=1}^N(model(in)_{ip} - out_{ip})^{2} \]
+\form#150:\[E = \sum_{p=1}^P\sum_{i=1}^N(model(in)_{ip} - out_{ip})^{2}\]
+\form#151:$ v = ( v_i ),\ \mbox{for\ } i = 1, \dots, N $
+\form#152:$ v_i = \frac{1}{P}\sum_{p=1}^P(data_{ip})^{2} - \left(\frac{1}{P}\sum_{p=1}^Pdata_{ip} \right) ^2 $
+\form#153:$2 \ast t$
+\form#154:$ E = \frac{1}{P}\ |A|\ \mbox{with\ } A = \{ in_i\ |\ binary(model(in_i)) \neq binary(out_i),\ i = 1, \dots, P\} $
+\form#155:$ \mbox{model(in)\ } = \left( \begin{array}{c} 0.1\\ 0.9\\ 0.5\\ 0.4\\ 0.3\\ 0.7\\ 0.5\\ 0.1\\ 0.8\\ 0.6\\ \end{array} \right) \Rightarrow \left( \begin{array}{c} 0\\ 1\\ 0\\ 0\\ 0\\ 1\\ 0\\ 0\\ 1\\ 1\\ \end{array} \right) \mbox{\ \ \ \ \ out\ } = \left( \begin{array}{c} 0.6 \\ 0.6 \\ 0.1 \\ 0.2 \\ 0.1 \\ 0.9 \\ 0.7 \\ 0.9 \\ 0.1 \\ 0.8\\ \end{array} \right) \Rightarrow \left( \begin{array}{c} 1\\ 1\\ 0\\ 0\\ 0\\ 1\\ 1\\ 1\\ 0\\ 1\\ \end{array} \right) $
+\form#156:$ \mbox{model(in)\ } = \left( \begin{array}{c} 0.1 \\ 0.9 \\ 0.5 \\ 0.4 \\ 0.3 \\ 0.7 \\ 0.5 \\ 0.1 \\ 0.8 \\ 0.6 \end{array} \right) \Rightarrow \left( \begin{array}{c} 0 \\ 1 \\ 0.5 \\ 0.4 \\ 0 \\ 0.7 \\ 0.5 \\ 0 \\ 1 \\ 0.6 \end{array} \right) \mbox{\ \ \ \ \ out\ } = \left( \begin{array}{c} 0.6 \\ 0.6 \\ 0.1 \\ 0.2 \\ 0.1 \\ 0.9 \\ 0.7 \\ 0.9 \\ 0.1 \\ 0.8 \end{array} \right) \Rightarrow \left( \begin{array}{c} 1 \\ 1 \\ 0 \\ 0 \\ 0 \\ 1 \\ 1 \\ 1 \\ 0 \\ 1 \end{array} \right)\\ $
+\form#157:$(i,j)$
+\form#158:$j \geq i$
+\form#159:$N \times N + 1$
+\form#160:$w_{ij}$
+\form#161:$j = N$
+\form#162:$c_{ij}$
+\form#163:$ z_i = in_i \mbox{,\ } 0 \leq i < c $
+\form#164:$x_0$
+\form#165:$+1$
+\form#166:$M \times M + 1$
+\form#167:$ C = \left( \begin{array}{cccccc} 0 & 0 & 0 & \cdots & 0 & c_{0b}\\ c_{10} & 0 & 0 & \cdots & 0 & c_{1b}\\ c_{20} & c_{21} & 0 & \cdots & 0 & c_{2b}\\ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\ c_{(M-1)0} & c_{(M-1)1} & c_{(M-1)2} & \cdots & 0 & c_{(M-1)b}\\ \end{array} \right)$
+\form#168:$c_{ij} = 0$
+\form#169:$w_{ij} = 0$
+\form#170:$\Theta$
+\form#171:$ W = \left( \begin{array}{cccccc} 0 & 0 & 0 & \cdots & 0 & \Theta_0\\ w_{10} & 0 & 0 & \cdots & 0 & \Theta_1\\ w_{20} & w_{21} & 0 & \cdots & 0 & \Theta_2\\ \vdots & \vdots & \vdots & \ddots & \vdots & \vdots\\ w_{(M-1)0} & w_{(M-1)1} & w_{(M-1)2} & \cdots & 0 & \Theta_{(M-1)}\\ \end{array} \right)$
+\form#172:$z$
+\form#173:$z_i = x_i,\ \mbox{for\ } 0 \leq i < c$
+\form#174:$z_i = g_{hidden}(x),\ \mbox{for\ } c \leq i < M - n$
+\form#175:$z_i = y_{i-M+n} = g_{output}(x),\ \mbox{for\ } M - n \leq i < M$
+\form#176:$n \times M$
+\form#177:$k \mbox{,\ } 0 \leq k < n$
+\form#178:$ d(k, j) = g^*_{\mbox{output}_k} $
+\form#179:$j = M - n + k$
+\form#180:$ d(k, j) = 0 $
+\form#181:$j \neq M - n + k$
+\form#182:$j \mbox{,\ } c \leq j < M - n $
+\form#183:$ d(k, j) = g^*_{hidden_j} \ast \sum_{i=j+1}^{i < M} w_{ij} \ast d(k, i) $
+\form#184:$tanh$
+\form#185:$ z_i = g_{hidden}(x) = \frac{a}{1 + fabs(a)} $
+\form#186:$-1, \dots, 1$
+\form#187:$ z_i = g_{hidden}(x) = tanh(a) = \frac{2}{(1 + e^{-2a}) - 1} $
+\form#188:$ z_i = g_{output}(x) = tanh(a) = \frac{2}{(1 + e^{-2a}) - 1} $
+\form#189:$ k(x, z) = exp(- (x-z)^T D^T D (x-z) ) $
+\form#190:$ \gamma = 1 $
+\form#191:$ k(x, z) = exp(- (x-z)^T M^T M (x-z) ) $
+\form#192:$ k(x, z) = exp(-(x-z)^2) $
+\form#193:$ \begin{array}{rrrrrr} 0.5 & 0.3 & 1.2 & 4.3 & 1.0 & 0.0\\ -2.3 & 3.4 & 5.0 & 3.1 & 1.0 & 1.0\\ 1.9 & -2.3 & -4.4 & 9.2 & 0.0 & 1.0\\ \end{array} $
+\form#194:$ \mbox{input patterns:}\\ \begin{array}{rrrr} 0.5 & 0.3 & 1.2 & 4.3\\ -2.3 & 3.4& 5 & 3.1\\ 1.9 & -2.3 & -4.4 & 9.2\\ \end{array}\\[1cm] \mbox{target values:}\\ \begin{array}{ll} 1 & 0\\ 1 & 1\\ 0 & 1\\ \end{array} $
+\form#195:\[ exp(-\gamma \|x_1 - x_2\|^2) \]
+\form#196:$\gamma > 0$
+\form#197:$\sigma = \sqrt{\gamma / 2}$
+\form#198:\[ // * k(x, z) = k_{base}(x, z) + \frac{1}{C} \delta_{x, z} // * \]
+\form#199:$ \delta $
+\form#200:$ C = \infty $
+\form#201:$\gamma$
+\form#202:$ C_+ $
+\form#203:$ C_- $
+\form#204:\[ //! \langle M, N \rangle := \sum_{i, j} \lambda_{ij} M_{ij} N_{ij} //! \]
+\form#205:$ \lambda_{ij} = n/p $
+\form#206:$ y_i = y_j = +1 $
+\form#207:$ \lambda_{ij} = 1 $
+\form#208:$ y_i \not= y_j $
+\form#209:$ \lambda_{ij} = p/n $
+\form#210:$ y_i = y_j = -1 $
+\form#211:\[ //! \hat A = \frac{\langle yy^T, K \rangle}{\|yy^T\| \cdot \|K\|} //! \]
+\form#212:$ \| M \| = \sqrt{\langle M, M \rangle} $
+\form#213:$ z_i = g_{output}(x) = a $
+\form#214:$ g^*_{output}(g_{output}(x)) = \frac{\partial g_{output}(x)}{\partial x} = 1.0 $
+\form#215:\[ E = \frac{1}{N} \sum_{p=1}^P\sum_{i=1}^N(model(output)_{ip} - target_{ip})^{2} \]
+\form#216:\[ \frac{E}{w_j} = \frac{2}{N} \sum_{p=1}^P \sum_{i=1}^N (model(in)_{ip} - out_{ip}) \frac{model(in)_{ip}}{w_j} \]
+\form#217:\[\frac{\partial m_j}{\partial \omega_i} = \frac{m_j(\omega_i + \epsilon) - m_j(\omega_i)}{\epsilon} + O(\epsilon) \]
+\form#218:$\sum_i c_i\, \frac{\partial}{\partial w^j} f^i_w(x^k)$
+\form#219:$c_i$
+\form#220:\[ \frac{\partial}{\partial \vec w} f^i_w(x^k) \]
+\form#221:$c_i=f^i_w(x)-t^i$
+\form#222:\[ \sum_i c_i\, \frac{\partial}{\partial w^j} f^i_w(x^k) = \frac{\partial}{\partial w^j}\, \Big[ \frac{1}{2}\, \sum_i(f^i_w(x^k)-t^i)^2 \Big] \]
+\form#223:$t^i$
+\form#224:$c_i=\delta_{il}$
+\form#225:$l$
+\form#226:\[ \frac{\partial}{\partial w^j} f^l_w(x^k) \]
+\form#227:\[ \frac{\partial}{\partial x^k} f^l_w(x^k) \]
+\form#228:$nHidden$
+\form#229:$\vec{m}_j=(m_{j1},\ldots,m_{jn})$
+\form#230:$\vec{\sigma}_j=(\sigma_{j1},\ldots,\sigma_{jn})$
+\form#231:$k$
+\form#232:$b_k$
+\form#233:$nInput$
+\form#234:$\vec{x}$
+\form#235:\[ y_k = b_k + \sum_{j=1}^{nHidden} \exp\left[ -\frac{1}{2}\sum_{i=1}^{nInput} \frac{\left(x_i-m_{ji}\right)2}{\sigma_{ji}}\right] \]
+\form#236:\[ E = \frac{1}{P\cdot nOutput}\sum_{p=1}^{P}\sum_{k=1}^{nOutput} \left(y_k^{(p)}-t_k^{(p)}\right)2 \]
+\form#237:$y_k^{(p)}$
+\form#238:$t_k^{(p)}$
+\form#239:$p^{th}$
+\form#240:$nOutput$
+\form#241:$input$
+\form#242:$model(input)$
+\form#243:$ E = \frac{1}{P\cdot N}\sum_{p=1}^{P}\sum_{i=1}^{N} \left(model(input)^{(p)}_i-target_i^{(p)}\right)2 $
+\form#244:$|\Delta w_i|$
+\form#245:$ax < bx$
+\form#246:$bx > ax$
+\form#247:$ 5^N $
+\form#248:$ 5^N - 3^N $
+\form#249:$\Delta_i^{(t)}$
+\form#250:$ \Delta_i^{(t)} = \Bigg\{ \begin{array}{ll} min( \eta^+ \cdot \Delta_i^{(t-1)}, \Delta_{max} ), & \mbox{if\ } \frac{\partial E^{(t-1)}}{\partial w_i} \cdot \frac{\partial E^{(t)}}{\partial w_i} > 0 \\ max( \eta^- \cdot \Delta_i^{(t-1)}, \Delta_{min} ), & \mbox{if\ } \frac{\partial E^{(t-1)}}{\partial w_i} \cdot \frac{\partial E^{(t)}}{\partial w_i} < 0 \\ \Delta_i^{(t-1)}, & \mbox{otherwise} \end{array} $
+\form#251:$\eta^+ > 1$
+\form#252:$0 < \eta^- < 1$
+\form#253:$[\Delta_{min}, \Delta_{max}]$
+\form#254:$ \Delta w_i^{(t)} := - \mbox{sign} \left( \frac{\partial E^{(t)}}{\partial w_i}\right) \cdot \Delta_i^{(t)} $
+\form#255:$ \mbox{if\ } \frac{\partial E^{(t-1)}}{\partial w_i} \cdot \frac{\partial E^{(t)}}{\partial w_i} < 0 \mbox{\ then} \{ $
+\form#256:$ \begin{array}{lll} \Delta w_i^{(t)} = \bigg\{ & - \Delta w_i^{(t-1)}, & \mbox{if\ } E^{(t)} > E^{(t - 1)} \\ & 0, & otherwise \\ \frac{\partial E^{(t)}}{\partial w_i} := 0 \end{array} $
+\form#257:$\}$
+\form#258:$i,\ i = 1, \dots, n$
+\form#259:$t + 1$
+\form#260:$ \Delta w_i^{(t + 1)} = \frac{g_i^{(t)}}{g_i^{t - 1} - g_i^{t}} \Delta w_i^{(t)} $
+\form#261:$g_i^{(t)} = \frac{\partial E}{\partial w_i^{(t)}}$
+\form#262:$\nu$
+\form#263:$ R^/\gamma^2 $
+\form#264:$ Q_{ij} = y_i y_j k(x_i, x_j) $
+\form#265:$w_{ji}$
+\form#266:$i^{th}$
+\form#267:$j^{th}$
+\form#268:$b_{k}$
+\form#269:$k^{th}$
+\form#270:$m_{ji}$
+\form#271:$\sigma_{ji}$
+\form#272:$\frac{\partial E^{(t-1)}}{\partial w_i} \cdot \frac{\partial E^{(t)}}{\partial w_i} < 0$
+\form#273:$\Delta w_i^{(t)} := - \Delta w_i^{(t-1)}; \frac{\partial E^{(t)}}{\partial w_i} := 0$
+\form#274:$\frac{\partial E^{(t)}}{\partial w_i} := 0$
+\form#275:$ \Delta_i^{(t)} = \Bigg\{ \begin{array}{ll} min( \eta^+ \cdot \Delta_i^{(t-1)}, \Delta_{max} ), & \mbox{if\ } \frac{\partial E^{(t-1)}}{\partial w_i} \cdot \frac{\partial E^{(t)}}{\partial w_i} > 0 \\ max( \eta^- \cdot \Delta_i^{(t-1)}, \Delta_{min} ); \frac{\partial E^{(t)}}{\partial w_i} := 0, & \mbox{if\ } \frac{\partial E^{(t-1)}}{\partial w_i} \cdot \frac{\partial E^{(t)}}{\partial w_i} < 0 \\ \Delta_i^{(t-1)}, & \mbox{otherwise} \end{array} $
+\form#276:$ x \mapsto \frac{1}{1+exp(Ax+B)} $
+\form#277:\[ \frac{E}{w_j} = 2 \sum_{p=1}^P \sum_{i=1}^N (model(in)_{ip} - out_{ip}) \frac{model(in)_{ip}}{w_j} \]
+\form#278:$ \eta $
+\form#279:$ \mu $
+\form#280:$t+1$
+\form#281:\[ \omega_{t+1} = \omega_t + \eta \nabla f(\omega_t) + \mu \Delta w_t \]
+\form#282:$ \omega_{t+1} = \omega_t + \eta \nabla f(\omega_t) + \mu \Delta w_t $
+\form#283:$ alpha_i $
+\form#284:$ 1 / C $
+\form#285:$ \ell_- C_+ = \ell_+ C_- $
+\form#286:$ C_- = \ell_ / \ell_+ C_+ $
+\form#287:$ alpha $
+\form#288:$ b $
+\form#289:$ \pm 1 $
+\form#290:$ C_- / C_+ $
+\form#291:$ C = exp(\tilde C) $

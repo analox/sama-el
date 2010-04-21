@@ -1,0 +1,135 @@
+\subsection{Recombination Methods}
+
+%---------------------------------------------------------------------------%
+\index{recombineIntermediate!( const Chromosome\& dadChrom, const Chromosome\& momChrom )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{dadChrom}{const Chromosome\&}{Father chromosome 
+used for the recombination. Must contain as many alleles as {\em momChrom},
+otherwise the method will be aborted with an error message.}
+\setParamTwo{momChrom}{const Chromosome\&}{Mother chromosome 
+used for the recombination. Must contain as many alleles as {\em dadChrom},
+otherwise the method will be aborted with an error message.}
+\printMethodWithParamsSaved
+{void}
+{}
+{recombineIntermediate}
+{Recombines {\em dadChrom} and {\em momChrom} with the intermediate method, 
+ i.e. one allele
+ of {\em this} will be assigned the average of the corresponding
+ alleles of the parent chromosomes. The size of {\em this} will be
+ adapted to the size of the parent chromosomes.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{recombineGenIntermediate!( const Chromosome\& dadChrom, const Chromosome\& momChrom )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{dadChrom}{const Chromosome\&}{See above.}
+\setParamTwo{momChrom}{const Chromosome\&}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{recombineGenIntermediate}
+{Recombines {\em dadChrom} and
+ {\em momChrom} with the generalized intermediate method, i.e.
+ one allele of {\em this} will be assigned an equally distributed
+ random number, which value is between the value of the corresponding
+ alleles of the parent chromosomes. The size of {\em this} will be
+ adapted to the size of the parent chromosomes.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{recombineGeomIntermediate!( const Chromosome\& dadChrom, const Chromosome\& momChrom )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{dadChrom}{const Chromosome\&}{See above.}
+\setParamTwo{momChrom}{const Chromosome\&}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{recombineGeomIntermediate}
+{Recombines {\em dadChrom} and
+ {\em momChrom} with the geometric intermediate method, i.e.
+ one allele of {\em this} will be assigned the square root of the
+ product of the corresponding alleles of the parent chromosomes i.e.
+ $this_i = \sqrt{dadChrom_i \cdot momChrom_i}$ for an allele with index
+ {\em i}. The size of {\em this} will be adapted to the size of 
+ the parent chromosomes.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{recombineIntermediate!( Chromosome\& mate )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{recombineIntermediate}
+{Chromosome\&}
+{mate}
+{Chromosome that will be recombined with {\em this}. {\em mate} must contain
+ as many alleles as {\em this}, otherwise the method will be aborted with
+ an error message.}
+{Recombines the chromosomes {\em this} and {\em mate} by using the
+ intermediate method, i.e. the old allele values of {\em this}
+ will be replaced by the average of the corresponding alleles of {\em mate}
+ and the old allele values of {\em this}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{recombineGenIntermediate!( Chromosome\& mate )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{recombineGenIntermediate}
+{Chromosome\&}
+{mate}
+{See above.}
+{Recombines the chromosomes {\em this} and {\em mate} by using the 
+ generalized intermediate method, i.e. the old allele values of 
+ {\em this}
+ will be replaced by equally distributed random numbers between
+ the average of the corresponding alleles of {\em mate}
+ and the old allele values of {\em this}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{recombineGeomIntermediate!( Chromosome\& mate )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{recombineGeomIntermediate}
+{Chromosome\&}
+{mate}
+{See above.}
+{Recombines the chromosomes {\em this} and {\em mate} by using the 
+ geometric intermediate method, i.e. the old allele values of 
+ {\em this}
+ will be replaced by the square root of the product of the corresponding 
+alleles of {\em mate}
+ and the old allele values of {\em this}, i.e.
+ $this_{i_{new}} = mate_{i_{new}} = \sqrt{this_{i_{old}} \cdot 
+    mate_{i_{old}}}$ 
+    for an allele with index {\em i}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%

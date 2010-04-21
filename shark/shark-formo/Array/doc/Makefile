@@ -1,0 +1,73 @@
+PACKAGE   = Array
+SHELL 	  = /bin/sh
+TMPFILE   = ./arraytmpfile
+ARRAYFILE = ../../include/Array/ArrayOp.h
+CXX 	  = g++
+DVIPS 	  = dvips
+
+all: 	prepdoc1 \
+	prepdoc2 \
+	prepare1 \
+	doxydoc  \
+	prepare2 \
+#	refman   \
+#	rename   \
+	cleanup
+
+
+clean:
+	-rm -fR *.o latex/*.dvi latex/*.aux latex/*.toc latex/*.log *.aux *.idx *.log *.toc *.SUP *.dsw *.ncb *.pdb *.obj *.opt *.plg *~ win_tmp arraytmpfile
+
+distclean: clean
+	-rm -fR prepdoc1 prepdoc1.exe prepdoc2 prepdoc2.exe $(PACKAGE)_Reference.html html latex
+
+doxydoc: $(PACKAGE).cfg
+	doxygen $(PACKAGE).cfg 
+
+prepdoc1.o: prepdoc1.cpp
+	@echo " ## Compiling documentation preparing program no. 1... "
+	$(CXX) -c prepdoc1.cpp 
+
+prepdoc1: prepdoc1.o
+	@echo " ## Linking documentation preparing program no. 1... "
+	$(CXX) -o prepdoc1 prepdoc1.o 
+
+prepdoc2.o: prepdoc2.cpp
+	@echo " ## Compiling documentation preparing program no. 2... "
+	$(CXX) -c prepdoc2.cpp 
+
+prepdoc2: prepdoc2.o
+	@echo " ## Linking documentation preparing program no. 2... "
+	$(CXX) -o prepdoc2 prepdoc2.o 
+
+prepare1: prepdoc1
+	@echo " ## Preparing documentation, part 1... "
+	@./prepdoc1 
+
+prepare2: prepdoc2
+	@echo " ## Preparing documentation, part 2... "
+	@./prepdoc2
+
+refman: latex/Makefile
+	@echo " ## Creating documentation (postscript-version)... "
+	cd latex ; \
+	make ; \
+	make ps
+
+rename: latex/refman.ps
+	@mv latex/refman.ps latex/$(PACKAGE)_Reference.ps 
+
+cleanup: $(TMPFILE)
+	@rm -f $(ARRAYFILE)
+	@cp -f $(TMPFILE) $(ARRAYFILE)
+	@rm -f $(TMPFILE)
+
+
+
+
+
+
+
+
+
+

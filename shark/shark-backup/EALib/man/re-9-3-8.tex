@@ -1,0 +1,46 @@
+\subsection{Methods for the Extraction of Individuals}
+
+%---------------------------------------------------------------------------%
+\index{random!( )}
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{Individual\&}
+{random}
+{Returns a randomly chosen individual of {\em this}.}
+{An individual of {\em this}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{matingPool!( unsigned chrom, unsigned from = 0, unsigned to = 0 )}
+\setConstInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{chrom}{unsigned}{Index of the chromosome to be
+extracted from the set of individuals.}
+\setParamTwo{from}{unsigned}{Index of the first individual of {\em this}
+from which the chromosome {\em chrom} shall be extracted. The default 
+index is 0. It is not checked, whether {\em from} is greater
+than the number of individuals in {\em this}.}
+\setParamThree{to}{unsigned}{Index of the last individual of {\em this}
+from which the chromosome {\em chrom} shall be extracted. The default
+index is 0. If {\em to} is less than {\em from}, an empty vector
+will be returned. It is not checked, whether {\em to} is greater
+than the number of individuals in {\em this}.}
+\printMethodWithParamsSaved
+{vector$<$ const Chromosome $\ast$ $>$}
+{Vector with the extracted chromosomes.}
+{matingPool}
+{Extracts all chromosomes with index {\em chrom} out of the set
+ of chromosomes from index {\em from} to index {\em to}, stores
+ them in a vector and then returns this vector. If {\em from}
+ and {\em to} are set to their default value 0, then the
+ chromosomes with index {\em chrom} will be extracted from all
+ individuals of {\em this}.\\
+ Example: {\em chrom} = 3, {\em from} = 1, {\em to} = 6. From
+ the individuals with indices 1 to 6, the chromosome with index
+ 3 will be extracted and stored in the chromosome pool.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%

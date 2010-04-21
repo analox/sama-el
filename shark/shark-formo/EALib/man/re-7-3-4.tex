@@ -1,0 +1,169 @@
+\subsection{Mutation Methods}
+
+%---------------------------------------------------------------------------%
+\index{mutateNormal!( double stddev )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{mutateNormal}
+{double}
+{stddev}
+{Standard deviation for normally distributed random values.}
+{Mutates all alleles of {\em this} by adding a normally distributed
+ random value between "0" and the standard deviation {\em stddev}
+ to the allele value.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateNormal!( const vector$<$ double $>$\& stddev, bool cycle )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{stddev}{const vector$<$ double $>$ \&}{Vector that
+contains standard deviation values for the single alleles of {\em this}.
+{\em stddev} should contain at most as many values as there are
+alleles in {\em this}. Otherwise the method will be aborted with an error
+message.}
+\setParamTwo{cycle}{bool}{Specifies, whether {\em stddev} can be
+used circular ({\em cycle} = "true") or not ({\em cycle} = "false",
+this is also the default).}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateNormal}
+{Same as above, but here vector {\em stddev} contains a
+ standard deviation value for each single allele of {\em this}.
+ As {\em stddev} can contain less values than there are alleles in 
+ {\em this}, the flag {\em cycle} denotes, whether {\em cycle}
+ can be used circular or not.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateNormal!( const Chromosome\& stddev, bool cycle )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{stddev}{const Chromosome \&}{See above.}
+\setParamTwo{cycle}{bool}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateNormal}
+{Same as above, but here a chromosome is used to store the
+ standard deviation values.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateNormal!( const ChromosomeT$<$ double $>$\& stddev, bool cycle )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{stddev}{const ChromosomeT$<$ double $>$\&}{See above.}
+\setParamTwo{cycle}{bool}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateNormal}
+{Same as above, but here a {\tt double} chromosome is used to store
+ the standard deviation values.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateCauchy!( double scale )}
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{mutateCauchy}
+{double}
+{scale}            
+{Scaling value for the random numbers.}
+{Mutates all alleles of {\em this} by adding random numbers
+ produced by the Cauchy method to the allele values. The random
+ numbers will be scaled with {\em scale}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateCauchy!( const vector$<$ double $>$\& scale, bool cycle = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{scale}{const vector$<$ double $>$\&}{Vector with scaling
+values for each allele of {\em this}. {\em scale} must contain at most
+as many values as there are alleles in {\em this}. Otherwise the method 
+will be
+aborted with an error message.}
+\setParamTwo{cycle}{bool}{Specifies, whether {\em scale} can be used
+circular ({\em cycle} = ``true'') or not ({\em cycle} = ``false'').}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateCauchy}
+{Same as above, but here every allele of {\em this} has its own
+ corresponding scaling value. These values are stored in vector {\em scale}.
+ As {\em scale} can contain less values than there are alleles in {\em this},
+ the flag {\em cycle} specifies, whether {\em scale} can be used
+ circular or not.} 
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateCauchy!( const Chromosome\& scale, bool cycle = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{scale}{const Chromosome\&}{See above.}
+\setParamTwo{cycle}{bool}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateCauchy}
+{Same as above, but here a chromosome is used to store the scaling
+ values for the alleles of {\em this}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateCauchy!( const ChromosomeT$<$ double $>$\& scale, bool cycle = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{scale}{const ChromosomeT$<$ double $>$\&}{See above.}
+\setParamTwo{cycle}{bool}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateCauchy}
+{Same as above, but here a {\tt double} chromosome is used to
+ store the scaling values for the alleles of {\em this}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+
+
+
+

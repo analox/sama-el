@@ -1,0 +1,118 @@
+\subsection{Information Retrieval Methods}
+
+%---------------------------------------------------------------------------%
+\index{size!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{unsigned}
+{size}
+{Returns the number of chromosome in {\em this}.}
+{Number of chromosomes in {\em this}.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{totalSize!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{unsigned}
+{totalSize}
+{Returns the number of all alleles of the chromosomes in {\em this}.}
+{The whole number of alleles in {\em this}.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{fitnessValue!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{double}
+{fitnessValue}
+{Returns the fitness value of the current individual {\em this}.}
+{Fitness value of {\em this}.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{getAge!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{unsigned}
+{getAge}
+{Returns the age of {\em this}, i.e. the generation {\em this} is from.}
+{Age of {\em this}.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{needEvaluation!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{bool}
+{needEvaluation}
+{Returns the status of the {\em evalFlg}, i.e. whether the individual must 
+ be evaluated.}
+{Status of {\em evalFlg}:\\
+ {\em true} - An evaluation of {\em this} is necessary,\\
+ {\em false} - The individual needs no evaluation.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{selectionProbability!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{double}
+{selectionProbability}
+{Returns the selection probability for {\em this}.}
+{The selection probability of {\em this}.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{isFeasible!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{bool}
+{isFeasible}
+{Returns whether {\em this} is a possible solution for the
+ current optimization problem.}
+{Status of the {\em feasible}-flag:\\
+ {\em true} - The individual is a possible solution,\\
+ {\em false} - The individual cannot used as solution.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{numberOfCopies!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{unsigned}
+{numberOfCopies}
+{Returns the number of reproductions of {\em this} that occured
+ during the last selection.}
+{Number of reproductions of {\em this}.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{isElitist!( )}
+\setConstInstance
+\printEmptyMethodReturn
+{bool}
+{isElitist}
+{Returns the status of the {\em elitist}-flag, i.e. whether {\em this} 
+ was chosen as elite individual during the last selection.}
+{Status of the {\em elitist}-flag:\\
+ {\em true} - The individual was chosen as elitist,\\
+ {\em false} - The individual was not chosen.}
+%---------------------------------------------------------------------------%
+

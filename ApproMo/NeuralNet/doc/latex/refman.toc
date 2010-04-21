@@ -1,0 +1,93 @@
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}
+\contentsline {chapter}{\numberline {2}Compound Index}{3}
+\contentsline {section}{\numberline {2.1}Compound List}{3}
+\contentsline {chapter}{\numberline {3}File Index}{5}
+\contentsline {section}{\numberline {3.1}File List}{5}
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}
+\contentsline {section}{\numberline {4.1}Evo\discretionary {-}{}{}Net Class Reference}{7}
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{8}
+\contentsline {subsection}{\numberline {4.1.2}Constructor \& Destructor Documentation}{9}
+\contentsline {subsubsection}{\numberline {4.1.2.1}\setlength {\rightskip }{0pt plus 5cm}Evo\discretionary {-}{}{}Net::Evo\discretionary {-}{}{}Net (string {\em Filename})}{9}
+\contentsline {subsubsection}{\numberline {4.1.2.2}\setlength {\rightskip }{0pt plus 5cm}Evo\discretionary {-}{}{}Net::Evo\discretionary {-}{}{}Net (const unsigned {\em in}, const unsigned {\em out})}{9}
+\contentsline {subsubsection}{\numberline {4.1.2.3}\setlength {\rightskip }{0pt plus 5cm}Evo\discretionary {-}{}{}Net::Evo\discretionary {-}{}{}Net (const unsigned {\em in}, const unsigned {\em out}, const Array$<$ int $>$ \& {\em cmat}, const Array$<$ double $>$ \& {\em wmat})}{9}
+\contentsline {subsection}{\numberline {4.1.3}Member Function Documentation}{9}
+\contentsline {subsubsection}{\numberline {4.1.3.1}\setlength {\rightskip }{0pt plus 5cm}double Evo\discretionary {-}{}{}Net::Error\_\discretionary {-}{}{}MSE (Database {\em Data})}{9}
+\contentsline {subsubsection}{\numberline {4.1.3.2}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Evaluate (Array$<$ double $>$ {\em Input\discretionary {-}{}{}Data}, Array$<$ double $>$ \& {\em Output\discretionary {-}{}{}Data})}{10}
+\contentsline {subsubsection}{\numberline {4.1.3.3}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Evaluate (Individual \& {\em offspring})}{10}
+\contentsline {subsubsection}{\numberline {4.1.3.4}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Evaluate (Population \& {\em offsprings})}{10}
+\contentsline {subsubsection}{\numberline {4.1.3.5}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Get\discretionary {-}{}{}Input\discretionary {-}{}{}Dimension ()}{10}
+\contentsline {subsubsection}{\numberline {4.1.3.6}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Get\discretionary {-}{}{}Learn\discretionary {-}{}{}Steps ()}{10}
+\contentsline {subsubsection}{\numberline {4.1.3.7}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Get\discretionary {-}{}{}Output\discretionary {-}{}{}Dimension ()}{11}
+\contentsline {subsubsection}{\numberline {4.1.3.8}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Load (string {\em Filename})}{11}
+\contentsline {subsubsection}{\numberline {4.1.3.9}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Save (string {\em Filename})}{11}
+\contentsline {subsubsection}{\numberline {4.1.3.10}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Set\discretionary {-}{}{}Learn\discretionary {-}{}{}Steps (unsigned {\em New\discretionary {-}{}{}Step})}{11}
+\contentsline {subsubsection}{\numberline {4.1.3.11}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::set\discretionary {-}{}{}Structure (const Array$<$ int $>$ \& {\em cmat}, const Array$<$ double $>$ \& {\em wmat})}{11}
+\contentsline {subsubsection}{\numberline {4.1.3.12}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Structure\discretionary {-}{}{}Optimization (Database {\em Data})}{12}
+\contentsline {subsubsection}{\numberline {4.1.3.13}\setlength {\rightskip }{0pt plus 5cm}int Evo\discretionary {-}{}{}Net::Train (Database {\em Data})}{12}
+\contentsline {section}{\numberline {4.2}FFManip Class Reference}{13}
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{14}
+\contentsline {subsection}{\numberline {4.2.2}Member Function Documentation}{14}
+\contentsline {subsubsection}{\numberline {4.2.2.1}\setlength {\rightskip }{0pt plus 5cm}void FFManip::connect\discretionary {-}{}{}New (Array$<$ int $>$ \& {\em c}, Array$<$ double $>$ \& {\em w}, unsigned {\em pos}, double {\em low}, double {\em high})\hspace {0.3cm}{\tt [protected]}}{14}
+\contentsline {subsubsection}{\numberline {4.2.2.2}\setlength {\rightskip }{0pt plus 5cm}Array$<$unsigned$>$ FFManip::dispensable\discretionary {-}{}{}FFConnection (Array$<$ int $>$ \& {\em c}, const unsigned {\em n\discretionary {-}{}{}In}, const unsigned {\em n\discretionary {-}{}{}Hid})\hspace {0.3cm}{\tt [protected]}}{14}
+\contentsline {subsubsection}{\numberline {4.2.2.3}\setlength {\rightskip }{0pt plus 5cm}Array$<$unsigned$>$ FFManip::feasible\discretionary {-}{}{}FFConnection (Array$<$ int $>$ \& {\em c}, const unsigned {\em n\discretionary {-}{}{}In}, const unsigned {\em n\discretionary {-}{}{}Hid})\hspace {0.3cm}{\tt [protected]}}{15}
+\contentsline {subsubsection}{\numberline {4.2.2.4}\setlength {\rightskip }{0pt plus 5cm}Array$<$int$>$ FFManip::init\discretionary {-}{}{}FFBulk (const unsigned {\em n\discretionary {-}{}{}In}, const unsigned {\em n\discretionary {-}{}{}Hid}, const unsigned {\em n\discretionary {-}{}{}Out}, const double {\em prob})\hspace {0.3cm}{\tt [protected]}}{15}
+\contentsline {subsubsection}{\numberline {4.2.2.5}\setlength {\rightskip }{0pt plus 5cm}Array$<$int$>$ FFManip::init\discretionary {-}{}{}FFOL (const unsigned {\em n\discretionary {-}{}{}In}, const unsigned {\em n\discretionary {-}{}{}Hid}, const unsigned {\em n\discretionary {-}{}{}Out}, const double {\em prob1}, const double {\em prob2}, const double {\em prob3})\hspace {0.3cm}{\tt [protected]}}{15}
+\contentsline {subsubsection}{\numberline {4.2.2.6}\setlength {\rightskip }{0pt plus 5cm}unsigned FFManip::n\discretionary {-}{}{}Input (Array$<$ int $>$ \& {\em c}, const unsigned {\em N})\hspace {0.3cm}{\tt [protected]}}{15}
+\contentsline {subsubsection}{\numberline {4.2.2.7}\setlength {\rightskip }{0pt plus 5cm}unsigned FFManip::n\discretionary {-}{}{}Output (Array$<$ int $>$ \& {\em c}, const unsigned {\em N})\hspace {0.3cm}{\tt [protected]}}{16}
+\contentsline {subsubsection}{\numberline {4.2.2.8}\setlength {\rightskip }{0pt plus 5cm}void FFManip::pull\discretionary {-}{}{}Through (Array$<$ int $>$ \& {\em c\discretionary {-}{}{}Old}, Array$<$ int $>$ \& {\em c}, Array$<$ double $>$ \& {\em w}, unsigned, double {\em low}, double {\em high})\hspace {0.3cm}{\tt [protected]}}{16}
+\contentsline {subsubsection}{\numberline {4.2.2.9}\setlength {\rightskip }{0pt plus 5cm}void FFManip::repair\discretionary {-}{}{}Bulk (Array$<$ int $>$ \& {\em c}, const unsigned {\em n\discretionary {-}{}{}In}, const unsigned {\em n\discretionary {-}{}{}Hid}, const unsigned {\em n\discretionary {-}{}{}Out})\hspace {0.3cm}{\tt [protected]}}{16}
+\contentsline {subsubsection}{\numberline {4.2.2.10}\setlength {\rightskip }{0pt plus 5cm}void FFManip::repair\discretionary {-}{}{}OL (Array$<$ int $>$ \& {\em c}, const unsigned {\em n\discretionary {-}{}{}In}, const unsigned {\em n\discretionary {-}{}{}Hid}, const unsigned {\em n\discretionary {-}{}{}Out})\hspace {0.3cm}{\tt [protected]}}{16}
+\contentsline {section}{\numberline {4.3}FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu Class Reference}{17}
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{18}
+\contentsline {subsection}{\numberline {4.3.2}Member Function Documentation}{18}
+\contentsline {subsubsection}{\numberline {4.3.2.1}\setlength {\rightskip }{0pt plus 5cm}Individual FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::create\discretionary {-}{}{}Empty (const unsigned {\em n\discretionary {-}{}{}In}, const unsigned {\em n\discretionary {-}{}{}Hidden}, const unsigned {\em n\discretionary {-}{}{}Out})}{18}
+\contentsline {subsubsection}{\numberline {4.3.2.2}\setlength {\rightskip }{0pt plus 5cm}Array$<$double$>$ FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::get\discretionary {-}{}{}Activation (Individual \& {\em Ind})}{18}
+\contentsline {subsubsection}{\numberline {4.3.2.3}\setlength {\rightskip }{0pt plus 5cm}Array$<$int$>$ FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::get\discretionary {-}{}{}Connections\discretionary {-}{}{}Re\discretionary {-}{}{}Cla\discretionary {-}{}{}M (Individual \& {\em Ind})}{18}
+\contentsline {subsubsection}{\numberline {4.3.2.4}\setlength {\rightskip }{0pt plus 5cm}Array$<$int$>$ FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::get\discretionary {-}{}{}Connections\discretionary {-}{}{}Without\discretionary {-}{}{}Bias (Individual \& {\em Ind})}{18}
+\contentsline {subsubsection}{\numberline {4.3.2.5}\setlength {\rightskip }{0pt plus 5cm}Array$<$double$>$ FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::get\discretionary {-}{}{}Gain (Individual \& {\em Ind})}{19}
+\contentsline {subsubsection}{\numberline {4.3.2.6}\setlength {\rightskip }{0pt plus 5cm}Array$<$double$>$ FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::get\discretionary {-}{}{}Weights\discretionary {-}{}{}Re\discretionary {-}{}{}Cla\discretionary {-}{}{}M (Individual \& {\em Ind})}{19}
+\contentsline {subsubsection}{\numberline {4.3.2.7}\setlength {\rightskip }{0pt plus 5cm}void FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::print\discretionary {-}{}{}Net (Individual \& {\em Ind}, string {\em filename})}{19}
+\contentsline {subsubsection}{\numberline {4.3.2.8}\setlength {\rightskip }{0pt plus 5cm}void FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::print\discretionary {-}{}{}Net\discretionary {-}{}{}Without\discretionary {-}{}{}Bias (Individual \& {\em Ind}, string {\em filename})}{19}
+\contentsline {subsubsection}{\numberline {4.3.2.9}\setlength {\rightskip }{0pt plus 5cm}void FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::set\discretionary {-}{}{}Activation (Individual \& {\em Ind}, Array$<$ double $>$ {\em activation})}{19}
+\contentsline {subsubsection}{\numberline {4.3.2.10}\setlength {\rightskip }{0pt plus 5cm}void FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::set\discretionary {-}{}{}Connections\discretionary {-}{}{}Re\discretionary {-}{}{}Cla\discretionary {-}{}{}M (Individual \& {\em Ind}, Array$<$ int $>$ {\em c\discretionary {-}{}{}R})}{20}
+\contentsline {subsubsection}{\numberline {4.3.2.11}\setlength {\rightskip }{0pt plus 5cm}void FFOps\_\discretionary {-}{}{}Basic\_\discretionary {-}{}{}neu::set\discretionary {-}{}{}Weights\discretionary {-}{}{}Re\discretionary {-}{}{}Cla\discretionary {-}{}{}M (Individual \& {\em Ind}, Array$<$ double $>$ {\em c\discretionary {-}{}{}W})}{20}
+\contentsline {section}{\numberline {4.4}FFOps\_\discretionary {-}{}{}OL\_\discretionary {-}{}{}neu Class Reference}{21}
+\contentsline {subsection}{\numberline {4.4.1}Detailed Description}{21}
+\contentsline {subsection}{\numberline {4.4.2}Member Function Documentation}{21}
+\contentsline {subsubsection}{\numberline {4.4.2.1}\setlength {\rightskip }{0pt plus 5cm}void FFOps\_\discretionary {-}{}{}OL\_\discretionary {-}{}{}neu::add\discretionary {-}{}{}Connection (Individual \& {\em Ind}, double {\em low}, double {\em high})}{21}
+\contentsline {subsubsection}{\numberline {4.4.2.2}\setlength {\rightskip }{0pt plus 5cm}void FFOps\_\discretionary {-}{}{}OL\_\discretionary {-}{}{}neu::add\discretionary {-}{}{}Neuron (Individual \& {\em Ind}, double {\em low}, double {\em high})}{22}
+\contentsline {subsubsection}{\numberline {4.4.2.3}\setlength {\rightskip }{0pt plus 5cm}void FFOps\_\discretionary {-}{}{}OL\_\discretionary {-}{}{}neu::delete\discretionary {-}{}{}Connection (Individual \& {\em Ind}, const double {\em sigma} = -1)}{22}
+\contentsline {subsubsection}{\numberline {4.4.2.4}\setlength {\rightskip }{0pt plus 5cm}void FFOps\_\discretionary {-}{}{}OL\_\discretionary {-}{}{}neu::delete\discretionary {-}{}{}Neuron (Individual \& {\em Ind})}{22}
+\contentsline {subsubsection}{\numberline {4.4.2.5}\setlength {\rightskip }{0pt plus 5cm}void FFOps\_\discretionary {-}{}{}OL\_\discretionary {-}{}{}neu::init\discretionary {-}{}{}Connections (Individual \& {\em Ind}, double {\em prob1} = 1.0, double {\em prob2} = 1.0, double {\em prob3} = 1.0)}{22}
+\contentsline {section}{\numberline {4.5}My\discretionary {-}{}{}Net Class Reference}{23}
+\contentsline {subsection}{\numberline {4.5.1}Detailed Description}{23}
+\contentsline {subsection}{\numberline {4.5.2}Constructor \& Destructor Documentation}{24}
+\contentsline {subsubsection}{\numberline {4.5.2.1}\setlength {\rightskip }{0pt plus 5cm}My\discretionary {-}{}{}Net::My\discretionary {-}{}{}Net (const string \& {\em filename})\hspace {0.3cm}{\tt [inline]}}{24}
+\contentsline {subsubsection}{\numberline {4.5.2.2}\setlength {\rightskip }{0pt plus 5cm}My\discretionary {-}{}{}Net::My\discretionary {-}{}{}Net (const unsigned {\em in}, const unsigned {\em out}, const Array$<$ int $>$ \& {\em cmat}, const Array$<$ double $>$ \& {\em wmat})\hspace {0.3cm}{\tt [inline]}}{24}
+\contentsline {section}{\numberline {4.6}Ops\_\discretionary {-}{}{}Basic Class Reference}{25}
+\contentsline {subsection}{\numberline {4.6.1}Detailed Description}{26}
+\contentsline {subsection}{\numberline {4.6.2}Member Function Documentation}{27}
+\contentsline {subsubsection}{\numberline {4.6.2.1}\setlength {\rightskip }{0pt plus 5cm}Individual Ops\_\discretionary {-}{}{}Basic::create\discretionary {-}{}{}Empty (const unsigned {\em n\discretionary {-}{}{}In}, const unsigned {\em n\discretionary {-}{}{}Hid}, const unsigned {\em n\discretionary {-}{}{}Out}, const unsigned {\em n\discretionary {-}{}{}Delay})}{27}
+\contentsline {subsubsection}{\numberline {4.6.2.2}\setlength {\rightskip }{0pt plus 5cm}void Ops\_\discretionary {-}{}{}Basic::del\discretionary {-}{}{}Neuron (Individual \& {\em Ind}, unsigned {\em N})\hspace {0.3cm}{\tt [protected]}}{27}
+\contentsline {subsubsection}{\numberline {4.6.2.3}\setlength {\rightskip }{0pt plus 5cm}Array$<$int$>$ Ops\_\discretionary {-}{}{}Basic::get\discretionary {-}{}{}Connections (Individual \& {\em Ind}, unsigned {\em entry})}{27}
+\contentsline {subsubsection}{\numberline {4.6.2.4}\setlength {\rightskip }{0pt plus 5cm}unsigned Ops\_\discretionary {-}{}{}Basic::get\discretionary {-}{}{}NDelay (Individual \& {\em Ind})}{27}
+\contentsline {subsubsection}{\numberline {4.6.2.5}\setlength {\rightskip }{0pt plus 5cm}unsigned Ops\_\discretionary {-}{}{}Basic::get\discretionary {-}{}{}NHid (Individual \& {\em Ind})}{27}
+\contentsline {subsubsection}{\numberline {4.6.2.6}\setlength {\rightskip }{0pt plus 5cm}unsigned Ops\_\discretionary {-}{}{}Basic::get\discretionary {-}{}{}NIn (Individual \& {\em Ind})}{28}
+\contentsline {subsubsection}{\numberline {4.6.2.7}\setlength {\rightskip }{0pt plus 5cm}unsigned Ops\_\discretionary {-}{}{}Basic::get\discretionary {-}{}{}NNeurons (Individual \& {\em Ind})\hspace {0.3cm}{\tt [protected]}}{28}
+\contentsline {subsubsection}{\numberline {4.6.2.8}\setlength {\rightskip }{0pt plus 5cm}unsigned Ops\_\discretionary {-}{}{}Basic::get\discretionary {-}{}{}NOut (Individual \& {\em Ind})}{28}
+\contentsline {subsubsection}{\numberline {4.6.2.9}\setlength {\rightskip }{0pt plus 5cm}unsigned Ops\_\discretionary {-}{}{}Basic::get\discretionary {-}{}{}NParameter (Individual \& {\em Ind})}{28}
+\contentsline {subsubsection}{\numberline {4.6.2.10}\setlength {\rightskip }{0pt plus 5cm}Array$<$double$>$ Ops\_\discretionary {-}{}{}Basic::get\discretionary {-}{}{}Weights (Individual \& {\em Ind}, unsigned {\em entry})}{28}
+\contentsline {subsubsection}{\numberline {4.6.2.11}\setlength {\rightskip }{0pt plus 5cm}Array$<$double$>$ Ops\_\discretionary {-}{}{}Basic::get\discretionary {-}{}{}Weights (Individual \& {\em Ind})}{28}
+\contentsline {subsubsection}{\numberline {4.6.2.12}\setlength {\rightskip }{0pt plus 5cm}void Ops\_\discretionary {-}{}{}Basic::init\discretionary {-}{}{}Weights (Individual \& {\em Ind}, double {\em low}, double {\em high})}{29}
+\contentsline {subsubsection}{\numberline {4.6.2.13}\setlength {\rightskip }{0pt plus 5cm}void Ops\_\discretionary {-}{}{}Basic::ins\discretionary {-}{}{}Neuron (Individual \& {\em Ind}, unsigned {\em N})\hspace {0.3cm}{\tt [protected]}}{29}
+\contentsline {subsubsection}{\numberline {4.6.2.14}\setlength {\rightskip }{0pt plus 5cm}void Ops\_\discretionary {-}{}{}Basic::jog\discretionary {-}{}{}Weights (Individual \& {\em Ind}, const double {\em stdv}, double {\em prob} = 1.0)}{29}
+\contentsline {subsubsection}{\numberline {4.6.2.15}\setlength {\rightskip }{0pt plus 5cm}void Ops\_\discretionary {-}{}{}Basic::set\discretionary {-}{}{}NHid (Individual \& {\em Ind}, unsigned {\em n\discretionary {-}{}{}Hid})\hspace {0.3cm}{\tt [protected]}}{29}
+\contentsline {subsubsection}{\numberline {4.6.2.16}\setlength {\rightskip }{0pt plus 5cm}void Ops\_\discretionary {-}{}{}Basic::set\discretionary {-}{}{}Structure (Individual \& {\em Ind}, const Array$<$ int $>$ \& {\em c})}{29}
+\contentsline {subsubsection}{\numberline {4.6.2.17}\setlength {\rightskip }{0pt plus 5cm}void Ops\_\discretionary {-}{}{}Basic::set\discretionary {-}{}{}Structure (Individual \& {\em Ind}, const Array$<$ int $>$ \& {\em c}, unsigned {\em entry})}{30}
+\contentsline {subsubsection}{\numberline {4.6.2.18}\setlength {\rightskip }{0pt plus 5cm}void Ops\_\discretionary {-}{}{}Basic::set\discretionary {-}{}{}Structure (Individual \& {\em Ind}, const Array$<$ double $>$ \& {\em w})}{30}
+\contentsline {subsubsection}{\numberline {4.6.2.19}\setlength {\rightskip }{0pt plus 5cm}void Ops\_\discretionary {-}{}{}Basic::set\discretionary {-}{}{}Structure (Individual \& {\em Ind}, const Array$<$ double $>$ \& {\em w}, unsigned {\em entry})}{30}
+\contentsline {subsubsection}{\numberline {4.6.2.20}\setlength {\rightskip }{0pt plus 5cm}unsigned Ops\_\discretionary {-}{}{}Basic::wheel\discretionary {-}{}{}Of\discretionary {-}{}{}Fortune (Array$<$ double $>$ \& {\em prob})\hspace {0.3cm}{\tt [protected]}}{30}
+\contentsline {chapter}{\numberline {5}File Documentation}{31}
+\contentsline {section}{\numberline {5.1}Evo\discretionary {-}{}{}Net.h File Reference}{31}
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{31}

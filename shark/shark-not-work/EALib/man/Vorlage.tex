@@ -1,0 +1,893 @@
+% =======================================================================
+% Dateiname:        Vorlage.tex
+% Autor:            Ruediger Alberts
+% EMail:            Ruediger.Alberts@neuroinformatik.ruhr-uni-bochum.de
+% Erstellt am:      1999-09-07
+% Letzte Aenderung: 1999-09-09
+%
+% Datei wird mit Befehl ``\input{Vorlage}'' in LaTex-Dokumente 
+% (Latex2Epsilon) eingebunden und stellt Befehle zur einfachen Doku- 
+% mentation von C-Funktionen/C++-Methoden bereit.
+% =======================================================================
+
+\usepackage{ifthen}
+
+    % Definition von Konstanten:
+    \newcommand{\ParamDelim}            % Trennungstext zwischen
+        { \ - }                         % Parametername und -beschreibung.
+    \newcommand{\NormMethodEnd}         % Endtext von Methode bei 
+        {\ \ );}                        % veraenderbarer Aufrufinstanz.
+    \newcommand{\ConstMethodEnd}        % Endtext von Methode bei
+        {\ \ ) const;}                  % nicht veraenderbarer Aufrufinstanz.
+    \newcommand{\MaxLabelTxt}           % Komponentenbeschreibungstext
+        {{\bf Besonderheiten: }}        % mit maximaler Breite.
+    \newcommand{\MethodBegin}           % Beginntext einer Methode.
+        {(\ }
+    \newcommand{\InBetween}             % Text zwischen Rueckgabewert und
+        {\ \ }                          % Methodenname.
+
+    % Definition eigener Variablen:
+
+
+    \newboolean{ConstInstance}          % Gibt an, ob die Instanz, die
+                                        % die Methode aufruft veraendert
+                                        % werden darf oder nicht. Im
+                                        % 2. Fall endet die Methode mit
+                                        % ``) const;'', im 1. Fall 
+                                        % mit ``);''.
+    \newcounter{SavedParams}            % Anzahl der gespeicherten
+                                        % Parameter.
+    \setcounter{SavedParams}{0}
+    \newcommand{\ParamOne}{}            % Definition der 10 
+    \newcommand{\ParamTypeOne}{}        % abspeicherbaren Parameter,
+    \newcommand{\ParamDescrOne}{}       % ihrer Typen und Beschreibungen.
+    \newcommand{\ParamTwo}{}            
+    \newcommand{\ParamTypeTwo}{}
+    \newcommand{\ParamDescrTwo}{}
+    \newcommand{\ParamThree}{}
+    \newcommand{\ParamTypeThree}{}
+    \newcommand{\ParamDescrThree}{}
+    \newcommand{\ParamFour}{}
+    \newcommand{\ParamTypeFour}{}
+    \newcommand{\ParamDescrFour}{}
+    \newcommand{\ParamFive}{}
+    \newcommand{\ParamTypeFive}{}
+    \newcommand{\ParamDescrFive}{}
+    \newcommand{\ParamSix}{}
+    \newcommand{\ParamTypeSix}{}
+    \newcommand{\ParamDescrSix}{}
+    \newcommand{\ParamSeven}{}
+    \newcommand{\ParamTypeSeven}{}
+    \newcommand{\ParamDescrSeven}{}
+    \newcommand{\ParamEight}{}
+    \newcommand{\ParamTypeEight}{}
+    \newcommand{\ParamDescrEight}{}
+    \newcommand{\ParamNine}{}
+    \newcommand{\ParamTypeNine}{}
+    \newcommand{\ParamDescrNine}{}
+    \newcommand{\ParamTen}{}
+    \newcommand{\ParamTypeTen}{}
+    \newcommand{\ParamDescrTen}{}
+    \newlength{\MaxParamWidth}          % Breite des breitesten 
+                                        % Methodenparameters.
+    \newlength{\SpecialWidth}           % Breite des Textes 
+    \settowidth{\SpecialWidth}          % {\bf Besonderheiten}.
+        {\MaxLabelTxt}
+    \newlength{\ParamDelimWidth}        % Breite des Textes `` \ - ``.
+    \settowidth{\ParamDelimWidth}
+        {\ParamDelim}
+    \newlength{\ParamDescrWidth}        % Max. Breite des Parametertextes.
+    \newlength{\SpecialRetTxtWidth}     % Max. Breite der Texte fuer
+                                        % Besonderheiten und Rueckgabewert.
+    \newlength{\MethodBeginWidth}       % Breite des Methodenanfangs, d.h.
+                                        % ``Rueckgabewert Methodenname ( ``.
+    \newlength{\BetweenParsWidth}       % Max. zur Verfuegung stehende
+                                        % Breite zwischen den beiden Klammern
+                                        % der Methode.
+    
+    \newlength{\MethodEndWidth}         % Breite des Textes ``  );'' bzw.
+    \settowidth{\MethodEndWidth}        % `` ) const;''
+        {\NormMethodEnd}
+    \newlength{\ParamMaxTypeWidth}      % Breite des breitesten
+                                        % Parameterwert-Typs. 
+    \newlength{\NoneWidthOne}           % Breite des Textes ``Keine.''.
+    \settowidth{\NoneWidthOne}{Keine.}
+    \newlength{\NoneWidthTwo}           % Breite des Textes ``Keiner.''.
+    \settowidth{\NoneWidthTwo}{Keiner.}
+    \newlength{\Temp}                   % Temporaere Hilfsvariable. 
+    \newlength{\VertSpace}              % Vertikaler Abstand zwischen 
+                                        % zwei Parboxen.
+   
+    % Trotz der automatischen Berechnung der Textbreiten treten
+    % kleine Unstimmigkeiten von wenigen Punkten bei den Texten
+    % zur Beschreibung der Parameter, des Rueckgabewertes und
+    % der Besonderheiten auf, die mit den folgenden Variablen
+    % behoben werden koennen:
+
+    \newlength{\CorrectWidthOne}        % Korrekturbreite fuer die
+                                        % Parameterbeschreibung.
+    \newlength{\CorrectWidthTwo}        % Korrekturbreite fuer die
+                                        % Beschreibungen von Rueckgabewert
+                                        % und Besonderheiten.
+    \newlength{\CorrectWidthThree}      % Korrekturbreite, da erster
+                                        % Parameter einer Methode weiter
+                                        % vorrueckt als die anderen.
+    
+
+% Uebersicht ueber die Parameter und ihre Bedeutung.
+
+
+%
+% <-- \MethodBeginWidth    -->
+%------------------------------------------------------------------------
+% Rueckgabewert Methodenname(   Typ_Parameter_1 Parameter_1,
+%                            <->Typ_Parameter_2 Parameter_2,
+%              \CorrectWideThree...
+%                               Typ_Parameter_n Parameter_n   );
+%                             <-------------> <--------->
+%                          \ParamMaxTypeWidth \MaxParamWidth
+%                             <-------------------------->
+%                             \BetweenParsWidth
+%                                                         <-->
+%                                                         \MethodEndWidth
+%------------------------------------------------------------------------
+% Beschreibung der Methode...
+%                             \ParamDelimWidth
+%                             <->                        \CorrectWidthOne
+% \VertSpace
+% Parameter:       Parameter_1  - Beschreibung von Parameter 1.   <----->
+%                  Parameter_2  - Beschreibung von Parameter 2.
+%                  ...
+%                  Parameter_n  - Beschreibung von Parameter n.
+% \VertSpace                      \ParamDescrWidth
+%                                 <------------------------------>
+% Rueckgabewert:   Beschreibung des Rueckgabewertes bzw. der Text <-----> 
+%                  Keiner.                   
+%                  <----->
+%                  \NoneWidthTwo               \SpecialRetTxtWidth
+% \VertSpace       <--------------------------------------------->
+% Besonderheiten:  Beschreibung von Besonderheiten bzw. der Text  <----->
+%                  Keine.     
+% <--------------> <---->
+%  \SpecialWidth   \NoneWidthOne                         \CorrectWidthTwo
+
+
+    % Definition eigener Befehle:
+
+
+    %-----------------------------------------------------------------------
+    % Gibt den Begriff ``C++'' in ansprechender Form aus.
+    % Makro wurde freundlicherweise zur Verfuegung gestellt von
+    % Axel W. Dietrich.
+    %
+    \newcommand{\cpp}{
+        \mbox{\emph{\textrm{C\hspace{-1.5pt}\raisebox{1.75pt}{\scriptsize +}
+        \hspace{-6pt}\raisebox{.75pt}{\scriptsize +}}}}%
+    }
+
+
+    %-----------------------------------------------------------------------
+    % Gibt die Werte aller Parameter auf dem Bildschirm aus.
+    %
+    \newcommand{\showAllParams}{
+        \noindent
+        {\em Werte aller Parameter:}
+        \begin{tabbing}
+            ParamMaxTypeWidth:\ \ \=\kill
+            MaxParamWidth:       \>\the\MaxParamWidth\\
+            SpecialWidth:        \>\the\SpecialWidth\\
+            ParamDelimWidth:     \>\the\ParamDelimWidth\\
+            ParamDescrWidth:     \>\the\ParamDescrWidth\\
+            SpecialRetTxtWidth:  \>\the\SpecialRetTxtWidth\\
+            MethodBeginWidth:    \>\the\MethodBeginWidth\\
+            BetweenParsWidth:    \>\the\BetweenParsWidth\\
+            MethodEndWidth:      \>\the\MethodEndWidth\\
+            ParamMaxTypeWidth:   \>\the\ParamMaxTypeWidth\\
+            NoneWidthOne:        \>\the\NoneWidthOne\\
+            NoneWidthTwo:        \>\the\NoneWidthTwo\\
+            VertSpace:           \>\the\VertSpace\\
+            CorrectWidthOne:     \>\the\CorrectWidthOne\\
+            CorrectWidthTwo:     \>\the\CorrectWidthTwo\\
+            CorrectWidthThree:   \>\the\CorrectWidthThree\\
+            ConstInstance:       
+            \ifthenelse{\boolean{ConstInstance}}
+                {\>ja\\}
+                {\>nein\\}
+        \end{tabbing}
+    }
+
+    %-----------------------------------------------------------------------
+    % Setzt einen Schalter, der angibt, dass die Instanz, die die kommende
+    % Methode aufrufen kann, nicht veraendert werden darf. Dies hat fuer
+    % die Dokumentation zur Folge, dass die Methode mit ``) const;'' endet.
+    %
+    \newcommand{\setConstInstance}{    
+        \setboolean{ConstInstance}{true}
+    }
+
+    %-----------------------------------------------------------------------
+    % Setzt einen Schalter, der angibt, dass die Instanz, die die kommende
+    % Methode aufrufen kann, veraendert werden darf. Die Methode endet also
+    % in der Dokumentation normal mit ``);''.
+    %
+    \newcommand{\setNormalInstance}{    
+        \setboolean{ConstInstance}{false}
+    }
+
+    %-----------------------------------------------------------------------
+    % Initialisiert die Breite des breitesten Methodenparametertyptextes
+    % mit Null.
+    %
+    \newcommand{\initParamMaxTypeWidth}{
+        \setlength{\ParamMaxTypeWidth}{0pt}
+    }
+
+    %-----------------------------------------------------------------------
+    % Initialisiert die Breite des breitesten Parameternamens mit Null.
+    %
+    \newcommand{\initMaxParamWidth}{
+        \setlength{\MaxParamWidth}{0pt}
+    }
+
+    %-----------------------------------------------------------------------
+    % Ueberprueft, ob die Breite des uebergebenen Textes des Parametertyps
+    % groesser ist als die des bisher als breitester Typtext festgelegten
+    % Textes und passt den Wert evtl. an.
+    % Parameter #1:  Neuer Typtext, dessen Breite zum Vergleich dient.
+    %   
+    \newcommand{\setNewParamMaxTypeWidth}[1]{
+        \settowidth{\Temp}{#1}
+        \ifthenelse{\lengthtest{\ParamMaxTypeWidth < \Temp}}
+            {\setlength{\ParamMaxTypeWidth}{\Temp}}{}   
+    }
+
+    %-----------------------------------------------------------------------
+    % Ueberprueft, ob die Breite des uebergebenen Parameternamens groesser
+    % ist als die des bisher als am breitesten geltenden Parameternames
+    % und passt den Wert evtl. an. Der Parametername steht dabei in
+    % Emphasized.
+    % Parameter #1:  Neuer Parametername, dessen Breite zum Vergleich dient.
+    %
+    \newcommand{\setNewMaxParamWidth}[1]{
+        \settowidth{\Temp}{{\em #1}}
+        \ifthenelse{\lengthtest{\MaxParamWidth < \Temp}}
+            {\setlength{\MaxParamWidth}{\Temp}}{}
+    }
+
+    %-----------------------------------------------------------------------
+    % Setzt die Breite der Beschreibungstexte fuer Rueckgabewert
+    % und Besonderheiten.
+    %
+    \newcommand{\setSpecialRetTxtWidth}{
+        \setlength{\SpecialRetTxtWidth}{\textwidth}
+        \addtolength{\SpecialRetTxtWidth}{-1\SpecialWidth} 
+    }
+
+    %-----------------------------------------------------------------------
+    % Setzt die Breite fuer den Beginn einer Methode, d.h. den Text
+    % ``Rueckgabewert Methodenname( ``. Rueckgabewert steht dabei
+    % in Emphasized, Methodenname in Bold Font.
+    % Parameter #1:  Rueckgabewert der Methode.
+    % Parameter #2:  Name der Methode.
+    %
+    \newcommand{\setMethodBeginWidth}[2]{
+        \settowidth{\MethodBeginWidth}
+            {{\em #1}\InBetween{\bf #2}\MethodBegin}
+    }
+
+    %-----------------------------------------------------------------------
+    % Setzt die maximale Breite die an Platz zwischen der oeffnenden
+    % und der schliessenden Klammer der Methode zur Verfuegung steht.
+    %
+    \newcommand{\setBetweenParsWidth}{
+        \setlength{\BetweenParsWidth}{\textwidth}
+        \addtolength{\BetweenParsWidth}{-1\MethodBeginWidth}
+        \addtolength{\BetweenParsWidth}{-1\MethodEndWidth}
+    }
+
+    %-----------------------------------------------------------------------
+    % Setzt die Breite fuer die Beschreibungstexte
+    % der Methodenparameter.
+    %
+    \newcommand{\setParamDescrWidth}{
+        \setlength{\ParamDescrWidth}{\textwidth}
+        \addtolength{\ParamDescrWidth}{-1\SpecialWidth} 
+        \addtolength{\ParamDescrWidth}{-1\MaxParamWidth}
+        \addtolength{\ParamDescrWidth}{-1\ParamDelimWidth}
+    }    
+
+    %-----------------------------------------------------------------------
+    % Setzt die Korrekturbreite fuer den Beschreibungstext von
+    % Methodenparametern auf den uebergebenen Wert.
+    % Parameter #1:  Neuer Wert fuer die Korrekturbreite.
+    %
+    \newcommand{\setCorrectWidthOne}[1]{
+        \setlength{\CorrectWidthOne}{#1}
+    }    
+
+    %-----------------------------------------------------------------------
+    % Setzt die Korrekturbreite fuer den Beschreibungstext von
+    % Rueckgabewert und Besonderheiten auf den uebergebenen Wert.
+    % Parameter #1:  Neuer Wert fuer die Korrekturbreite.
+    %
+    \newcommand{\setCorrectWidthTwo}[1]{
+        \setlength{\CorrectWidthTwo}{#1}
+    }    
+
+    %-----------------------------------------------------------------------
+    % Setzt die Korrekturbreite fuer den Abstand des zweiten bis n-ten
+    % Parameters vom Anfang auf den uebergebenen Wert.
+    % Parameter #1:  Neuer Wert fuer die Korrekturbreite.
+    %
+    \newcommand{\setCorrectWidthThree}[1]{
+        \setlength{\CorrectWidthThree}{#1}
+    }    
+
+    %-----------------------------------------------------------------------
+    % Setzt den vertikalen Abstand zwischen zwei Parboxen auf den ueber-
+    % gebenen Wert.
+    % Parameter #1:  Neuer Wert fuer den vertikalen Abstand.
+    %
+    \newcommand{\setVertSpace}[1]{
+        \setlength{\VertSpace}{#1}
+    }    
+
+    %-----------------------------------------------------------------------
+    % Speichert die uebergebenen Informationen ueber Methodenparameter 1
+    % in internen Variablen. Achtung: Die Parameter muessen in der richtigen
+    % Reihenfolge gesetzt werden!
+    % Parameter #1: Der Typ des Parameters.  
+    % Parameter #2: Der Name des Parameters. 
+    % Parameter #3: Die Beschreibung des Parameters. 
+    % 
+    \newcommand{\setParamOne}[3]{
+        \renewcommand{\ParamOne}{#1}
+        \renewcommand{\ParamTypeOne}{#2}
+        \renewcommand{\ParamDescrOne}{#3} 
+        \setcounter{SavedParams}{0}
+        \stepcounter{SavedParams}
+    }
+
+    %-----------------------------------------------------------------------
+    % Speichert die uebergebenen Informationen ueber Methodenparameter 2
+    % in internen Variablen. Achtung: Die Parameter muessen in der richtigen
+    % Reihenfolge gesetzt werden!
+    % Parameter #1: Der Typ des Parameters.  
+    % Parameter #2: Der Name des Parameters. 
+    % Parameter #3: Die Beschreibung des Parameters. 
+    % 
+    \newcommand{\setParamTwo}[3]{
+        \renewcommand{\ParamTwo}{#1}
+        \renewcommand{\ParamTypeTwo}{#2}
+        \renewcommand{\ParamDescrTwo}{#3} 
+        \stepcounter{SavedParams}
+    }
+
+    %-----------------------------------------------------------------------
+    % Speichert die uebergebenen Informationen ueber Methodenparameter 3
+    % in internen Variablen. Achtung: Die Parameter muessen in der richtigen
+    % Reihenfolge gesetzt werden!
+    % Parameter #1: Der Typ des Parameters.  
+    % Parameter #2: Der Name des Parameters. 
+    % Parameter #3: Die Beschreibung des Parameters. 
+    % 
+    \newcommand{\setParamThree}[3]{
+        \renewcommand{\ParamThree}{#1}
+        \renewcommand{\ParamTypeThree}{#2}
+        \renewcommand{\ParamDescrThree}{#3} 
+        \stepcounter{SavedParams}
+    }
+
+    %-----------------------------------------------------------------------
+    % Speichert die uebergebenen Informationen ueber Methodenparameter 4
+    % in internen Variablen. Achtung: Die Parameter muessen in der richtigen
+    % Reihenfolge gesetzt werden!
+    % Parameter #1: Der Typ des Parameters.  
+    % Parameter #2: Der Name des Parameters. 
+    % Parameter #3: Die Beschreibung des Parameters. 
+    % 
+    \newcommand{\setParamFour}[3]{
+        \renewcommand{\ParamFour}{#1}
+        \renewcommand{\ParamTypeFour}{#2}
+        \renewcommand{\ParamDescrFour}{#3} 
+        \stepcounter{SavedParams}
+    }
+
+    %-----------------------------------------------------------------------
+    % Speichert die uebergebenen Informationen ueber Methodenparameter 5
+    % in internen Variablen. Achtung: Die Parameter muessen in der richtigen
+    % Reihenfolge gesetzt werden!
+    % Parameter #1: Der Typ des Parameters.  
+    % Parameter #2: Der Name des Parameters. 
+    % Parameter #3: Die Beschreibung des Parameters. 
+    % 
+    \newcommand{\setParamFive}[3]{
+        \renewcommand{\ParamFive}{#1}
+        \renewcommand{\ParamTypeFive}{#2}
+        \renewcommand{\ParamDescrFive}{#3} 
+        \stepcounter{SavedParams}
+    }
+
+    %-----------------------------------------------------------------------
+    % Speichert die uebergebenen Informationen ueber Methodenparameter 6
+    % in internen Variablen. Achtung: Die Parameter muessen in der richtigen
+    % Reihenfolge gesetzt werden!
+    % Parameter #1: Der Typ des Parameters.  
+    % Parameter #2: Der Name des Parameters. 
+    % Parameter #3: Die Beschreibung des Parameters. 
+    %     
+    \newcommand{\setParamSix}[3]{
+        \renewcommand{\ParamSix}{#1}
+        \renewcommand{\ParamTypeSix}{#2}
+        \renewcommand{\ParamDescrSix}{#3} 
+        \stepcounter{SavedParams} 
+    }
+
+    %-----------------------------------------------------------------------
+    % Speichert die uebergebenen Informationen ueber Methodenparameter 7
+    % in internen Variablen. Achtung: Die Parameter muessen in der richtigen
+    % Reihenfolge gesetzt werden!
+    % Parameter #1: Der Typ des Parameters.  
+    % Parameter #2: Der Name des Parameters. 
+    % Parameter #3: Die Beschreibung des Parameters. 
+    %    
+    \newcommand{\setParamSeven}[3]{
+        \renewcommand{\ParamSeven}{#1}
+        \renewcommand{\ParamTypeSeven}{#2}
+        \renewcommand{\ParamDescrSeven}{#3} 
+        \stepcounter{SavedParams} 
+    }
+
+    %-----------------------------------------------------------------------
+    % Speichert die uebergebenen Informationen ueber Methodenparameter 8
+    % in internen Variablen. Achtung: Die Parameter muessen in der richtigen
+    % Reihenfolge gesetzt werden!
+    % Parameter #1: Der Typ des Parameters.  
+    % Parameter #2: Der Name des Parameters. 
+    % Parameter #3: Die Beschreibung des Parameters. 
+    % 
+    \newcommand{\setParamEight}[3]{
+        \renewcommand{\ParamEight}{#1}
+        \renewcommand{\ParamTypeEight}{#2}
+        \renewcommand{\ParamDescrEight}{#3} 
+        \stepcounter{SavedParams}
+    }
+
+    %-----------------------------------------------------------------------
+    % Speichert die uebergebenen Informationen ueber Methodenparameter 9
+    % in internen Variablen. Achtung: Die Parameter muessen in der richtigen
+    % Reihenfolge gesetzt werden!
+    % Parameter #1: Der Typ des Parameters.  
+    % Parameter #2: Der Name des Parameters. 
+    % Parameter #3: Die Beschreibung des Parameters. 
+    % 
+    \newcommand{\setParamNine}[3]{
+        \renewcommand{\ParamNine}{#1}
+        \renewcommand{\ParamTypeNine}{#2}
+        \renewcommand{\ParamDescrNine}{#3}  
+        \stepcounter{SavedParams}
+    }
+
+    %-----------------------------------------------------------------------
+    % Speichert die uebergebenen Informationen ueber Methodenparameter 10
+    % in internen Variablen. Achtung: Die Parameter muessen in der richtigen
+    % Reihenfolge gesetzt werden!
+    % Parameter #1: Der Typ des Parameters.  
+    % Parameter #2: Der Name des Parameters. 
+    % Parameter #3: Die Beschreibung des Parameters. 
+    % 
+    \newcommand{\setParamTen}[3]{
+        \renewcommand{\ParamTen}{#1}
+        \renewcommand{\ParamTypeTen}{#2}
+        \renewcommand{\ParamDescrTen}{#3} 
+        \stepcounter{SavedParams}
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Text ``Rueckgabewert Methodenname(`` aus.
+    % Parameter #1:  Rueckgabewert der Methode.
+    % Parameter #2:  Name der Methode.
+    %
+    \newcommand{\printMethodBegin}[2]{
+         \ifthenelse{\boolean{ConstInstance}}
+             {\settowidth{\MethodEndWidth}{\ConstMethodEnd}}
+             {\settowidth{\MethodEndWidth}{\NormMethodEnd}}
+         \setMethodBeginWidth{#1}{#2}
+         \setBetweenParsWidth
+         \noindent
+         \hrulefill\\
+         \noindent
+         \parbox[t]{\MethodBeginWidth}
+             {#1\InBetween{\bf #2}\MethodBegin}
+     }
+
+    %-----------------------------------------------------------------------
+    % Gibt das Ende einer Methode aus, d.h. ``\ );'' oder ``\ ) const;''.
+    %
+    \newcommand{\printMethodEnd}{
+        \ifthenelse{\boolean{ConstInstance}}
+            {\ConstMethodEnd\\}
+            {\NormMethodEnd\\}
+            \mbox{}\hrulefill\\
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Typen und Namen des einzigen Parameters einer Methode
+    % gefolgt von dem Text ``  );'' bzw. `` ) const;'' aus.
+    % Parameter #1:  Typ des Parameters.
+    % Parameter #2:  Name des Parameters.
+    % 
+    \newcommand{\printMethodOneParam}[2]{
+        \parbox[t]{\ParamMaxTypeWidth}{#1}
+        \parbox[t]{\MaxParamWidth}{{\em #2}}
+        \printMethodEnd
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Typen und den Namen des ersten Methodenparameters aus.
+    % Parameter #1:  Typ des Parameters.
+    % Parameter #2:  Name des Parameters.
+    %
+    \newcommand{\printMethodFirstParam}[2]{
+        \noindent
+        \parbox[t]{\ParamMaxTypeWidth}{#1}
+        \parbox[t]{\MaxParamWidth}{{\em #2},}\\[\VertSpace]
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Typen und Namen des letzten Parameters einer Methode aus.
+    % Parameter #1: Typ des Parameters.
+    % Parameter #2: Name des Parameters.
+    %
+    \newcommand{\printMethodLastParam}[2]{
+        \parbox[t]{\MethodBeginWidth}{\hfill}
+        \hspace{\CorrectWidthThree}
+        \parbox[t]{\ParamMaxTypeWidth}{#1}
+        \parbox[t]{\MaxParamWidth}{{\em #2}}
+        \printMethodEnd
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Typen und Namen eines Methodenparameters aus.
+    % Parameter #1:  Typ des Parameters.
+    % Parameter #2: Name des Parameters.
+    % Achtung: Nicht fuer den ersten oder letzten Parameter der Methode
+    % geeignet!
+    %
+    \newcommand{\printMethodParam}[2]{
+        \parbox[t]{\MethodBeginWidth}{\hfill}
+        \hspace{\CorrectWidthThree}
+        \parbox[t]{\ParamMaxTypeWidth}{#1}
+        \parbox[t]{\MaxParamWidth}{{\em #2},}\\[\VertSpace]
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt die Beschreibung einer Methode aus.
+    % Parameter #1: Beschreibung der Methode.
+    %
+    \newcommand{\printMethodDescr}[1]{
+        \newline
+        \noindent
+        #1\\[\VertSpace]
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Text ``Parameter:    `` und danach den Namen des
+    % ersten Parameters der Methode, gefolgt von seiner Beschreibung
+    % aus.
+    % Parameter #1:  Name des Parameters. 
+    % Parameter #2:  Beschreibung des Parameters.
+    %
+    \newcommand{\printFirstParam}[2]{
+        \setlength{\Temp}{\ParamDescrWidth}
+        \addtolength{\Temp}{1\CorrectWidthOne}
+        \parbox[t]{\SpecialWidth}{{\bf Parameter:}}
+        \parbox[t]{\MaxParamWidth}{\em #1}
+        \parbox[t]{\ParamDelimWidth}{\ParamDelim}
+        \parbox[t]{\Temp}{#2}\\[\VertSpace]
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt einen Parameter der Methode und die dazugehoerige Beschreibung
+    % aus.
+    % Parameter #1:  Name des Parameters.
+    % Parameter #2:  Beschreibung des Parameters.
+    %
+    \newcommand{\printParam}[2]{
+        \setlength{\Temp}{\ParamDescrWidth}
+        \addtolength{\Temp}{1\CorrectWidthOne}
+        \parbox[t]{\SpecialWidth}{\hfill}
+        \parbox[t]{\MaxParamWidth}{\em #1}
+        \parbox[t]{\ParamDelimWidth}{\ParamDelim}
+        \parbox[t]{\Temp}{#2}\\[\VertSpace]
+    }
+
+    %-----------------------------------------------------------------------
+    %
+    % Gibt den Text ``Rueckgabewert:  `` gefolgt von einer Beschreibung
+    % des Rueckgabewertes aus.
+    % Parameter #1:  Beschreibung des Rueckgabewertes.
+    %
+    \newcommand{\printReturn}[1]{
+        \setlength{\Temp}{\SpecialRetTxtWidth}
+        \addtolength{\Temp}{1\CorrectWidthTwo}
+        \parbox[t]{\SpecialWidth}{{\bf R\"uckgabewert:}}
+        \parbox[t]{\Temp}{#1}\\[\VertSpace]
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Text ``Besonderheiten:  `` gefolgt von einer Beschreibung
+    % der Besonderheiten aus.
+    % Parameter #1:  Beschreibung der Besonderheiten.
+    %
+    \newcommand{\printSpecial}[1]{
+        \setlength{\Temp}{\SpecialRetTxtWidth}
+        \addtolength{\Temp}{1\CorrectWidthTwo}
+        \parbox[t]{\SpecialWidth}{\MaxLabelTxt}
+        \parbox[t]{\Temp}{#1}\\[\VertSpace]
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Text ``Parameter:        Keine.'' aus.
+    %
+    \newcommand{\printNoParams}{
+        \parbox[t]{\SpecialWidth}{{\bf Parameter:}}
+        \parbox[t]{\NoneWidthOne}{Keine.}\\[\VertSpace]
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Text ``Rueckgabewert:  Keiner.'' aus.
+    %
+    \newcommand{\printNoReturn}{
+        \parbox[t]{\SpecialWidth}{{\bf R\"uckgabewert:}}
+        \parbox[t]{\NoneWidthTwo}{Keiner.}\\[\VertSpace]
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Text ``Besonderheiten:  Keine.'' aus.
+    %
+    \newcommand{\printNoSpecial}{
+        \parbox[t]{\SpecialWidth}{\MaxLabelTxt}
+        \parbox[t]{\NoneWidthOne}{Keine.}\\[\VertSpace]
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt den Text:
+    % ``Parameter:       Keine.
+    %   Rueckgabewert:   Keiner.
+    %   Besonderheiten:  Keine.''
+    % aus.
+    %
+    \newcommand{\printNoAll}{
+        \printNoParams
+        \printNoReturn
+        \printNoSpecial
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt eine Methode ohne Parameter, Rueckgabewert und Besonderheiten
+    % aus.
+    % Parameter #1:  Name der Methode.
+    % Parameter #2:  Beschreibung der Methode.
+    %
+    \newcommand{\printEmptyMethod}[2]{
+        \setSpecialRetTxtWidth
+        \printMethodBegin{void}{#1}
+        \printMethodEnd
+        \printMethodDescr{#2}
+        \printNoAll
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt eine Methode ohne Parameter und Besonderheiten, aber mit
+    % Rueckgabewert aus.
+    % Parameter #1:  Rueckgabewert der Methode.
+    % Parameter #2:  Name der Methode.
+    % Parameter #3:  Beschreibung der Methode.
+    % Parameter #4:  Beschreibung des Rueckgabewertes der Methode.
+    %
+    \newcommand{\printEmptyMethodReturn}[4]{
+        \setSpecialRetTxtWidth
+        \printMethodBegin{#1}{#2}
+        \printMethodEnd
+        \printMethodDescr{#3}
+        \printNoParams
+        \printReturn{#4}
+        \printNoSpecial
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt eine Methode ohne Parameter und Rueckgabewert, aber mit
+    % Besonderheiten aus.
+    % Parameter #1:  Name der Methode.
+    % Parameter #2:  Beschreibung der Methode.
+    % Parameter #3:  Beschreibung der Besonderheiten der Methode.
+    %
+    \newcommand{\printEmptyMethodSpecial}[3]{
+        \setSpecialRetTxtWidth
+        \printMethodBegin{void}{#1}
+        \printMethodEnd
+        \printMethodDescr{#2}
+        \printNoParams
+        \printNoReturn
+        \printSpecial{#3}
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt eine Methode ohne Parameter, aber mit Rueckgabewert
+    % und Besonderheiten aus.
+    % Parameter #1:  Rueckgabewert der Methode.
+    % Parameter #2:  Name der Methode.
+    % Parameter #3:  Beschreibung der Methode.
+    % Parameter #4:  Beschreibung des Rueckgabewertes der Methode.
+    % Parameter #5:  Beschreibung der Besonderheiten der Methode.
+    %
+    \newcommand{\printEmptyMethodReturnSpecial}[5]{
+        \setSpecialRetTxtWidth
+        \printMethodBegin{#1}{#2}
+        \printMethodEnd
+        \printMethodDescr{#3}
+        \printNoParams
+        \printReturn{#4}
+        \printSpecial{#5}
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt eine Methode mit einem Parameter komplett mit allen
+    % Beschreibungen aus.
+    % Parameter #1:  Rueckgabewert der Methode.
+    % Parameter #2:  Name der Methode.
+    % Parameter #3:  Typ des einzigen Parameters der Methode.
+    % Parameter #4:  Name des einzigen Parameters der Methode.
+    % Parameter #5:  Beschreibung des einzigen Parameters der Methode.
+    % Parameter #6:  Beschreibung der Methode.
+    % Parameter #7:  Beschreibung des Rueckgabewertes der Methode.
+    % Parameter #8:  Beschreibung der Besonderheiten der Methode.
+    %
+    \newcommand{\printMethodWithOneParam}[8]{
+        \initParamMaxTypeWidth
+        \initMaxParamWidth
+        \setNewParamMaxTypeWidth{#3}
+        \setNewMaxParamWidth{#4}
+        \setSpecialRetTxtWidth
+        \setParamDescrWidth
+        \printMethodBegin{#1}{#2}
+        \printMethodOneParam{#3}{#4}
+        \printMethodDescr{#6}
+        \printFirstParam{#4}{#5}
+        \ifthenelse{\equal{#7}{Keiner.}}
+            {\printNoReturn}
+            {\printReturn{#7}}
+        \ifthenelse{\equal{#8}{Keine.}}
+            {\printNoSpecial}
+            {\printSpecial{#8}}
+    }
+
+    %-----------------------------------------------------------------------
+    % Gibt eine Methode mit einem Parameter komplett mit allen
+    % Beschreibungen aus.
+    % Parameter #1:  Rueckgabewert der Methode.
+    % Parameter #2:  Beschreibung des Rueckgabewertes der Methode oder 
+    %                Aufruf mit leerer Klammer. 
+    % Parameter #3:  Name der Methode.
+    % Parameter #4:  Beschreibung der Methode.
+    % Parameter #5:  Beschreibung der Besonderheiten der Methode oder 
+    %                Aufruf mit leerer Klammer.
+    %
+    \newcommand{\printMethodWithParamsSaved}[5]{
+        \ifthenelse{\value{SavedParams} > 0}
+            {\initParamMaxTypeWidth
+             \initMaxParamWidth
+             \setNewParamMaxTypeWidth{\ParamTypeOne}
+             \setNewMaxParamWidth{\ParamOne}
+             \ifthenelse{\value{SavedParams} = 2 \or \value{SavedParams} > 2}
+                 {\setNewParamMaxTypeWidth{\ParamTypeTwo}
+                  \setNewMaxParamWidth{\ParamTwo}}{}   
+             \ifthenelse{\value{SavedParams} = 3 \or \value{SavedParams} > 3}
+                 {\setNewParamMaxTypeWidth{\ParamTypeThree}
+                  \setNewMaxParamWidth{\ParamThree}}{}    
+             \ifthenelse{\value{SavedParams} = 4 \or \value{SavedParams} > 4}
+                 {\setNewParamMaxTypeWidth{\ParamTypeFour}
+                  \setNewMaxParamWidth{\ParamFour}}{}
+             \ifthenelse{\value{SavedParams} = 5 \or \value{SavedParams} > 5}
+                 {\setNewParamMaxTypeWidth{\ParamTypeFive}
+                  \setNewMaxParamWidth{\ParamFive}}{}      
+             \ifthenelse{\value{SavedParams} = 6 \or \value{SavedParams} > 6}
+                 {\setNewParamMaxTypeWidth{\ParamTypeSix}
+                  \setNewMaxParamWidth{\ParamSix}}{}
+             \ifthenelse{\value{SavedParams} = 7 \or \value{SavedParams} > 7}
+                 {\setNewParamMaxTypeWidth{\ParamTypeSeven}
+                  \setNewMaxParamWidth{\ParamSeven}}{}       
+             \ifthenelse{\value{SavedParams} = 8 \or \value{SavedParams} > 8}
+                 {\setNewParamMaxTypeWidth{\ParamTypeEight}
+                  \setNewMaxParamWidth{\ParamEight}}{}
+             \ifthenelse{\value{SavedParams} = 9 \or \value{SavedParams} > 9}
+                 {\setNewParamMaxTypeWidth{\ParamTypeNine}
+                  \setNewMaxParamWidth{\ParamNine}}{}
+             \ifthenelse{\value{SavedParams} = 10 \or 
+                         \value{SavedParams} > 10}
+                 {\setNewParamMaxTypeWidth{\ParamTypeTen}
+                  \setNewMaxParamWidth{\ParamTen}}{}         
+             \setSpecialRetTxtWidth
+             \setParamDescrWidth
+             \printMethodBegin{#1}{#3}
+             \ifthenelse{\value{SavedParams} = 1} 
+                 {\printMethodOneParam{\ParamTypeOne}{\ParamOne}}{}
+                 {\printMethodFirstParam{\ParamTypeOne}{\ParamOne}}{}
+             \ifthenelse{\value{SavedParams} = 2} 
+                 {\printMethodLastParam{\ParamTypeTwo}{\ParamTwo}}{}
+             \ifthenelse{\value{SavedParams} > 2}  
+                 {\printMethodParam{\ParamTypeTwo}{\ParamTwo}}{} 
+             \ifthenelse{\value{SavedParams} = 3} 
+                 {\printMethodLastParam{\ParamTypeThree}{\ParamThree}}{}
+             \ifthenelse{\value{SavedParams} > 3}  
+                 {\printMethodParam{\ParamTypeThree}{\ParamThree}}{} 
+             \ifthenelse{\value{SavedParams} = 4} 
+                 {\printMethodLastParam{\ParamTypeFour}{\ParamFour}}{}
+             \ifthenelse{\value{SavedParams} > 4}  
+                 {\printMethodParam{\ParamTypeFour}{\ParamFour}}{} 
+             \ifthenelse{\value{SavedParams} = 5} 
+                 {\printMethodLastParam{\ParamTypeFive}{\ParamFive}}{}
+             \ifthenelse{\value{SavedParams} > 5}  
+                 {\printMethodParam{\ParamTypeFive}{\ParamFive}}{} 
+             \ifthenelse{\value{SavedParams} = 6} 
+                 {\printMethodLastParam{\ParamTypeSix}{\ParamSix}}{}
+             \ifthenelse{\value{SavedParams} > 6}  
+                 {\printMethodParam{\ParamTypeSix}{\ParamSix}}{} 
+             \ifthenelse{\value{SavedParams} = 7} 
+                 {\printMethodLastParam{\ParamTypeSeven}{\ParamSeven}}{}
+             \ifthenelse{\value{SavedParams} > 7}  
+                 {\printMethodParam{\ParamTypeSeven}{\ParamSeven}}{} 
+             \ifthenelse{\value{SavedParams} = 8} 
+                 {\printMethodLastParam{\ParamTypeEight}{\ParamEight}}{}
+             \ifthenelse{\value{SavedParams} > 8}  
+                 {\printMethodParam{\ParamTypeEight}{\ParamEight}}{}  
+             \ifthenelse{\value{SavedParams} = 9} 
+                 {\printMethodLastParam{\ParamTypeNine}{\ParamNine}}{}
+             \ifthenelse{\value{SavedParams} > 9}  
+                 {\printMethodParam{\ParamTypeNine}{\ParamNine}}{} 
+             \ifthenelse{\value{SavedParams} = 10} 
+                 {\printMethodLastParam{\ParamTypeTen}{\ParamTen}}{}
+             \printMethodDescr{#4}
+             \printFirstParam{\ParamOne}{\ParamDescrOne}
+             \ifthenelse{\value{SavedParams} = 2 \or \value{SavedParams} > 2}
+                  {\printParam{\ParamTwo}{\ParamDescrTwo}}{}
+             \ifthenelse{\value{SavedParams} = 3 \or \value{SavedParams} > 3}
+                  {\printParam{\ParamThree}{\ParamDescrThree}}{}
+             \ifthenelse{\value{SavedParams} = 4 \or \value{SavedParams} > 4}
+                  {\printParam{\ParamFour}{\ParamDescrFour}}{}
+             \ifthenelse{\value{SavedParams} = 5 \or \value{SavedParams} > 5}
+                  {\printParam{\ParamFive}{\ParamDescrFive}}{}
+             \ifthenelse{\value{SavedParams} = 6 \or \value{SavedParams} > 6}
+                  {\printParam{\ParamSix}{\ParamDescrSix}}{}
+             \ifthenelse{\value{SavedParams} = 7 \or \value{SavedParams} > 7}
+                  {\printParam{\ParamSeven}{\ParamDescrSeven}}{}
+             \ifthenelse{\value{SavedParams} = 8 \or \value{SavedParams} > 8}
+                  {\printParam{\ParamEight}{\ParamDescrEight}}{} 
+             \ifthenelse{\value{SavedParams} = 9 \or \value{SavedParams} > 9}
+                  {\printParam{\ParamNine}{\ParamDescrNine}}{}
+             \ifthenelse{\value{SavedParams} = 10}
+                  {\printParam{\ParamTen}{\ParamDescrTen}}{}
+             \ifthenelse{\equal{#2}{}}
+                 {\printNoReturn}
+                 {\printReturn{#2}}
+             \ifthenelse{\equal{#5}{}}
+                 {\printNoSpecial}
+                 {\printSpecial{#5}}}
+        {\noindent
+         Fehler Methode {\em printMethodWithParamsSaved}: Es sind noch keine 
+         Parameter gesetzt worden!}
+    }
+
+%-----------------------------------------------------------------------
+% Ende der Befehlsdefinitionen.
+%-----------------------------------------------------------------------
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

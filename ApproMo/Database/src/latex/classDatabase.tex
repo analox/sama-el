@@ -1,0 +1,340 @@
+\section{Database Class Reference}
+\label{classDatabase}\index{Database@{Database}}
+This class provides the general functionalities for a simple database. 
+
+
+{\tt \#include $<$Database.h$>$}
+
+\subsection*{Public Methods}
+\begin{CompactItemize}
+\item 
+\index{Database@{Database}!Database@{Database}}\index{Database@{Database}!Database@{Database}}
+{\bf Database} ()\label{classDatabase_a0}
+
+\begin{CompactList}\small\item\em constructor\item\end{CompactList}\item 
+int {\bf Add\-Training\-Data} (Array$<$ double $>$ New\-Input, Array$<$ double $>$ New\-Target)
+\begin{CompactList}\small\item\em This function adds a new set of training data to the database.\item\end{CompactList}\item 
+int {\bf Add\-Training\-Data} (std::vector$<$ double $>$ New\-Input, std::vector$<$ double $>$ New\-Target)
+\begin{CompactList}\small\item\em This function adds one training data to the database.\item\end{CompactList}\item 
+int {\bf Delete\-Last\-Data} ()
+\begin{CompactList}\small\item\em This function deletes the last training data from the database.\item\end{CompactList}\item 
+int {\bf Delete\-Data\-At\-Position} (int Index)
+\begin{CompactList}\small\item\em This function deletes training data at a given Index from the database.\item\end{CompactList}\item 
+int {\bf Get\-Last\-Data} (Array$<$ double $>$ \&Input\-Data, Array$<$ double $>$ \&Target\-Data)
+\begin{CompactList}\small\item\em This function gets the last $<$Num\-Training\-Data$>$ data sets and stores them in the Arrays Input\-Data and Target\-Data.\item\end{CompactList}\item 
+int {\bf Get\-Data\-At\-Position} (Array$<$ double $>$ \&Input\-Data, Array$<$ double $>$ \&Target\-Data, int Index)
+\begin{CompactList}\small\item\em This function gets the data at Index from the database and stores them in the Arrays Input\-Data and Target\-Data.\item\end{CompactList}\item 
+int {\bf Load\-Training\-Data} (std::string Filename, int add)
+\begin{CompactList}\small\item\em This function loads training data from a file named Filename. If add is chosen to 0 consisting data in the database will be overwritten. If add equals 1 the loaded data will be appended to the database.\item\end{CompactList}\item 
+int {\bf Save\-Training\-Data} (std::string Filename)
+\begin{CompactList}\small\item\em This function saves training data to a file named Filename.\item\end{CompactList}\item 
+int {\bf Print\-Training\-Data} ()
+\begin{CompactList}\small\item\em This function prints the data stored in the database on the screen.\item\end{CompactList}\item 
+int {\bf Get\-Num\-Training\-Data} ()
+\begin{CompactList}\small\item\em This function returns the number of data in the database.\item\end{CompactList}\item 
+int {\bf Get\-Max\-Training\-Data} ()
+\begin{CompactList}\small\item\em This function returns the maximum number of data which can be used for training.\item\end{CompactList}\item 
+int {\bf Get\-Used\-Training\-Data} ()
+\begin{CompactList}\small\item\em This function returns the number of used training data.\item\end{CompactList}\item 
+int {\bf Get\-Max\-Archive\-Length} ()
+\begin{CompactList}\small\item\em This function returns the maximum number of data which can be stored in the database.\item\end{CompactList}\item 
+int {\bf Get\-Newest\-Entry} ()
+\begin{CompactList}\small\item\em This function returns the position of the data which was recently added.\item\end{CompactList}\item 
+int {\bf Set\-Max\-Archive\-Length} (int New\-Length)
+\begin{CompactList}\small\item\em This function sets the maximum number of data which can be stored in the database to New\-Length.\item\end{CompactList}\item 
+int {\bf Set\-Max\-Training\-Data} (int New\-Max)
+\begin{CompactList}\small\item\em This function sets the maximum number of training data to New\-Max.\item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class provides the general functionalities for a simple database.
+
+The database is based on two Arrays containing the Input and Target data sets. It stores data sets in a chronological order. The maximum number of data sets is restricted to a number of Max\-Training\-Data data sets, where each data set consists of a vector of input data and a vector of target data which can be used for several approximation models (e.g. neural network, regression models, kriging model). Since it is beneficial to use only a limited number of the newest training data (especially in case of high dimensional input data where a local approximation of the fitness function near the actual position of the population is needed) the number of data sets which are used for the training is limited to Num\-Training\-Data. For the training only Num\-Training\-Data data sets are used. The restriction to a limited number is mainly introduced due to stability reasons and the value of Max\-Training\-Data can usually set to sufficiently large value. Newest\-Entry gives the position of the last added data set. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Database@{Database}!AddTrainingData@{AddTrainingData}}
+\index{AddTrainingData@{AddTrainingData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Add\-Training\-Data (std::vector$<$ double $>$ {\em New\-Input}, std::vector$<$ double $>$ {\em New\-Target})}\label{classDatabase_a2}
+
+
+This function adds one training data to the database.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+New\-Input}]Vector containing new Input data \item[{\em 
+New\-Target}]Vector containing new Target data \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if dimensions of the new data set do not fit to an existing database \end{description}
+\end{Desc}
+\index{Database@{Database}!AddTrainingData@{AddTrainingData}}
+\index{AddTrainingData@{AddTrainingData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Add\-Training\-Data (Array$<$ double $>$ {\em New\-Input}, Array$<$ double $>$ {\em New\-Target})}\label{classDatabase_a1}
+
+
+This function adds a new set of training data to the database.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+New\-Input}]Array containing new Input data \item[{\em 
+New\-Target}]Array containing new Target data \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if dimensions of the new data set do not fit to an existing database \end{description}
+\end{Desc}
+\index{Database@{Database}!DeleteDataAtPosition@{DeleteDataAtPosition}}
+\index{DeleteDataAtPosition@{DeleteDataAtPosition}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Delete\-Data\-At\-Position (int {\em Index})}\label{classDatabase_a4}
+
+
+This function deletes training data at a given Index from the database.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Index}]position of the data in the database which shall be deleted \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if database is empty \end{description}
+\end{Desc}
+\index{Database@{Database}!DeleteLastData@{DeleteLastData}}
+\index{DeleteLastData@{DeleteLastData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Delete\-Last\-Data ()}\label{classDatabase_a3}
+
+
+This function deletes the last training data from the database.
+
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if database is empty \end{description}
+\end{Desc}
+\index{Database@{Database}!GetDataAtPosition@{GetDataAtPosition}}
+\index{GetDataAtPosition@{GetDataAtPosition}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Get\-Data\-At\-Position (Array$<$ double $>$ \& {\em Input\-Data}, Array$<$ double $>$ \& {\em Target\-Data}, int {\em Index})}\label{classDatabase_a6}
+
+
+This function gets the data at Index from the database and stores them in the Arrays Input\-Data and Target\-Data.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Input\-Data}]Array which contains the input data at position Index \item[{\em 
+Target\-Data}]Array which contains the target data at position Index \item[{\em 
+Index}]position of data \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if Index is out of database \end{description}
+\end{Desc}
+\index{Database@{Database}!GetLastData@{GetLastData}}
+\index{GetLastData@{GetLastData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Get\-Last\-Data (Array$<$ double $>$ \& {\em Input\-Data}, Array$<$ double $>$ \& {\em Target\-Data})}\label{classDatabase_a5}
+
+
+This function gets the last $<$Num\-Training\-Data$>$ data sets and stores them in the Arrays Input\-Data and Target\-Data.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Input\-Data}]Array which contains the last $<$Num\-Training\-Data$>$ input data \item[{\em 
+Target\-Data}]Array which contains the last $<$Num\-Training\-Data$>$ target data \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if database is empty \end{description}
+\end{Desc}
+\index{Database@{Database}!GetMaxArchiveLength@{GetMaxArchiveLength}}
+\index{GetMaxArchiveLength@{GetMaxArchiveLength}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Get\-Max\-Archive\-Length ()}\label{classDatabase_a13}
+
+
+This function returns the maximum number of data which can be stored in the database.
+
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+Max\-Archive\-Length}]maximum number of data which can be stored in the database \end{description}
+\end{Desc}
+\index{Database@{Database}!GetMaxTrainingData@{GetMaxTrainingData}}
+\index{GetMaxTrainingData@{GetMaxTrainingData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Get\-Max\-Training\-Data ()}\label{classDatabase_a11}
+
+
+This function returns the maximum number of data which can be used for training.
+
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+Max\-Training\-Data}]maximum number of data which may be used for training \end{description}
+\end{Desc}
+\index{Database@{Database}!GetNewestEntry@{GetNewestEntry}}
+\index{GetNewestEntry@{GetNewestEntry}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Get\-Newest\-Entry ()}\label{classDatabase_a14}
+
+
+This function returns the position of the data which was recently added.
+
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+Newest\-Entry}]position of data which was added recently \end{description}
+\end{Desc}
+\index{Database@{Database}!GetNumTrainingData@{GetNumTrainingData}}
+\index{GetNumTrainingData@{GetNumTrainingData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Get\-Num\-Training\-Data ()}\label{classDatabase_a10}
+
+
+This function returns the number of data in the database.
+
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+Num\-Training\-Data}]number of data in the database \end{description}
+\end{Desc}
+\index{Database@{Database}!GetUsedTrainingData@{GetUsedTrainingData}}
+\index{GetUsedTrainingData@{GetUsedTrainingData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Get\-Used\-Training\-Data ()}\label{classDatabase_a12}
+
+
+This function returns the number of used training data.
+
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+Used\-Training\-Data}]number of data which is used for training \end{description}
+\end{Desc}
+\index{Database@{Database}!LoadTrainingData@{LoadTrainingData}}
+\index{LoadTrainingData@{LoadTrainingData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Load\-Training\-Data (std::string {\em Filename}, int {\em add})}\label{classDatabase_a7}
+
+
+This function loads training data from a file named Filename. If add is chosen to 0 consisting data in the database will be overwritten. If add equals 1 the loaded data will be appended to the database.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Filename}]name of a file containing data sets \item[{\em 
+add}]if add equals 0 the database is overwritten, if add equals 1 the data will be appended. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if file cannot be opened \item[{\em 
+2}]if dimension of the loaded data does not fit to the existing database \end{description}
+\end{Desc}
+\index{Database@{Database}!PrintTrainingData@{PrintTrainingData}}
+\index{PrintTrainingData@{PrintTrainingData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Print\-Training\-Data ()}\label{classDatabase_a9}
+
+
+This function prints the data stored in the database on the screen.
+
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \end{description}
+\end{Desc}
+\index{Database@{Database}!SaveTrainingData@{SaveTrainingData}}
+\index{SaveTrainingData@{SaveTrainingData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Save\-Training\-Data (std::string {\em Filename})}\label{classDatabase_a8}
+
+
+This function saves training data to a file named Filename.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+Filename}]name of a file in which the data sets are saved \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if file cannot be opened \item[{\em 
+2}]if database is empty \end{description}
+\end{Desc}
+\index{Database@{Database}!SetMaxArchiveLength@{SetMaxArchiveLength}}
+\index{SetMaxArchiveLength@{SetMaxArchiveLength}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Set\-Max\-Archive\-Length (int {\em New\-Length})}\label{classDatabase_a15}
+
+
+This function sets the maximum number of data which can be stored in the database to New\-Length.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+New\-Length}]maximum number of data which can be stored \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \item[{\em 
+1}]if the new length is larger than the number of data in database. The oldest data will be removed until the length equals New\-Length. \end{description}
+\end{Desc}
+\index{Database@{Database}!SetMaxTrainingData@{SetMaxTrainingData}}
+\index{SetMaxTrainingData@{SetMaxTrainingData}!Database@{Database}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Database::Set\-Max\-Training\-Data (int {\em New\-Max})}\label{classDatabase_a16}
+
+
+This function sets the maximum number of training data to New\-Max.
+
+\begin{Desc}
+\item[Parameters: ]\par
+\begin{description}
+\item[{\em 
+New\-Max}]maximum number of data which can be used for training \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values: ]\par
+\begin{description}
+\item[{\em 
+0}]ok \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+{\bf Database.h}\end{CompactItemize}

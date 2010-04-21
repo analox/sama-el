@@ -1,0 +1,28 @@
+\subsection{Decoding Method}
+
+%---------------------------------------------------------------------------%
+\index{decodeBinary!( const Chromosome\& chrom, const Interval\& range, unsigned nbits, bool useGray = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{chrom}{const Chromosome\&}{Chromosome that contains
+the bitstring of decoded double values. The number of alleles of
+{\em chrom} must be a multiple of {\em nbits}, otherwise
+the method will be aborted with an error message.}
+\setParamTwo{range}{const Interval\&}{values $\in [${\em range}$]$y}
+\setParamThree{nbits}{unsigned}{Number of bits that were used for the decoding
+of a single double value.}
+\setParamFour{useGray}{bool}{Specifies, whether the double values were
+decoded with the Gray method ({\em useGray} = "true") or the standard
+method ({\em useGray} = "false", this is also the default).}
+\printMethodWithParamsSaved
+{void}
+{}
+{decodeBinary}
+{Decodes several double values out of the interval {\em range}
+ that are decoded as a bitstring and stored in chromosome {\em chrom}
+ and stores them in {\em this}. For the decoding of each value 
+ {\em nbits} bits were used. {\em useGray} specifies, whether
+ the Gray method was used to decode the values or not.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%

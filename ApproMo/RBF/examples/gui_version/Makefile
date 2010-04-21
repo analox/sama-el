@@ -1,0 +1,239 @@
+ARCH_MACH = $(shell uname -m)
+OS_TYPE   = $(shell uname -s)
+
+############### name of target
+#
+TARGET		= ./RBFGUITest
+
+
+############### determine machine type
+#
+
+########################################################################
+##########        Sun Solaris Path                            ##########
+########################################################################
+ifeq "${ARCH_MACH}" "sun4u"
+
+CPPFLAGS := $(CPPFLAGS) -D__SOLARIS__
+
+############### C++ compiler commands
+#
+CC		= purify /usr/bin/gcc32
+CCC		= purify /usr/bin/g++32
+
+############### Other Packages
+#
+#SHARK  = $(SHARKDIR) 
+SHARK = /home/dlim/shark32
+#APPROMO = $(APPROMO)
+APPROMO = /home/dlim/Software/EL-Tec/ApproMo/
+#SISL   = $(SISLDIR)
+#SISL = /opt2/SISL/
+#TCLTK = /usr/local/lib
+
+EVONET = ../../../EvoNet
+
+############### libraries needed to generate program
+#
+LDLIBS		:=  	-lEALib_${ARCH_MACH} 		\
+			-lRng_${ARCH_MACH}		\
+			-lArray_${ARCH_MACH} 		\
+			-lLinAlg_sun4u			\
+			-lsisl  			\
+			-lReClaM_${ARCH_MACH} 		\
+			-ltcl8.3				\
+			-ltk8.3 				\
+			-lm				\
+			-lX11 -lXt -lXext
+
+endif
+
+########################################################################
+##########        Linux Cluster Environment                   ##########
+########################################################################
+
+ifeq "${ARCH_MACH}" "i686"
+CPPFLAGS := $(CPPFLAGS) -D__LINUX__ -DEBUG
+
+############### C++ compiler commands
+#
+CCC		= /usr/bin/g++32 
+CC		= /usr/bin/gcc32
+
+############### Other Packages
+#
+SHARK = $(SHARKDIR)
+SISL  = $(SISLDIR)
+EVONET = $(EVONETDIR)
+EVONET20 = $(EVONET2)
+
+############### libraries needed to generate program
+#
+LDLIBS		:=  	-lRng_${ARCH_MACH} 		\
+			-lArray_${ARCH_MACH} 		\
+			-lLinAlg_${ARCH_MACH} 		\
+			-lReClaM_${ARCH_MACH}		\
+			-lEALib_${ARCH_MACH} 		\
+			-lm	
+#			-lsisl  			\
+#			-ltcl 				\
+#			-ltk				\
+#			-lm
+
+#-ltcl -ltk -lm  
+#-lchecker	
+endif
+
+############### objects needed to generate target
+#
+#Main_RTypeTrim
+#Main_FrontWingTrim
+OBJS = 	RBFGUITest.o				\
+	./rbf.o			\
+	../../../Database/src/Database.o			\
+
+#	../NetWork/src/metaModel.o			\
+#	../NetWork/src/UpdatemetaModel.o		\
+#	CNetwork.o 					\
+#
+#	
+#	
+#	
+#	
+#	$(EVONET)/src/MyParams.o			\
+#	$(EVONET)/src/DataBase.o			\
+
+############### PVM specifications ##############
+#
+# CPPVM_ROOT = /opt/cppvm
+# PVMLIB 		= 	-lpvm3 -lgpvm3 -lnsl 
+# PVMINCLUDE 	= -I$(PVM_ROOT)/include -I$(CPPVM_ROOT)/h
+# PVMLDPATH  	= -L$(PVM_ROOT)/lib/$(PVM_ARCH) 
+
+############### FORTRAN compiler commands
+#
+# CCF		= g77
+# CCFLAGS		=  $(FFLAGS)
+# COMPILE.f	= $(CCF) $(CCFLAGS) $(CPPFLAGS) -c -w
+# LINK.f		= $(CCF) $(CCFLAGS) $(CPPFLAGS) $(LDFLAGS)
+
+############### Purify related flags
+# PFLAGS	= -messages=first -leaks-at-exit=yes
+
+PURIFY	= purify $(PFLAGS)
+
+
+CCFLAGS		=  $(CPPFLAGS)
+COMPILE.cc	=  $(CCC) $(CCFLAGS) $(CPPFLAGS)  -c -w
+LINK.cc		=  $(CCC) $(CCFLAGS) $(CPPFLAGS)  $(LDFLAGS)
+
+
+
+# for Solaris
+
+############### options for preprocessor (include directories)
+#
+CPPFLAGS	:=\
+		$(CPPFLAGS)  			\
+		-Wall                           \
+		-I/home/dlim/shark32/include/Array	\
+		-I/home/dlim/Software/EL-Tec/ApproMo/NeuralNet/include	\
+		-I/home/dlim/Software/EL-Tec/ApproMo/Database/include 	\
+		-I/home/dlim/shark32/include/ReClaM 	\
+		-I/home/dlim/shark32/FileUtil/include	\
+		-I/home/dlim/shark32/Basics/include	\
+		-I/home/dlim/shark32/Math/include		\
+		-I/home/dlim/shark32/LinAlg/include	\
+		-I/home/dlim/shark32/include/EALib	\
+		-I/home/dlim/shark32/include/Rng		\
+		-I/home/dlim/shark32/include/		\
+#		-I../include 			\
+#		-I../SplineBase/include 	\
+#		-I../SislSpline/include 	\
+#		-I../NetWork/include		\
+#		-I$(SISL)/include		\
+#		-I$(EVONET)/include/            \
+#		-I$(TCL_ROOT)/include		\
+#		-I$(TK_ROOT)/include		\
+#		-I./				\
+#		-I../Kriging/include
+
+#-I${PVM_ROOT}/include 		\
+
+#		-I$(PAGODE_HOME)plot_widgets/plot_widgets \
+
+
+############### options for compiler
+#
+
+CCFLAGS:= -g -Wall -pedantic
+# -g -pg 
+
+CXXFLAGS:=$(CXXFLAGS) $(CFLAGS)
+
+############### options for linker
+#
+
+############### options for linker
+#
+
+LDFLAGS		:= $(LDFLAGS) 				\
+		   -L/home/dlim/shark32/lib_i686/ 		\
+	           -L../lib				
+#		   -L$(TCLTK)/				\
+#		    $(PVMLDPATH)                        \
+#		   -L$(SISL)/lib 			\
+#	  	   -L$(CPPVM_ROOT)/lib/LINUX/		\
+#		   -L/usr/openwin/lib -L/usr/dt/lib	\
+#		   -L./					\
+#		   -L../Kriging/lib
+
+###############	make targets
+#
+all:		$(TARGET) $(INCLUDE)
+
+
+###############	do not modify the following lines ###############
+
+###############	implicit rules
+#
+
+
+.c:
+		$(LINK.c) -o $@ $< $(LDLIBS)
+.c.o:
+		$(COMPILE.c) -o $@ $<
+.cpp:
+		$(LINK.cc) -o $@ $< $(LDLIBS)
+.cpp.o:
+		$(COMPILE.cc) -o $@ $<
+.f:
+		$(LINK.f) -o $@ $< $(LDLIBS)
+.f.o:
+		$(COMPILE.f) -o $@ $<
+############### suffixes list
+#
+.SUFFIXES:	.o .so .a .c .cpp .h
+
+.PHONY:		all clean depend
+
+############### make shared object (dynamic link library)
+#
+$(TARGET):	$(OBJS)
+		$(LINK.cc) -o $@ $(OBJS) $(LDLIBS)
+
+###############	clean up
+#
+clean:
+		-$(RM) $(OBJS)
+		-$(RM) Makefile.bak RBFGUITest *~
+
+###############	update dependencies
+#
+depend:
+		makedepend -Y -- $(CPPFLAGS) *.c *.cc *.cpp 2> /dev/null
+
+cleandepend:
+		makedepend
+
+# DO NOT DELETE

@@ -1,0 +1,217 @@
+\subsection{Constructors}
+
+%---------------------------------------------------------------------------%
+\index{Individual!( )}
+\setNormalInstance
+\printEmptyMethod
+{Individual}
+{Generates an empty individual.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Individual!( unsigned n )}
+\setNormalInstance
+\printMethodWithOneParam
+{explicit}
+{Individual}
+{unsigned}
+{n}
+{Number of chromosomes.}
+{Generates a new individual and reserves memory for
+ {\em n} chromosomes of type {\tt char}.}
+{None.}
+{{\em explicit} = Implicit calls of the constructor in assignments of type
+ {\tt Individual} {\em ind} = $<$Value$>$ are not possible.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{Individual!( unsigned n, const Chromosome\& chrom )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{n}{unsigned}{Number of clones.}
+\setParamTwo{chrom}{const Chromosome\&}{Chromosome to be cloned.}
+\printMethodWithParamsSaved
+{}
+{}
+{Individual}
+{Generates an individual that consists of {\em n} clones of the
+ chromosome {\em chrom}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Individual!( const Chromosome\& chrom0 )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Individual}
+{const Chromosome\&}
+{chrom0}
+{Chromosome, to be cloned.}
+{Generates an individual that consists of the chromosome {\em chrom0}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Individual!( const Chromosome\& chrom0, const Chromosome\& chrom1 )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{chrom0}{const Chromosome\&}{First chromosome, which 
+is part of the new individual.}
+\setParamTwo{chrom1}{const Chromosome\&}{Second chromosome, which 
+is part of the new individual.}
+\printMethodWithParamsSaved
+{}
+{}
+{Individual}
+{Generates an individual that consists of the chromosomes {\em chrom0} 
+ and {\em chrom1}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{Individual!( const Chromosome\& chrom0 .. chrom2 )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Individual}
+{const Chromosome\&}
+{chrom0 .. chrom2}
+{Chromosomes that make up the new individual.}
+{Generates an individual that consists of the chromosomes
+ {\em chrom0} to {\em chrom2}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Individual!( const Chromosome\& chrom0 .. chrom3 )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Individual}
+{const Chromosome\&}
+{chrom0 .. chrom3}
+{Chromosomes, that make up the new individual.}
+{Generates an individual that consists of the chromosomes {\em chrom0}
+ to {\em chrom3}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Individual!( const Chromosome\& chrom0 .. chrom4 )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Individual}
+{const Chromosome\&}
+{chrom0 .. chrom4}
+{Chromosomes, that make up the new individual.}
+{Generates an individual that consists of the chromosomes {\em chrom0} to
+ {\em chrom4}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{Individual!( const Chromosome\& chrom0 .. chrom5 )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Individual}
+{const Chromosome\&}
+{chrom0 .. chrom5}
+{Chromosomes, that make up the new individual.}
+{Generates an individual that consist of the chromosomes {\em chrom0}
+ to {\em chrom5}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Individual!( const Chromosome\& chrom0 .. chrom6 )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Individual}
+{const Chromosome\&}
+{chrom0 .. chrom6}
+{Chromosomes, that make up the new individual.}
+{Generates an individual that consist of the chromosomes {\em chrom0} to
+ {\em chrom6}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Individual!( const Chromosome\& chrom0 .. chrom7 )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Individual}
+{const Chromosome\&}
+{chrom0 .. chrom7}
+{Chromosomes, that make up the new individual.}
+{Generates an individual that consist of the chromosomes {\em chrom0}
+ to {\em chrom7}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{Individual!( const vector$<$ Chromosome$\ast$ $>$\& chrom )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Individual}
+{const vector$<$ Chromosome* $>$\&}
+{chrom}
+{The vector of chromosomes.}
+{Generates an individual that consists of the chromosomes stored in 
+ vector {\em chrom}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{Individual!( const Individual\& indiv )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Individual}
+{const Individual\&}
+{indiv}
+{Individual.}
+{Generates an individual that is a copy of {\em indiv} including
+ the internal class variables.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%

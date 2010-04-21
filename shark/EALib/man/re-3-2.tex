@@ -1,0 +1,260 @@
+\section{Public Methods}
+
+These methods can be used by all \cpp\ -programs that have included
+the header file {\em ChromosomeT.h} and the library {\em EA}.
+
+\subsection{Initializing Methods}
+
+%---------------------------------------------------------------------------%
+\index{initialize!( T min, T max )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{min}{T}{Minimum random value.}
+\setParamTwo{max}{T}{Maximum random value.}
+\printMethodWithParamsSaved
+{void}
+{}
+{initialize}
+{Initializes all alleles of {\em this} with random values, ranging from
+ {\em min} to {\em max} (including {\em mix} and {\em max}).}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{initialize!( const Chromosome\& minChrom, const Chromosome\& maxChrom )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{minChrom}{const Chromosome\&}{Chromosome, that contains
+the minimum possible random number values for the alleles of {\em this}.
+{\em minChrom} must include at least one allele, otherwise no initialization
+will take place.}
+\setParamTwo{maxChrom}{const Chromosome\&}{Chromosome, that contains
+the maximum possible random number values for the alleles of {\em this}.
+{\em maxChrom} must have as many alleles as {\em minChrom}, otherwise
+the method will be aborted with an error. Additionally {\em maxChrom}
+must contain at least one allele or no initialization will take place.}
+\printMethodWithParamsSaved
+{void}
+{}
+{initialize}
+{Same as above, but here the minimum and maximum possible random
+ numbers are given for each allele of {\em this} separately, using the
+ chromosomes {\em minChrom} and {\em maxChrom}. The size of
+{\em this} will be adapted to the size of one of the range values
+chromosomes.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\subsection{Adapting Methods}
+
+%---------------------------------------------------------------------------%
+\index{cutOff!( T min, T max )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{min}{T}{Minimum possible value for an allele.}
+\setParamTwo{max}{T}{Maximum possible value for an allele.}
+\printMethodWithParamsSaved
+{void}
+{}
+{cutOff}
+{Checks for each allele of {\em this}, whether its value is between
+ {\em min} and {\em max}. If an allele is out of range, it will
+ be set to the value of the nearest boundary.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{cutOff!( const Chromosome\& minChrom, const Chromosome\& maxChrom )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{minChrom}{const Chromosome\&}{Chromosome, which contains
+the minimum possible values for each single allele of {\em this}.
+{\em minChrom} must contain at least one chromosome, otherwise
+no adaptation will take place.}
+\setParamTwo{maxChrom}{const Chromosome\&}{Chromosome, which contains
+the maximum possible values for each single allele of {\em this}.
+{\em maxChrom} must have as many alleles as {\em minChrom},
+otherwise the method will be aborted with an error. Additionally
+{\em maxChrom} must include at least one allele or no adaptation
+will take place.}
+\printMethodWithParamsSaved
+{void}
+{}
+{cutOff}
+{Same as above, but here range values are given by the chromosomes
+ {\em minChrom} and {\em maxChrom} for each single
+ allele of {\em this}. Besides the size of {\em this} will be
+ adapted to the size of one of the range values chromosomes.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\subsection{Mutation Methods}
+
+%---------------------------------------------------------------------------%
+\index{mutateUniform!( T min, T max, double p )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{min}{T}{Minimum possible random value.}
+\setParamTwo{max}{T}{Maximum possible random value.}
+\setParamThree{p}{double}{Probability to replace an allele value.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateUniform}
+{Replaces each allele value of {\em this} with probability {\em p} 
+ with a random number ranging from {\em min} to {\em max}.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateUniform!( T min, T max, const vector$<$ double $>$\& p, bool cycle = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{min}{T}{Minimum possible random value.}
+\setParamTwo{max}{T}{Maximum possible random value.}
+\setParamThree{p}{const vector$<$ double $>$\&}{Vector, that contains
+probability values for each allele of {\em this} to be replaced.
+{\em p} shall contain at most as many values as {\em this} has
+alleles. Otherwise the method will be aborted with an error message.}
+\setParamFour{cycle}{bool}{Specifies, whether {\em p} can be
+used circular (``true'') or not (``false'', this is also the
+default).}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateUniform}
+{Same as above, but here a probability value is given for each
+ single allele of {\em this} separately by using the vector {\em p}.
+ Because {\em p} can contain less values than {\em this} has alleles
+ the flag {\em cycle} specifies whether {\em p} can be used
+ circular.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateUniform!( T min, T max, const Chromosome\& p, bool cycle = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{min}{T}{See above.}
+\setParamTwo{max}{T}{See above.}
+\setParamThree{p}{const Chromosome\&}{Chromosome that contains the
+probability values for each allele of {\em this}. {\em p} must include
+at most as many alleles as {\em this}, otherwise the method will
+be aborted with an error message.}
+\setParamFour{cycle}{bool}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateUniform}
+{Same as above, but here a chromosome is used 
+ to store the probability values.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+\index{mutateUniform!( const Chromosome\& minChrom, const Chromosome\& maxChrom, double p )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{minChrom}{const  Chromosome\&}{Chromosome, which contains
+the minimum possible random numbers for each allele of {\em this}.
+{\em minChrom} must include as many alleles as {\em this}, otherwise
+the method will be aborted with an error message. Additionally,
+{\em minChrom} must have at least one allele or no mutation will
+take place.}
+\setParamTwo{maxChrom}{const  Chromosome\&}{Chromosome, which contains
+the maximum possible random numbers for each allele of {\em this}.
+{\em maxChrom} must include as many alleles as {\em this} and
+{\em minChrom}, otherwise the method will be aborted with an error
+message. Additionally {\em maxChrom} must have at least one allele
+or no mutation will take place.}
+\setParamThree{p}{double}{Probability to replace one allele of {\em this}.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateUniform}
+{Replaces each allele of {\em this} with probability {\em p} with a random
+ value. The range for the random number is given by {\em minChrom} and
+{\em maxChrom} for each allele of {\em this} separately. {\em this} must
+contain at least one allele or no mutation will take place.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateUniform!( const Chromosome\& minChrom, const Chromosome\& maxChrom, const vector$<$ double $>$\& p, bool cycle = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{minChrom}{const Chromosome\&}{See above.}
+\setParamTwo{maxChrom}{const Chromosome\&}{See above.}
+\setParamThree{p}{const vector$<$ double $>$\&}{Vector, that gives
+probabilities for each single allele of {\em this}. {\em p} shall
+contain at most as many values as there are alleles in {\em this}. 
+Otherwise
+the method will be aborted with an error message.}
+\setParamFour{cycle}{bool}{Specifies whether {\em p} can be used
+circular (``true'') or not (``false'', this is also the default).}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateUniform}
+{Same as above, but here a vector {\em p} is used to specify probability
+ values for each single allele of {\em this} separately. Because
+ {\em p} can contain less values than {\em this} has alleles the flag
+{\em cycle} specifies whether {\em p} can be used circular
+or not. {\em this} must include at least one allele or no mutation will
+take place.} 
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{mutateUniform!( const Chromosome\& min, const Chromosome\& max, const Chromosome\& p, bool cycle = false )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{min}{const Chromosome\&}{See above.}
+\setParamTwo{max}{const Chromosome\&}{See above.}
+\setParamThree{p}{const Chromosome\&}{Chromosome that contains the
+probability values for each allele of {\em this}. {\em p} shall include
+at most as many alleles as {\em this}, otherwise the method will
+be aborted with an error message.}
+\setParamFour{cycle}{bool}{See above.}
+\printMethodWithParamsSaved
+{void}
+{}
+{mutateUniform}
+{Same as above, but here a chromosome is used 
+to store the probability values.}
+{}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+
+
+
+
+
+
+
+
+

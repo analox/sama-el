@@ -1,0 +1,56 @@
+\noindent
+Genetic Algorithms (GA), Evolution Strategies (ES) and Evolutionary
+Programming (EP) were developed almost 40 years ago. Since then many
+different variants and combinations of the first appreaches have been
+proposed, which are now commonly referred to as Evolutionary
+Algorithms (EA) or methods from Evolutionary Computation
+(EC). Evolutionary algorithms use genetic operators, e.g. crossover,
+mutation, recombination. In order to simulate these operators, random
+number generators are very important.
+
+\vspace*{5mm}
+
+\noindent
+Furthermore, ``Monte Calro simulations'', which are very popular in
+the field of material science, heavily rely on the ``true'' randomness
+of random number generators.
+
+\vspace*{5mm}
+
+\noindent
+In both cases, the results depend on the quality of the random number
+generators, which are prepared as a C++ template in the EALib. However,
+this random number only produces uniform distributions. Thus, from the
+uniform random numbers, we have to calculate other distributions.
+
+\vspace*{5mm}
+
+\noindent
+In the EALib, the following distributions are available.
+
+\vspace*{10mm}
+
+\begin{enumerate}
+\item Bernoulli trial
+\item Binomial distribution
+\item Cauchy distribution
+\item Differentiative Geometric distribution
+\item Discrete uniform distribution
+\item Geometric distribution
+\item Log normal distribution
+\item Negative exponential distribution
+\item Normal distribution
+\item Poisson distribution
+\item Uniform distribution
+\item Weibull distribution
+\end{enumerate}
+
+\vspace*{10mm}
+
+\noindent
+Of course, these classes cannot only be used for Evolutionary
+Computation and Monte Carlo simulation, but also for other simulations
+where random number generators are necessary. Thus, starting with the
+next section, I will introduce the different functions. Additionary, I
+will also introduce two classes $Rng$ and $RNG$. These two classes
+control the random number generator.

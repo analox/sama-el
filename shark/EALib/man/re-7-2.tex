@@ -1,0 +1,102 @@
+\section{Internal Class {\em DerandomConst}}
+
+The class {\tt ChromosomeT$<$ double $>$} contains an internal
+subclass, that is used for the execution of the self-adaptative
+method {\em Derandom}. The variables and methods that are
+part of the subclass can not be called and modified directly, but
+the {\tt ChromosomeT$<$ double $>$} class owns some methods for this
+purpose. 
+
+\subsection{Internal Variables of {\em DerandomConst}}
+
+\begin{itemize}
+\item {\em dim} - 
+ Dimension of the chromosome. Not initialized. 
+\index{dim (Variable)}
+
+\item {\em C} -
+ Period of cumulation, initialized with $\frac{1.0}{\sqrt{n}}$.
+\index{C (Variable)}
+
+\item {\em Cu} -
+ Normalizing factor for the sum vector {\em s}, initialized with 
+ $\sqrt{\frac{2.0 - C}{C}}$.
+\index{Cu (Variable)}
+
+\item {\em Crr} -
+ Period of cumulation for the preference direction, initialized with 
+ $\frac{3.0}{n}$. 
+\index{Crr (Variable)}
+
+\item {\em Beta} -
+ Damping of the global stepsize adaptation, initialized 
+ with $\frac{1.0}{\sqrt{n}}$.
+\index{Beta (Variable)}
+
+\item {\em BetaI} -
+ Damping of the individual stepsize adaptation, initialized with
+ $\frac{1}{n}$.
+\index{BetaI (Variable)}
+
+\item {\em BetaR} -
+ Damping of the direction, initialized with $\frac{1.0}{\sqrt{4n}}$. 
+\index{BetaR (Variable)}
+
+\item {\em ChiN} -
+ Expectation value for the $\chi_n$-distribution,\\ initialized with
+ $\sqrt{n}(1 - \frac{1}{4n} + \frac{1}{21n^2})$.
+\index{ChiN (Variable)}
+
+\item {\em Chi1} -
+ Expectation value for the $\chi_1$-distribution, initialized with
+ $\sqrt{\frac{2}{\pi}}$.
+\index{Chi1 (Variable)}
+
+\end{itemize}
+
+\clearpage
+
+\subsection{Internal Methods of {\em DerandomConst}}
+
+%---------------------------------------------------------------------------%
+\index{DerandomConst!( unsigned n )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{DerandomConst}
+{unsigned}
+{n}
+{Initializing value for the dimension.}
+{Initializes the internal variables of class {\em DerandomConst}.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{nobj!( )}
+\setNormalInstance
+\printEmptyMethodReturn
+{unsigned}
+{nobj}
+{Returns the dimension value.}
+{The dimension value.}
+%---------------------------------------------------------------------------%
+
+\vspace*{4ex}
+
+%---------------------------------------------------------------------------%
+\index{npar!( )}
+\setNormalInstance
+\printEmptyMethodReturn
+{unsigned}
+{npar}
+{Returns the number of necessary parameters for the {\em Derandom} method.}
+{Number of necessary parameters.}
+%---------------------------------------------------------------------------%
+
+
+
+
+

@@ -1,0 +1,130 @@
+\begin{theindex}
+
+  \item {BICFunc}
+    \subitem {RBF}, 9
+
+  \indexspace
+
+  \item {cauchyFunc}
+    \subitem {RBF}, 9
+  \item {cubicFunc}
+    \subitem {RBF}, 10
+
+  \indexspace
+
+  \item {estRegParamBIC}
+    \subitem {RBF}, 10
+  \item {estRegParamFPE}
+    \subitem {RBF}, 10
+  \item {estRegParamGCV}
+    \subitem {RBF}, 11
+  \item {estRegParamUEV}
+    \subitem {RBF}, 11
+  \item {evaluate}
+    \subitem {RBF}, 11, 12
+
+  \indexspace
+
+  \item {FPEFunc}
+    \subitem {RBF}, 12
+
+  \indexspace
+
+  \item {gaussFunc}
+    \subitem {RBF}, 12
+  \item {GCVFunc}
+    \subitem {RBF}, 12
+  \item {getBaseCentres}
+    \subitem {RBF}, 13
+  \item {getDesignMatrix}
+    \subitem {RBF}, 13
+  \item {getDistance}
+    \subitem {RBF}, 13
+  \item {getOrthogonalMatrix}
+    \subitem {RBF}, 13
+  \item {getOrthogonalWeightMatrix}
+    \subitem {RBF}, 13
+  \item {getWeightMatrix}
+    \subitem {RBF}, 14
+
+  \indexspace
+
+  \item {initArrayToZero}
+    \subitem {RBF}, 14
+  \item {inverseMultiquadricFunc}
+    \subitem {RBF}, 14
+
+  \indexspace
+
+  \item {KMean}
+    \subitem {RBF}, 14
+
+  \indexspace
+
+  \item {linearFunc}
+    \subitem {RBF}, 15
+
+  \indexspace
+
+  \item {mse}
+    \subitem {RBF}, 15
+  \item {multiquadricFunc}
+    \subitem {RBF}, 15
+
+  \indexspace
+
+  \item {RBF}, 5
+    \subitem {BICFunc}, 9
+    \subitem {cauchyFunc}, 9
+    \subitem {cubicFunc}, 10
+    \subitem {estRegParamBIC}, 10
+    \subitem {estRegParamFPE}, 10
+    \subitem {estRegParamGCV}, 11
+    \subitem {estRegParamUEV}, 11
+    \subitem {evaluate}, 11, 12
+    \subitem {FPEFunc}, 12
+    \subitem {gaussFunc}, 12
+    \subitem {GCVFunc}, 12
+    \subitem {getBaseCentres}, 13
+    \subitem {getDesignMatrix}, 13
+    \subitem {getDistance}, 13
+    \subitem {getOrthogonalMatrix}, 13
+    \subitem {getOrthogonalWeightMatrix}, 13
+    \subitem {getWeightMatrix}, 14
+    \subitem {initArrayToZero}, 14
+    \subitem {inverseMultiquadricFunc}, 14
+    \subitem {KMean}, 14
+    \subitem {linearFunc}, 15
+    \subitem {mse}, 15
+    \subitem {multiquadricFunc}, 15
+    \subitem {RBF}, 8, 9
+    \subitem {setDesignMatrix}, 16
+    \subitem {setWeightMatrix}, 16
+    \subitem {train}, 16
+    \subitem {UEVFunc}, 16
+    \subitem {YPYFunc}, 17
+  \item {rbf.h}, 19
+
+  \indexspace
+
+  \item {setDesignMatrix}
+    \subitem {RBF}, 16
+  \item {setWeightMatrix}
+    \subitem {RBF}, 16
+
+  \indexspace
+
+  \item {train}
+    \subitem {RBF}, 16
+
+  \indexspace
+
+  \item {UEVFunc}
+    \subitem {RBF}, 16
+
+  \indexspace
+
+  \item {YPYFunc}
+    \subitem {RBF}, 17
+
+\end{theindex}

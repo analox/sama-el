@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>LinAlg Reference</title>
+  </head>
+
+  <body>
+    <h1>LinAlg Reference</h1>
+
+    Reference for the <strong>Lin</strong>ear
+    <strong>Alg</strong>ebra library.<br>
+    <p>
+    </p>
+
+    <BR>
+    <BR>
+    <img src="./images/arrow.gif"> &nbsp; <a href="#analyse">Data Analysis</a><BR>
+        &nbsp; &nbsp; <img src="./images/arrow.gif"> &nbsp; <a href="#simple">Simple analysis</a><BR>
+        &nbsp; &nbsp; <img src="./images/arrow.gif"> &nbsp; <a href="#eigen">Eigensystems</a><BR>
+        &nbsp; &nbsp; <img src="./images/arrow.gif"> &nbsp; <a href="#solution">Finding equations solution</a><BR>
+        &nbsp; &nbsp; <img src="./images/arrow.gif"> &nbsp; <a href="#classification">Classification</a><BR>
+    <img src="./images/arrow.gif"> &nbsp; <a href="#manipulate">Data Manipulation</a><BR>
+        &nbsp; &nbsp; <img src="./images/arrow.gif"> &nbsp; <a href="#matrix">Simple matrix manipulations</a><BR>
+        &nbsp; &nbsp; <img src="./images/arrow.gif"> &nbsp; <a href="#opt">Optimization</a><BR>
+        &nbsp; &nbsp; <img src="./images/arrow.gif"> &nbsp; <a href="#comprimation">Data comprimation</a><BR>
+        &nbsp; &nbsp; <img src="./images/arrow.gif"> &nbsp; <a href="#transform">Discrete Fourier transformation</a><BR>
+    <img src="./images/arrow.gif"> &nbsp; <a href="#examples">Example Programs</a><BR>
+
+
+    <br><br>
+    <a name="analyse">
+    <h2>Data Analysis</h2>
+    <p></p>
+        <a name="simple">
+        <h3>Simple analysis</h3>
+        <ul>
+            <li>Stochastic</li>
+            <ul>
+                <li>Calculate mean values</li>
+                <ul>
+                    <li><a href="./html/#28">Alone</a></li>
+                    <li><a href="./html/#30">With variances</a></li>
+                </ul>
+                <li>Calculate variances</li>
+                <ul>
+                    <li><a href="./html/#29">Alone</a></li>
+                    <li><a href="./html/#30">With mean values</a></li>
+                </ul>
+                <li>Calculate covariances</li>
+                <ul>
+                    <li><a href="./html/#33">version 1</a></li>
+                    <li><a href="./html/#34">version 2</a></li>
+                </ul>
+                <li>Calculate correlation coefficient</li>
+                <ul>
+                    <li><a href="./html/#31">version 1</a></li>
+                    <li><a href="./html/#32">version 2</a></li>
+                </ul>
+            </ul>
+            <li>Matrix-oriented</li>
+            <ul>
+                <li><a href="./html/#01">Calculate matrix determinants</a></li>
+                <li>Calculate matrix rank</li>
+                <ul>
+                    <li><a href="./html/#02">Normal calculation</a></li>
+                    <li><a href="./html/#03">Using eigenvalues</a></li>
+                    <li><a href="./html/#04">Using singular values</a></li>
+                </ul>  
+                <li>Calculate generalized inverse matrix</li>
+                <ul>
+                    <li><a href="./html/#05">version 1</a></li>
+                    <li><a href="./html/#06">version 2</a></li>
+                </ul>
+                <li><a href="./html/#27">Calculate sum of matrix diagonal</a></li>
+            </ul>
+        </ul>
+        <a name="eigen">
+        <h3>Eigensystems</h3>
+        <ul>
+            <li>Calculating eigenvectors and eigenvalues</li>
+            <ul>
+                <li><a href="./html/#07">Alone</a></li>
+                <li>Alone, using Jacobi rotation</li>
+                <ul>
+                    <li><a href="./html/#08">version 1</a></li>
+                    <li><a href="./html/#09">version 2</a></li>
+                </ul>
+                <li><a href="./html/#03">Together with matrix rank</a></li>
+                <li><a href="./html/#01">Together with matrix determinant</a></li>
+            </ul>
+            <li><a href="./html/#10">Sorting eigenvectors and eigenvalues</a></li>
+            <li><a href="./html/#11">Calculating the relative errors of eigenvalues</a></li>
+        </ul>
+        <a name="solution">
+        <h3>Finding equations solution</h3>
+        <ul>
+            <li>Singular value decomposition</li>
+            <ul>
+                <li>Calculating singular values</li>
+                <ul>
+                    <li><a href="./html/#12">Alone</a></li>
+                    <li><a href="./html/#04">Together with matrix rank</a></li>
+                    <li>Together with generalized inverse matrix</li>
+                    <ul>
+                        <li><a href="./html/#05">version 1</a></li>
+                        <li><a href="./html/#06">version 2</a></li>
+                    </ul> 
+                </ul>
+                <li><a href="./html/#10">Sorting singular values</a></li>
+            </ul>
+            <li><a href="./html/#13">Line search</a></li>
+            <li><a href="./html/#14">Cubic line search</a></li>
+        </ul>
+        <a name="classification">
+        <h3>Classification</h3>
+        <ul>
+            <li>Discriminant analysis</li>
+            <ul>
+                <li><a href="./html/#22">version 1</a></li>
+                <li><a href="./html/#15">version 2</a></li>
+            </ul>
+        </ul>
+
+    <br><br>
+    <a name="manipulate"> 
+    <h2>Data Manipulation</h2>
+    <p>
+    </p>
+        <a name="matrix">
+        <h3>Simple matrix manipulation</h3>
+        <ul>
+            <li><a href="./html/#25">Matrix transposition</a></li>
+            <li><a href="./html/#26">Creating matrix with input vector as diagonal</a></li>
+        </ul>    
+        <a name="opt">
+        <h3>Optimization</h3>
+        <ul>
+            <li>For one dimension</li>
+            <ul>
+                <li><a href="./html/#13">Minimization with line search</a></li>
+                <li><a href="./html/#14">Minimization with cubic line search</a></li>
+                <li><a href="./html/#16">Minimization with linmin</a></li>
+                <li><a href="./html/#17">Minimization with linmin using derivative information</a></li>
+            </ul>
+            <li>Multidimensional</li>
+            <ul>
+                <li>Broyden-Fletcher-Goldfarb-Shanno</li>
+                <ul>
+                    <li><a href="./html/#18">version 1</a></li>
+                    <li><a href="./html/#19">version 2</a></li>
+                </ul>
+            </ul>
+        </ul>
+        <a name="comprimation">
+        <h3>Data comprimation</h3>
+        <ul>
+            <li>Linear regression</li>
+            <ul>
+                <li><a href="./html/#23">version 1</a></li>
+                <li><a href="./html/#20">version 2</a></li>
+            </ul>
+            <li><a href="./html/#24">Principal component analysis/Kahunen Loeve transformation</a></li>
+        </ul>
+        <a name="transform">
+        <h3>Discrete Fourier transformation</h3>
+        <ul>
+            <li><a href="./html/#21">Fast fourier transformation</a></li>
+        </ul>
+
+
+    <br><br>
+    <a name="examples">
+    <h2>Example Programs</h2>
+    <p>
+        To give you a better idea, how to use the several functions
+        and methods of LinAlg, you can take a look
+        at some commented source codes of example programs.
+        To run these programs please go to
+        the examples directory of LinAlg.
+    </p>
+        <ul>
+            <li>
+                <a href="./html/#35">
+                    Minimization of a function with the 
+                    Broyden-Fletcher-Goldfarb-Shanno 
+                    algorithm
+                </a>
+            </li>
+            <li>
+                <a href="./html/#36">
+                    Minimization of a function with another version of the
+                    Broyden-Fletcher-Goldfarb-Shanno 
+                    algorithm
+                </a>
+            </li>
+            <li>
+                <a href="./html/#38">
+                    Calculating the covariances and correlation
+                    coefficient of matrices
+                </a>
+            </li>
+            <li>
+                <a href="./html/#39">
+                    Calculating the determinant of a matrix
+                    using the eigenvectors
+                </a>
+            </li>
+            <li>
+                <a href="./html/#41">
+                    Calculating the relative errors for all
+                    eigenvalues of a matrix
+                </a>
+            </li>
+            <li>
+                <a href="./html/#42">
+                    Sorting the eigenvectors and eigenvalues
+                    of a matrix
+                </a>
+            </li>
+            <li>
+                <a href="./html/#45">
+                    Calculating the eigenvectors and eigenvalues
+                    of a matrix
+                </a>
+            </li>
+            <li>
+                <a href="./html/#43">
+                    Calculating the eigenvectors and eigenvalues
+                    of a matrix using Jacobi rotation
+                </a>
+            </li>
+            <li>
+                <a href="./html/#44">
+                    Calculating the eigenvectors and eigenvalues
+                    of a matrix using another version of Jacobi rotation
+                </a>
+            </li>
+            <li>
+                <a href="./html/#46">
+                    Performing a fast Fourier transformation
+                </a>
+            </li>
+            <li>
+                <a href="./html/#47">
+                    Calculating the generalized inverse of a matrix
+                </a>
+            </li>
+            <li>
+                <a href="./html/#48">
+                    Usage of some simple functions for matrices
+                </a>
+            </li>
+            <li>
+                <a href="./html/#49">
+                    Classification of data using linear discriminant
+                    analysis
+                </a>
+            </li>
+            <li>
+                <a href="./html/#50">
+                    Calculating a linear approximation for
+                    some data points using linear regression
+                </a>
+            </li>
+            <li>
+                <a href="./html/#51">
+                    Finding the minimum of a function using
+                    line minimization
+                </a>
+            </li>
+            <li>
+                <a href="./html/#40">
+                    Finding the minimum of a function using
+                    line minimization with usage of the
+                    derivatives
+                </a>
+            </li>
+            <li>
+                <a href="./html/#59">
+                    Finding the minimum of a function with line search
+                </a>
+            </li>
+            <li>
+                <a href="./html/#52">
+                    Finding the minimum of a function with cubic line search
+                </a>
+            </li>
+            <li>
+                <a href="./html/#53">
+                    Compress data by using principal component analysis
+                </a>
+            </li>
+            <li>
+                <a href="./html/#55">
+                    Calculating the rank of a matrix
+                </a>
+            </li>
+            <li>
+                <a href="./html/#54">
+                    Calculating the rank of a matrix by using
+                    its eigenvectors
+                </a>
+            </li>
+            <li>
+                <a href="./html/#57">
+                    Calculating the rank of a matrix using
+                    singular value decomposition
+                </a>
+            </li>
+            <li>
+                <a href="./html/#56">
+                    Performing singular value decomposition on a matrix
+                </a>
+            </li>
+            <li>
+                <a href="./html/#58">
+                    Sorting the singular values of a matrix
+                    after decomposition
+                </a>
+            </li>    
+        </ul>
+
+    <hr><BR>
+    <p>
+    You can also go directly to the LinAlg class reference as 
+    created by the doxygen program:
+    </p>
+            
+    View the <a href="./html/index.html">overview</a>.<BR>
+    View the <a href="./html/files.html">list of files</a> in LinAlg.<BR>
+    View the <a href="./html/annotated.html">list of classes</a> in LinAlg.<BR>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+

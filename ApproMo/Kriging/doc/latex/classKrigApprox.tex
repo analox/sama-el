@@ -1,0 +1,259 @@
+\section{Krig\-Approx Class Reference}
+\label{classKrigApprox}\index{KrigApprox@{KrigApprox}}
+This class provides different functions for the approximation using the Kriging model.  
+
+
+{\tt \#include $<$Krig\-Approx.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Krig\-Approx} ()\label{classKrigApprox_a0}
+
+\begin{CompactList}\small\item\em constructor \item\end{CompactList}\item 
+{\bf $\sim$Krig\-Approx} ()\label{classKrigApprox_a1}
+
+\begin{CompactList}\small\item\em destructor \item\end{CompactList}\item 
+double {\bf MSE} (Database Data)
+\begin{CompactList}\small\item\em This function calculates the mean square error of the Kriging approximation considering the given database $<$data$>$. \item\end{CompactList}\item 
+double {\bf MSE} (Array$<$ double $>$ Input, Array$<$ double $>$ Target)
+\begin{CompactList}\small\item\em This function calculates the mean square error of the approximation considering the given arrays $<$input$>$ and $<$target$>$. \item\end{CompactList}\item 
+double {\bf MSE} (Population offsprings)
+\begin{CompactList}\small\item\em This function calculates the mean square error of the approximation considering a given population $<$offsprings$>$. \item\end{CompactList}\item 
+int {\bf Evaluate} (Population \&offsprings)
+\begin{CompactList}\small\item\em This function evaluates the $<$offsprings$>$ with the Kriging model and stores the results as the fitness value in each offspring. \item\end{CompactList}\item 
+int {\bf Evaluate} (Individual \&offspring)
+\begin{CompactList}\small\item\em This function evaluates the $<$offspring$>$ with the Kriging model and stores the results as the fitness value in the offspring. \item\end{CompactList}\item 
+int {\bf Evaluate} (Array$<$ double $>$ Input\-Data, Array$<$ double $>$ \&Output\-Data)
+\begin{CompactList}\small\item\em This function evaluates the data in $<$inputdata$>$ with the Kriging approximation and stores the results in $<$outputdata$>$. \item\end{CompactList}\item 
+int {\bf Train\_\-MLM} (Database Data)
+\begin{CompactList}\small\item\em This function approximates the datas which are stored in the database $<$data$>$ using the Kriging model. \item\end{CompactList}\item 
+int {\bf Train\_\-MLM} (Array$<$ double $>$ Input\-Data, Array$<$ double $>$ Target\-Data)
+\begin{CompactList}\small\item\em This function approximates the datas which are stored in the arrays $<$inputdata$>$ and $<$targetdata$>$ using the Kriging model. \item\end{CompactList}\item 
+int {\bf Train} (Database Data)
+\begin{CompactList}\small\item\em This function approximates the datas which are stored in the database $<$data$>$ using the Kriging model (default algorithm). \item\end{CompactList}\item 
+int {\bf Train} (Array$<$ double $>$ Input\-Data, Array$<$ double $>$ Target\-Data)
+\begin{CompactList}\small\item\em This function approximates the datas which are stored in the arrays $<$inputdata$>$ and $<$targetdata$>$ using the Kriging model (default algorithm). \item\end{CompactList}\item 
+int {\bf Scan\-Square3D} (int lower\-Border, int upper\-Border, Array$<$ double $>$ \&Output\-Data)
+\begin{CompactList}\small\item\em This function scans an area of the data which must have an input dimension of 2 and an output dimension of 1. The scanning area is between the borders given as the parameters $<$lowerborder$>$ and $<$upperborder$>$. The resolution is fixed to 100. The results can be further used for matlab. \item\end{CompactList}\item 
+int {\bf Scan\-Square3D} (int lower\-Border, int upper\-Border, Array$<$ double $>$ \&Output\-Data, int ind1, int ind2, Array$<$ double $>$ Parameters\-To\-Keep\-Constant)
+\begin{CompactList}\small\item\em This function scans an area of the data in the parameters $<$ind1$>$ and $<$ind2$>$ . The scanning area is between the borders given as the parameters $<$lowerborder$>$ and $<$upperborder$>$. The resolution is fixed to 100. The results can be further used for matlab. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class provides different functions for the approximation using the Kriging model. 
+
+This class is based on the Kriging approximation model. For using this class in an appropriate way it is required to create an instance of the class $<$database$>$. After the known data is stored in the database the functionality of the Kriging approximation can be applied. Therefore in the next step the model should be trained and after this the evaluation functions can be used. For further information on the basics of the Kriging model please check {\tt http://www.cs.wm.edu/$\sim$va/software/krigifier/documentation/} 
+
+
+
+\subsection{Member Function Documentation}
+\index{KrigApprox@{Krig\-Approx}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Krig\-Approx::Evaluate (Array$<$ double $>$ {\em Input\-Data}, Array$<$ double $>$ \& {\em Output\-Data})}\label{classKrigApprox_a7}
+
+
+This function evaluates the data in $<$inputdata$>$ with the Kriging approximation and stores the results in $<$outputdata$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input\-Data}]Array containing the input parameters \item[{\em Output\-Data}]Array containing the evaluation results \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \item[{\em 1}]Model was not trained so far \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Krig\-Approx::Evaluate (Individual \& {\em offspring})}\label{classKrigApprox_a6}
+
+
+This function evaluates the $<$offspring$>$ with the Kriging model and stores the results as the fitness value in the offspring. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offspring}]Individual to be evaluated \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \item[{\em 1}]Model was not trained so far \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!Evaluate@{Evaluate}}
+\index{Evaluate@{Evaluate}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Krig\-Approx::Evaluate (Population \& {\em offsprings})}\label{classKrigApprox_a5}
+
+
+This function evaluates the $<$offsprings$>$ with the Kriging model and stores the results as the fitness value in each offspring. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offsprings}]population of offsprings to be evaluated \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \item[{\em 1}]Model was not trained so far \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!MSE@{MSE}}
+\index{MSE@{MSE}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Krig\-Approx::MSE (Population {\em offsprings})}\label{classKrigApprox_a4}
+
+
+This function calculates the mean square error of the approximation considering a given population $<$offsprings$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offsprings}]population containing the parameters in the first Chromosome and the fitness value as target value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em MSE}]mean square error of the approximation \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!MSE@{MSE}}
+\index{MSE@{MSE}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Krig\-Approx::MSE (Array$<$ double $>$ {\em Input}, Array$<$ double $>$ {\em Target})}\label{classKrigApprox_a3}
+
+
+This function calculates the mean square error of the approximation considering the given arrays $<$input$>$ and $<$target$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input}]array containing the input data \item[{\em Target}]array containing the target data \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em MSE}]mean square error of the approximation \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!MSE@{MSE}}
+\index{MSE@{MSE}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Krig\-Approx::MSE (Database {\em Data})}\label{classKrigApprox_a2}
+
+
+This function calculates the mean square error of the Kriging approximation considering the given database $<$data$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]the database containing the input and target data \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em error\_\-MSE}]mean square error of the Kriging approximation \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!ScanSquare3D@{ScanSquare3D}}
+\index{ScanSquare3D@{ScanSquare3D}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Krig\-Approx::Scan\-Square3D (int {\em lower\-Border}, int {\em upper\-Border}, Array$<$ double $>$ \& {\em Output\-Data}, int {\em ind1}, int {\em ind2}, Array$<$ double $>$ {\em Parameters\-To\-Keep\-Constant})}\label{classKrigApprox_a13}
+
+
+This function scans an area of the data in the parameters $<$ind1$>$ and $<$ind2$>$ . The scanning area is between the borders given as the parameters $<$lowerborder$>$ and $<$upperborder$>$. The resolution is fixed to 100. The results can be further used for matlab. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em lower\-Border}]lower border of the area which is to be scanned \item[{\em upper\-Border}]upper border of the area which is to be scanned \item[{\em Output\-Data}]Array containing the datas of the scanned areas in format [x-coordinate, y-coordinate, approximation value] \item[{\em ind1}]parameter 1 \item[{\em ind2}]parameter 2 \item[{\em Parameters\-To\-Keep\-Constant}]one dimensional array containing the remaining values of the parameters which should be kept constant in increasing order \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!ScanSquare3D@{ScanSquare3D}}
+\index{ScanSquare3D@{ScanSquare3D}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Krig\-Approx::Scan\-Square3D (int {\em lower\-Border}, int {\em upper\-Border}, Array$<$ double $>$ \& {\em Output\-Data})}\label{classKrigApprox_a12}
+
+
+This function scans an area of the data which must have an input dimension of 2 and an output dimension of 1. The scanning area is between the borders given as the parameters $<$lowerborder$>$ and $<$upperborder$>$. The resolution is fixed to 100. The results can be further used for matlab. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em lower\-Border}]lower border of the area which is to be scanned \item[{\em upper\-Border}]upper border of the area which is to be scanned \item[{\em Output\-Data}]Array containing the datas of the scanned areas in format [x-coordinate, y-coordinate, approximation value] \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!Train@{Train}}
+\index{Train@{Train}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Krig\-Approx::Train (Array$<$ double $>$ {\em Input\-Data}, Array$<$ double $>$ {\em Target\-Data})}\label{classKrigApprox_a11}
+
+
+This function approximates the datas which are stored in the arrays $<$inputdata$>$ and $<$targetdata$>$ using the Kriging model (default algorithm). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input\-Data}]array containing the inputdata which are used for approximation \item[{\em Target\-Data}]array containing the targetdata which are used for approximation \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!Train@{Train}}
+\index{Train@{Train}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Krig\-Approx::Train (Database {\em Data})}\label{classKrigApprox_a10}
+
+
+This function approximates the datas which are stored in the database $<$data$>$ using the Kriging model (default algorithm). 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]Database containing the data which are used for approximation \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!Train_MLM@{Train\_\-MLM}}
+\index{Train_MLM@{Train\_\-MLM}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Krig\-Approx::Train\_\-MLM (Array$<$ double $>$ {\em Input\-Data}, Array$<$ double $>$ {\em Target\-Data})}\label{classKrigApprox_a9}
+
+
+This function approximates the datas which are stored in the arrays $<$inputdata$>$ and $<$targetdata$>$ using the Kriging model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input\-Data}]array containing the inputdata which are used for approximation \item[{\em Target\-Data}]array containing the targetdata which are used for approximation \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \end{description}
+\end{Desc}
+\index{KrigApprox@{Krig\-Approx}!Train_MLM@{Train\_\-MLM}}
+\index{Train_MLM@{Train\_\-MLM}!KrigApprox@{Krig\-Approx}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int Krig\-Approx::Train\_\-MLM (Database {\em Data})}\label{classKrigApprox_a8}
+
+
+This function approximates the datas which are stored in the database $<$data$>$ using the Kriging model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Data}]Database containing the data which are used for approximation \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em 0}]ok \end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+{\bf Krig\-Approx.h}\end{CompactItemize}

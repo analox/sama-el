@@ -1,0 +1,66 @@
+\contentsline {chapter}{\numberline {1}Hierarchical Index}{1}
+\contentsline {section}{\numberline {1.1}Class Hierarchy}{1}
+\contentsline {chapter}{\numberline {2}Class Index}{3}
+\contentsline {section}{\numberline {2.1}Class List}{3}
+\contentsline {chapter}{\numberline {3}File Index}{5}
+\contentsline {section}{\numberline {3.1}File List}{5}
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}
+\contentsline {section}{\numberline {4.1}Compass\discretionary {-}{}{}Search Class Reference}{7}
+\contentsline {subsection}{\numberline {4.1.1}Detailed Description}{8}
+\contentsline {subsection}{\numberline {4.1.2}Constructor \& Destructor Documentation}{8}
+\contentsline {subsubsection}{\numberline {4.1.2.1}\setlength {\rightskip }{0pt plus 5cm}Compass\discretionary {-}{}{}Search::Compass\discretionary {-}{}{}Search (long {\em number\discretionary {-}{}{}Of\discretionary {-}{}{}Variables}, Vector$<$ double $>$ \& {\em start\discretionary {-}{}{}Point})}{8}
+\contentsline {subsubsection}{\numberline {4.1.2.2}\setlength {\rightskip }{0pt plus 5cm}Compass\discretionary {-}{}{}Search::Compass\discretionary {-}{}{}Search (long {\em dim}, Vector$<$ double $>$ \& {\em start\discretionary {-}{}{}Point}, double {\em start\discretionary {-}{}{}Step}, double {\em stop\discretionary {-}{}{}Step}, void($\ast $)(long vars, Vector$<$ double $>$ \&x, double \&func, bool \&flag, void $\ast $an\_\discretionary {-}{}{}obj) {\em objective}, void $\ast $ {\em input\_\discretionary {-}{}{}obj})}{8}
+\contentsline {subsubsection}{\numberline {4.1.2.3}\setlength {\rightskip }{0pt plus 5cm}virtual Compass\discretionary {-}{}{}Search::$\sim ${\bf Compass\discretionary {-}{}{}Search} ()\hspace {0.3cm}{\tt [virtual]}}{8}
+\contentsline {subsection}{\numberline {4.1.3}Member Function Documentation}{9}
+\contentsline {subsubsection}{\numberline {4.1.3.1}\setlength {\rightskip }{0pt plus 5cm}void Compass\discretionary {-}{}{}Search::Begin\discretionary {-}{}{}Search ()\hspace {0.3cm}{\tt [virtual]}}{9}
+\contentsline {subsubsection}{\numberline {4.1.3.2}\setlength {\rightskip }{0pt plus 5cm}void Compass\discretionary {-}{}{}Search::Create\discretionary {-}{}{}Pattern ()\hspace {0.3cm}{\tt [protected]}}{9}
+\contentsline {subsubsection}{\numberline {4.1.3.3}\setlength {\rightskip }{0pt plus 5cm}void Compass\discretionary {-}{}{}Search::Exploratory\discretionary {-}{}{}Moves ()\hspace {0.3cm}{\tt [protected, virtual]}}{9}
+\contentsline {subsubsection}{\numberline {4.1.3.4}\setlength {\rightskip }{0pt plus 5cm}{\bf Compass\discretionary {-}{}{}Search}\& Compass\discretionary {-}{}{}Search::operator= (const {\bf Compass\discretionary {-}{}{}Search} \& {\em A})}{9}
+\contentsline {subsubsection}{\numberline {4.1.3.5}\setlength {\rightskip }{0pt plus 5cm}void Compass\discretionary {-}{}{}Search::Update\discretionary {-}{}{}Pattern ()\hspace {0.3cm}{\tt [protected]}}{9}
+\contentsline {section}{\numberline {4.2}Krig\discretionary {-}{}{}Approx Class Reference}{10}
+\contentsline {subsection}{\numberline {4.2.1}Detailed Description}{11}
+\contentsline {subsection}{\numberline {4.2.2}Member Function Documentation}{11}
+\contentsline {subsubsection}{\numberline {4.2.2.1}\setlength {\rightskip }{0pt plus 5cm}int Krig\discretionary {-}{}{}Approx::Evaluate (Array$<$ double $>$ {\em Input\discretionary {-}{}{}Data}, Array$<$ double $>$ \& {\em Output\discretionary {-}{}{}Data})}{11}
+\contentsline {subsubsection}{\numberline {4.2.2.2}\setlength {\rightskip }{0pt plus 5cm}int Krig\discretionary {-}{}{}Approx::Evaluate (Individual \& {\em offspring})}{11}
+\contentsline {subsubsection}{\numberline {4.2.2.3}\setlength {\rightskip }{0pt plus 5cm}int Krig\discretionary {-}{}{}Approx::Evaluate (Population \& {\em offsprings})}{12}
+\contentsline {subsubsection}{\numberline {4.2.2.4}\setlength {\rightskip }{0pt plus 5cm}double Krig\discretionary {-}{}{}Approx::MSE (Population {\em offsprings})}{12}
+\contentsline {subsubsection}{\numberline {4.2.2.5}\setlength {\rightskip }{0pt plus 5cm}double Krig\discretionary {-}{}{}Approx::MSE (Array$<$ double $>$ {\em Input}, Array$<$ double $>$ {\em Target})}{12}
+\contentsline {subsubsection}{\numberline {4.2.2.6}\setlength {\rightskip }{0pt plus 5cm}double Krig\discretionary {-}{}{}Approx::MSE (Database {\em Data})}{12}
+\contentsline {subsubsection}{\numberline {4.2.2.7}\setlength {\rightskip }{0pt plus 5cm}int Krig\discretionary {-}{}{}Approx::Scan\discretionary {-}{}{}Square3D (int {\em lower\discretionary {-}{}{}Border}, int {\em upper\discretionary {-}{}{}Border}, Array$<$ double $>$ \& {\em Output\discretionary {-}{}{}Data}, int {\em ind1}, int {\em ind2}, Array$<$ double $>$ {\em Parameters\discretionary {-}{}{}To\discretionary {-}{}{}Keep\discretionary {-}{}{}Constant})}{13}
+\contentsline {subsubsection}{\numberline {4.2.2.8}\setlength {\rightskip }{0pt plus 5cm}int Krig\discretionary {-}{}{}Approx::Scan\discretionary {-}{}{}Square3D (int {\em lower\discretionary {-}{}{}Border}, int {\em upper\discretionary {-}{}{}Border}, Array$<$ double $>$ \& {\em Output\discretionary {-}{}{}Data})}{13}
+\contentsline {subsubsection}{\numberline {4.2.2.9}\setlength {\rightskip }{0pt plus 5cm}int Krig\discretionary {-}{}{}Approx::Train (Array$<$ double $>$ {\em Input\discretionary {-}{}{}Data}, Array$<$ double $>$ {\em Target\discretionary {-}{}{}Data})}{13}
+\contentsline {subsubsection}{\numberline {4.2.2.10}\setlength {\rightskip }{0pt plus 5cm}int Krig\discretionary {-}{}{}Approx::Train (Database {\em Data})}{14}
+\contentsline {subsubsection}{\numberline {4.2.2.11}\setlength {\rightskip }{0pt plus 5cm}int Krig\discretionary {-}{}{}Approx::Train\_\discretionary {-}{}{}MLM (Array$<$ double $>$ {\em Input\discretionary {-}{}{}Data}, Array$<$ double $>$ {\em Target\discretionary {-}{}{}Data})}{14}
+\contentsline {subsubsection}{\numberline {4.2.2.12}\setlength {\rightskip }{0pt plus 5cm}int Krig\discretionary {-}{}{}Approx::Train\_\discretionary {-}{}{}MLM (Database {\em Data})}{14}
+\contentsline {section}{\numberline {4.3}Pattern\discretionary {-}{}{}Search Class Reference}{15}
+\contentsline {subsection}{\numberline {4.3.1}Detailed Description}{16}
+\contentsline {subsection}{\numberline {4.3.2}Constructor \& Destructor Documentation}{16}
+\contentsline {subsubsection}{\numberline {4.3.2.1}\setlength {\rightskip }{0pt plus 5cm}Pattern\discretionary {-}{}{}Search::Pattern\discretionary {-}{}{}Search (long {\em dim}, Vector$<$ double $>$ \& {\em start\discretionary {-}{}{}Point})}{16}
+\contentsline {subsubsection}{\numberline {4.3.2.2}\setlength {\rightskip }{0pt plus 5cm}Pattern\discretionary {-}{}{}Search::Pattern\discretionary {-}{}{}Search (const {\bf Pattern\discretionary {-}{}{}Search} \& {\em Original})}{16}
+\contentsline {subsubsection}{\numberline {4.3.2.3}\setlength {\rightskip }{0pt plus 5cm}Pattern\discretionary {-}{}{}Search::Pattern\discretionary {-}{}{}Search (long {\em dim}, Vector$<$ double $>$ \& {\em start\discretionary {-}{}{}Point}, double {\em start\discretionary {-}{}{}Step}, double {\em stop\discretionary {-}{}{}Step}, void($\ast $)(long vars, Vector$<$ double $>$ \&x, double \&func, bool \&flag, void $\ast $an\_\discretionary {-}{}{}obj) {\em objective}, void $\ast $ {\em input\_\discretionary {-}{}{}obj})}{16}
+\contentsline {subsubsection}{\numberline {4.3.2.4}\setlength {\rightskip }{0pt plus 5cm}virtual Pattern\discretionary {-}{}{}Search::$\sim ${\bf Pattern\discretionary {-}{}{}Search} ()\hspace {0.3cm}{\tt [virtual]}}{17}
+\contentsline {subsection}{\numberline {4.3.3}Member Function Documentation}{17}
+\contentsline {subsubsection}{\numberline {4.3.3.1}\setlength {\rightskip }{0pt plus 5cm}virtual void Pattern\discretionary {-}{}{}Search::Begin\discretionary {-}{}{}Search ()\hspace {0.3cm}{\tt [pure virtual]}}{17}
+\contentsline {subsubsection}{\numberline {4.3.3.2}\setlength {\rightskip }{0pt plus 5cm}virtual void Pattern\discretionary {-}{}{}Search::Clean\discretionary {-}{}{}Slate (long {\em dim}, Vector$<$ double $>$ \& {\em startpoint}, double {\em start\discretionary {-}{}{}Step}, double {\em stop\discretionary {-}{}{}Step}, void($\ast $)(long vars, Vector$<$ double $>$ \&x, double \&func, bool \&flag, void $\ast $an\_\discretionary {-}{}{}obj) {\em objective}, void $\ast $ {\em input\_\discretionary {-}{}{}obj})\hspace {0.3cm}{\tt [virtual]}}{17}
+\contentsline {subsubsection}{\numberline {4.3.3.3}\setlength {\rightskip }{0pt plus 5cm}virtual void Pattern\discretionary {-}{}{}Search::Clean\discretionary {-}{}{}Slate (long {\em dim}, Vector$<$ double $>$ \& {\em startpoint})\hspace {0.3cm}{\tt [virtual]}}{17}
+\contentsline {subsubsection}{\numberline {4.3.3.4}\setlength {\rightskip }{0pt plus 5cm}virtual void Pattern\discretionary {-}{}{}Search::Copy\discretionary {-}{}{}Search (const {\bf Pattern\discretionary {-}{}{}Search} \& {\em Original})\hspace {0.3cm}{\tt [protected, virtual]}}{18}
+\contentsline {subsubsection}{\numberline {4.3.3.5}\setlength {\rightskip }{0pt plus 5cm}virtual void Pattern\discretionary {-}{}{}Search::Exploratory\discretionary {-}{}{}Moves ()\hspace {0.3cm}{\tt [protected, pure virtual]}}{18}
+\contentsline {subsubsection}{\numberline {4.3.3.6}\setlength {\rightskip }{0pt plus 5cm}double Pattern\discretionary {-}{}{}Search::Get\discretionary {-}{}{}Delta () const}{18}
+\contentsline {subsubsection}{\numberline {4.3.3.7}\setlength {\rightskip }{0pt plus 5cm}void Pattern\discretionary {-}{}{}Search::Get\discretionary {-}{}{}Initial\discretionary {-}{}{}Step\discretionary {-}{}{}Length (double \& {\em step\discretionary {-}{}{}Len})}{18}
+\contentsline {subsubsection}{\numberline {4.3.3.8}\setlength {\rightskip }{0pt plus 5cm}void Pattern\discretionary {-}{}{}Search::Get\discretionary {-}{}{}Pattern\discretionary {-}{}{}Length (long \& {\em pattern}) const}{19}
+\contentsline {subsubsection}{\numberline {4.3.3.9}\setlength {\rightskip }{0pt plus 5cm}void Pattern\discretionary {-}{}{}Search::Initialize\discretionary {-}{}{}Design (long {\em pattern\discretionary {-}{}{}Size}, const Matrix$<$ double $>$ $\ast $ {\em design\discretionary {-}{}{}Ptr})}{19}
+\contentsline {subsubsection}{\numberline {4.3.3.10}\setlength {\rightskip }{0pt plus 5cm}virtual void Pattern\discretionary {-}{}{}Search::Next\discretionary {-}{}{}Point (long {\em index}, const Vector$<$ double $>$ \& {\em current\discretionary {-}{}{}Point}, Vector$<$ double $>$ \& {\em next\discretionary {-}{}{}Point})\hspace {0.3cm}{\tt [protected, virtual]}}{19}
+\contentsline {subsubsection}{\numberline {4.3.3.11}\setlength {\rightskip }{0pt plus 5cm}virtual {\bf Pattern\discretionary {-}{}{}Search}\& Pattern\discretionary {-}{}{}Search::operator= (const {\bf Pattern\discretionary {-}{}{}Search} \& {\em A})\hspace {0.3cm}{\tt [virtual]}}{19}
+\contentsline {subsubsection}{\numberline {4.3.3.12}\setlength {\rightskip }{0pt plus 5cm}void Pattern\discretionary {-}{}{}Search::Print\discretionary {-}{}{}Design () const}{20}
+\contentsline {subsubsection}{\numberline {4.3.3.13}\setlength {\rightskip }{0pt plus 5cm}void Pattern\discretionary {-}{}{}Search::Read\discretionary {-}{}{}In\discretionary {-}{}{}File (istream \& {\em fp})}{20}
+\contentsline {subsubsection}{\numberline {4.3.3.14}\setlength {\rightskip }{0pt plus 5cm}virtual void Pattern\discretionary {-}{}{}Search::Replace\discretionary {-}{}{}Minimum (Vector$<$ double $>$ \& {\em new\discretionary {-}{}{}Point}, double {\em new\discretionary {-}{}{}Value})\hspace {0.3cm}{\tt [protected, virtual]}}{20}
+\contentsline {subsubsection}{\numberline {4.3.3.15}\setlength {\rightskip }{0pt plus 5cm}virtual void Pattern\discretionary {-}{}{}Search::Scale\discretionary {-}{}{}Pattern (double {\em scalar})\hspace {0.3cm}{\tt [protected, virtual]}}{20}
+\contentsline {subsubsection}{\numberline {4.3.3.16}\setlength {\rightskip }{0pt plus 5cm}void Pattern\discretionary {-}{}{}Search::Set\discretionary {-}{}{}Initial\discretionary {-}{}{}Step\discretionary {-}{}{}Length (double \& {\em step\discretionary {-}{}{}Len})}{20}
+\contentsline {subsubsection}{\numberline {4.3.3.17}\setlength {\rightskip }{0pt plus 5cm}virtual bool Pattern\discretionary {-}{}{}Search::Stop ()\hspace {0.3cm}{\tt [protected, virtual]}}{21}
+\contentsline {subsection}{\numberline {4.3.4}Member Data Documentation}{21}
+\contentsline {subsubsection}{\numberline {4.3.4.1}\setlength {\rightskip }{0pt plus 5cm}double {\bf Pattern\discretionary {-}{}{}Search::delta}\hspace {0.3cm}{\tt [protected]}}{21}
+\contentsline {subsubsection}{\numberline {4.3.4.2}\setlength {\rightskip }{0pt plus 5cm}double {\bf Pattern\discretionary {-}{}{}Search::initial\discretionary {-}{}{}Step\discretionary {-}{}{}Length}\hspace {0.3cm}{\tt [protected]}}{21}
+\contentsline {subsubsection}{\numberline {4.3.4.3}\setlength {\rightskip }{0pt plus 5cm}long {\bf Pattern\discretionary {-}{}{}Search::pattern\discretionary {-}{}{}Length}\hspace {0.3cm}{\tt [protected]}}{21}
+\contentsline {chapter}{\numberline {5}File Documentation}{23}
+\contentsline {section}{\numberline {5.1}Krig\discretionary {-}{}{}Approx.h File Reference}{23}
+\contentsline {subsection}{\numberline {5.1.1}Detailed Description}{23}

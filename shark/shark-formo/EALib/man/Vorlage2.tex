@@ -1,0 +1,22 @@
+% \methodgrayfalse
+
+\newgray{lightgray}{.97}
+\newif\ifmethodgray
+\methodgrayfalse
+\def\method#1#2{%
+  \ifmethodgray
+    \psframebox*[framesep=1pt,fillcolor=lightgray,fillstyle=solid]{%
+      \begin{minipage}{.996\textwidth}
+        \begin{minipage}{17em} #1 \end{minipage}
+        \begin{minipage}{22.5em} #2 \end{minipage}
+      \end{minipage}}
+    \methodgrayfalse
+  \else
+    \psframebox*[framesep=1pt]{%
+      \begin{minipage}{.996\textwidth}
+        \begin{minipage}{17em} #1 \end{minipage}
+        \begin{minipage}{22.5em} #2 \end{minipage}
+      \end{minipage}}
+    \methodgraytrue
+  \fi
+}

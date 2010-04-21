@@ -1,0 +1,3 @@
+set term tkcanvas
+set output './plotOLSForward/plot-46.tcl'
+splot './plotOLSForward/plot-46.dat' w line

@@ -1,0 +1,376 @@
+\section{Interpolate\-RBF Class Reference}
+\label{classInterpolateRBF}\index{InterpolateRBF@{InterpolateRBF}}
+This class provides different functions for the approximation using an Interpolation\-RBF model.  
+
+
+{\tt \#include $<$Interpolate\-RBF.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+{\bf Interpolate\-RBF} ()\label{classInterpolateRBF_a0}
+
+\begin{CompactList}\small\item\em constructor \item\end{CompactList}\item 
+{\bf Interpolate\-RBF} (unsigned in\-Dim, kernel\-Type a\-Kernel, Array$<$ double $>$ kernel\-Params)
+\begin{CompactList}\small\item\em This constructor generates an Interpolation RBF model. \item\end{CompactList}\item 
+{\bf $\sim$Interpolate\-RBF} ()\label{classInterpolateRBF_a2}
+
+\begin{CompactList}\small\item\em destructor \item\end{CompactList}\item 
+void {\bf evaluate} (Individual \&offspring)
+\begin{CompactList}\small\item\em This function evaluates the individual $<$offspring$>$ with the RBF model and stores the result as the fitness value of the offspring. \item\end{CompactList}\item 
+void {\bf evaluate} (Population \&offsprings)
+\begin{CompactList}\small\item\em This function evaluates the population $<$offsprings$>$ with the RBF model and stores the results as the fitness value of each member of offsprings. \item\end{CompactList}\item 
+void {\bf evaluate} (Array$<$ double $>$ input\-Data, Array$<$ double $>$ \&output\-Data)
+\begin{CompactList}\small\item\em This function evaluates the data in $<$inputdata$>$ with the RBF model and stores the results in $<$outputdata$>$. \item\end{CompactList}\item 
+double {\bf mse} (Array$<$ double $>$ Input, Array$<$ double $>$ Target)
+\begin{CompactList}\small\item\em This function calculates the mean square error of the approximation considering the given arrays $<$input$>$ and $<$target$>$. \item\end{CompactList}\item 
+double {\bf mse} (Population offsprings)
+\begin{CompactList}\small\item\em This function calculates the mean square error of the approximation considering a given population $<$offsprings$>$. \item\end{CompactList}\item 
+void {\bf train} (Array$<$ double $>$ Input\-Data, Array$<$ double $>$ Target\-Data)
+\begin{CompactList}\small\item\em This function approximates the datas which are stored in the arrays $<$inputdata$>$ and $<$targetdata$>$ using the RBF model. \item\end{CompactList}\item 
+void {\bf set\-Design\-Matrix} (Array$<$ double $>$ \&input\-Data)
+\begin{CompactList}\small\item\em This function set the design(hidden) matrix of the RBF model based on $<$inputdata$>$ provided. \item\end{CompactList}\item 
+void {\bf set\-Weight\-Matrix} (Array$<$ double $>$ \&target\-Data)
+\begin{CompactList}\small\item\em This function set the weight matrix of the RBF model based on $<$targetdata$>$ provided. \item\end{CompactList}\item 
+Array$<$ double $>$ {\bf get\-Design\-Matrix} ()
+\begin{CompactList}\small\item\em This function returns the design(hidden) matrix of the RBF model. \item\end{CompactList}\item 
+Array$<$ double $>$ {\bf get\-Weight\-Matrix} ()
+\begin{CompactList}\small\item\em This function returns the weight matrix of the RBF model. \item\end{CompactList}\item 
+Array$<$ double $>$ {\bf get\-Base\-Centres} ()
+\begin{CompactList}\small\item\em This function returns the kernel function centres of the RBF model. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{CompactItemize}
+\item 
+double {\bf get\-Distance} (Array$<$ double $>$ \&input, unsigned i, Array$<$ double $>$ \&centre, unsigned j)
+\begin{CompactList}\small\item\em This function calculates the distance between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf gauss\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the gaussian kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf cubic\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the cubic spline kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf linear\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the linear spline kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf multiquadric\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the multiquadrics kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf inverse\-Multiquadric\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the inverse multiquadrics kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+double {\bf cauchy\-Func} (Array$<$ double $>$ input, unsigned i, Array$<$ double $>$ centre, unsigned j, Array$<$ double $>$ params)
+\begin{CompactList}\small\item\em This function calculates the cauchy kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}\item\end{CompactList}\item 
+void {\bf KMean} (unsigned n\-Cluster, unsigned max\-Iter, Array$<$ double $>$ input, Array$<$ double $>$ \&centres\-Found, Array$<$ unsigned $>$ \&clust\-Map)
+\begin{CompactList}\small\item\em This function performs the K-Mean clustering algorithm to provide $<$ncluster$>$ clusters based on a set of inputs $<$input$>$. \item\end{CompactList}\item 
+template$<$class Type$>$ void {\bf init\-Array\-To\-Zero} (Array$<$ Type $>$ \&arr)
+\begin{CompactList}\small\item\em This function initializes an array to zero. \item\end{CompactList}\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+This class provides different functions for the approximation using an Interpolation\-RBF model. 
+
+This class is based on the RBF approximation models. Therefore in the next step the model should be trained and after this the evaluation functions can be used. 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{InterpolateRBF@{Interpolate\-RBF}!InterpolateRBF@{InterpolateRBF}}
+\index{InterpolateRBF@{InterpolateRBF}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Interpolate\-RBF::Interpolate\-RBF (unsigned {\em in\-Dim}, kernel\-Type {\em a\-Kernel}, Array$<$ double $>$ {\em kernel\-Params})}\label{classInterpolateRBF_a1}
+
+
+This constructor generates an Interpolation RBF model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em in\-Dim}]dimensionality of the problem. \item[{\em a\-Kernel}]kernel function used. \item[{\em kernel\-Params}]parameters for the kernel function.\end{description}
+\end{Desc}
+
+
+\subsection{Member Function Documentation}
+\index{InterpolateRBF@{Interpolate\-RBF}!cauchyFunc@{cauchyFunc}}
+\index{cauchyFunc@{cauchyFunc}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Interpolate\-RBF::cauchy\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classInterpolateRBF_e6}
+
+
+This function calculates the cauchy kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the cauchy kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!cubicFunc@{cubicFunc}}
+\index{cubicFunc@{cubicFunc}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Interpolate\-RBF::cubic\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classInterpolateRBF_e2}
+
+
+This function calculates the cubic spline kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the cubic spline kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Interpolate\-RBF::evaluate (Array$<$ double $>$ {\em input\-Data}, Array$<$ double $>$ \& {\em output\-Data})}\label{classInterpolateRBF_a5}
+
+
+This function evaluates the data in $<$inputdata$>$ with the RBF model and stores the results in $<$outputdata$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input\-Data}]array containing the input parameters. \item[{\em output\-Data}]reference to array containing the evaluation results.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Interpolate\-RBF::evaluate (Population \& {\em offsprings})}\label{classInterpolateRBF_a4}
+
+
+This function evaluates the population $<$offsprings$>$ with the RBF model and stores the results as the fitness value of each member of offsprings. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offsprings}]population of offspring to be evaluated.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Interpolate\-RBF::evaluate (Individual \& {\em offspring})}\label{classInterpolateRBF_a3}
+
+
+This function evaluates the individual $<$offspring$>$ with the RBF model and stores the result as the fitness value of the offspring. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offspring}]individual of offspring to be evaluated.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!gaussFunc@{gaussFunc}}
+\index{gaussFunc@{gaussFunc}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Interpolate\-RBF::gauss\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classInterpolateRBF_e1}
+
+
+This function calculates the gaussian kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the gaussian kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!getBaseCentres@{getBaseCentres}}
+\index{getBaseCentres@{getBaseCentres}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Array$<$double$>$ Interpolate\-RBF::get\-Base\-Centres ()}\label{classInterpolateRBF_a13}
+
+
+This function returns the kernel function centres of the RBF model. 
+
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em base\-Centres}]array containing the $<$basecentres$>$ of the RBF model.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!getDesignMatrix@{getDesignMatrix}}
+\index{getDesignMatrix@{getDesignMatrix}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Array$<$double$>$ Interpolate\-RBF::get\-Design\-Matrix ()}\label{classInterpolateRBF_a11}
+
+
+This function returns the design(hidden) matrix of the RBF model. 
+
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em design\-Matrix}]array containing the $<$designmatrix$>$ of the RBF model.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!getDistance@{getDistance}}
+\index{getDistance@{getDistance}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Interpolate\-RBF::get\-Distance (Array$<$ double $>$ \& {\em input}, unsigned {\em i}, Array$<$ double $>$ \& {\em centre}, unsigned {\em j})\hspace{0.3cm}{\tt  [static]}}\label{classInterpolateRBF_e0}
+
+
+This function calculates the distance between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em distance}]value of distance.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!getWeightMatrix@{getWeightMatrix}}
+\index{getWeightMatrix@{getWeightMatrix}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}Array$<$double$>$ Interpolate\-RBF::get\-Weight\-Matrix ()}\label{classInterpolateRBF_a12}
+
+
+This function returns the weight matrix of the RBF model. 
+
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em weight\-Matrix}]array containing the $<$weightmatrix$>$ of the RBF model.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!initArrayToZero@{initArrayToZero}}
+\index{initArrayToZero@{initArrayToZero}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}template$<$class Type$>$ void Interpolate\-RBF::init\-Array\-To\-Zero (Array$<$ Type $>$ \& {\em arr})\hspace{0.3cm}{\tt  [inline, static]}}\label{classInterpolateRBF_e8}
+
+
+This function initializes an array to zero. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em arr}]array to be initialized to zero.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!inverseMultiquadricFunc@{inverseMultiquadricFunc}}
+\index{inverseMultiquadricFunc@{inverseMultiquadricFunc}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Interpolate\-RBF::inverse\-Multiquadric\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classInterpolateRBF_e5}
+
+
+This function calculates the inverse multiquadrics kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the inverse multiquadrics kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!KMean@{KMean}}
+\index{KMean@{KMean}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Interpolate\-RBF::KMean (unsigned {\em n\-Cluster}, unsigned {\em max\-Iter}, Array$<$ double $>$ {\em input}, Array$<$ double $>$ \& {\em centres\-Found}, Array$<$ unsigned $>$ \& {\em clust\-Map})\hspace{0.3cm}{\tt  [static]}}\label{classInterpolateRBF_e7}
+
+
+This function performs the K-Mean clustering algorithm to provide $<$ncluster$>$ clusters based on a set of inputs $<$input$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em n\-Cluster}]number of desired clusters. \item[{\em max\-Iter}]maximum iteration count. \item[{\em input}]array containing the inputs. \item[{\em centres\-Found}]reference to array containing the cluster centres found. \item[{\em clust\-Map}]reference to array containing the pair of inputs and cluster numbers to which each of them are assigned.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!linearFunc@{linearFunc}}
+\index{linearFunc@{linearFunc}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Interpolate\-RBF::linear\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classInterpolateRBF_e3}
+
+
+This function calculates the linear spline kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the linear spline kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!mse@{mse}}
+\index{mse@{mse}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Interpolate\-RBF::mse (Population {\em offsprings})}\label{classInterpolateRBF_a7}
+
+
+This function calculates the mean square error of the approximation considering a given population $<$offsprings$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em offsprings}]population containing the parameters in the first Chromosome and the fitness value as target value \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em MSE}]mean square error of the approximation\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!mse@{mse}}
+\index{mse@{mse}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Interpolate\-RBF::mse (Array$<$ double $>$ {\em Input}, Array$<$ double $>$ {\em Target})}\label{classInterpolateRBF_a6}
+
+
+This function calculates the mean square error of the approximation considering the given arrays $<$input$>$ and $<$target$>$. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input}]array containing the input data. \item[{\em Target}]array containing the target data. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em MSE}]mean square error of the approximation.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!multiquadricFunc@{multiquadricFunc}}
+\index{multiquadricFunc@{multiquadricFunc}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}double Interpolate\-RBF::multiquadric\-Func (Array$<$ double $>$ {\em input}, unsigned {\em i}, Array$<$ double $>$ {\em centre}, unsigned {\em j}, Array$<$ double $>$ {\em params})\hspace{0.3cm}{\tt  [static]}}\label{classInterpolateRBF_e4}
+
+
+This function calculates the multiquadrics kernel output between {\em -th $<$input$>$ and j-th $<$centre$>$. \/}
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input}]array containing the input which are used for training. \item[{\em i}]index of the input which distance to be calculated. \item[{\em centre}]array containing the centres of the RBF model. \item[{\em j}]index of the centre to which the distance from input is to be calculated. \item[{\em params}]array containing parameter(s) for the multiquadrics kernel function. \end{description}
+\end{Desc}
+\begin{Desc}
+\item[Return values:]
+\begin{description}
+\item[{\em kernel\-Output}]value of kernel output.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!setDesignMatrix@{setDesignMatrix}}
+\index{setDesignMatrix@{setDesignMatrix}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Interpolate\-RBF::set\-Design\-Matrix (Array$<$ double $>$ \& {\em input\-Data})}\label{classInterpolateRBF_a9}
+
+
+This function set the design(hidden) matrix of the RBF model based on $<$inputdata$>$ provided. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input\-Data}]array containing the inputdata which are used for approximation.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!setWeightMatrix@{setWeightMatrix}}
+\index{setWeightMatrix@{setWeightMatrix}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Interpolate\-RBF::set\-Weight\-Matrix (Array$<$ double $>$ \& {\em target\-Data})}\label{classInterpolateRBF_a10}
+
+
+This function set the weight matrix of the RBF model based on $<$targetdata$>$ provided. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em input\-Data}]array containing the inputdata which are used for approximation. \item[{\em target\-Data}]array containing the target data used for approximation.\end{description}
+\end{Desc}
+\index{InterpolateRBF@{Interpolate\-RBF}!train@{train}}
+\index{train@{train}!InterpolateRBF@{Interpolate\-RBF}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}void Interpolate\-RBF::train (Array$<$ double $>$ {\em Input\-Data}, Array$<$ double $>$ {\em Target\-Data})}\label{classInterpolateRBF_a8}
+
+
+This function approximates the datas which are stored in the arrays $<$inputdata$>$ and $<$targetdata$>$ using the RBF model. 
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em Input\-Data}]array containing the inputdata which are used for approximation. \item[{\em Target\-Data}]array containing the targetdata which are used for approximation.\end{description}
+\end{Desc}
+
+
+The documentation for this class was generated from the following file:\begin{CompactItemize}
+\item 
+{\bf Interpolate\-RBF.h}\end{CompactItemize}

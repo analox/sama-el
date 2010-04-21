@@ -1,0 +1,161 @@
+% 24th, Jan, 2001 Ver.1     Tatsuya Okabe
+%                 Ver.2
+%                 Ver.3
+%                 Ver.4
+%                 Ver.5
+%
+%---------------------------------------------------------------------------%
+% Made by Tatsuya Okabe ( HONDA R&D Europe ( Deutschland ) GmbH )           %
+% Checked by Bernhard Sendhoff ( HONDA R&D Europe ( Deutschland ) GmbH )    %
+%---------------------------------------------------------------------------%
+% Class Bernoulli
+
+\section{Abstract}
+
+\noindent
+With the class {\em Bernoulli}, a ``Bernoulli trial'' can be
+simulated, which is like a coin toss. Thus, there are two posiible
+outcomes of a stochastic experiment. If each outcome has equal
+probability of 0.5, the coin is termed ``normal'' otherwise
+``abnormal''. 
+
+\vspace*{10mm}
+
+\section{Internal variables}
+
+\begin{itemize}
+\item {pP - The probability ( the right side )}
+\end{itemize}
+
+%********************
+\index{pP (Variable)}
+%********************
+
+\vspace*{10mm}
+
+\section{Public Methods}
+
+\noindent
+These methods can be used by all \cpp - programs, that have included the
+header file Bernoulli.h and the library EA.
+
+\subsection{Constructors}
+
+%---------------------------------------------------------------------------%
+% 001
+\index{Bernoulli!( double p )}
+\setNormalInstance
+\printMethodWithOneParam
+{}
+{Bernoulli}
+{double}
+{p}
+{The probability of the right side.}
+{The default constructor. Generates the random generator of Bernoulli trial.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+%---------------------------------------------------------------------------%
+% 002
+\index{Bernoulli!( double p, RNG\& r )}
+\setNormalInstance
+\setCorrectWidthThree{8pt}
+\setParamOne{p}{double}{The probability of the right side.} 
+\setParamTwo{r}{RNG\&}{RNG class.}
+\printMethodWithParamsSaved
+{}
+{None.}
+{Bernoulli}
+{The constructor. Generates the random generator of Bernoulli trial.}
+{None.}
+\setCorrectWidthThree{4pt}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{Operators}
+
+%---------------------------------------------------------------------------%
+% 003
+\index{operator( )!( )} 
+\setNormalInstance
+\printEmptyMethodReturnSpecial
+{bool}
+{operator( )}
+{Gets the result of coin toss trial using the probability {\em pP}.}
+{true - the right side,\\false - the opposite side.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 004
+\index{operator( )!( double p )}
+\setNormalInstance
+\printMethodWithOneParam
+{bool}
+{operator( )}
+{double}
+{p}
+{The probability of the right side.}
+{Gets the result of coin toss trial using the probability {\em p}.}
+{true - the right side,\\false - the opposite side.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\clearpage
+
+\subsection{Information Retrieval Methods}
+
+%---------------------------------------------------------------------------%
+% 005
+\index{prob} 
+\setConstInstance
+\printEmptyMethodReturnSpecial
+{double}
+{prob}
+{Returns the probability {\em pP}.}
+{The probability {\em pP}.}
+{None.}
+%---------------------------------------------------------------------------%
+
+%---------------------------------------------------------------------------%
+% 006
+\index{prob!( double newP )} 
+\setNormalInstance
+\printMethodWithOneParam
+{void}
+{prob}
+{double}
+{newP}
+{New probability of the right side.}
+{Sets the probability {\em pP} using new probability.}
+{None.}
+{None.}
+%---------------------------------------------------------------------------%
+
+\vspace*{10mm}
+
+\subsection{The probability}
+
+%---------------------------------------------------------------------------%
+% 007
+\index{p!( const bool\& x )} 
+\setConstInstance
+\printMethodWithOneParam
+{double}
+{p}
+{const bool\&}
+{x}
+{The factor ( true or false ).}
+{Returns the probability of {\em x}.}
+{The probability.}
+{None.}
+%---------------------------------------------------------------------------%
+
+
+
+
+

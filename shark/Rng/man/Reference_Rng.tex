@@ -1,0 +1,263 @@
+%------------------------------------------------------------------------
+%- Reference for the EALib, package Rng                                 -
+%------------------------------------------------------------------------
+%- History of modification                                              -
+%-                                                                      -
+%-  ver.1.01 : 2000/05/29 Ruediger Alberts (Institut fuer               -
+%-                        Neuroinformatik, Bochum)                      -
+%-               original                                               -
+%-  ver.1.02 : 2001/01/04 Tatsuya Okabe (HONDA R&D EUROPE DEUTSCHLAND)  -
+%-               separate files , add index                             -
+%-  ver.1.03 : 2001/01/30 Tatsuya Okabe (HONDA R&D EUROPE DEUTSCHLAND)  -
+%-               include some classes about random generator            -
+%-  ver.1.04 : 2001/02/05 Tatsuya Okabe (HONDA R&D EUROPE DEUTSCHLAND)  -
+%-               include some important classes                         -
+%-  ver.1.10 : 2001/02/14 Tatsuya Okabe (HONDA R&D EUROPE DEUTSCHLAND)  -
+%-               release version                                        -
+%-  ver.1.11 : 2001/06/08 Tatsuya Okabe (HONDA R&D EUROPE DEUTSCHLAND)  -
+%-               correct some mistakes                                  -
+%-  ver.1.12 : 2002/05/22 Ruediger Alberts (ZN AG, Bochum)              -
+%-               splitted parts for EALib, Array and Rng                -
+%-                                                                      -
+%-  ver.1.13 :                                                          -
+%-                                                                      -
+%-  ver.1.14 :                                                          -
+%-                                                                      -
+%-  ver.1.15 :                                                          -
+%-                                                                      -
+%------------------------------------------------------------------------
+
+\documentclass{report}
+\usepackage{a4}
+\usepackage{graphicx}
+\usepackage{makeidx}
+\makeindex
+\include{VorlageE}
+\begin{document}
+
+%************************************************************************
+% Set the style
+%************************************************************************
+\input{re-style}
+
+
+%************************************************************************
+% FTR-Title
+%************************************************************************
+\pagestyle{empty}
+\input{i001-0-1}
+
+
+%************************************************************************
+% Title
+%************************************************************************
+\clearpage
+\pagestyle{empty}
+\setcounter{page}{1}
+\input{re-title}
+
+
+%************************************************************************
+% Contents
+%************************************************************************
+\clearpage
+\pagestyle{plain}
+\pagenumbering{roman}
+\setcounter{page}{1}
+\tableofcontents
+
+
+%************************************************************************
+% Preface for a random number generator
+%************************************************************************
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\chapter{Preface for a random number generator}
+\input{re-PrefaceRandom}
+
+
+%************************************************************************
+% Class Bernoulli
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Bernoulli}}
+\index{Bernoulli}
+\input{re-Bernoulli}
+
+
+%************************************************************************
+% Class Binomial
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Binomial}}
+\index{Binomial}
+\input{re-Binomial}
+
+
+%************************************************************************
+% Class Cauchy
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Cauchy}}
+\index{Cauchy}
+\input{re-Cauchy}
+
+
+%************************************************************************
+% Class DiffGeometric
+%************************************************************************
+\clearpage
+\chapter{Class {\tt DiffGeometric}}
+\index{DiffGeometric}
+\input{re-DiffGeometric}
+
+
+%************************************************************************
+% Class DiscreteUniform
+%************************************************************************
+\clearpage
+\chapter{Class {\tt DiscreteUniform}}
+\index{DiscreteUniform}
+\input{re-DiscreteUniform}
+
+
+%************************************************************************
+% Class Erlang
+%************************************************************************
+%\clearpage
+%\chapter{Class {\tt Erlang}}
+%\index{Erlang}
+%\input{re-Erlang}
+
+
+%************************************************************************
+% Class Geometric
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Geometric}}
+\index{Geometric}
+\input{re-Geometric}
+
+
+%************************************************************************
+% Class Rng
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Rng}}
+\index{Rng}
+\input{re-Rng}
+
+
+%************************************************************************
+% Class HyperGeometric
+%************************************************************************
+%\clearpage
+%\chapter{Class {\tt HyperGeometric}}
+%\index{HyperGeometric}
+%\input{re-HyperGeometric}
+
+
+%************************************************************************
+% Class LogNormal
+%************************************************************************
+\clearpage
+\chapter{Class {\tt LogNormal}}
+\index{LogNormal}
+\input{re-LogNormal}
+
+
+%************************************************************************
+% Class NegExponential
+%************************************************************************
+\clearpage
+\chapter{Class {\tt NegExponential}}
+\index{NegExponential}
+\input{re-NegExponential}
+
+
+%************************************************************************
+% Class Normal
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Normal}}
+\index{Normal}
+\input{re-Normal}
+
+
+%************************************************************************
+% Class Poisson
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Poisson}}
+\index{Poisson}
+\input{re-Poisson}
+
+
+%************************************************************************
+% Class RNG
+%************************************************************************
+\clearpage
+\chapter{Class {\tt RNG}}
+\index{RNG}
+\input{re-RNG1}
+
+
+%************************************************************************
+% Class RandomVar
+%************************************************************************
+%\clearpage
+%\chapter{Class {\tt RandomVar}}
+%\index{RandomVar}
+%\input{re-RandomVar}
+
+
+%************************************************************************
+% Class Uniform
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Uniform}}
+\index{Uniform}
+\input{re-Uniform}
+
+
+%************************************************************************
+% Class Weibull
+%************************************************************************
+\clearpage
+\chapter{Class {\tt Weibull}}
+\index{Weibull}
+\input{re-Weibull}
+
+
+%************************************************************************
+% Appendix
+%************************************************************************
+\clearpage
+\chapter*{Appendix A. Sample Programs and Results}
+\addcontentsline{toc}{chapter}{Appendix A. Sample Programs and Results}
+\index{Sample Programs and Results}
+\input{re-A-1}
+
+%************************************************************************
+% Bibliography
+%************************************************************************
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\input{re-bib}
+
+
+%************************************************************************
+% Index
+%************************************************************************
+\clearpage
+\printindex{}
+
+
+\end{document}
+
+
+
+
+
+

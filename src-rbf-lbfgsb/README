@@ -1,0 +1,36 @@
+
+Surrogate-Assisted Memetic Algorithm (using GA+L-BFGS-B) example , here with RBF model
+
+To compile: 
+**********
+Just type make
+
+To run 1 time only  :
+*********************
+./sama   ==> default param file is param.dat
+or ./sama paramFileName
+
+To run n times:
+***************
+./run.sh n
+e.g.  ./run.sh 20
+
+Log files:
+**********
+All logs files are located in directory ./logs/
+bestFile-$i.dat, logs the best fitness so far, where $i is the run index (e.g. 20 runs, will output files bestFile-1.dat - bestFile-20.dat.
+bestVecFile-$i.dat, logs the best design vector so far.
+
+To get statistic of best fitness after n runs:
+***********************************************
+./statistic nRun nEvalOfEachRun
+where nRun = number of runs, nEvalOfEachRun = number of function evaluations for each run
+
+e.g. ./statistic 20 10000
+
+output of statistic is "statistic.dat"
+
+NB: 
+The L-BFGS-B is obtained from an external source, and added into this package with minimum modification.
+Please read the license/agreement in using L-BFGS-B in ./temp/lbfgsb.cpp
+

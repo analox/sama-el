@@ -1,0 +1,34 @@
+# You can make line comments
+# line comments must start with a '#' as the first character on the line
+2           #  p, the dimension of the space
+# You can put line comments between objects
+50          # n, the number of initial design sites
+# You can not put multiple objects on the same line, i.e. p and n go on different lines
+# 2 50 #This would be bad!
+50.0        # beta0, constant term for the trend
+0 0         # beta1, a p-vector of linear terms for the trend
+1 0 0 1     # beta2, pxp matrix of quadratic terms for the trend 
+0.3 0.4     # x0, a p-vector which selects the stationary point of the trend (center)
+2           # alpha, one of the parameters of the correlation function
+1           # theta, one of the parameters of the correlation function
+1000        # sigma2, the size of the noise term
+0 0         # lower, the lower bounds of the space
+10 10       # upper, the upper bounds of the space
+#
+#
+# We suggest experimenting with these parameters.  Suggested things to try
+# alpha =1, or alpha = 2
+# theta = 1, 10, 100, 500
+# n = 10, 50, 100, 1000  (1000 takes a while to run)
+# change the ratio of sigma2 to beta2.  Try making beta2 larger
+# 
+# 
+# Notice: Right now the implementation supports comments after each object
+# However, it will not handle comments in the middle of objects, i.e.
+#
+1 0    # this is a bad way to declare beta2
+# This is also a bad way to declare beta2.  NO COMMENTS IN THE MIDDLE OF OBJECTS
+0 1
+#
+# Actually, once you've put all the data in the file properly, you don't need to 
+comment things anymore.  Thus we can get away with lines like this with no '#'.

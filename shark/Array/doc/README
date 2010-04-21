@@ -1,0 +1,54 @@
+In this directory you find the files that are necessary
+to create a reference for the package "Array" in HTML-,
+and postscript-format:
+
+For the creation of the reference you need the following
+programs:
+
+1. A C++ compiler 
+   (Windows: Visual C++)
+1. Ghostscript, version 6.0 or higher
+   (Windows: A freeware version can be downloaded from
+    http://www.cs.wisc.edu/~ghost/doc/AFPL/)
+2. Ghostview, compatible with the Ghostscript version you use
+   (Windows: A freeware version can be downloaded from
+    http://www.cs.wisc.edu/~ghost/gsview/)
+3. LaTeX
+   (Windows: Use the free MiKTeX package,
+    available at http://www.miktex.org/latest.html -
+    please install the "Large" version)
+4. doxygen, 
+   a freeware program that creates the reference
+   from special comment commands in the sourcecode.
+   Versions for Linux, Windows and other systems
+   are available at 
+   http://www.stack.nl/~dimitri/doxygen/download.html#latestsrc
+
+After the installation please make sure, that your path
+variable contains the following pathes:
+
+1. The path of your compiler
+   (Windows: Search for the path of Visual C++, that contains
+    "cl.exe" and "vcvars32.bat")
+2. The "lib" and "bin" directories of Ghostscript
+3. The directory of Ghostview, that contains "gsview32.exe"
+4. The directory that contains the "latex" executable
+5. The "bin" directory of doxygen
+
+If you use Unix, Linux or a compatible system you can
+create the reference by typing "make", Windows users
+type "makeref".
+You can then find a file named "Array_Reference.html"
+in the "doc" directory. This file is the start page for the
+HTML-version.
+In directory "latex" you will find the file "Array_Reference.ps",
+that contains the postscript-version.
+If you also want a pdf-version, change to the
+directory path "latex" and type "ps2pdf Array_Reference.ps Array_Reference.pdf"
+(Unix, Linux and compatible) or open "refman.ps" with
+the Ghostview program (Windows), choose "File-->Print"
+or "File-->Convert" in the menu, then choose "pdfwrite"
+in the scroll list and type "Ok".
+
+
+ 
