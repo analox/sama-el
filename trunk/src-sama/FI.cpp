@@ -115,9 +115,10 @@ int main(int argc, char ** argv)
 			// Calculate for modelFlag
 			double e = 0;
 			e = fitStart - fitOptLoc;
-			FI[modelFlag] += e;
-			nS[modelFlag] += 1;
-			
+			if (e > 0) {
+				FI[modelFlag] += e;
+				nS[modelFlag] += 1;
+			}
 		}
 	}
 	fclose(f);
